@@ -1,0 +1,210 @@
+\begin{fullwidth}
+\begin{multicols}{2}
+\begin{definition}[Reynolds Number $\mathrm{Re}\unit{\;}$] \label{def:Re}
+Compares advection of momentum to frictional acceleration.\\
+$\mathrm{Re} = \frac{U L}{\nu}$
+ \end{definition}
+%###################################%
+\begin{definition}[Rossby Number $\Ro \unit{\;}$ ] \label{def:Ro}
+Compares advection of momentum to Coriolis acceleration.\\
+$\Ro = \frac{U }{f L}$
+ \end{definition}
+%###################################%
+\begin{definition}[Rhines Number $\Rh \unit{\;}$ ]\label{def:Rh}
+Ratio of Rhines scale to horizontal scale.\\
+$\Rh = \frac{U }{\beta L^2} = \frac{a}{L} \Ro$
+  \end{definition}
+%###################################%
+\begin{definition}[Burger Number $\Bu \unit{\;}$ ]\label{def:Bu}
+Ratio of relative vorticity to \textit{stretching} vorticity.\\
+$\sqrt{\Bu}=\frac{N H}{f L}=\frac{\mathrm{L_R}}{L}$
+ \end{definition}
+%###################################%
+\begin{definition}[mass $m \unit{kg}$] \label{def:m}
+\end{definition}
+%###################################%
+\begin{definition}[gravitational acceleration $\g \unit{m/s^2}$] \label{def:g}
+Value of surface normal component of all body forces.
+\end{definition}
+%###################################%
+\begin{definition}[vorticity $\omega \unit{1/s}$] \label{def:vort}
+\end{definition}
+%###################################%
+\begin{definition}[Buoyancy Vector $\B \unit{1/s^{2}}$] \label{def:B }
+$\B= -\frac{ \grad \rho 	\times \grad p}{ \rho^{2}} $
+\end{definition}
+%###################################%
+\begin{definition}[Kinetic Energy per mass $\Ek \unit{m^{2}/s^{2}}$] \label{def:E_k}
+\end{definition}
+%###################################%
+\begin{definition}[Mechanical Energy per mass $\Ek \unit{m^{2}/s^{2}}$] \label{def:E_m}
+Sum of kinetic and potential Energy.
+\end{definition}
+%###################################%
+\begin{definition}[Rossby Radius $\mathrm{L_{R}} \unit{m}$ ]\label{def:Lr}
+The \textit{geostrophic wavelength}.
+$\mathrm{L_{R}} = c/f $
+ \end{definition}
+%###################################%
+\begin{definition}[Steering Level $z_S$]\label{def:steer}
+The critical depth where the real part of the Doppler shifted phase
+speed $c_S(z_S)=\real{c(z)}-u(z)=0$ vanishes. \Ie the depth where the Doppler shift
+creates a standing wave, causing the disturbances to grow in place instead of
+spreading in space, analogous to a \textit{supersonic bang}.
+ \end{definition}
+%###################################%
+\newpage
+\begin{definition}[Rhines Scale $\Lb \Unit{m}$ ]\label{def:Lb}
+Scale at which earth's sphericity becomes important.\\
+%%....................................F.I.G.U.R.E.............................................
+\begin{align}
+\Lb^2
+&=
+ \frac{U}{\beta}
+\end{align}
+%%....................................F.I.G.U.R.E.............................................
+\par
+Assuming Gaussian shape:
+%%....................................F.I.G.U.R.E.............................................
+\begin{align*}
+	h
+	&=
+	A \eexp{- \left(x/\sigma \right)^{2}/2}
+\end{align*}
+%%....................................F.I.G.U.R.E.............................................
+
+with $A=a' + a = A\eexp{-1/2} + a $
+%%....................................F.I.G.U.R.E.............................................
+\begin{align*}
+	\dpr{h\left(\sigma\right)}{x}
+	&=
+-    \frac{ A}{\sigma} \;\; \eexp{-1/2} \\
+	&=
+-    \frac{ a'}{\sigma}  \\
+\end{align*}
+%%....................................F.I.G.U.R.E.............................................
+hence
+%%....................................F.I.G.U.R.E.............................................
+\begin{align}
+\Lb &= \sqrt{ \frac{g}{f} \dpr{h}{x} \frac{1}{ \beta}} \nonumber \\
+\Lb &= \sqrt{ \frac{g a'}{f \sigma \beta}  }
+\end{align}
+%....................................F.I.G.U.R.E.............................................
+
+
+\TODO{en detail:}
+%%....................................F.I.G.U.R.E.............................................
+\begin{align*}
+	\dpr{h\left(\sigma\right)}{x}
+	&=
+-    \frac{ A}{\sigma} \;\; \eexp{-1/2} \\
+	&=
+- \frac{a}{\sigma}   \frac{ \eexp{-1/2}}{ \left( 1 - \eexp{-1/2} \right)} \\
+	&=
+   \frac{a}{\sigma \left( \eexp{1/2}  - 1   \right)}
+\end{align*}
+%%....................................F.I.G.U.R.E.............................................
+hence
+%%....................................F.I.G.U.R.E.............................................
+\begin{align}
+\Lb &= \sqrt{ \frac{g}{f} \dpr{h}{x} \frac{1}{ \beta}} \nonumber \\
+\Lb &= \sqrt{ \frac{g}{\eexp{1/2}-1} \frac{a}{f \sigma \beta}  }
+\end{align}
+%....................................F.I.G.U.R.E.............................................
+\end{definition}
+%###################################%
+\begin{definition}[Gravity Wave Phase Speed $\mathrm{c} \unit{m/s}$ ]\label{def:c}
+$\mathrm{c}  = \sqrt{g'H} $
+ \end{definition}
+%###################################%
+\begin{definition}[Reduced Gravity $g'(x,y,z) \unit{m/s^{2}}$ ]\label{def:gr}
+In the layered model $g'=g \frac{\delta \rho}{\rho_0} = N^{2}h$
+ \end{definition}
+%###################################%
+\begin{definition}[Surface/interface Displacement $\eta(x,y)
+\unit{m}$]\label{def:eta}
+ \end{definition}
+%###################################%
+\begin{definition}[Brunt V\"ais\"al\"a frequency $N \unit{1/s}$]\label{def:BVf}
+$N^2=g/\rho_0 \dpr{\rho}{z}$
+ \end{definition}
+%###################################%
+\begin{definition}[Mean Layer thickness $H \unit{m}$]\label{def:H}
+ \end{definition}
+%###################################%
+\begin{definition}[Layer Thickness/physical height of an isopycnal surface $h(x,y,t) \unit{m}$/$h(x,y,\rho,t) \unit{m}$]\label{def:h}
+$h = H+\eta$ (in the layered model)
+ \end{definition}
+%###################################%
+\begin{definition}[Planetary Vorticity $\Omega \unit{1/s}$]\label{def:Omega}
+$\Omega=4\pi/\mathrm{day}_{fix\star}$
+ \end{definition}
+%###################################%
+\begin{definition}[Latitude $\phi \unit{\mathrm{rad}}$]\label{def:phi}
+ \end{definition}
+%###################################%
+\begin{definition}[Earth's Radius $a \unit{m}$]\label{def:a}
+ \end{definition}
+%###################################%
+\begin{definition}[Surface-Normal Planetary Vorticity Component $\vec{f}
+\unit{1/s}$]\label{def:f}
+$\vec{f}=\f \vec{z}=\Omega \sin \phi \vec{z}$
+ \end{definition}
+%###################################%
+\begin{definition}[Change of Planetary Vorticity with Latitude
+$\beta \unit{1/ms}$]\label{def:beta}
+$\dfdy=\dpr{\f}{y}=\Omega/a \cos \phi$
+ \end{definition}
+%###################################%
+\begin{definition}[Okubo-Weiss Parameter
+$\okubo \unit{1/s^2}$]\label{def:okubo}
+$\okubo=divergence^2+ stretching^2+ shear^2- vorticity^2$.\\
+A negative value indicates vorticity dominated motion, whereas a positive value
+indicates deformation.
+\end{definition}
+%###################################%
+\begin{definition}[Sea Surface Height
+\SSH $\unit{m}$]\label{def:SSH}
+ \end{definition}
+%###################################%
+\begin{definition}[Isoperimetric Quotient
+$\IQ \unit{\;}$]\label{def:IQ}
+$\IQ=A/A_{c}=\frac{A}{\pi r^2_{c}}=\frac{4 \pi A}{U^2} \le 1$.\\
+The ratio of a ring's area to the area of a circle with equal circumference.
+ \end{definition}
+%###################################%
+\begin{definition}[Gaussian radius
+$\rG \unit{m}$]\label{def:rG}
+$ \left( H-a \right) = H \exp \left( -\frac{A}{2 \pi \rG^2}  \right)$.\\
+Twice the Gaussian standard-deviation. \\
+$a$: amplitude\\
+$H$: Gaussian amplitude\\
+$A$: determined area\\
+ \end{definition}
+%###################################%
+\begin{definition}[dynamic eddy scale $\scale \unit{m}$]\label{def:scale}
+Distance from eddy's center to the line of maximum orbital speed \ie the zero-vorticity contour.
+\end{definition}
+%###################################%
+\begin{definition}[Run \aviI]\label{def:aviI}
+7-day time-step aviso with method \MI.
+\end{definition}
+%###################################%
+\begin{definition}[Run \aviII]\label{def:aviII}
+7-day time-step aviso with method \MII.
+\end{definition}
+%%###################################%
+\begin{definition}[Run \pToaII]\label{def:p2aII}
+7-day time-step POP remapped to aviso-geometry with method \MII.
+\end{definition}
+%###################################%
+\begin{definition}[Run \popSevenII]\label{def:pop7II}
+7-day time-step POP with method \MII.
+\end{definition}
+%###################################%
+\begin{definition}[Run \popOneIISO]\label{def:pop1IISO}
+1-day time-step aviso with method \MII. \\Southern Ocean Only. \\Minimum Age: $30 \Unit{d}$ \\ Contour step raised to $2 \Unit{cm}$
+\end{definition}
+%###################################%
+\end{multicols}
+\end{fullwidth}

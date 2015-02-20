@@ -1,0 +1,82 @@
+\subsection{\cite{Rhines2006}}\label{sec:hist_rhines}
+Rhines investigated the effect of the $\beta$-plane on the inverse energy cascade of quasi-2-dimensional atmospheric and oceanic turbulence. At constant $f$, energy should be cascaded to ever-larger scales until halted by the scale of the domain. This is clearly not the case, as no storm has ever grown to global scale. The presence of a meridional restoring force creates a critical scale beyond which the \textit{turbulent migration of the dominant scale nearly ceases \ldots}. Instead, Rossby waves are excited which would theoretically eventually give way to alternating zonal jets of width $\mathrm{L_{\beta}}$. This scale was later coined the Rhines Scale.
+
+\subsection{\cite{Cushman-Roisin1990}}\label{sec:hist_cush}
+\citet{Bjerknes1944} already noted that the $\beta$-effect causes a mass-imbalance in planetary vortices that, if not met by an asymmetry in shape must lead to westward propagation. \citet{Nof1981} derived that the $\beta$-effect results in a net meridional force on the integrated mass of the vortex, which in balance with the Coriolis acceleration shoves cyclones eastward and anti-cyclones westward. They also explained how displaced water outside the eddy's perimeter causes a much stronger westward component, with the result that all eddies propagate westward irrespective or rotational sense. The westward drift was also derived in various forms by
+\eg \citet{flierl1984rossby,matsuura1982evolution}. \\
+\citet{Cushman-Roisin1990} put it all into a less restricted uniform formalism by scaling the terms in the one-layer primitive equations by their respective dimensionless numbers. By integrating the interface-displacement caused by the eddy over the eddy's domain and applying mass continuity they derived for the location $(X,Y)$ of an eddy's centroid\footnote{$\intms{}\equiv \intm{}$}:
+%%....................................................................
+\begin{equation}\begin{split}
+	\Pi X_{tt} - Y_t
+	%&=
+	%\frac{\Bu \Ro }{\Rh \Pi} \intms{yv}
+	%+
+	%\frac{\Ro^2 }{\Rh \Pi} \intms{y\eta v}\\
+	%%--------------------------------------------------------------------
+	&=
+	\Lr T \beta     \intms{yv}
+	+
+	L\frac{  \beta  }{ f   } \intms{y\eta v}\\
+	%%--------------------------------------------------------------------
+	\Pi Y_{tt} - X_t
+	%&=
+	%-\frac{\Bu \Ro }{\Rh \Pi } \intms{yu}
+	%-
+	%\frac{\Ro^2 }{\Rh \Pi} \intms{y\eta u}\\
+	%%--------------------------------------------------------------------
+	&=
+	-\Lr T \beta   \intms{yu}
+	-
+	L\frac{  \beta  }{ f   }  \intms{y\eta u} 	  \label{eq:cush1}
+\end{split}\end{equation}
+%....................................................................
+where $\Pi=1/f_0T$.\\
+ Hence, independent of balance of forces the eddy's center of mass describes inertial oscillations \footnote{compare to \textit{harmonic oscillator}} on the $f$-plane, even in the absence of $\beta$.
+Using geostrophic values for $\vec{u}$ and returning to dimensional variables \eqref{eq:cush1} can be cast into:
+%%%....................................................................
+%\begin{equation}\begin{split}
+	%X_t
+	%&=
+	%-\frac{\Bu \Ro f T}{\Rh} \intms{\eta}
+	%-\frac{\Ro^2 f T}{\Rh} \intms{\eta^2}
+	%+\order{\frac{\Bu \Ro f T}{\Rh},\left( fT \right)^{-2}}
+%\end{split}\end{equation}
+%%%%....................................................................
+%%....................................................................
+\begin{equation}\begin{split}
+	X_t
+	&=
+	\frac{\omega_{long}}{k} \left(1 +\frac{1}{H} \frac{ \int  \eta^2 \; \mathrm{d}A	}{2\mathrm{V_e}} \right)
+	%+\order{\Lr   T\beta ,\Pi}
+\end{split}\end{equation}
+%%....................................................................
+
+The first term represents the \ref{speed_planlift} from \ref{subsec:speeds}, whereas the second term represents the \ref{speed_beta}. Note that the first term is always westwards, while the second has sign of $-\eta$, \ie westward for anti-cyclones and eastward for cyclones and that the first is always larger than the second.
+\TODO{\citet{VanLeeuwen2007} for derivation if time}
+
+\subsection{Early Altimeter Data}\label{sec:hist_killworth}
+The advent of satellite altimetry, which Walter Munk called \textit{the most successful ocean experiment of all time \citet{Munk2002}}, finally allowed for
+global-scale experimental investigations of oceanic planetary phenomena on long time- and spatial scales. Among others,
+\citet{matano1993seasonal,cipollini1997concurrent,le1993sea} were the first to use satellite-data to present evidence for the existence of Rossby waves and their
+westward-migration in accord with theory. Surprisingly all of the observations found the phase speeds to be $1$ to $1.5$ times larger than what theory
+predicted. Several theories to explain the discrepancy were presented. \Eg \citet{Killworth1997a} argued that the discrepancy was caused by
+mode-2-east-west-mean-flow velocities. Interestingly it appears that hitherto, the relevant altimeter signal was mainly associated with linear waves.
+Non-linearities are rarely mentioned in the papers of those years. Probably simply due to the fact that the turbulent character of much of the
+meso-scale variability was still obscured by the poor resolution of the first altimeter products.
+
+\subsection{SSH Altimeter Data \cite{Chelton2007,Chelton2011}}\label{sec:hist_chelton}
+From the beginning of satellite altimetry \citeauthor{Chelton2011} have invested tremendous effort to thoroughly analyze the data in terms of
+Rossby waves and geostrophic turbulence. At the time of the \citet{Killworth1997a} paper only 3 years of Topex/Poseidon data alone had been available,
+which led them to interpret the data mainly in terms of Rossby waves. Once the merged Aviso T/P and ERS 1/2 \TODO{ref} was released 7 years later,
+\citeauthor{Chelton2007} presented a new analysis that was based on an automated eddy-tracking algorithm using the geostrophic Okubo-Weiss parameter
+\footnote{see section \ref{subsec:detectmethods}}\derref{der:okubo}. For the first time Satellite data was sufficiently fine resolved to unveil the dominance of \textit{blobby
+(sic) structures rather than latitudinally $\beta$-refracted continuous crests and troughs} that had hitherto been assumed to characterize the large scale SSH
+picture. They presented results of a refined algorithm in their \citeyear{Chelton2011} paper, in
+which they abandoned the Okubo-Weiss concept and instead identified eddies via closed contours of SSH itself \footnote{note that geostrophic $\mathrm{O_W}$ is a
+second derivative of SSH and thus exacerbates noise in the SSH data.}. Among their most significant findings is the conclusion that on the one hand, the vast
+majority of extra-tropical west-ward propagating SSH-variability consists of coherent, isolated, non-linear, meso-scale eddies, whilst on the other hand, these
+eddies propagate about 25\% slower \footnote{pointing to dispersion.} than small amplitude features of larger lateral scale, that are difficult to separate from
+the data and are assumed to obey linear Rossby wave theory. \TODO{rephrase} Apart from this they find little evidence for any dispersion in the signal,
+neither do they find evidence for significant meridional propagation, as should be found for Rossby waves. In agreement with \citet{rhines1979theoretical}, they
+find this eddy-dominated regime to fade in vicinity of the equator,
+giving way to the characteristic Rossby-wave profile. Almost all of their eddies propagate westwards. Those that are advected eastwards by \eg the ACC show significantly shorter life-times than those that are not. For more detail on their results and a discussion of the limitations of eddy-tracking via satellites see section \ref{sec:satvsmod}.

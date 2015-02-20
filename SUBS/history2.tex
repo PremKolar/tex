@@ -1,0 +1,210 @@
+
+
+\section*{\citealt{gent1990isopycnal,gent1995parameterizing}}\label{sec:hist_gentmcw}
+\citeauthor*{gent1990isopycnal} set the foundation for today's standard parametrization of eddy-mixing in non-eddy-resolving general circulation models \footnote{general circulation models will hereafter be abbreviated GM.}.
+Essentially, they argue that a plain Fickian diffusion-type parametrization of
+the form $K \grad \vec{u}$ is inadequate since $\vec{u}$ only represents the
+large-scale flow.
+Instead the relevant velocity for eddy-diffusion is the sum of mean flow and eddy-induced flow \footnote{which will hereafter be called \textit{bolus velocity} in line with \cite{rhines1982basic} who coined the term} $\vec{U}=\ol{\vec{u}} + \ol{h'_{\rho} \vec{u}'}/\ol{h_{\rho}} =\ol{\vec{u}} + \vec{u}^{\star}$ with $h(x,y,\rho,t)$ as the physical height of an isopycnal and $h_{\rho}$ the equivalent in isopycnal coordinates and $\Dprs{}{t}= \dpr{}{t} +\vec{U} \grad $ as the material derivative with respect to $\vec{U}$ instead of $\vec{u}$.
+In their assumption, analogous to adiabatic eddy mixing of passive tracers, the  turbulence, itself \textit{sitting adiabatically} on the large scale density surfaces, redistributes thickness anomalies \textit{quasi-adiabatically} along \textit{quasi}-neutral surfaces. \Ie the integrated turbulent eddy activity effectively smears large-scale density gradients at the rate of the bolus velocity, akin to a Fickian diffusion of a passive tracer. With the momentum equations reduced to the large-scale, inviscid, incompressible and stationary, the entire dynamics can be represented via the prognostic advection-diffusion equation for $h_{\rho}$: \todoil{solve for h instead of rho in mass budget}\\
+%%....................................................................
+\begin{subequations}\begin{align}
+	\rho_0  f \vec{k} \times \vec{u}
+	&=
+	-\grad p\\
+	%%--------------------------------------------------------------------
+	\Dprs{\rho}{t} % = \dpr{\rho}{t} + \vec{U} \cdot \grad^{\star} \rho
+	&=
+	0 \\
+	%%--------------------------------------------------------------------
+	\grad^{\star} \cdot \vec{U}^{\star}
+	&=
+	0	\\
+	%%--------------------------------------------------------------------
+	 \addtocounter{equation}{+3}
+	h \Dprs{\tau}{t}
+	&=
+	 \left(\grad \cdot \left( h\mu \grad \tau \right) \right)^{\star}	\label{eq:fick_tracer}\\
+ \vec{u}_h^{\star} &= \dpr{}{z}\left( K \grad \rho/\dpr{\rho}{z} \right) \\
+w^{\star} &=-\div\left( K \grad \rho/\dpr{\rho}{z} \right)
+\end{align}\end{subequations}
+%%....................................................................
+\Eqref{eq:fick_tracer} is the tracer equation with $\mu$, analogous to $K$, as an unknown diffusion coefficient and all $\star$ indicating a transformation to the isopycnal frame of reference.
+ If $K$ is taken as constant the potential vorticity equation reduces to
+%%....................................................................
+\begin{align}
+	\Dprs{f\partial \rho / \partial z}{t}
+	&=
+	K \grad_{\rho} \cdot \left( f h_{\rho} \grad_{\rho} \dpr{\rho}{z} \right) /h_{\rho} \label{vort-diff}
+%%%--------------------------------------------------------------------
+	%&=
+	%K \left(
+%f \grad^2_{\rho} \dpr{\rho}{z}
+%+ 	\grad \left( f h_{\rho}\right) \cdot	  \grad_{\rho} \dpr{\rho}{z} /h_{\rho}\right) \\
+  %%%-------------------------------------------------------------------
+	%&=
+		%K \left(
+%f  \grad^2_{\rho} h_{\rho}^{-1}
+%+ 	\grad \left( f h_{\rho}\right) \cdot	h^{-1}_{\rho}  \grad_{\rho} h_{\rho}^{-1} \right) \\
+  %%%-------------------------------------------------------------------
+	%&=
+		%K \left(
+%f  \grad^2_{\rho} h_{\rho}^{-1}
+%+ 	\grad \left( f h_{\rho}\right) \cdot	  \grad_{\rho} h_{\rho}^{-2}/2 \right) \\
+	%&=
+		%K \left(
+%f  \grad^2_{\rho} h_{\rho}^{-1}
+%+ 	 f\grad \left( h_{\rho}\right) \cdot	  \grad_{\rho} h_{\rho}^{-2}/2
+%+ h_{\rho}	\grad \left( f \right) \cdot	  \grad_{\rho} h_{\rho}^{-2}/2 \right) \\
+\end{align}
+%%....................................................................
+\todoil{reminiscent of QPVE, try again later..}.Hence under the assumption of
+exact Fickian thickness diffusion, potential vorticity is diffused as if it were
+a passive tracer, too. Intuitively this sounds absurd and counter-Newtonian
+since vorticity is intrinsically linked to velocity itself. It must be kept in
+mind though, that this diffusion stems solely from the bolus velocity, the
+vorticity of which is only a fraction of the vorticity of the mean state. On
+scales much larger than the baroclinic Rossby radius, the baroclinic eddy
+dynamics are so far decoupled from the mean barotropic flow in terms of their
+scales that, in this assumption, they simply drift along on it, unaffected. In
+other words, from a frame of reference that is advected with the mean flow, the
+eddy-induced dynamics are assumed to have a large ratio of local to pseudo
+forces.
+Nevertheless, aforementioned simplification does indeed technically violate
+conservation of angular momentum \citep{Rhines2006}.
+
+%with
+%%%....................................................................
+%\begin{align}
+%\mathbf{K}
+%=
+%\left[
+	%\begin{array}{c@{}c@{}}
+		%\left[\begin{array}{cc}
+			%1 & 1 \\
+			%1 & 1 \\
+		%\end{array}\right] & \mathbf{L}  \\
+		%\mathbf{L}^{T} & \mathbf{L}^{2}
+	%\end{array}
+%\right];
+%\;\;\;\;  -\mathbf{L}
+%=
+%\frac{\grad \rho}{\partial \rho / \partial z}
+%\end{align}
+%%%....................................................................
+%%%....................................................................
+%\begin{align}
+%-\mathbf{L}
+%&=
+%\frac{\grad \rho}{\partial \rho / \partial z}
+%\end{align}
+%%%....................................................................
+
+
+
+
+\section*{\citealt{larichev1995eddy}}\label{sec:hist_lari95}
+\citeauthor{larichev1995eddy} investigated vorticity-fluxes in $k$-space  using a simple two-layer quasi-geostrophic model with domain dimensions much larger $\Lr$, in order to avoid a scale limiting basin-size. Their finding is that, contrary to theory, that predicts a flux of baroclinic potential vorticity from large scales where it is excited down-gradient to $\Lr$ where it feeds into the barotropic mode, and thence back up the red cascade, both energy production and strongest vorticity fluxes are strongest towards the largest scales of the flow and not at $\Lr$. They therefore argue that instead of concentrating on eddies at scale $\Lr$, focus should really be on the largest scale the inverse cascade extends to, be that an arrest scale via $\beta$ or via some threshold beyond which eddies abandon turbulent regions, by for instance the effects outlined by \cite{Cushman-Roisin1990}.
+
+
+
+\section*{\citealt{scott2005direct}}\label{sec:hist_wang}
+\cite{wunsch1996ocean} argues that SSH-variability is mostly representative of
+the first baroclinic mode since, under the assumption that kinetic energy be
+roughly equally partitioned between barotropic and baroclinic mode, the first
+baroclinic mode, being representative of strong density gradients, is primarily
+concentrated towards the surface \citep{scott2005direct}.\\
+Geostrophic turbulence theory predicts an inverse cascade for the barotropic mode, yet a direct cascade for the first baroclinic mode from large scales towards $\Lr$ \citep{vallis2006atmospheric}  \todo[color=red]{maybe show derivation from vallis...}. Hence satellite SSH-products should show a direct cascade in regions of excitations of geostrophic turbulence on scales larger than $\Lr$.
+Curiously, evidence of the opposite was found by \eg \cite{tapley1994accuracy,Kobashi2002}, somewhat affirming the findings of \cite{larichev1995eddy}. \cite{scott2005direct} therefore argue that \textit{Because the growth in scale is extending well beyond $2\pi\Lr$, especially for the zonal velocity, even in these subtropical regions \footnote{with reference to \cite{Kobashi2002}}, we claim there is an unresolved, and indeed unappreciated, contradiction between stratified geostrophic turbulence theory and observations. Furthermore, \cite{Kobashi2002} also claim to observe the eddies evolving into zonally elongated, wavelike structures, as predicted by \cite{Rhines2006}. But again, theory holds this to be a barotropic mode phenomenon that does not apply to the baroclinic modes.}
+With regard to the last point \cite{scott2005direct} suggest that the apparent arrest may arise from \textit{barotropization, which transfers the energy down the water column, reducing the surface signal}. \todo[color=red]{ ref to here later - argument for further tracking depth }
+
+%%####################################################################
+%%####################################################################
+\section*{\citealt{Eden2007}}\label{sec:hist_eden07}
+\citeauthor*{Eden2007} inferred eddy scales in the north-Atlantic from kinetic energy densities in $k$-space and spatial decorrelations. They detect two different regimes that are meridionally separated by $\Lr=\Lb$. South of this dividing line, they find small-Rhines-number-type anisotropic scales, whereas the scales due north show proportionality to the Rossby-radius. They therefore suggest to use $L=min(\Lb,\Lr)$ instead of $\Lr$ as the characteristic length scale in parametrizations.
+This meridional wave/eddy-dualism was already proposed by \cite{rhines1979theoretical}, who noted that the $\Lb$ becomes important when the phase speed at which Rossby waves displace particles is of same order as the turbulent velocity scale, \ie when $U \sim \beta\Lr^2$ and hence $U/\beta = \Lb^2 \sim \Lr^2$. Or quoting \cite{Tulloch2009}: \textit{The central idea of the Rhines effect is that, as eddies grow in the inverse cascade, their timescale slows, and when this timescale matches the frequency of Rossby waves with the same spatial scale, turbulent energy may be converted into waves, and the cascade will slow tremendously}
+
+%%####################################################################
+%%####################################################################
+
+\section*{\citealt{Eden2006,Eden2007a,eden2008towards}}\label{sec:hist_eden-K}
+Theoretically the approximated, parametrized equations can be solved for the
+thickness diffusivity $K$, which can then be determined from \eg fine-grid model
+results. One problem with this is that it is only the along-gradient component
+of the flux that is of interest. However the cross-gradient term proportional to
+$\vec{k}_h \times \grad_h \rho_h$  integrates to non-zero in the parametrization
+when anisotropic fluxes are considered. This term is mute to the tracer budget
+as it has ,by definition, zero divergence and is thus not necessary in the
+parametrization and in general assumed to be zero. It does however affect the
+opposite operation of estimating $K$ from data.
+Ignoring this term results in negative thickness diffusivities in regions where \eg eddies merge back into jets or more more general anywhere where the transfer of mean potential energy to eddy kinetic energy is reversed. If one were to interpret the thickness flux in direct analogy to the frictional term in the momentum equations, negative $K$ would be analogous to a negative viscosity \ie a reversal of a diffusive process and one would run into complications regarding fundamental thermodynamic principles. After all a negative $K$ is physically implausible in light of the general assumption that $K\sim U L$. \\
+\citeauthor{Eden2006,Eden2007a,eden2008towards} decomposed $K$ into its along
+and cross gradient component and calculated their values from model data with
+emphasis on the southern ocean. It turns out that the rotational component is
+indeed significant at the outer flanks of the ACC \ie in regions of strong
+interaction between mean flow and eddies.
+\citeauthor{Eden2006,Eden2007a,eden2008towards} also indicate that the adiabatic
+assumption is unrealistic in proximity to the mixed layer where eddies also
+induce significant diapycnal fluxes in depths that are substantially influenced
+by \eg the surface heat flux.
+
+%%####################################################################
+%%####################################################################
+
+\section*{\citealt{Tulloch2009}}\label{sec:hist-tulloch}
+As noted in \ref{sec:hist_killworth}, interpreting SSH-signals in terms of long
+Rossby waves results in a discrepancy in observed and predicted phase speeds.
+\cite{Tulloch2009} therefore flipped the chain of arguments by fitting
+quasi-geostrophic theory to observed phase speeds and correcting for mean-flow
+Doppler shifts, thereby setting constraints on the possible wave lengths and
+vertical structure. Furthermore they use climatological mean velocity and
+density data to construct the vertical eigenfunctions for the
+long-wave-dispersion-relation and then extract the vertical profiles of the
+observed velocities, assuming that they project entirely onto the first
+baroclinic mode \footnote{see \cite{wunsch1996ocean}}. This way they can scale
+observed $u_{rms}(z)$ from drifter data by their respective factor from the
+vertical mode. The resultant corrected velocities and scales are in approximate
+agreement with \cite{Eden2006b} and \cite{Chelton2007}. They conclude that the
+vast majority of the mid- to high-latitude
+world ocean is baroclinically unstable and characterized by an inverse energy cascade fed by geostrophic turbulence at deformation scale. In Regions characterized by small Rhines number, on the other hand, the turbulence eventually grows to Rhines scale where it blends in with Rossby waves.
+
+
+%\section*{\citealt{Smith2009}}\label{sec:hist-smith}
+
+
+\section*{\citealt{Eden2011a,eden2012implementing,Vollmer2013a}}\label{sec:hist_eden-linstab}
+A linear stability analysis is particularly suitable for the analysis of eddy
+diffusivities since it describes deviations from a mean state, by definition.
+Linearizing the quasi-geostrophic stream function about a laterally
+\textit{quasi}-constant \footnote{\textit{quasi} in the sense that \eg
+\citeauthor*{Vollmer2013a} allowed for horizontal variations of the mean state
+iteratively via a WKBJ approximation.} mean state \ie applying a perturbation
+ansatz to the equations leads to a vertical Sturm-Liouville-type eigenvalue
+problem. Motivated by the work of \cite{Smith2007},
+\citeauthor{Eden2011a,eden2012implementing,Vollmer2013a} rigorously solved the
+problem for its vertical modes and derived values for buoyancy and potential
+vorticity diffusivities for either the world ocean or specific regions of
+interest.  They construct the amplitude of the resultant perturbation stream
+function as a linear function of the imaginary part of the phase speed and the
+wavelength of the fastest growing mode, scaled by a
+constant parameter, suggested to link the length scales of unstable wave and resultant eddy \footnote{the difference is assumed to be a result of the inverse cascade.}. One of their most interesting findings is that a zonal mean flow has two main effects on eddy diffusivities:
+\begin{itemize}
+	\item
+	An eastward flow and a positive shear ($\dpr{\ol{u}}{y}$) decrease skew diffusivity\footnote{\ie the rotational part of thickness diffusivity as mentioned in \ref{sec:hist_eden07}} $\tsca{K}$  and shift it along with the steering level down vertically.
+	\item
+	A westward flow and negative shear effect the opposite.
+	\item
+	A large $\beta$ also intensifies $\tsca{K}$ towards the surface.
+\end{itemize}
+All of this makes intuitively sense. $\tsca{K}$ is only non-zero when total
+thickness-diffusivity is anisotropic \ie when net turbulence does not cancel out
+laterally. This happens when eddies prefer one direction over another. As was
+shown by \cite{Cushman-Roisin1990} meso-scale eddies need to always migrate west
+in order to balance forces symmetrically. This is why they have shorter life
+times and a tendency to hide at depth in the ACC and why values for $\tsca{K}$
+are large in the strongly vertically stratified ($\dpr{\ol{u}}{z}<0$) westward
+equatorial current.
+
+
+
+

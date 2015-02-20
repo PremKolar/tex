@@ -1,0 +1,325 @@
+% ######################################################################
+% OTHER
+% ######################################################################
+\let\oldeqref\eqref
+\let\oldhat\hat
+\newcommand{\rnm}[1]{\romannumeral #1}
+\newcommand{\Rmn}[1]{\Roman #1}
+\newcommand{\footder}[1]{\footnote{See section \ref{#1} for derivation.}}
+\definecolor{colboxcolor}{HTML}{9ECBFF}
+\definecolor{cboxcolor}{HTML}{EEEEEE}
+\definecolor{legendcol}{HTML}{7BBCBD}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+\newcommand{\ie}{\textit{i.\hairsp{}e.}\xspace} % Command to print i.e.
+\newcommand{\eg}{\textit{e.\hairsp{}g.}\xspace} % Command to print e.g.
+\newcommand*{\Eg}{E.g.\@\xspace}
+\newcommand*{\Ie}{I.e.\@\xspace}
+\newcommand*{\etc}{\@ifnextchar{.}{etc}{etc.\@\xspace}}
+\newcommand{\litem}[2]{\def\@itemlabel{\textbf{#1}}\item\def\@currentlabel{\textbf{#1}}\label{#2}}
+\newcommand{\derref}[1]{\footnote{see\fcolorbox{white}{gray!20}{Derivation \ref{#1}}}}
+\newcommand{\derrefs}[1]{\footnote{see\fcolorbox{white}{gray!20}{Derivations \cref{#1}}}}
+%\fancypagestyle{fancybook}{%
+    %\fancyhf{}%
+    %% Note the ## here. It's required because \fancypagestyle is making a macro (\ps@fancybook).
+    %% If we just wrote #1, TeX would think that it's the argument to \ps@fancybook, but
+    %% \ps@fancybook doesn't take any arguments, so TeX would complain with an error message.
+    %% You are not expected to understand this.
+    %\renewcommand*{\sectionmark}[1]{ \markright{\thesection\ ##1} }%
+    %\renewcommand*{\chaptermark}[1]{ \markboth{\chaptername\ \thechapter: ##1}{} }%
+    %% Increase the length of the header such that the folios
+    %% (typography jargon for page numbers) move into the margin
+    %\fancyhfoffset[LE]{6mm}% slightly less than 0.25in
+    %\fancyhfoffset[RO]{6mm}%
+    %% Put some space and a vertical bar between the folio and the rest of the header
+    %\fancyhead[LE]{\thepage\hskip3mm\vrule\hskip3mm\leftmark}%
+    %\fancyhead[RO]{\rightmark\hskip3mm\vrule\hskip3mm\thepage}%
+%}
+% ######################################################################
+% ENVIRONTMENTS
+% ######################################################################
+
+
+%\newenvironment{example}[1][]
+%{
+%\refstepcounter{example}\par\medskip\noindent%
+%\textbf{Example~\theexample. #1} \rmfamily{}
+%}
+%{
+%\medskip{}
+%}
+
+
+\newcounter{cbox}
+\newenvironment{cbox}[1]
+{
+\refstepcounter{cbox}\par\medskip\noindent
+\def\FrameCommand{\colorbox{cboxcolor}}%
+\MakeFramed{\advance\hsize-\width \FrameRestore\cornersize{0.9}}
+\begin{scriptsize}
+\begin{center}
+\textbf{Box~\thecbox. #1}
+\end{center}
+}
+{
+\end{scriptsize}
+\endMakeFramed
+}
+
+
+
+
+\newenvironment{colbox}[1]
+{
+	\def\FrameCommand{\colorbox{colboxcolor}}%
+	\MakeFramed{\advance\hsize-\width \FrameRestore\cornersize{0.9}}
+	\begin{scriptsize}
+	\section{#1}
+}
+{
+    \end{scriptsize}
+	\endMakeFramed
+}
+% -----------------------
+\newenvironment{colbox2}[1]
+{
+	\def\FrameCommand{\colorbox{legendcol}}%
+	\MakeFramed{\advance\hsize-\width \FrameRestore}
+	\begin{footnotesize}
+}
+{
+\end{footnotesize}
+	\endMakeFramed
+}
+% -----------------------
+\newenvironment{abstract}%
+{
+    \cleardoublepage\thispagestyle{empty}\null\vfill\begin{center}%
+    \bfseries\abstractname\end{center}
+}
+{
+	\vfill\null
+}
+%  #####################################################################
+% STYLES
+% ######################################################################
+ \mdfdefinestyle{definition}
+ {linewidth=1,
+ backgroundcolor=yellow!40,
+ outerlinecolor=blue!70!black,
+ frametitlebackgroundcolor=gray!20,
+ % frametitlerule=true,
+ innertopmargin=\topskip,}
+ \mdtheorem[
+ style=definition]{definition}{Definition}
+ \mdfdefinestyle{codepiece}
+ {linewidth=15pt,
+ linecolor=black,
+ %frametitlerule=true,
+ backgroundcolor=red!1,
+ outerlinecolor=black,
+ frametitlebackgroundcolor=blue!10,
+ innertopmargin=\topskip,}
+ \mdtheorem[
+ style=codepiece]{codepiece}{Code}[chapter]
+ \mdfdefinestyle{function}
+ {%linewidth=15pt,
+ %linecolor=black,
+ %frametitlerule=true,
+ %backgroundcolor=red!1,
+ %outerlinecolor=black,
+ %frametitlebackgroundcolor=blue!10,
+ innertopmargin=-.5cm,}
+ \mdtheorem[
+ style=function]{function}{sub-routine}[section]
+ \mdfdefinestyle{derivation}
+ {linecolor=red,
+ outerlinewidth=2,
+ leftmargin=40mm,
+ rightmargin=40mm,
+ linewidth=2,
+ frametitlerule=true,
+ frametitlebackgroundcolor=gray!20,
+ innertopmargin=\topskip,roundcorner=10pt,}
+ \mdtheorem[
+ style=derivation]{derivation}{Derivation}
+ \mdfdefinestyle{eddy}
+ {linewidth=.5,
+ % align=center,
+ % backgroundcolor=yellow!40,
+ outerlinecolor=black,
+ frametitlebackgroundcolor=gray!20,
+ % frametitlerule=true,
+ innertopmargin=\topskip,}
+ \mdtheorem[
+ style=eddy]{eddy}{Vortex}[chapter]
+ \mdtheorem[
+ style=eddy]{turbu}{Turbulence}[chapter]
+%  #####################################################################
+% MATH
+% ######################################################################
+\renewcommand{\vec}[1]{\mathbf{\bm{#1}}}
+\newcommand{\ten}[1]{\mathbb{\bm{#1}}}
+\newcommand{\tent}[1]{\mathbb{\bm{#1}}^{\mathsmaller T}}
+\renewcommand{\hat}[1]{\oldhat{\mathbf{#1}}}
+\renewcommand{\l}{\left(}
+ \renewcommand{\r}{\right)}
+\newcommand{\pr}{\partial}
+\newcommand{\grad}{\vec{\nabla}}
+\newcommand{\arccosh}{\mathrm{arccosh}}
+\newcommand{\lapl}{\vec{\triangle}}
+\newcommand{\curl}{\grad \times}
+\newcommand{\gradt}{ \breve{\grad}}
+\renewcommand{\div}{\grad \cdot}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\renewcommand{\eqref}[1]{equation \oldeqref{#1}}
+\newcommand{\eqsref}[1]{equations \oldeqref{#1}}
+\newcommand{\Eqref}[1]{Equation \oldeqref{#1}}
+\newcommand{\Eqsref}[1]{Equations \oldeqref{#1}}
+\newcommand{\dpr}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\Dpr}[2]{\frac{D#1}{D#2}}
+\newcommand{\Dprs}[2]{\frac{D^{\star}#1}{D#2}}
+\newcommand{\advec}[1]{\vec{u} \cdot \vec{\nabla} #1}
+\newcommand{\Unit}[1]{\left[#1\right]}
+\newcommand{\unitvec}[1]{\hat{\vec{#1}}}
+\newcommand{\tvec}[1]{\underaccent{\neg}{\vec{#1}}}
+\newcommand{\tsca}[1]{\underaccent{\neg}{#1}}
+\newcommand{\order}[1]{\mathcal{O}\left( 10^{#1}\right)}
+\newcommand{\sign}[1]{\mathrm{sgn}\left(#1\right)}
+\newcommand{\abs}[1]{\left|#1\right|}
+\DeclareMathOperator{\tr}{Tr}
+\newcommand{\eexp}[1]{ \mathrm{e}^{#1}}
+
+
+
+%% legend stuff
+\newcommand{\Bu}[0]{\mathrm{\hyperref[def:Bu]{Bu}}\;}
+\newcommand{\Ro}[0]{\mathrm{\hyperref[def:Ro]{Ro}}\;}
+\newcommand{\Rh}[0]{\mathrm{\hyperref[def:Rh]{R_{\beta}}}\;}
+\newcommand{\Lr}[0]{\mathrm{\hyperref[def:Lr]{L_{R}}}\;}
+\newcommand{\Lb}[0]{\mathrm{\hyperref[def:Lb]{L_{\beta}}}\;}
+\newcommand{\h}[0]{\hyperref[def:h]{h}}
+\newcommand{\B}[0]{\hyperref[def:B]{ \vec{B}}}
+\newcommand{\Ek}[0]{\hyperref[def:Ek]{E_k}}
+\newcommand{\Em}[0]{\hyperref[def:Em]{E_m}}
+\newcommand{\scale}[0]{\hyperref[def:scale]{\sigma}}
+\newcommand{\enstro}[0]{\hyperref[def:enstro]{\varepsilon}}
+\newcommand{\f}[0]{\mathit{\hyperref[def:f]{f}}\;}
+\newcommand{\dfdy}[0]{\mathrm{\hyperref[def:beta]{\beta}}\;}
+\newcommand{\g}[0]{\mathit{\hyperref[def:g]{g}}\;}
+\newcommand{\okubo}[0]{\mathrm{\hyperref[def:okubo]{O_w}}\;}
+\newcommand{\SSH}[0]{\hyperref[def:SSH]{SSH}\;}
+\newcommand{\IQ}[0]{\mathrm{\hyperref[def:IQ]{IQ}}\;}
+\newcommand{\rG}[0]{\hyperref[def:rG]{\mathfrak{r}}\;}
+\newcommand{\aviI      }[0]{\hyperref[def:aviI ]{aviso-MI                      }\@\xspace}
+\newcommand{\aviII     }[0]{\hyperref[def:aviII]{aviso-MII                     }\@\xspace}
+\newcommand{\pToaII    }[0]{\hyperref[def:p2aII]{pop2avi-MII                   }\@\xspace}
+\newcommand{\popSevenII}[0]{\hyperref[def:pop7II]{POP-7day-MII                 }\@\xspace}
+\newcommand{\popOneIISO}[0]{\hyperref[def:pop1IISO]{POP-1day-MII-Southern-Ocean}\@\xspace}
+\newcommand{\MI}[0]{\hyperref[box:MI]{MI}\@\xspace}
+\newcommand{\MII}[0]{\hyperref[box:MII]{MII}\@\xspace}
+\newcommand{\TODO}[1]{\textbf{\textcolor{red}{TODO:#1}}\@\xspace}
+
+
+\newcommand{\Enstro}{\mathcal{E}}
+\newcommand{\inta}[1]{ \int_A #1 \; \mathrm{d}A}
+\newcommand{\intm}[1]{ \frac{1}{A} \int_A #1 \; \mathrm{d}A}
+\newcommand{\dint}[1]{ \; \mathrm{d}#1}
+%\newcommand{\d}[1]{\mathrm{d}#1}
+\newcommand{\expp}[1]{\mathrm{e}^{#1}}
+\newcommand{\INT}[4]{\int_{#1}^{#2} #3 \; \mathrm{d}#4}
+\newcommand{\intms}[1]{ \left< #1 \right>}
+\renewcommand{\deg}[1]{#1^\circ}
+\newcommand{\decom}[1]{\overline{#1} + #1'}
+\newcommand{\inbr}[1]{\left( #1 \right)}
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\timesES}[2]{\epsilon_{jki} #1_j #2_k \unitvec{e}_i}
+\newcommand{\oh}[0]{\frac{1}{2}}
+% ######################################################################
+% VARIABLES
+% ######################################################################
+\newcommand*{\supervisor}[1]{\def\supname{#1}}
+\newcommand*{\thesistitle}[1]{\def\ttitle{#1}}
+\newcommand*{\examiner}[1]{\def\examname{#1}}
+\newcommand*{\degree}[1]{\def\degreename{#1}}
+\newcommand*{\authors}[1]{\def\authornames{#1}}
+\newcommand*{\addresses}[1]{\def\addressnames{#1}}
+\newcommand*{\university}[1]{\def\univname{#1}}
+\newcommand*{\UNIVERSITY}[1]{\def\UNIVNAME{#1}}
+\newcommand*{\department}[1]{\def\deptname{#1}}
+\newcommand*{\DEPARTMENT}[1]{\def\DEPTNAME{#1}}
+\newcommand*{\group}[1]{\def\groupname{#1}}
+\newcommand*{\GROUP}[1]{\def\GROUPNAME{#1}}
+\newcommand*{\faculty}[1]{\def\facname{#1}}
+\newcommand*{\FACULTY}[1]{\def\FACNAME{#1}}
+\newcommand*{\subject}[1]{\def\subjectname{#1}}
+\newcommand*{\keywords}[1]{\def\keywordnames{#1}}
+\newcommand\btypeout[1]{\bhrule\typeout{\space #1}\bhrule}
+\newcommand\bhrule{\typeout{------------------------------------------------------------------------------}}
+% ######################################################################
+
+\newcommand{\hangp}[1]{\makebox[0pt][r]{(}#1\makebox[0pt][l]{)}} % New command to create parentheses around text in tables which take up no horizontal space - this improves column spacing
+\newcommand{\hangstar}{\makebox[0pt][l]{*}} % New command to create asterisks in tables which take up no horizontal space - this improves column spacing
+\newcommand{\monthyear}{\ifcase\month\or January\or February\or March\or April\or May\or June\or July\or August\or September\or October\or November\or December\fi\space\number\year} % A command to print the current month and year
+\newcommand{\openepigraph}[2]{ % This block sets up a command for printing an epigraph with 2 arguments - the quote and the author
+\begin{fullwidth}
+\sffamily\large
+\begin{doublespace}
+\noindent\allcaps{#1}\\ % The quote
+\noindent\allcaps{#2} % The author
+\end{doublespace}
+\end{fullwidth}
+}
+\newcommand{\blankpage}{\newpage\hbox{}\thispagestyle{empty}\newpage} % Command to insert a blank page
+\newcommand{\hlred}[1]{\textcolor{Maroon}{#1}} % Print text in maroon
+\newcommand{\hangleft}[1]{\makebox[0pt][r]{#1}} % Used for printing commands in the index, moves the slash left so the command name aligns with the rest of the text in the index
+\newcommand{\hairsp}{\hspace{1pt}} % Command to print a very short space
+\newcommand{\na}{\quad--} % Used in tables for N/A cells
+\newcommand{\measure}[3]{#1/#2$\times$\unit[#3]{pc}} % Typesets the font size, leading, and measure in the form of: 10/12x26 pc.
+\newcommand{\tuftebs}{\symbol{'134}} % Command to print a backslash in tt type in OT1/T1
+\providecommand{\XeLaTeX}{X\lower.5ex\hbox{\kern-0.15em\reflectbox{E}}\kern-0.1em\LaTeX}
+\newcommand{\tXeLaTeX}{\XeLaTeX\index{XeLaTeX@\protect\XeLaTeX}} % Command to print the XeLaTeX logo while simultaneously adding the position to the index
+\newcommand{\doccmdnoindex}[2][]{\texttt{\tuftebs#2}} % Command to print a command in texttt with a backslash of tt type without inserting the command into the index
+\newcommand{\doccmddef}[2][]{\hlred{\texttt{\tuftebs#2}}\label{cmd:#2}\ifthenelse{\isempty{#1}} % Command to define a command in red and add it to the index
+{ % If no package is specified, add the command to the index
+\index{#2 command@\protect\hangleft{\texttt{\tuftebs}}\texttt{#2}}% Command name
+}
+{ % If a package is also specified as a second argument, add the command and package to the index
+\index{#2 command@\protect\hangleft{\texttt{\tuftebs}}\texttt{#2} (\texttt{#1} package)}% Command name
+\index{#1 package@\texttt{#1} package}\index{packages!#1@\texttt{#1}}% Package name
+}}
+\newcommand{\doccmd}[2][]{% Command to define a command and add it to the index
+\texttt{\tuftebs#2}%
+\ifthenelse{\isempty{#1}}% If no package is specified, add the command to the index
+{%
+\index{#2 command@\protect\hangleft{\texttt{\tuftebs}}\texttt{#2}}% Command name
+}
+{%
+\index{#2 command@\protect\hangleft{\texttt{\tuftebs}}\texttt{#2} (\texttt{#1} package)}% Command name
+\index{#1 package@\texttt{#1} package}\index{packages!#1@\texttt{#1}}% Package name
+}}
+
+
+% A bunch of new commands to print commands, arguments, environments, classes, etc within the text using the correct formatting
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}
+\newcommand{\docenv}[1]{\texttt{#1}\index{#1 environment@\texttt{#1} environment}\index{environments!#1@\texttt{#1}}}
+\newcommand{\docenvdef}[1]{\hlred{\texttt{#1}}\label{env:#1}\index{#1 environment@\texttt{#1} environment}\index{environments!#1@\texttt{#1}}}
+\newcommand{\docpkg}[1]{\texttt{#1}\index{#1 package@\texttt{#1} package}\index{packages!#1@\texttt{#1}}}
+\newcommand{\doccls}[1]{\texttt{#1}}
+\newcommand{\docclsopt}[1]{\texttt{#1}\index{#1 class option@\texttt{#1} class option}\index{class options!#1@\texttt{#1}}}
+\newcommand{\docclsoptdef}[1]{\hlred{\texttt{#1}}\label{clsopt:#1}\index{#1 class option@\texttt{#1} class option}\index{class options!#1@\texttt{#1}}}
+\newcommand{\docmsg}[2]{\bigskip\begin{fullwidth}\noindent\ttfamily#1\end{fullwidth}\medskip\par\noindent#2}
+\newcommand{\docfilehook}[2]{\texttt{#1}\index{file hooks!#2}\index{#1@\texttt{#1}}}
+\newcommand{\doccounter}[1]{\texttt{#1}\index{#1 counter@\texttt{#1} counter}}
+\newcommand{\vdqi}{\textit{VDQI}\xspace}
+\newcommand{\ei}{\textit{EI}\xspace}
+\newcommand{\ve}{\textit{VE}\xspace}
+\newcommand{\be}{\textit{BE}\xspace}
+\newcommand{\VDQI}{\textit{The Visual Display of Quantitative Information}\xspace}
+\newcommand{\EI}{\textit{Envisioning Information}\xspace}
+\newcommand{\VE}{\textit{Visual Explanations}\xspace}
+\newcommand{\BE}{\textit{Beautiful Evidence}\xspace}
+\newcommand{\TL}{Tufte-\LaTeX\xspace}
+
+%----------------------------------------------------------------------------------------
+\newenvironment{docspec}{\begin{quotation}\ttfamily\parskip0pt\parindent0pt\ignorespaces}{\end{quotation}}

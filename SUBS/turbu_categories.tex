@@ -1,0 +1,100 @@
+\label{chap:turbu_categories}
+Consider the equations of motion on a rotating spherical planet with all body forces
+combined in $\vec{g}$, which shall always be perpendicular to
+the surface of a Newtonian fluid at rest. Applying the curl to \eqref{eq:NS2}
+also yields a vorticity equation\derref{der:vort}.
+Scalar multiplication with $\vec{u}$ reveals a prognostic, macroscopic kinetic-energy-per-unit-mass budget\derref{der:Ek}.
+Analogously, scalar multiplication of \eqref{eq:vort2} with $\vec{\omega}_{a}$ yields an equation
+for the macroscopic enstrophy density per unit mass\derref{der:enstro}. Finally, adding a term for potential energy to
+\eqref{eq:Ekin1} yields an equation for mechanical energy\derref{der:Em}.
+
+%%--------------------------------------------------------------------
+\input{SUBS/theory1.tex}
+%%--------------------------------------------------------------------
+%%####################################################################
+%%####################################################################
+
+\begin{turbu}[Non-rotating Tank]\label{turb:tank}
+ Consider first a 3 dimensional non-rotating volume of fluid of constant density with horizontal and vertical dimensions of equal scale.
+ \Eqsref{eq:EQS1} then reduce to (ignoring $\Ek$):
+%%--------------------------------------------------------------------
+\input{SUBS/theory2.tex}
+%%--------------------------------------------------------------------
+If we further assume the viscosity $\nu$ of the fluid to be infinitely small \eqref{eq:Emech2} and \eqref{eq:enst2} reduce to
+%%--------------------------------------------------------------------
+\input{SUBS/theory3.tex}
+%%--------------------------------------------------------------------
+In the absence of friction the mechanical Energy of the parcel of fluid is conserved.\\
+In contrast, neither enstrophy nor vorticity itself are conserved.
+%Not even when initial conditions of zero relative vorticity are assumed.
+%Think of, for example the case where $\Omega$ scales much larger than $\omega$ e.g. slow, large-scale circulation.
+Velocity gradients will tilt and stretch the parcel resulting in
+changes in relative vorticity so as to conserve the parcel's total
+angular momentum. There is no preference for dimension. The motion is
+simply turbulent akin to air blowing through a room.
+\end{turbu}
+%%####################################################################
+%%####################################################################
+\begin{turbu}[Rotating Tank]\label{turb:rottank}
+Next consider the tank from \ref{turb:tank} to be rotating at some
+high constant frequency $ \vec{\Omega}/2 \cdot \vec{k}=\Omega/2$, so that all
+terms void of $\vec{\Omega}$ are small versus those containing
+$\vec{\Omega}$ while all derivatives of $\vec{\Omega}$ vanish for its
+constancy. Again, imagine
+some magical mix of body forces, so that $\vec{g}\cdot \vec{k}=-g$.
+%%--------------------------------------------------------------------
+\input{SUBS/theory4.tex}
+%%--------------------------------------------------------------------
+\Eqref{eq:NS4} reveals that in this case all motion must be perpendicular to $\vec{\Omega}$ and to pressure gradients. Hence $w \approx 0$ and $\vec{u}_{h}$ in
+hydrostatic- and geostrophic balance. \Eqref{eq:vort4} shows how a stretched or squeezed water column by \eg a change in water depth results in a dramatic change
+in relative vorticity.  \Eqref{eq:Emech4} and \eqref{eq:enst4} show that again energy is conserved for the  $\mathrm{Re} \gg 1$ case (since our perspective is from
+the rotating frame of reference, the angular momentum from the rotating tank is a priori irrelevant to $E_{m}$), and that local enstrophy of a Lagrangian parcel
+is dramatically changed as soon as the vertical dimension is forced upon the motion.\\
+%Interesting is also the case where the frictionless motion is initially at rest with respect to an inertial frame of reference
+\end{turbu}
+%%####################################################################
+%%####################################################################
+\begin{turbu}[Small Aspect Ratio]\label{turb:smallaspect}
+Consider again the tank, only this time completely flattened, so that its horizontal extent is, say, 3 orders of magnitude larger than its vertical scale. All
+vertical motion then becomes insignificant and the equations at first approximation reduce to:
+%%--------------------------------------------------------------------
+\input{SUBS/theory5.tex}
+%%--------------------------------------------------------------------
+The main point here is that now, for infinitely small viscosity, besides mechanical energy, now also enstrophy is materially conserved. Lacking a third
+dimension to stretch,squeeze or tilt into, a column of fluid has no mechanism by which to adapt to a change in depth or to a change in ambient vorticity. To
+investigate this situation further a scale analysis of the equations of $E_{m}$ and $\enstro$ is helpful:
+%%--------------------------------------------------------------------
+\input{SUBS/theory5s.tex}
+%%--------------------------------------------------------------------
+Apparently $\Dpr{E_{m}}{t} \sim L^{2}\Dpr{\enstro}{t} $. Thus, the smaller $L$ the more effective vorticity is advected and burned. Hence enstrophy dominates
+the turbulence cascade towards smaller scales. Before $E_{m}$ gets any chance to cascade itself to ever smaller scales, $\enstro$ is already effectively burning
+vorticity at large $k$ and thereby reducing kinetic energy faster than the turbulence cascade can fill the gap. $E_{m}$ being proportional to $U^{2}$ cannot
+compete with $\enstro$ at small scales since $\enstro$ not only scales with $U^{2}$ but also with the squared reciprocal of the scale  \textit{itself}.  \\
+As an analogy consider an ice hockey arena being opened instantaneously to 500 people on skates. At first the picture will be highly turbulent with lots of
+friction among skaters. Sooner or later though, people of like-minded preference for direction and speed are likely to form groups so as to avoid bumping into
+one another. At some point usually all the people form into one or few large eddies, with those wanting to go faster than others skating at larger radius than
+the more timid towards the center, whilst those on inadequate orbits usually get automatically advected accordingly.
+%Since also  $E_{m,k} \sim U_{k}^{2}$ at some scale $1/k$ and $\enstro_{k} \sim U_{k}^{2}/L^{2} = U_{k}^{2}k^{2}$ and therefor $E_{m,k} \sim L^{2} \enstro_{k}$
+\end{turbu}
+%%####################################################################
+
+\begin{figure}
+\includegraphics[width=\textwidth]{PSI.pdf}
+\caption{1) 2D turbulence with several sinusoidal and random signals as initial condition, 2) at a later time 3) at a much later time. Code from
+\cite{Seibold2008a}.}
+\end{figure}
+
+%%####################################################################
+\begin{turbu}[$\beta$-effect]\label{turb:beta}
+Consider at last the inviscid rotating flat-disk-type tank this time in the shape of a shell of a sphere with again $\vec{g} \parallel \vec{z}$ everywhere
+perpendicular to the surface at rest. Further assume a strong $\vec{g}$ so that the $\vec{\Omega} \cdot \vec{y}$ component in the Coriolis term is dwarfed by
+hydrostaticity. Then with $\vec{f}=f \vec{z} = \left( \vec{\Omega} \cdot \vec{z} \right)\vec{z}$ now from a Eulerian perspective:
+%%--------------------------------------------------------------------
+\input{SUBS/theory6.tex}
+%%--------------------------------------------------------------------
+A new term with opposite sign from the $\omega$-advection-term in $y$-direction arises in the vorticity budget, which is evidently most significant where $f$
+changes strongest meridionally, \ie In proximity to the sphere's \textit{equator}. Hence, if scales permit, relative vorticity can now also be altered by a
+change in latitude via conservation of angular momentum.
+\end{turbu}
+%%####################################################################
+%%####################################################################

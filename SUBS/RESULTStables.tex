@@ -1,0 +1,53 @@
+\begin{scriptsize}
+\begin{margintable}
+	\begin{tabularx}{\textwidth}{|X|X|}
+	\hline
+	time frame &  \displaydate{runsStart} till \displaydate{runsEnd}\\
+	\hline
+	scope & full globe ($80S:80N \;\; 180W:180E$) \\
+	\hline
+	AVISO geometry &   $641 x 1440$ true Mercator \\
+	\hline
+	POP   geometry &   $2400 x 3600$ \\
+	\hline
+	contour step   &   \contourstep \\
+	\hline
+	\end{tabularx}
+	\begin{tabularx}{\textwidth}{|X|X|}
+	\hline
+	\textbf{thresholds} &  [all SI]  \\
+	\hline
+	max $\sigma/\Lr$ & \threshmaxRadiusOverRossbyL \\
+	\hline
+	min $\Lr$ TODO & \threshminRossbyRadius \\
+	\hline
+	min $\IQ$ & \threshshapeiq \\
+	\hline
+	min data points of an eddy & \threshcornersmin \\
+	\hline
+	max(abs(rossby phase speed)) TODO & \threshphase \\
+	\hline
+		max amplitude TODO & \threshamp \\
+	\hline
+	\end{tabularx}
+	\caption{Fix parameters for all runs.}
+\label{tab:fixparams}
+\end{margintable}
+TODO lookup term used for krummes grid\\
+TODO check tables for completeness\\
+
+%\newpage
+%\begin{margintable}
+	%\begin{tabularx}{1.1\textwidth}{|X||X|X|}
+	%\hline
+	 %& \MI & \MII   \\
+	%\hline
+%shape threshold & The distance between any pair of points within the connected region must be less than a specified maximum. & The Isoperimetric Quotient must be at least a specified minimum.\\
+	%\hline
+%Comparison of old to new eddy & ratio between new and old must lie between $0.25$ and $2.5$ for amplitude and area TODO ref & similar but with $\sqrt{\mathrm{area}/\pi}$ instead of area and the lower threshold as reciproke of the higher and vice versa.   TODO ref \\
+	%\hline
+	%\end{tabularx}
+	%\caption{The two methods \MI and \MII.}
+%\label{tab:MIMIIdiffs}
+%\end{margintable}
+\end{scriptsize}

@@ -1,0 +1,72 @@
+
+\label{sec:goals}
+
+
+
+Not all of these will be achieved of course. They will be worked through in the order they appear until the time scope of this thesis is over.
+{\bfseries
+\begin{enumerate}
+
+\item
+Implement an efficient, parallelized, portable, modular algorithm entirely in matlab with focus on straightforwardness, easy maintainability and tweakability.
+
+\item
+Mimic the algorithm as described by \cite{Chelton2011} and apply it to the model data.
+
+\item
+Repeat all of the analysis done by \cite{Chelton2011} and compare.
+
+\item
+Test alternative definition of the \textit{center} of an eddy as the absolute value of the center of volume of the eddy measured from reference height ($z$ of its perimeter).
+
+\item
+Test alternative shape-threshold criterion based on isoperimetric coefficient \ie the eddy's sphericity. \footnote{\cite{Chelton2011} guaranteed sphericity by demanding that \textit{The distance between any pair of points within the connected region must be less than a specified maximum.}}.
+
+\item
+Compare theoretical phase and group velocities of Rossby waves at wavelength set to determined scale of eddies with eddy velocities.
+
+\item
+Compare theoretical wave length of Rossby waves at phase/group speed set to determined drift speed of eddies with eddy scale, similar to \citep{Tulloch2009}.
+
+\item
+Compare scales to those derived from linear stability analysis by \eg \cite{Vollmer2013a,eden2012implementing,Smith2009,griesel2013eulerian}.
+\end{enumerate}
+}
+
+\begin{enumerate}
+\setcounter{enumi}{8}
+\item
+Analyze eddy-genesis and fate. Look at mean values \footnote{either means in time or means in space.} $\Ro$, $\Bu$, $\Rh$, track, scale, as a function of location.
+
+\item
+Down-sample the model data, and compare runs for model/satellite at identical
+resolution and code.
+
+\item
+Go sub-surface and apply the algorithm to at least one other depth than the surface, with the hypothesis that this might help to avoid meso-scale noise in highly turbulent locations.
+
+\item
+Use findings from model to improve Aviso tracking.
+\item
+Filter the SSH-data via Galilean-/LES-decomposition \cite{Adrian2000a} or simply
+by a filter created from determined mean shapes of eddies as a function of
+location. The motivation is again to successfully track eddies through zones of
+strong turbulence.
+
+\item
+focus on regions of large Rossby number and regions of strong turbulence (ACC).
+
+\item
+Calculate the \emph{effective} Rossby radius as mentioned in \cite{Vollmer2013a} and compare to eddy scales.
+
+\item
+Include short lived eddies. \cite{Chelton2011} only analyzed eddies with life times longer than 16 weeks in order to exclude less \textit{robust} eddies for which they did not fully trust their algorithm to be capable of tracking correctly.
+
+\item
+Test whether tracers inside eddy stay on isopycnals.
+
+\item
+Determine tracks of tracers inside eddy and compare to the eddie's track.
+
+
+\end{enumerate}

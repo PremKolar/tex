@@ -1,0 +1,209 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8x]{inputenc}
+
+
+\begin{document}
+
+
+\documentclass[a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+
+\begin{document}
+
+\begin{align}
+\sigma_N^2 = \frac{1}{N}\sum_{n=1}^{N} (x_n - \mu_N)^2 
+\end{align}
+\begin{align}
+\sigma_M^2 = \frac{1}{M}\sum_{m=1}^{M} (x_m - \mu_M)^2 
+\end{align}
+\begin{align}
+\sigma_M^2 M + \sigma_N^2 N  
+&= 
+\sum_{n=1}^{N} (x_n - \mu_N)^2 
++
+\sum_{m=1}^{M} (x_m - \mu_M)^2 
+\end{align}
+
+
+
+
+\begin{align}
+\sigma_N^2  + \sigma_M^2 
+&=
+\frac{1}{N_N}\sum_{i=1}^{N_N} (x_i - \mu_N)^2
++
+\frac{1}{N_M}\sum_{i=1}^{N_M} (x_i - \mu_M)^2
+\end{align}
+
+
+
+\begin{align}
+\mu_N =\frac{1}{N_N} \sum_{i=1}^{N_N} x_i
+\end{align}
+\begin{align}
+\mu_M = \frac{1}{N_M} \sum_{i=1}^{N_M}  x_i
+\end{align}
+\begin{align}
+N_N \mu_N + N_M \mu_M 
+&= 
+ \sum_{i=1}^{N_N}  x_i
++
+ \sum_{i=1}^{N_M}  x_i \\
+ &=
+ \sum_{i=1}^{N_a}  x_i \\
+ \frac{N_N \mu_N + N_M \mu_M }
+ {N_N + N_M}
+&= 
+\frac{1}{N_a} 
+\sum_{i=1}^{N_a}  x_i
+=
+\mu_A \\
+\alpha_N \mu_N + \alpha_M \mu_M
+&=
+\mu_A
+\end{align}
+\begin{align}
+\mu_N
+&=
+\frac{\mu_A - \alpha_M \mu_M}
+{\alpha_N}\\
+&=
+\frac{\mu_A}{\alpha_N} - \frac{N}{M} \mu_M
+\end{align}
+
+
+
+\begin{align}
+N_N \mu_N + N_M \mu_M  
+&= 
+\mu_a (N_N + N_M) \\
+N_N \mu_N
+&=
+\mu_a (N_N + N_M) - N_M \mu_M \\
+\mu_N
+&=
+\mu_a (1 + \frac{N_M}{N_N}) - \frac{N_M}{N_N} \mu_M \\
+\mu_M
+&=
+\mu_a (1 + \frac{N_N}{N_M}) - \frac{N_N}{N_M} \mu_N
+\end{align}
+
+
+
+\begin{align}
+\mu_a 
+&= 
+\frac{1}{N_a} \sum_{i=1}^{N_a}  x_i \\
+&=
+\frac{1}{N_N + N_M} \sum_{i=1}^{N_N + N_M}  x_i \\
+\end{align}
+
+\begin{align}
+\sigma_a^2 
+&= 
+\frac{1}{N_a}\sum_{i=1}^{N_a} (x_i - \mu_a)^2 \\
+&=
+\frac{1}{N_N + N_M}\sum_{i=1}^{N_N + N_M} (x_i - \mu_a)^2 \\
+\end{align}
+
+\begin{align}
+\mu_A
+&=
+\alpha_N \mu_N + \alpha_M \mu_M
+\end{align}
+
+
+\begin{align}
+\sigma_A^2 
+&=
+\frac{1}{A}\sum_{a=1}^{A} (x_a - \mu_A)^2 \\
+&=
+\frac{1}{A}\sum_{a=1}^{A} (x_a - \alpha_N \mu_N
+-\alpha_M \mu_M )^2 \\
+\end{align}
+
+
+
+\begin{align}
+\frac{\sigma_N^2}{N}
+&=
+\frac{1}{N^2}\sum_{n=1}^{N} (x_n - \mu_N)^2 \\
+&=
+\frac{1}{N^2}\sum_{n=1}^{N} x_n^2-2x_n(\frac{\mu_A}{\alpha_N} - \frac{N}{M} \mu_M) + (\frac{\mu_A}{\alpha_N} - \frac{N}{M} \mu_M)^2 \\
+\end{align}
+\begin{align}
+\frac{\sigma_M^2}{M}
+&=
+\frac{1}{M^2}\sum_{m=1}^{M} (x_m - \mu_M)^2 
+\end{align}
+
+\begin{align}
+\frac{\sigma_N^2}{N}
++
+\frac{\sigma_M^2}{M}
+&=
+\frac{1}{N^2}\sum_{n=1}^{N} (x_n - \mu_N)^2 
++
+\frac{1}{M^2}\sum_{m=1}^{M} (x_m - \mu_M)^2 
+\end{align}
+
+
+
+\begin{align}
+\mu_A
+&=
+\alpha_N \mu_N + \alpha_M \mu_M
+\end{align}
+\begin{align}
+\sigma_N^2 = \frac{1}{N}\sum_{n=1}^{N} (x_n - \mu_N)^2 
+\end{align}
+\begin{align}
+\sigma_M^2 = \frac{1}{M}\sum_{m=1}^{M} (x_m - \mu_M)^2 
+\end{align}
+\begin{align}
+\sigma_A^2 = \frac{1}{A}\sum_{a=1}^{A} (x_a - \mu_A)^2 
+\end{align}
+\begin{align}
+\sigma_A^2 
+&=
+\frac{1}{A}\sum_{a=1}^{A} \left(x_a -\alpha_N \mu_N - \alpha_M \mu_M \right)^2 \\
+&=
+\frac{1}{A}\sum_{a=1}^{A} 
+x_{a}^{2} 
+-2 x_a \left( \alpha_N \mu_N - \alpha_M \mu_M 
+\right)
++
+\left( \alpha_N \mu_N - \alpha_M \mu_M 
+\right)^2 \\
+&=
+\frac{1}{A}\sum_{a=1}^{A} 
+x_{a}^{2} 
+-2 x_a \left( \alpha_N \mu_N - \alpha_M \mu_M 
+\right)
++
+\left( \alpha_N \mu_N \right)^2
+- 2 \alpha_N \mu_N  \alpha_M \mu_M 
++
+\left( \alpha_M \mu_M \right)^2\\
+&=
+\frac{1}{A}\sum_{a=1}^{A} 
+x_{a}^{2} 
+-2 x_a \left( \frac{N}{A} \mu_N - \frac{M}{A} \mu_M 
+\right)
++
+\left( \frac{N}{A} \mu_N \right)^2
+- 2 \frac{N M}{A^2} \mu_N  \mu_M 
++
+\left( \frac{M}{A} \mu_M \right)^2\\
+\end{align}
+
+
+
+
+
+\end{document}

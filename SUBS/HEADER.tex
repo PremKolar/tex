@@ -1,0 +1,51 @@
+%\documentclass[10pt,a4paper,twoside,openany]{book} % Paper size, default font size and one-sided paper
+%\documentclass[a4paper,marginals=raggedouter]{tufte-book} % Paper size, default font size and one-sided paper
+\documentclass[a4paper,notoc]{tufte-book} % Paper size, default font size and one-sided paper
+ %\setsidenotefont{\itshape}
+%\title{\ttitle} % Defines the thesis title - don't touch this
+%%  ####################################################################
+\input{SUBS/usepackage.tex}
+%\geometry{a4paper}
+%\geometry{centering, left=2cm, right=2cm, top=2cm, bottom=2cm,showframe}
+%\geometry{centering,left=0cm, right=0cm, top=2cm, bottom=2cm, a4paper,showframe}
+%\newgeometry{margin=4cm}
+%\geometry{showframe,outer=10cm}
+\geometry{margin=5cm}
+%%  ####################################################################
+%\renewcommand\floatpagefraction{.9}
+%\renewcommand\dblfloatpagefraction{.9} % for two column documents
+%\renewcommand\topfraction{.9}
+%\renewcommand\dbltopfraction{.9} % for two column documents
+%\renewcommand\bottomfraction{.9}
+%\renewcommand\textfraction{.1}
+%\setcounter{tocdepth}{2}
+%\setcounter{secnumdepth}{2}
+%\cftsetindents{chapter}{0cm}{5mm}
+%\cftsetindents{section}{.3cm}{8mm}
+%\cftsetindents{subsection}{.5cm}{10mm}
+%\cftsetindents{paragraph}{.5cm}{10mm}
+%\cftsetindents{paragraph}{.5cm}{10mm}
+\graphicspath{{./FIGS/}}
+%%####################################################################
+\input{SUBS/newcommands.tex}
+%%####################################################################
+\input{SUBS/info.tex}
+%%####################################################################
+\input{SUBS/INPUTm.tex}
+%%####################################################################
+%\setlength{\marginparwidth}{3cm}
+%\raggedbottom
+%%####################################################################
+
+\newdate{runsStart}{05}{01}{1994}
+\newdate{runsEnd}{27}{12}{2006}
+
+\hypersetup{colorlinks} % Comment this line if you don't wish to have colored links
+%\graphicspath{{graphics/}} % Sets the default location of pictures
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio} % Improves figure scaling
+\fvset{fontsize=\normalsize} % The font size of all verbatim text can be changed here
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+%\setcaptionfont{ \tiny }
+%\setmarginnotefont{ \tiny }
+%\setcitationfont{ \tiny }

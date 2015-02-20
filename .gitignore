@@ -1,0 +1,13 @@
+*.out
+*.toc
+*.aux
+*.d
+*.bbl
+*.blg
+*.gz
+*.sty
+*.backup
+*.ps
+*~
+*.log
+*.tdo

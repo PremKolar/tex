@@ -1,0 +1,101 @@
+% Define block styles
+
+\tikzstyle{inOvrLrd} =  = [rectangle, draw,anchor=north]
+%\tikzstyle{block} = [rectangle, draw, fill=blue!20,
+    %text width=4.5em, text centered, rounded corners, node distance=1.7cm,
+%minimum height=1.5em]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, rounded corners,anchor=south, node distance=1cm]
+\tikzstyle{data} = [draw, ellipse,fill=red!20, node distance=1cm]
+\tikzstyle{line} = [draw, thick, color=black!50, -latex']
+
+\begin{scriptsize}
+\begin{figure*}
+
+\begin{tikzpicture}[auto]
+% ##############################################
+\node [inOvrLrd] (ovrlrd) {
+	\begin{tikzpicture}[auto]
+		\tikzstyle{input} = [diamond, draw, fill=green!20, node distance=2.5cm]
+		\tikzstyle{ghost} = [rectangle, draw, fill=green!10, rounded corners, node distance=1cm]
+		\tikzstyle{line} = [draw, very thick, color=black!50, -latex']
+	\tikzstyle{noArrowLine} = [-, thick,draw]
+		%\tikzstyle{NoArrowLine} = [-,draw,thick, -latex']
+
+		\node [input,auto] (INPUTx) {INPUT\textit{xxx}.m};
+		\node [input, left of=INPUTx] (INPUT) {INPUT.m};
+		\node [ghost, below of=INPUT, node distance=2cm] (initialise) {initialise.m};
+		\node [ghost, below of=initialise] (getinput) {get\_input.m};
+		\path [line] (INPUT) -- (initialise);
+		\path [line] (INPUTx) |- (initialise);
+		\path [noArrowLine] (initialise) -- (getinput);
+
+	\end{tikzpicture}
+};
+% ##############################################
+\node [block, right of=ovrlrd,node distance=5cm] (S00) {S00 - prepare data};
+% ##############################################
+\node [block, below of=S00] (S01) {S01 - get $\Lr$ etc};
+% ##############################################
+\node [block, below of=S01] (S02) {S02 - infer fields};
+% ##############################################
+\node [block, below of=S02] (S03) {S03 - get contours};
+% ##############################################
+\node [block, below of=S03] (S04) {S04 - filter contours};
+% ##############################################
+\node [block, below of=S04] (S05) {S05 - track eddies};
+% ##############################################
+\node [block, below of=S05] (S06) {S06 - initialize output maps};
+% ##############################################
+\node [block, below of=S06] (S08) {S08 - analyze tracks};
+% ##############################################
+\node [block, below of=S08] (S09) {S09 - make plots};
+
+   \path [line,dashed] (ovrlrd) -- (S00);
+   \path [line,dashed] (ovrlrd) -- (S01);
+   \path [line,dashed] (ovrlrd) -- (S02);
+   \path [line,dashed] (ovrlrd) -- (S03);
+   \path [line,dashed] (ovrlrd) -- (S04);
+   \path [line,dashed] (ovrlrd) -- (S05);
+   \path [line,dashed] (ovrlrd) -- (S06);
+   \path [line,dashed] (ovrlrd) -- (S08);
+   \path [line,dashed] (ovrlrd) -- (S09);
+
+
+    \node [data, above of=S00] (DD) {DD.mat};
+    \node [data, right of=S00, node distance=4cm] (Draw) {raw SSH};
+    \node [data, below of=Draw] (Drossby) {ROSSBY};
+
+    \node [data, below of=Drossby] (meanSsh) {meanSsh.mat};
+    \node [data, right of=S03,node distance=4cm] (Dcuts) {CUTS};
+
+
+    \node [data, below of=Dcuts] (Dconts) {CONTS};
+    \node [data, below of=Dconts] (Deddies) {EDDIES};
+    \node [data, below of=Deddies] (Dtracks) {TRACKS};
+    \node [data, right of=S08,node distance=4cm] (Danalyzed) {ANALYZED};
+    %\node [data, right of=S07] (plots) {plots};
+    \node [data, left of=S08, node distance=4.5cm] (indx) {protoMaps.mat};
+
+  \path [line,dashed,color=black] (ovrlrd) -- (DD) -- (S00) -- (S01) -- (S02) -- (S03) -- (S04) -- (S05) -- (S06) -- (S08) -- (S09);
+  \path [line,dashed,color=red] (Draw) -- (S00) -- (Dcuts) -- (S03) -- (Dconts) -- (S04)  -- (Deddies) -- (S05) -- (Dtracks) -- (S08) -- (Danalyzed) -- (S09);
+
+ \path [line,dashed,color=blue] (Dcuts) -- (S01);
+ \path [line,dashed,color=blue] (S01) -- (Drossby);
+ \path [line,dashed,color=blue] (Drossby) -- (S02);
+ \path [line,dashed,color=blue] (S02) -- (Dcuts);
+
+ \path [line,dashed,color=purple] (S06) -- (indx) ;
+ \path [line,dashed,color=purple] (indx) -- (S09);
+ \path [line,dashed,color=purple] (indx) -- (S08);
+
+ \path [line,dashed,color=green] (S02) -- (meanSsh);
+ \path [line,dashed,color=green] (meanSsh) -- (S02);
+
+
+\end{tikzpicture}
+
+	\caption{Basic code structure. The only files that are to be edited are the INPUT files. INPUT.m is independant of the origin of data, whilst the files INPUTaviso.m, INPUTpop.m etc set source-specific parameters. Each of the SXX-steps initially calls initialise.m, which in turn scans all available data, reads in the INPUT data via get\_input.m, corrects for missing data etc and creates DD.mat. The latter is the main meta-data file, which gets updated throughout all steps. All data is built step-by-step along the consecutive SXX-steps (red line). The SXX-steps are the only programs that have to be called (in order) by the user. Missing data is filled automatically in each step (Note that meanSsh.mat should be recalculated if the time span is changed!).}
+	\label{fig:codeflow}
+\end{figure*}
+
+\end{scriptsize}
