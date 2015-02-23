@@ -8,6 +8,7 @@
 \newcommand{\footder}[1]{\footnote{See section \ref{#1} for derivation.}}
 \definecolor{colboxcolor}{HTML}{9ECBFF}
 \definecolor{cboxcolor}{HTML}{EEEEEE}
+\definecolor{filtercolor}{HTML}{FFFFFF}
 \definecolor{legendcol}{HTML}{7BBCBD}
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
 \newcommand{\ie}{\textit{i.\hairsp{}e.}\xspace} % Command to print i.e.
@@ -66,6 +67,18 @@
 }
 
 
+\newcounter{filter}
+\newenvironment{filter}[2]
+{
+\refstepcounter{filter}\par\medskip\noindent
+\begin{large}
+\textit{Contour filter~\thefilter} \textbf{#1}\\
+\noindent \mcode{function #2}\\
+\end{large}
+\noindent
+}
+{
+}
 
 
 \newenvironment{colbox}[1]
@@ -188,7 +201,7 @@
 \newcommand{\abs}[1]{\left|#1\right|}
 \DeclareMathOperator{\tr}{Tr}
 \newcommand{\eexp}[1]{ \mathrm{e}^{#1}}
-
+\renewcommand{\i}{\mathrm{i}}
 
 
 %% legend stuff
@@ -201,7 +214,8 @@
 \newcommand{\B}[0]{\hyperref[def:B]{ \vec{B}}}
 \newcommand{\Ek}[0]{\hyperref[def:Ek]{E_k}}
 \newcommand{\Em}[0]{\hyperref[def:Em]{E_m}}
-\newcommand{\scale}[0]{\hyperref[def:scale]{\sigma}}
+\newcommand{\scale}[0]{\hyperref[def:scale]{$\sigma$}\;}
+\newcommand{\CoV}[0]{\hyperref[filter:CoV]{CoV}\;}
 \newcommand{\enstro}[0]{\hyperref[def:enstro]{\varepsilon}}
 \newcommand{\f}[0]{\mathit{\hyperref[def:f]{f}}\;}
 \newcommand{\dfdy}[0]{\mathrm{\hyperref[def:beta]{\beta}}\;}
@@ -229,6 +243,7 @@
 \newcommand{\INT}[4]{\int_{#1}^{#2} #3 \; \mathrm{d}#4}
 \newcommand{\intms}[1]{ \left< #1 \right>}
 \renewcommand{\deg}[1]{#1^\circ}
+\newcommand{\km}[1]{#1 \mathrm{km}}
 \newcommand{\decom}[1]{\overline{#1} + #1'}
 \newcommand{\inbr}[1]{\left( #1 \right)}
 \newcommand{\ol}[1]{\overline{#1}}
