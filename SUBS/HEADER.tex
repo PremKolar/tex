@@ -5,24 +5,8 @@
 %\title{\ttitle} % Defines the thesis title - don't touch this
 %%  ####################################################################
 \input{SUBS/usepackage.tex}
-%\geometry{a4paper}
-%\geometry{centering, left=2cm, right=2cm, top=2cm, bottom=2cm,showframe}
 %\geometry{centering,left=0cm, right=0cm, top=2cm, bottom=2cm, a4paper,showframe}
-%\newgeometry{margin=4cm}
-%\geometry{showframe,outer=10cm}
 \geometry{margin=5cm}
-%%  ####################################################################
-%\renewcommand\floatpagefraction{.9}
-%\renewcommand\dblfloatpagefraction{.9} % for two column documents
-%\renewcommand\topfraction{.9}
-%\renewcommand\dbltopfraction{.9} % for two column documents
-%\renewcommand\bottomfraction{.9}
-%\renewcommand\textfraction{.1}
-%\cftsetindents{chapter}{0cm}{5mm}
-%\cftsetindents{section}{.3cm}{8mm}
-%\cftsetindents{subsection}{.5cm}{10mm}
-%\cftsetindents{paragraph}{.5cm}{10mm}
-%\cftsetindents{paragraph}{.5cm}{10mm}
 \graphicspath{{./FIGS/}}
 %%####################################################################
 \input{SUBS/newcommands.tex}
@@ -42,7 +26,24 @@
 %\graphicspath{{graphics/}} % Sets the default location of pictures
 \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio} % Improves figure scaling
 \fvset{fontsize=\normalsize} % The font size of all verbatim text can be changed here
+
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{1}
+
 \crefname{filter}{filter}{filters}
 \crefname{cbox}{box}{boxes}
+
+%\DeclareSymbolFont{operators}{OT1}{cmr}{m}{n}
+%\DeclareSymbolFont{letters}{OML}{cmm}{m}{it}
+
+
+%\setlist{noitemsep}
+%\setlist[1]{\labelindent=\parindent} % < Usually a good idea
+%\setlist[itemize]{leftmargin=*}
+%\setlist[itemize,1]{label=$\triangleleft$}
+%\setlist[enumerate]{labelsep=*, leftmargin=1.5pc}
+%\setlist[enumerate,1]{label=\arabic*., ref=\arabic*}
+%\setlist[enumerate,2]{label=\emph{\alph*}),
+%ref=\theenumi.\emph{\alph*}}
+%\setlist[enumerate,3]{label=\roman*), ref=\theenumii.\roman*}
+%\setlist[description]{font=\sffamily\bfseries}

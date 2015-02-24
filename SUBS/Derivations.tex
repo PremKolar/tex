@@ -119,7 +119,8 @@
 	\gg	\omega_h $,	leads to:
 
 	%%%....................................................................
-	\begin{equation}\begin{split}
+	\begin{equation}
+	\begin{split}
 	\dpr{\vec{\omega} }{t}
 	+
 	\advec{\vec{\omega}}
@@ -131,9 +132,11 @@
 	+
 	\B
 	%%--------------------------------------------------------------------
-	\end{split}\end{equation}
+	\end{split}
+	\end{equation}
 	horizontal:
-	\begin{equation}\begin{split}
+	\begin{equation}
+		\begin{split}
 	&\frac{1}{T} \frac{U}{H }
 	+
 	\left(\frac{U }{L} + \frac{W}{H} \right)
@@ -157,7 +160,8 @@
 	+
 	\B
 	%%--------------------------------------------------------------------
-	\end{split}\end{equation}
+	\end{split}
+	\end{equation}
 	vertical:
 	\begin{equation}\begin{split}
 	&\frac{U}{LT}
@@ -510,29 +514,31 @@ L\\
 %%####################################################################
 
 \begin{derivation}[Okubo-Weiss-Parameter]\label{der:okubo}
-%%%....................................................................
-\begin{equation}\begin{split}
-\ten{T}
-&=
-\grad \vec{u}\\
-%%--------------------------------------------------------------------
-&=
-\dpr{u_i}{x_j} \unitvec{e}_i \unitvec{e}_j \\
-&=
-\frac{1}{2}\left(
-\left(\ten{T}+\tent{T}\right)
-+
-\left( \ten{T} - \tent{T} \right)
-\right) \\
-%%--------------------------------------------------------------------
-&=
-\frac{1}{2} \left( \left( \dpr{u_i}{x_j} + \dpr{u_j}{x_i}\right)
-\unitvec{e}_i	\unitvec{e}_j \right)
-+
-\frac{1}{2} \left( \left( \dpr{u_i}{x_j} - \dpr{u_j}{x_i}\right)
-\unitvec{e}_i	\unitvec{e}_j \right)
-\end{split}\end{equation}
-%%%....................................................................
+\TODO{!}
+%%%%....................................................................
+%\begin{equation}\begin{split}
+%\ten{T}
+%&=
+%\grad \vec{u}\\
+%%%--------------------------------------------------------------------
+%&=
+%\dpr{u_i}{x_j} \unitvec{e}_i \unitvec{e}_j \\
+%&=
+%\frac{1}{2}\left(
+%\left(\ten{T}+\tent{T}\right)
+%+
+%\left( \ten{T} - \tent{T} \right)
+%\right) \\
+%%%--------------------------------------------------------------------
+%&=
+%\frac{1}{2} \left( \left( \dpr{u_i}{x_j} + \dpr{u_j}{x_i}\right)
+%\unitvec{e}_i	\unitvec{e}_j \right)
+%+
+%\frac{1}{2} \left( \left( \dpr{u_i}{x_j} - \dpr{u_j}{x_i}\right)
+%\unitvec{e}_i	\unitvec{e}_j \right)
+%\end{split}
+%\end{equation}
+%%%%....................................................................
 %%%....................................................................
 \begin{equation}\begin{split}
 \mathrm{O_w}=\tr{\ten{T}^2}
@@ -607,220 +613,222 @@ X_t
 %###################################%\\%###################################%
 \begin{derivation}[Mean Fields of $u$ and $b$]
 \label{der:fields}
-%%%................................................................
-\begin{subequations}\label{eq:inhomo1}
-\begin{align}
-\dpr{u_i}{t} \unitvec{e}_i
-+
-u_j \dpr{u_i}{x_j}\unitvec{e}_i
-+
-\delta_{j3}\timesES{f}{u}
-&=
--\dpr{p}{x_i}	\unitvec{e}_i
-+ \nu \dpr{^2u_i}{x_j^2}\unitvec{e}_i
-- \delta_3 g\unitvec{e}_i \label{eq:inhomoNS}\\
-% --------------------------------------------------------------------
-\dpr{u_i}{x_i}
-&=
-0 \label{eq:inhomoCON}\\
-% --------------------------------------------------------------------
-\Dpr{\rho}{t}
-&=
--\dpr{J_{i}^{rad}}{x_i}
-+   \kappa \dpr{^2 \rho}{x_i} \label{eq:inhomoSTATE}
-\end{align}
-\end{subequations}
-% %%....................................................................
-A Reynolds decomposition of \eqsref{eq:inhomo1} yields
-% %%....................................................................
-\begin{subequations} \label{eq:inhomoDECOMP}
-\begin{align}
-\begin{split}
-\dpr{\inbr{\decom{u_i}}}{t}\unitvec{e}_i
-+
-\inbr{\decom{u_j}} \dpr{\inbr{\decom{u_i}}}{x_j}\unitvec{e}_i
-+
-\delta_{j3}\timesES{f}{\inbr{\decom{u}}}\\
-=
--\dpr{\inbr{\decom{p}}}{x_i}	\unitvec{e}_i
-+ \nu \dpr{^2\inbr{\decom{u_i}}}{x_j^2}\unitvec{e}_i
-- \delta_3 \ol{g} \unitvec{e}_i\label{eq:decompfin}
-&\end{split}\\
-% --------------------------------------------------------------------
-\dpr{\inbr{\decom{u_i}}}{x_i}
-=
-0 & \\
-% --------------------------------------------------------------------
-\dpr{\inbr{\decom{\rho}}}{t}
-+	\inbr{\decom{u_i}}\dpr{\inbr{\decom{\rho}}}{x_i}
-=
--	\ol{\dpr{J_{i}^{rad}}{x_i}}
--	\dpr{J_{i}^{rad}}{x_i}'
-+   \kappa \dpr{^2 \inbr{\decom{\rho}}}{x_i}
-\end{align}
-\end{subequations}
-% %%....................................................................
-Averaging \eqsref{eq:inhomoDECOMP} yields
-% %%....................................................................
-\begin{subequations}
-\begin{align}
-\begin{split}
-&\dpr{\ol{\inbr{\decom{u_i}}}}{t}  \unitvec{e}_i
-+  \\
-&\ol{\ol{u_j} \dpr{\ol{u_i}}{x_j}\unitvec{e}_i
-+
-\delta_{j3}\timesES{f}{\inbr{\decom{u}}}
-+
-\ol{u_j} u_i'\unitvec{e}_i
-+
-u_j'\dpr{\ol{u_i}}{x_j}\unitvec{e}_i
-+
-u_j'\dpr{u_i'}{x_j}\unitvec{e}_i
-}\\
-&=
--\ol{\dpr{\inbr{\decom{p}}}{x_i}}\unitvec{e}_i
-+ \nu \dpr{^2\ol{\inbr{\decom{u_i}}}}{x_j^2}\unitvec{e}_i
-- \delta_3 \ol{g}\unitvec{e}_i
-\end{split} \\
-% --------------------------------------------------------------------
-& \dpr{\ol{\inbr{\decom{u_i}}}}{x_i}
-=
-0 \\
-% --------------------------------------------------------------------
-&\dpr{\ol{\inbr{\decom{\rho}}}}{t}
-+\ol{
-\ol{u_j} \dpr{\ol{\rho}}{x_j}
-+
-\ol{u_j} \rho'
-+
-u_j'\dpr{\ol{\rho}}{x_j}
-+
-u_j'\dpr{\rho'}{x_j}
-}
-=
--	\ol{\ol{\dpr{J_{i}^{rad}}{x_i}}-	\dpr{J_{i}^{rad}}{x_i}'}
-+   \kappa \dpr{^2 \ol{\inbr{\decom{\rho}}}}{x_i}
-\end{align}
-\end{subequations}
-% %....................................................................
-with $\ol{\ol{\inbr{\;}}}=\ol{\inbr{\;}}$ and $\ol{\inbr{'}}=0$
-% %....................................................................
-\begin{subequations}
-\begin{align}
-\dpr{\ol{u_i}}{t}\unitvec{e}_i
-+
-\ol{\ol{u_j} \dpr{\ol{u_i}}{x_j}}\unitvec{e}_i
-+
-\ol{u_j'\dpr{u_i'}{x_j}}\unitvec{e}_i
-+
-\delta_{j3}\timesES{f}{\ol{u}}
-&=
--\dpr{\ol{p}}{x_i}	\unitvec{e}_i
-+ \nu \dpr{^2\ol{u_i}}{x_j^2}\unitvec{e}_i
-- \delta_3 \ol{g}\unitvec{e}_i \\
-% --------------------------------------------------------------------
-\dpr{\ol{u_i}}{x_i}
-&=
-0 \\
-% --------------------------------------------------------------------
-\dpr{\ol{\rho}}{t}
-+\ol{\ol{u_j} \dpr{\ol{\rho}}{x_j}}
-+\ol{u_j'\dpr{\rho'}{x_j}}
-&=
--\ol{\dpr{J_{i}^{rad}}{x_i}}
-+   \kappa \dpr{^2 \ol{\rho}}{x_i^2}
-\end{align}
-\end{subequations}
-% %....................................................................
-Focusing solely on deviations from the mean state and assuming horizontal
-gradients of the mean state to be negligible and hence due to continuity
-also	\footnote{$\delta_h=1-\delta_3$} $\dpr{w}{z}=0 \rightarrow w=0$:
+\TODO{?}
+%%%%................................................................
+%\begin{subequations}\label{eq:inhomo1}
+%\begin{align}
+%\dpr{u_i}{t} \unitvec{e}_i
+%+
+%u_j \dpr{u_i}{x_j}\unitvec{e}_i
+%+
+%\delta_{j3}\timesES{f}{u}
+%&=
+%-\dpr{p}{x_i}	\unitvec{e}_i
+%+ \nu \dpr{^2u_i}{x_j^2}\unitvec{e}_i
+%- \delta_3 g\unitvec{e}_i \label{eq:inhomoNS}\\
+%% --------------------------------------------------------------------
+%\dpr{u_i}{x_i}
+%&=
+%0 \label{eq:inhomoCON}\\
+%% --------------------------------------------------------------------
+%\Dpr{\rho}{t}
+%&=
+%-\dpr{J_{i}^{rad}}{x_i}
+%+   \kappa \dpr{^2 \rho}{x_i} \label{eq:inhomoSTATE}
+%\end{align}
+%\end{subequations}
+%% %%....................................................................
+%A Reynolds decomposition of \eqsref{eq:inhomo1} yields
+%% %%....................................................................
+%\begin{subequations} \label{eq:inhomoDECOMP}
+%\begin{align}
+%\begin{split}
+%\dpr{\inbr{\decom{u_i}}}{t}\unitvec{e}_i
+%+
+%\inbr{\decom{u_j}} \dpr{\inbr{\decom{u_i}}}{x_j}\unitvec{e}_i
+%+
+%\delta_{j3}\timesES{f}{\inbr{\decom{u}}}\\
+%=
+%-\dpr{\inbr{\decom{p}}}{x_i}	\unitvec{e}_i
+%+ \nu \dpr{^2\inbr{\decom{u_i}}}{x_j^2}\unitvec{e}_i
+%- \delta_3 \ol{g} \unitvec{e}_i\label{eq:decompfin}
+%&\end{split}\\
+%% --------------------------------------------------------------------
+%\dpr{\inbr{\decom{u_i}}}{x_i}
+%=
+%0 & \\
+%% --------------------------------------------------------------------
+%\dpr{\inbr{\decom{\rho}}}{t}
+%+	\inbr{\decom{u_i}}\dpr{\inbr{\decom{\rho}}}{x_i}
+%=
+%-	\ol{\dpr{J_{i}^{rad}}{x_i}}
+%-	\dpr{J_{i}^{rad}}{x_i}'
+%+   \kappa \dpr{^2 \inbr{\decom{\rho}}}{x_i}
+%\end{align}
+%\end{subequations}
+%% %%....................................................................
+%Averaging \eqsref{eq:inhomoDECOMP} yields
+%% %%....................................................................
+%\begin{subequations}
+%\begin{align}
+%\begin{split}
+%&\dpr{\ol{\inbr{\decom{u_i}}}}{t}  \unitvec{e}_i
+%+  \\
+%&\ol{\ol{u_j} \dpr{\ol{u_i}}{x_j}\unitvec{e}_i
+%+
+%\delta_{j3}\timesES{f}{\inbr{\decom{u}}}
+%+
+%\ol{u_j} u_i'\unitvec{e}_i
+%+
+%u_j'\dpr{\ol{u_i}}{x_j}\unitvec{e}_i
+%+
+%u_j'\dpr{u_i'}{x_j}\unitvec{e}_i
+%}\\
+%&=
+%-\ol{\dpr{\inbr{\decom{p}}}{x_i}}\unitvec{e}_i
+%+ \nu \dpr{^2\ol{\inbr{\decom{u_i}}}}{x_j^2}\unitvec{e}_i
+%- \delta_3 \ol{g}\unitvec{e}_i
+%\end{split} \\
+%% --------------------------------------------------------------------
+%& \dpr{\ol{\inbr{\decom{u_i}}}}{x_i}
+%=
+%0 \\
+%% --------------------------------------------------------------------
+%&\dpr{\ol{\inbr{\decom{\rho}}}}{t}
+%+\ol{
+%\ol{u_j} \dpr{\ol{\rho}}{x_j}
+%+
+%\ol{u_j} \rho'
+%+
+%u_j'\dpr{\ol{\rho}}{x_j}
+%+
+%u_j'\dpr{\rho'}{x_j}
+%}
+%=
+%-	\ol{\ol{\dpr{J_{i}^{rad}}{x_i}}-	\dpr{J_{i}^{rad}}{x_i}'}
+%+   \kappa \dpr{^2 \ol{\inbr{\decom{\rho}}}}{x_i}
+%\end{align}
+%\end{subequations}
+%% %....................................................................
+%with $\ol{\ol{\inbr{\;}}}=\ol{\inbr{\;}}$ and $\ol{\inbr{'}}=0$
+%% %....................................................................
+%\begin{subequations}
+%\begin{align}
+%\dpr{\ol{u_i}}{t}\unitvec{e}_i
+%+
+%\ol{\ol{u_j} \dpr{\ol{u_i}}{x_j}}\unitvec{e}_i
+%+
+%\ol{u_j'\dpr{u_i'}{x_j}}\unitvec{e}_i
+%+
+%\delta_{j3}\timesES{f}{\ol{u}}
+%&=
+%-\dpr{\ol{p}}{x_i}	\unitvec{e}_i
+%+ \nu \dpr{^2\ol{u_i}}{x_j^2}\unitvec{e}_i
+%- \delta_3 \ol{g}\unitvec{e}_i \\
+%% --------------------------------------------------------------------
+%\dpr{\ol{u_i}}{x_i}
+%&=
+%0 \\
+%% --------------------------------------------------------------------
+%\dpr{\ol{\rho}}{t}
+%+\ol{\ol{u_j} \dpr{\ol{\rho}}{x_j}}
+%+\ol{u_j'\dpr{\rho'}{x_j}}
+%&=
+%-\ol{\dpr{J_{i}^{rad}}{x_i}}
+%+   \kappa \dpr{^2 \ol{\rho}}{x_i^2}
+%\end{align}
+%\end{subequations}
+%% %....................................................................
+%Focusing solely on deviations from the mean state and assuming horizontal
+%gradients of the mean state to be negligible and hence due to continuity
+%also	\footnote{$\delta_h=1-\delta_3$} $\dpr{w}{z}=0 \rightarrow w=0$:
 
-% %....................................................................
-\begin{subequations}
-\begin{align}
-\delta_h \dpr{\ol{u_i}}{t}\unitvec{e}_i
-+
-\ol{w'\dpr{u_i'}{z}}\unitvec{e}_i
-+
-\delta_h \delta_{j3}\timesES{f}{\ol{u}}
-&=
--\dpr{\ol{p}}{z}	\unitvec{e}_z
--  g\unitvec{e}_z \\
-% --------------------------------------------------------------------
-\dpr{\ol{\rho}}{t}
-+\ol{w'\dpr{\rho'}{z}}
-&=
--\dpr{\ol{J_{i}^{rad}}}{z}
-+   \kappa \dpr{^2 \ol{\rho}}{z^2}
-\end{align}
-\end{subequations}
-%....................................................................
-returning to vector notation
-% %....................................................................
-\begin{subequations}
-\begin{align}
-\dpr{\ol{\vec{u}_h}}{t}
-+
-\ol{w' \dpr{\vec{u}'}{z}}
-+
-f \vec{k} \times \ol{\vec{u}_h}
-&=
--\dpr{\ol{p}}{z} \unitvec{e}_z
-+  \vec{g} \label{eq:inhomoNStemp1} \\
-% --------------------------------------------------------------------
-\dpr{\ol{\rho}}{t}
-+\ol{w' \dpr{ \rho'}{z}}
-&=
--\dpr{\ol{\vec{J}}_{rad}}{z}
-+   \kappa \dpr{^2 \ol{\rho}}{z^2}
-\end{align}
-\end{subequations}
-% %....................................................................
-where the RHS of \eqref{eq:inhomoNStemp1} is hydrostaticity, leaving
-$\ol{w'\dpr{w'}{z}}=0 \rightarrow \dpr{w'}{z}=0$ for the vertical part,
-hence:
-% %....................................................................
-\begin{subequations}
-\begin{align}
-\dpr{\ol{\vec{u}_h}}{t}
-+
-\ol{ \dpr{w'\vec{u}_h'}{z}}
-+
-f \vec{k} \times \ol{\vec{u}_h}
-&=
-0 \\
-% --------------------------------------------------------------------
-\dpr{\ol{\rho}}{t}
-+\ol{ \dpr{ w'\rho'}{z}}
-&=
--\dpr{\ol{\vec{J}}_{rad}}{z}
-+   \kappa \dpr{^2 \ol{\rho}}{z^2}
-\end{align}
-\end{subequations}
-% %....................................................................
-% %....................................................................
-\begin{subequations} \label{eq:inhomo_fin}
-\begin{align}
-\dpr{\ol{\vec{u}_h}}{t}
-+
-\ol{ \dpr{w'\vec{u}_h'}{z}}
-+
-f \vec{k} \times \ol{\vec{u}_h}
-&=
-0 \\
-% --------------------------------------------------------------------
-\dpr{\ol{\rho}}{t}
-&=
--\dpr{}{z}
-\left(
-\ol{  w'\rho'}
--\ol{\vec{J}}_{rad}
-+   \kappa \dpr{ \ol{\rho}}{z} \right)
-\end{align}
-\end{subequations}
-% %....................................................................
+%% %....................................................................
+%\begin{subequations}
+%\begin{align}
+%\delta_h \dpr{\ol{u_i}}{t}\unitvec{e}_i
+%+
+%\ol{w'\dpr{u_i'}{z}}\unitvec{e}_i
+%+
+%\delta_h \delta_{j3}\timesES{f}{\ol{u}}
+%&=
+%-\dpr{\ol{p}}{z}	\unitvec{e}_z
+%-  g\unitvec{e}_z \\
+%% --------------------------------------------------------------------
+%\dpr{\ol{\rho}}{t}
+%+\ol{w'\dpr{\rho'}{z}}
+%&=
+%-\dpr{\ol{J_{i}^{rad}}}{z}
+%+   \kappa \dpr{^2 \ol{\rho}}{z^2}
+%\end{align}
+%\end{subequations}
+%%....................................................................
+%returning to vector notation
+%% %....................................................................
+%\begin{subequations}
+%\begin{align}
+%\dpr{\ol{\vec{u}_h}}{t}
+%+
+%\ol{w' \dpr{\vec{u}'}{z}}
+%+
+%f \vec{k} \times \ol{\vec{u}_h}
+%&=
+%-\dpr{\ol{p}}{z} \unitvec{e}_z
+%+  \vec{g} \label{eq:inhomoNStemp1} \\
+%% --------------------------------------------------------------------
+%\dpr{\ol{\rho}}{t}
+%+\ol{w' \dpr{ \rho'}{z}}
+%&=
+%-\dpr{\ol{\vec{J}}_{rad}}{z}
+%+   \kappa \dpr{^2 \ol{\rho}}{z^2}
+%\end{align}
+%\end{subequations}
+%% %....................................................................
+%where the RHS of \eqref{eq:inhomoNStemp1} is hydrostaticity, leaving
+%$\ol{w'\dpr{w'}{z}}=0 \rightarrow \dpr{w'}{z}=0$ for the vertical part,
+%hence:
+%% %....................................................................
+%\begin{subequations}
+%\begin{align}
+%\dpr{\ol{\vec{u}_h}}{t}
+%+
+%\ol{ \dpr{w'\vec{u}_h'}{z}}
+%+
+%f \vec{k} \times \ol{\vec{u}_h}
+%&=
+%0 \\
+%% --------------------------------------------------------------------
+%\dpr{\ol{\rho}}{t}
+%+\ol{ \dpr{ w'\rho'}{z}}
+%&=
+%-\dpr{\ol{\vec{J}}_{rad}}{z}
+%+   \kappa \dpr{^2 \ol{\rho}}{z^2}
+%\end{align}
+%\end{subequations}
+%% %....................................................................
+%% %....................................................................
+%\begin{subequations} \label{eq:inhomo_fin}
+%\begin{align}
+%\dpr{\ol{\vec{u}_h}}{t}
+%+
+%\ol{ \dpr{w'\vec{u}_h'}{z}}
+%+
+%f \vec{k} \times \ol{\vec{u}_h}
+%&=
+%0 \\
+%% --------------------------------------------------------------------
+%\dpr{\ol{\rho}}{t}
+%&=
+%-\dpr{}{z}
+%\left(
+%\ol{  w'\rho'}
+%-\ol{\vec{J}}_{rad}
+%+   \kappa \dpr{ \ol{\rho}}{z} \right)
+%\end{align}
+%\end{subequations}
+%% %....................................................................
 \end{derivation}
+
 \todo[color=red]{diffusion term very small on macro scale?}
 %%####################################################################
 %%####################################################################
