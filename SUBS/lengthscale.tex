@@ -1,10 +1,10 @@
-\paragraph{This} section is intended to shed light on the benefits of exact determinations of ocean-eddy-\textit{scales}. That is, their horizontal extent \ie
-their diameter or \textit{wavelength}.
+\newthought{This} section discusses the motivation for exact determinations of eddy \textit{scales}. That is, their horizontal extent \ie their diameter or \textit{wavelength}.
+
 %%%####################################################################
 %%%####################################################################
-\paragraph{Just}~like the \emph{eddy} itself, its scale is rather vague and difficult to define. What physical parameter defines the outer edge of a seamless, smooth vortex? If the eddy is detected as done by \citet{Chelton2011}, \ie closed contours of SSH the interior of which fulfilling certain criteria, the measured perimeter may jump considerably from one time step to the next. An incremental difference in the choice of $z$ might translate to a perimeter outlining twice the  difference in area, especially when SSH gradients are small.\\
+\newthought{Just} like the eddy itself, its scale is rather vague and difficult to define. What physical parameter defines the outer edge of a seamless, smooth vortex? If the eddy is detected as done by \citet{Chelton2011}, \ie closed contours of SSH, the interior of which fulfilling certain criteria, the measured perimeter may jump considerably from one time step to the next. An incremental difference in the choice of $z$ might translate to a perimeter outlining twice the  difference in area, especially when SSH gradients are small.\\
 Another possibility is to define an amplitude first, then assume a certain shape \eg Gaussian, and then infer the radius indirectly. The obvious problem with this approach would be to properly define the amplitude.\\
-The most physically sound method would have to be one depending on the eddy's most defining physical variable, that is unambiguously determinable from SSH. The geostrophic velocities. \citet{Chelton2011}, as with everything else, tried all methods but also conclude that the later is the most adequate one. \footnote{See Chapter }\TODO{ref to technical chapter}.
+The most physically sound method would have to be one depending on the eddy's most defining physical variable that is unambiguously determinable from SSH: the geostrophic velocities. \citet{Chelton2011}, as with everything else, tried all methods but also conclude that the later is the most adequate one. \footnote{See Chapter }\TODO{ref to technical chapter}.
 
 %%
 %%%####################################################################
@@ -12,14 +12,16 @@ The most physically sound method would have to be one depending on the eddy's mo
 %
 \begin{marginfigure}
 \includegraphics[]{SSHB.pdf}
-  \caption{top: Stommel's equation $\mathcal{F}_{bottom}-\mathcal{F}_{surface}= -v\beta$ with constant eddy viscosity. bottom: Parallel Ocean Program eddy-resolving model snapshot with SSH mean of one year subtracted. }
+  \caption{top: Stommel's equation $\mathrm{F}_{bottom}-\mathrm{F}_{surface}= -V\beta$ with constant eddy viscosity. bottom: \POP eddy-resolving model snapshot with SSH mean of one year subtracted. }
+  \label{fig:SSHB}
 \end{marginfigure}
 
 
-\paragraph{Construed} as an integral length scale of turbulence \ie as the distance at which the auto-correlation of particles reaches zero, the \emph{eddy-scale} turns out to be of fundamental relevance for attempts to parametrize geostrophic turbulence.\\
-General circulation models ($\order{2}$km) as they are used in \eg climate forecasts are too coarse to resolve meso-scale ($\order{1}$km) turbulence. Even if the Von-Neumann-condition were ignored and a refinement were desired horizontally only, a leap of one order of magnitude would cause an increase in calculation time of factor \footnote{With the Moore's-Law-type exponential growth in FLOP/S of the last 22 years for supercomputers ($\lg(x)\sim 3/11 a$) a factor $100$ interestingly translates to only $a=22/3\approx 7$ years...} $x=100$.  The effects of the nonlinear terms therefore have to be somehow articulated in an integral sense for the large grid-boxes in the model.
-A common approach is to assume that \textit{eddy kinetic energy} $\ol{ \vec{u}'\vec{u}'}$ and \textit{eddy potential energy} $\ol{  w'\rho'}$, akin to diffusive
-processes \footnote{In analogy to Fick's first law of diffusion}, are proportional to the gradient of $\ol{u}$ respective $\ol{b}$
+\newthought{Construed} as an integral length scale of turbulence \ie as the distance at which the auto-correlation of particles reaches zero, the \emph{eddy-scale} turns out to be of fundamental relevance for attempts to parametrize geostrophic turbulence.\\
+General circulation models ($\order{2}$km) as they are used in \eg climate forecasts are too coarse to resolve meso-scale ($\order{1}$km) turbulence \TODO{ref}. Even if the Von-Neumann-condition were ignored and a refinement were desired horizontally only, a leap of one order of magnitude would effect an increase in calculation time \footnote{With the Moore's-Law-type exponential growth in FLOP/S of the last 22 years for supercomputers ($\lg(x)\sim 3/11 a$) a factor $100$ interestingly translates to only $a=22/3\approx 7$ years...} of factor $x=100$.  The effects of the nonlinear terms therefore have to be somehow articulated in an integral sense for the large grid-boxes in the model.
+A common approach is to assume that \textit{eddy kinetic energy} $\ol{ \vec{u}'\vec{u}'}$ and \textit{eddy potential energy} $\ol{  w'\rho'}$, akin to diffusive processes,
+\footnote{In analogy to Fick's first law of diffusion.}
+ were proportional to the gradient of $\ol{u}$ respective $\ol{b}$
 (down-gradient-parametrization \footnote{\ie Reynolds averaging}) \citep*{olbers2012ocean}, which leads to the problem of finding expressions for the
 \textit{turbulent diffusivities} \ie the rate at which gradients are diffused by turbulence. This parameter is by no means constant, instead it can span
 several orders of magnitude, itself depending on the strength of turbulence-relevant gradients, and sometimes even assuming negative values
@@ -27,7 +29,11 @@ several orders of magnitude, itself depending on the strength of turbulence-rele
 eddy diffusivites and turbulence parametrizations in general.
 
 
-%\paragraph{Eddy Diffusivities} For simplicity assume full incompressibility and a variable density $\rho(T)$, that is linearly dependent on temperature only and that there be some radiative surface flux $J^{rad}$ for $T$, hence also for $\rho$. Further consider kinetic energy being burned to heat on molecular scales \ie Joule heating, creating another positive source of $T$ thus $\rho$. \derref{der:FIELDSDER}
+
+\TODO{[...] i took out section on eddy diffusivities}
+
+
+%\newthought{Eddy Diffusivities} For simplicity assume full incompressibility and a variable density $\rho(T)$, that is linearly dependent on temperature only and that there be some radiative surface flux $J^{rad}$ for $T$, hence also for $\rho$. Further consider kinetic energy being burned to heat on molecular scales \ie Joule heating, creating another positive source of $T$ thus $\rho$. \derref{der:FIELDSDER}
 
 %%%....................................................................
 %\begin{subequations} \label{eq:inhomo_fin}

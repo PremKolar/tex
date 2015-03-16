@@ -94,7 +94,7 @@
 
 \end{tikzpicture}
 
-	\caption{Basic code structure. The only files that are to be edited are the INPUT files. INPUT.m is independant of the origin of data, whilst the files INPUTaviso.m, INPUTpop.m etc set source-specific parameters. Each of the SXX-steps initially calls initialise.m, which in turn scans all available data, reads in the INPUT data via get\_input.m, corrects for missing data etc and creates DD.mat. The latter is the main meta-data file, which gets updated throughout all steps. All data is built step-by-step along the consecutive SXX-steps (red line). The SXX-steps are the only programs that have to be called (in order) by the user. Missing data is filled automatically in each step (Note that meanSsh.mat should be recalculated if the time span is changed!).}
+	\caption{Basic code structure. The only files that are to be edited are the INPUT files. INPUT.m is independant of the origin of data, whilst the files INPUTaviso.m, INPUTpop.m etc set are samples of more source-specific parameter settings. Each of the SXX-steps initially calls initialise.m, which in turn scans all available data, reads in the INPUT data via get\_input.m, corrects for missing data etc and creates DD.mat. The latter is the main meta-data file, which gets updated throughout all steps. All data is built step-by-step along the consecutive SXX-steps (red line). The SXX-steps are the only programs that have to be called (in order) by the user. Beware that missing data (in time) is interpolated automatically in each step. Note also that meanSsh.mat should be recalculated if the time span is changed!}
 	\label{fig:codeflow}
 \end{figure*}
 

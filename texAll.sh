@@ -1,6 +1,6 @@
 #!/bin/bash
-#root=~/documents/texMT/
-root=/scratch/uni/ifmto/u300065/texMT/
+root=~/documents/tex/
+#root=/scratch/uni/ifmto/u300065/texMT/
 file=THESIS
 
 # ==================================

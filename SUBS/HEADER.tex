@@ -27,7 +27,7 @@
 \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio} % Improves figure scaling
 \fvset{fontsize=\normalsize} % The font size of all verbatim text can be changed here
 
-\setcounter{secnumdepth}{4}
+\setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{1}
 
 \crefname{filter}{filter}{filters}
@@ -47,3 +47,8 @@
 %ref=\theenumi.\emph{\alph*}}
 %\setlist[enumerate,3]{label=\roman*), ref=\theenumii.\roman*}
 %\setlist[description]{font=\sffamily\bfseries}
+
+\usetikzlibrary{arrows,shapes,positioning,shadows}
+\tikzset{
+ashadow/.style={opacity=.25, shadow xshift=0.07, shadow yshift=-0.07},
+}

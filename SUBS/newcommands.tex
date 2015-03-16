@@ -64,6 +64,7 @@
 % ######################################################################
 
 \newcounter{cbox}
+\newcounter{speedbox}
 \newcounter{filter}
 
 % ######################################################################
@@ -87,13 +88,13 @@
 
 \newenvironment{speedbox}[1]
 {
-\refstepcounter{cbox}\par\medskip\noindent
+\refstepcounter{speedbox}\par\medskip\noindent
 \def\FrameCommand{\colorbox{speedboxcolor}}%
 %\MakeFramed{\advance\hsize-\width \FrameRestore\cornersize{0.9}}
 %\MakeFramed{\FrameRestore\cornersize{0.99}}
 \begin{scriptsize}
 \begin{center}
-\textbf{Box~\thecbox. #1}
+\textbf{Eddy Drift Speed~\thecbox. #1}
 \end{center}
 }
 {
@@ -234,7 +235,7 @@ innertopmargin=\topskip,}
 \newcommand{\scale}[0]{\hyperref[def:scale]{$\sigma$}\;}
 \newcommand{\CoV}[0]{\hyperref[filter:CoV]{CoV}\;}
 \newcommand{\enstro}[0]{\hyperref[def:enstro]{\varepsilon}}
-\newcommand{\f}[0]{\mathit{\hyperref[def:f]{f}}\;}
+\newcommand{\f}[0]{\mathit{\hyperref[def:f]{f}}}
 \newcommand{\dfdy}[0]{\mathrm{\hyperref[def:beta]{\beta}}\;}
 \newcommand{\g}[0]{\mathit{\hyperref[def:g]{g}}\;}
 \newcommand{\okubo}[0]{\mathrm{\hyperref[def:okubo]{O_w}}\;}
