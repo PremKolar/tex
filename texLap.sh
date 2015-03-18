@@ -16,8 +16,8 @@ pdflatex --file-line-error-style $1.tex
 
 cd $root
 
-#texclean
+texclean
 tex2pdf $file
-#bibtex $file
-#tex2pdf $file
-#tex2pdf $file	
+bibtex $file
+tex2pdf $file
+tex2pdf $file	
