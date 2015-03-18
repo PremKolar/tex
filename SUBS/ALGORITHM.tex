@@ -1,5 +1,5 @@
-\label{chap:algorithm}	
-
+\label{chap:algorithm}
+\TODO{resort some stuff to intro/discussion..}
 This section walks through the algorithm step by step, so as to explain
 which
 methods are used and how they are implemented.
@@ -37,11 +37,11 @@ This function...
 		\item
 		...integrate the Rossby-Radius $\Lr=\frac{1}{\pi f}\INT{H}{ }{N}{z}$ and ...
 		\item
-		apply the long-Rossby-Wave dispersion relation to found $\Lr$ to estimate Rossby-Wave phase-speeds $c=-\frac{\beta}{k^2+(1/L_r)^2} \approx -\beta \Lr^2$
+		apply the long-Rossby-Wave dispersion relation to found $\Lr$ to estimate Rossby-Wave phase-speeds $c=-\frac{\dfdy}{k^2+(1/L_r)^2} \approx -\dfdy \Lr^2$
 	\end{itemize}
 \end{itemize}
 
-The 3-dimensional matrices ($S$ and $T$) are cut zonally into slices which then get distributed to the threads. This allows for direct matrix operations for all calculations which would otherwise cause memory problems due to the immense sizes of the 3d-data \footnote{\Eg the pop data has dimensions $42 \times 3600 \times 1800 $.}.
+The 3-dimensional matrices ($S$ and $T$) are cut zonally into slices which then get distributed to the threads. This allows for direct matrix operations for all calculations which would otherwise cause memory problems due to the immense sizes of the 3d-data \footnote{\Eg the \POP data has dimensions $42 \times 3600 \times 1800 $.}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Step S02: Calculate Geostrophic Parameters}
 \mcode{function S02_infer_fields}\\
@@ -51,7 +51,7 @@ This step reads the cut SSH data from \mcode{S00_prep_data} to perform 2 steps:
 Calculate a mean over time of $SSH(y,x)$.
 	\item
 \begin{itemize}
-	\item  use one of the files' geo-information to determine $\f$, $\beta$ and
+	\item  use one of the files' geo-information to determine $\f$, $\dfdy$ and
 $\g$.
 \item
  calculate geostrophic fields from SSH gradients.
@@ -96,8 +96,8 @@ In the first step the potential eddies are transformed to a more sensible
 format, that is, a structure \mcode{Eddies} of size \mcode{EddyCount}. The struct has fields for level, number of
 vertices, exact \ie interpolated coordinates and rounded integer coordinates.\\
 The interpolation of \mcode{contourc.m} sometimes creates indices that are
-either smaller than $0.5$ or larger than $N+0.5$ \footnote{where $N$ is the
-domain size} for contours that lie along a boundary. After rounding, this
+either smaller than $0.5$ or larger than \footnote{where $N$ is the
+domain size} $N+0.5$ for contours that lie along a boundary. After rounding, this
 seldomly leads to indices of either $0$ or $N+1$. These values get set to $1$
 and $N$ respectively in this step.
 \subsection{Descend/Ascend Water Column and Apply Tests}
@@ -111,20 +111,20 @@ The concept of this step is a direct adaption of the algorithm described
 by \citet{Chelton2011}. It is split into two steps, one for anti-cyclones and one
 for cyclones. Consider \eg the anti-cyclone situation. Since all
 geostrophic anti-cyclones are regions of relative high pressure, all
-anti-cyclones \footnote{abbreviated AC henceforth} effect an elevated \SSH \ie
+\ACs effect an elevated \SSH \ie
 a \textit{hill}. The algorithm ascends the full range of SSH levels where
-contours were found. Consider an approximately Gaussian shaped AC that has a
+contours were found. Consider an approximately Gaussian shaped \AC that has a
 peak SSH of say 5 increments larger than the average surrounding waters.
 As the algorithm approaches the sea surface from below, it will eventually run
-into contours that are closed onto themselves and that encompass the AC. At
+into contours that are closed onto themselves and that encompass the \AC. At
 first these contours might be very large and describe not only one but several
-ACs and likely also cyclones, but as the algorithm continues upwards found
+\ACs and likely also cyclones, but as the algorithm continues upwards found
 contour will get increasingly circular, describing some outer \textit{edge} of
-the AC. Once the contour and its interior pass all of the tests, the algorithm
-will decide that an AC was found and write it and all its parameters to disk.
-The AC's region \ie the interior of the contour will be flagged from here on.
+the \AC. Once the contour and its interior pass all of the tests, the algorithm
+will decide that an \AC was found and write it and all its parameters to disk.
+The \AC's region \ie the interior of the contour will be flagged from here on.
 Hence any inner contour further up the water column will not pass the tests.
-Once all AC's are found for a given time-step, the SSH flags get reset and the
+Once all \ACs are found for a given time-step, the SSH flags get reset and the
 entire procedure is repeated, only this time \textit{descending} the SSH-range to
 find cyclones. The tests for cyclones and anti-cyclones are therefor identical except for
 a factor $-1$ where applicable. In the following the most important steps of the
@@ -146,7 +146,7 @@ further testing.
 For further analysis a sub-domain around the eddy is cut out of the SSH data.
 These functions determine the indices of that window and subtract the
 resultant offset for the contour indices.
-%Due to MATLAB's This step might seem detrimental to performance 
+%Due to MATLAB's This step might seem detrimental to performance
 \end{filter}\newline
 % ----------------------------------------------------------------------
 \begin{filter}{Logical Mask of Eddy Interiour}{EddyCut_mask}
@@ -283,14 +283,14 @@ that scale as well, the difference in contour-area between two time steps
 easily surpasses $100\%$ and more.
 Since there is no definition for the \textit{edge} of an eddy, it is defined here as the ellipse resulting from the meridional [zonal] diameters that
 are the distances between the first local extrema of orbital velocity (one negative, one positive) away from
-the eddy's peak in y- [x-] direction \footnote{The velocities are calcualted from the gradients of 4th-order Fourier fits to the SSH profile in respective direction (see \cref{filter:profiles}).}.
+the eddy's peak in y- [x-] direction \footnote{The velocities are calcualted from the gradients of 4th-order Fourier fits to the SSH profile in respective direction (see~\cref{filter:profiles}).}.
 In the case of a meandering jet with a maximum flow speed at its center, that
 is shedding off an eddy, this scale corresponds to half the distance between
 two opposing center-points of the meander. It is also the distance at which a
 change in vorticity-polarity occurs and is thus assumed to be the most plausible
 dividing line between vortices. \\
 Trying to determine the location where this sign change in vorticity occurs in the profiles turns out to be very tricky. What we seek are local extrema of the geostrophic speeds \ie of the ssh-gradients $h_x$. In a perfect Gaussian-shaped eddy, these would simply correspond to the first local extrema of $h_x$ away from the peak. In \textit{reality} the eddies can be very wobbly with numerous local maxima and minima in the gradients of their flanks. One could argue, that it must be the largest extrema, as it is the highest geostrophic speeds that are sought. In practice \footnote{especially for the high-resolution model data.} multiple superimposed signals of different scales often create very strong gradients locally. But the main issue here is that one weak eddy adjacent to one strong eddy also has the stronger gradients of the stronger one within its domain so that simply looking for the fastest flow speeds along the profiles is insufficient. It is also not possible to restrict the cut domain to the extent of a single eddy only, because at the time when the domain is selected, we do not know yet whether the detection algorithm \textit{took bait} at the eddy's base or later close to the tip. \\
-The best method thus far seems to be to use the Fourier-series functions from \cref{filter:profiles} to determine the first extrema away from the eddy's peak (see \cref{fig:tropicalJmd}). The Fourier order was chosen to be 4 by trial and error. The effect is that small-scale low-amplitude noise is avoided, allowing for more reliable determinations of $\grad^2 h_{fourier} = 0$.       \\
+The best method thus far seems to be to use the Fourier-series functions from \cref{filter:profiles} to determine the first extrema away from the eddy's peak (see~\cref{fig:tropicalJmd}). The Fourier order was chosen to be 4 by trial and error. The effect is that small-scale low-amplitude noise is avoided, allowing for more reliable determinations of $\grad^2 h_{fourier} = 0$.       \\
  Once the zero crossings in all 4 directions are found, their mean is taken as the eddy's scale (\scale).
  \end{filter}\newline
 % ----------------------------------------------------------------------
@@ -352,8 +352,7 @@ This function builds a mask of eligible geo-coordinates with respect to the next
 \mcode{S05_track_eddies}
 \subsection{Main Tracking Procedure}
 Due to the the relatively fine temporal resolution (daily) of the model data,
-the tracking procedure for this case turns out to be much simpler than the one described by
-\citet{Chelton2007}. There is almost no need to project the new position of an
+the tracking procedure for this case turns out to be much simpler than the one described by \citet{Chelton2007}. There is almost no need to project the new position of an
 eddy, as it generally does not travel further than its own scale in one day.
 This means that one eddy can usually \footnote{The only exception being the situation when one eddy fades and  another emerges simultaneously and in sufficient proximity.} be tracked unambigiously from one time step to the
 next as long both time-steps agree on which eddy from the \textit{other}
@@ -402,7 +401,7 @@ The former is the core of the tracking algorithm. It is almost sufficient by its
 This is the second half of the prognostic procedure described in \cref{S:05}. It simply flags all pairs of the distance matrix for which the index representing the \textit{new} eddy's geographic location is not among the set of indices describing the ellipse \footnote{see figure \cref{fig:elligEllipse}.} around respective \textit{old} eddy.
  \item
  \mcode{function checkAmpAreaBounds}\\
-\TODO{relevant only for chelton method!}
+This is the direct adaptation of \citeauthor{Chelton2011}'s description of how to test for sufficient similarity of amplitude and area between time steps.
 \end{itemize}
 
 
@@ -411,7 +410,7 @@ This is the second half of the prognostic procedure described in \cref{S:05}. It
 \mcode{function S05_init_output_maps}\\
 The output Mercator-maps usually have different geometry from the input maps'.
 This step allocates all grid nodes of the input data
-to their respective nodes in the output map. Each output cell will then represent a mean (or median or std) of all input-nodes falling into that quadrilateral.
+to their respective nodes in the output map. Each output cell will then represent a mean of all input-nodes falling into that quadrilateral.
 
 %\section{Step S08: Make Maps of Mean Parameters}
 %\mcode{function S08_analyze_tracks}\\
@@ -419,135 +418,12 @@ to their respective nodes in the output map. Each output cell will then represen
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Running the Code}
-The seperate steps can be run all at once via \mcode{Sall.m} or one by one, as
+The seperate steps can be run all at once (\mcode{Sall.m}) or one by one, as
 long as they are started consecutively in the order indicated by their name
 ( \mcode{S00..}, then \mcode{S01..} etc.). \mcode{S01b} is not necessary
 though. Each step either creates its own output files or extends old ones,  which are then read by the next step.
-All output data is saved in the user given root-path from \cref{codeEx:data}.
+All output data is saved in the user given root-path.
 This concept uses quite a lot of disk space and is also slowed substantially by all the reading and writing procedures. The benefit is that debugging becomes much easier. If the code fails at some step,
 at least all the calculations up to that step are dealt with and do not need to
 be re-run. The concept also makes it easier to extend the code by further
 add-ons.
-
-
-
-
-
-
-
-
-
-
-
-%\section{Example}
-%To show a hands-on example an exemplary run for part of the North Atlantic is
-%demonstrated in the following.
-%\subsection{Map Parameters} \label{codeEx:map_params}
-%The geo-coordinates for the map window are to be set in \mcode{map_vars.m}.
-%In this case a small region in the eddy-rich North Atlnatic from $-90^\circ$
-%west till $-40^\circ$ west and from $20^\circ$ north till $60^\circ$ north is
-%chosen. This script has an effect only on the very first step (\mcode{S_00..}).
-%\begin{lstlisting}
-%function MAP=map_vars
-	%%% user input
-	%MAP.geo.west=-90;
-	%MAP.geo.east=-40;
-	%MAP.geo.south=20;
-	%MAP.geo.north=60;
-	%MAP.time.delta_t = 1; % [days]
-	%MAP.SSH_unitFactor = 100; % eg 100 if SSH data in cm, 1/10 if in deka m etc..
-	%MAP.pattern.in='SSH_GLB_t.t0.1_42l_CORE.yyyymmdd.nc';
-%end
-%\end{lstlisting}
-%\todo{show map}
-%\subsection{Other Parameters}
-%All other parameters are to be set in \mcode{input_vars.m}.
-%\begin{itemize}
-	%\item
-	%The maximum number of \textit{local workers} (threads) is at default settings
-%usually limited to 12 by Matlab. Hence
- %\begin{lstlisting}
- 	%U.threads.num=12;
- %\end{lstlisting}
- %\item
- %The data available at this point in time spans from 1994/04/02 till 2006/12/31.
-%Hence
- %\begin{lstlisting}
- 	%U.time.from.str='19940402';
-  	%U.time.till.str='20061231';
- %\end{lstlisting}
-%\item
-%Data is available per day. Therefor \mcode{U.time.delta_t=1; } is set
-%to 1. This could also be changed to another value, if the user wished to skip
-%time-steps.
-	%\item \label{codeEx:data}
-	%The path \mcode{U.path.root='../dataXMPL/';} can be set arbitrarily. If it
-%does not yet exist, it will be created. It is suggested to not reuse a path,
-%as this could lead to inconsitencies in the data.
-%\item
-%\todo{ \mcode{	U.path.TempSalt.name='TempSalt/';}}
-%\item
-%\mcode{U.path.raw.name='/scratch/uni/ifmto/u241194/DAILY/EULERIAN/SSH/';}\\
-%This is where the SSH data is stored.
-%\item
-%\begin{lstlisting}
-	%U.contour.step=0.01; % [SI]
-	%U.thresh.radius=5e3; % [SI]
-	%U.thresh.amp=0.02; % [SI]
-	%U.thresh.shape.iq=0.5; % isoperimetric quotient
-	%U.thresh.shape.chelt=0.5; % (diameter of circle with equal area)/(maximum
-%distance between nodes) (if ~switch.IQ)
-	%U.thresh.corners=6; % min number of data points for the perimeter of an eddy
-	%U.thresh.dist=1*24*60^2; % max distance travelled per day
-	%U.thresh.life=20; % min num of living days for saving
-%\end{lstlisting}
-%In this segment the following values are set (all in SI-units, except for
-%time dimension).:
-	%\begin{itemize}
-		%\item
-		%The contour intervall with which to look for SSH-contours from maximum to
-	%minimum SSH-value.
-	%\item
-	%The minimum radius threshold for an eddy.
-	%\item
-	%The minimum amplitude threshold.
-	%\item
-	%Either the minimum $\IQ$ value or the minimum ratio of the diameter of a
-%circle	 with equal area over the maximum distance between nodes, depending on
-%which	 method is chosen (see ).
-	%\item
-	%The minimum number of grid nodes making up the contour.
-	%\item
-	%The maximum distance-travelled-per-timestep threshold.
-	%\item
-	%The minium track-length (in time) threshold for a track to be saved.
-	%\end{itemize}
-%\item
-
-%\begin{lstlisting}
-	%U.dim.X=40*1+1;
-	%U.dim.Y=40*1+1;
-	%U.dim.west=-90;
-	%U.dim.east=-50;
-	%U.dim.south=20;
-	%U.dim.north=60;
-	%U.dim.NumOfDecimals=1;
-%\end{lstlisting}
-%These paramters describe the output maps, that will be created in the very end
-%(\eg maps of mean values). Ideally they are set to the same limits as
-%those set in \cref{codeEx:map_params}. \mcode{U.dim.X}/\mcode{U.dim.Y} dictate
-%the size of the output maps. They can be set arbitrarilly, but the format \eg
-%$(east-west)*n +1; \;\; n \in \mathrm{N}$ is suggested to avoid long decimals in
-%the coordinate matrices.
-%\item
-%\begin{lstlisting}
-	%U.switchs.RossbyStuff=false;
-	%U.switchs.IQ=true;
-%\end{lstlisting}
-%Choose whether step \mcode{S01b_BruntVaisRossby} is to be run (needs adequate
-%salt and temperature files \todo{explain}) and the type of shape-testing (
-%\mcode{U.switchs.IQ=true}) for $\IQ$-method.
-%\item
-%The rest are less important technical things that are only relevant if the code
-%itself is modulated (\eg if modules are added).
-%\end{itemize}

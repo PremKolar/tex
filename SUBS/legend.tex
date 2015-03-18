@@ -12,7 +12,7 @@ $\Ro = \frac{U }{f L}$
 %###################################%
 \begin{definition}[Rhines Number $\Rh \unit{\;}$ ]\label{def:Rh}
 Ratio of Rhines scale to horizontal scale.\\
-$\Rh = \frac{U }{\beta L^2} = \frac{a}{L} \Ro$
+$\Rh = \frac{U }{\dfdy L^2} = \frac{a}{L} \Ro$
   \end{definition}
 %###################################%
 \begin{definition}[Burger Number $\Bu \unit{\;}$ ]\label{def:Bu}
@@ -152,7 +152,7 @@ $\vec{f}=\f \vec{z}=\Omega \sin \phi \vec{z}$
  \end{definition}
 %###################################%
 \begin{definition}[Change of Planetary Vorticity with Latitude
-$\beta \unit{1/ms}$]\label{def:beta}
+$\dfdy \unit{1/ms}$]\label{def:beta}
 $\dfdy=\dpr{\f}{y}=\Omega/a \cos \phi$
  \end{definition}
 %###################################%
@@ -195,23 +195,36 @@ Distance from eddy's center to the line of maximum orbital speed \ie the zero-vo
 \end{definition}
 %%###################################%
 \begin{definition}[Run \pToaII]\label{def:p2aII}
-7-day time-step POP remapped to aviso-geometry with method \MII.
+7-day time-step \POP remapped to aviso-geometry with method \MII.
 \end{definition}
 %###################################%
 \begin{definition}[Run \popSevenII]\label{def:pop7II}
-7-day time-step POP with method \MII.
+7-day time-step \POP with method \MII.
 \end{definition}
 %###################################%
 \begin{definition}[Run \popOneIISO]\label{def:pop1IISO}
-1-day time-step aviso with method \MII. \\Southern Ocean Only. \\Minimum Age: $\SI{30}{\day}$ \\ Contour step raised to $\SI{2}{\cm}$
+1-day time-step aviso with method \MII. \\Southern Ocean Only. \\Minimum Age:
+ \TODO{SI} %$\SI{30}{\day}$
+  \\ Contour step raised to
+	\TODO{SI} %$\SI{2}{\cm}$
 \end{definition}
 %###################################%
 \begin{definition}[Parallel Ocean Program (\POP).]\label{def:POP}
-Global fully non-linear $\ang{0;6;}$, $\SI{1}{\day}$, primitve equation ocean model \citet{Oestreicher}.
+Global fully non-linear $\ang{0;6;}$,
+\TODO{SI} % $\SI{1}{\day}$,
+ primitve equation ocean model \citet{Oestreicher}.
 \end{definition}
 %###################################%
-\begin{definition}[\TODO{AVISO}]\label{def:AVISO}
-\citet{Forget2010}
+\begin{definition}[\AVI]\label{def:AVISO}
+Merged ERS-1/Topex-data \citet{Forget2010}.
+\end{definition}
+%###################################%
+\begin{definition}[Anti-cyclone (\AC)]\label{def:AC}
+A vortex with sign of rotational vector opposite to \href{def:Omega}{$\Omega$}.
+\end{definition}
+%###################################%
+\begin{definition}[Cyclone (\C)]\label{def:C}
+A vortex with sign of rotational vector equal to \href{def:Omega}{$\Omega$}.
 \end{definition}
 %###################################%
 

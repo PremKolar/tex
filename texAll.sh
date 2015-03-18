@@ -1,6 +1,6 @@
 #!/bin/bash
-root=~/documents/tex/
-#root=/scratch/uni/ifmto/u300065/texMT/
+#root=~/documents/tex/
+root=/scratch/uni/ifmto/u300065/tex/
 file=THESIS
 
 # ==================================
@@ -17,8 +17,8 @@ pdflatex --file-line-error-style $1.tex
 
 cd $root
 
-#texclean
+texclean
 tex2pdf $file
-#bibtex $file
-#tex2pdf $file
-#tex2pdf $file
+bibtex $file
+tex2pdf $file
+tex2pdf $file
