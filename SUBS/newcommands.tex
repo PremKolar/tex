@@ -67,12 +67,16 @@
 \newcounter{speedbox}
 \newcounter{filter}
 
+
 % ######################################################################
 % ENVIRONTMENTS
 % ######################################################################
 
+\newfloat{boxfloat}{H}{myc}
+
 \newenvironment{cbox}[1]
 {
+\begin{boxfloat}
 \refstepcounter{cbox}\par\medskip\noindent
 \def\FrameCommand{\colorbox{cboxcolor}}%
 \MakeFramed{\advance\hsize-\width \FrameRestore\cornersize{0.9}}
@@ -84,10 +88,12 @@
 {
 \end{scriptsize}
 \endMakeFramed
+\end{boxfloat}
 }
 
 \newenvironment{speedbox}[1]
 {
+\begin{boxfloat}
 \refstepcounter{speedbox}\par\medskip\noindent
 \def\FrameCommand{\colorbox{speedboxcolor}}%
 \MakeFramed{\advance\hsize-\width \FrameRestore\cornersize{0.9}}
@@ -99,6 +105,7 @@
 {
 \end{scriptsize}
 \endMakeFramed
+\end{boxfloat}
 }
 
 
@@ -118,6 +125,7 @@
 
 \newenvironment{colbox}[1]
 {
+\begin{boxfloat}
 	\def\FrameCommand{\colorbox{colboxcolor}}%
 	\MakeFramed{\advance\hsize-\width \FrameRestore\cornersize{0.9}}
 	\begin{scriptsize}
@@ -126,6 +134,7 @@
 {
     \end{scriptsize}
 	\endMakeFramed
+\end{boxfloat}
 }
 
 \newenvironment{Declaration}{
@@ -155,16 +164,17 @@ backgroundcolor=yellow!40,
 outerlinecolor=blue!70!black,
 frametitlebackgroundcolor=gray!20,
 % frametitlerule=true,
-innertopmargin=\topskip,}
+innertopmargin=\topskip,
+nobreak=true}
 
 
-\mdfdefinestyle{derivation}
-{linewidth=1,
-backgroundcolor=yellow!40,
-outerlinecolor=blue!70!black,
-frametitlebackgroundcolor=gray!10,
-% frametitlerule=true,
-innertopmargin=\topskip,}
+%\mdfdefinestyle{derivation}
+%{linewidth=1,
+%backgroundcolor=yellow!40,
+%outerlinecolor=blue!70!black,
+%frametitlebackgroundcolor=gray!10,
+%% frametitlerule=true,
+%innertopmargin=\topskip,}
 
 \mdfdefinestyle{codepiece}
 {linewidth=15pt,
@@ -192,7 +202,21 @@ rightmargin=40mm,
 linewidth=2,
 frametitlerule=true,
 frametitlebackgroundcolor=gray!20,
-innertopmargin=\topskip,roundcorner=10pt,}
+%innertopmargin=\topskip,
+roundcorner=10pt}
+
+\mdfdefinestyle{derivationNobreak}
+{linecolor=red,
+outerlinewidth=2,
+leftmargin=40mm,
+rightmargin=40mm,
+linewidth=2,
+frametitlerule=true,
+frametitlebackgroundcolor=gray!20,
+%innertopmargin=\topskip,
+roundcorner=10pt,
+nobreak=true}
+
 
 \mdfdefinestyle{eddy}
 {linewidth=.5,
@@ -201,7 +225,8 @@ innertopmargin=\topskip,roundcorner=10pt,}
 outerlinecolor=black,
 frametitlebackgroundcolor=gray!20,
 % frametitlerule=true,
-innertopmargin=\topskip,}
+%innertopmargin=\topskip,
+nobreak=true}
 
 %  #####################################################################
 % mdTHEOREMS
@@ -214,6 +239,7 @@ innertopmargin=\topskip,}
 \mdtheorem[style=function]{function}{sub-routine}[section]
 
 \mdtheorem[style=derivation]{derivation}{Derivation}
+\mdtheorem[style=derivationNobreak]{derivationNobreak}{Derivation}
 
 \mdtheorem[style=eddy]{eddy}{Vortex}[chapter]
 

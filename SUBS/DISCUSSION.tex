@@ -26,8 +26,11 @@ The focus here is more on the propagation of distinct circular geostrophic vorti
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newthought{Interestingly }, even in the \aviI results, the horizontal eddy scale \scale differs from that presented by \citet{Chelton2011}. For latitudes $\gtrsim\abs{\deg{25}}$ the zonal mean here is smaller than theirs while for low latitudes it is higher (see \cref{fig:ScheltsAll}). The reason for this discrepancy is suspected to stem from the special method by which \scale is determined by our algorithm.
-As outlined in \cref{filter:dynscale}, here \scale is half the mean of zonal and meridional distances between the first two local extrema of the first derivative of interpolated 4th-order fourier fits to the SSH data around the eddy's \CoV .
-The motivation to use fits instead of the SSH directly was on the one hand to avoid noise complicating correct determinations of the 2nd differential zero-crossings and on the other hand to tackle the problem of coarse resolution, especially so for high latitudes where \scale seems to become as small as only twice the distance between data points. At this resolution the \textit{Gaussian RMS width} of an eddy would amount to only 5 data points. Since \scale is generally smaller in the higher-resolution \\POP-data anlyses, we hypothesize that the scales by \citeauthor{Chelton2011} are biased high for high latitudes. Question remains to what degree this bias is inherent to the \AVI product \ie as a smearing effect from the interpolation of multiple coarse satellite data. Or whether it is attributable entirely to the particular method by which the diameter/area of the zero-vorticity contour is estimated.
+As outlined in \cref{filter:dynscale}, here \scale is half the mean of zonal and meridional distances between the first two local extrema of the first derivative of interpolated 4th-order fourier fits to the SSH data around the eddy's \CoV.
+
+\newthought{The } motivation to use fits instead of the SSH directly was on the one hand to avoid noise complicating correct determinations of the 2nd differential zero-crossings and on the other hand to tackle the problem of coarse resolution, especially so for high latitudes where \scale seems to become as small as only twice the distance between data points. At this resolution the \textit{Gaussian RMS width} of an eddy would amount to only 5 data points. Since \scale is generally smaller in the higher-resolution \POP-data anlyses, we hypothesize that the scales by \citeauthor{Chelton2011} are biased high for high latitudes. Question remains to what degree this bias is inherent to the \AVI product \ie as a smearing effect from the interpolation of multiple coarse satellite data. Or whether it is attributable entirely to the particular method by which the diameter/area of the zero-vorticity contour is estimated.
+
+\newthought{Strong } zonal skewness suggests the existence of many small, potentially erronuous values that smear the distribution of drift speeds towards an unrealisticly low mean. MEDIAN? This effect appears to be relevant in \eg the Souther Ocean, where the east-ward advection of eddies by the ACC results in a broad spectrum of drift speeds. The strong gradients in mean current also effect an abundance of eddy-merging and -splitting situations over relatively short periods of time. It is therefor difficult for the algorithm to keep track of sufficiently long-lived, coherent vortices. Especially so for large time-steps and a high age-threshold. Yet, if the minimum time-step is limited, as in the case of satellite data, a high age-threshold is necessary since short tracks with few data points in time are more likely to stem from erronuously matched contours that do not represent the actual track of a single vortex but instead represent other meso-scale noise that happened to feature sufficiently similar blobs popping in and out of existence at sufficient proximity to one another.}
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{marginfigure}
@@ -60,7 +63,7 @@ The motivation to use fits instead of the SSH directly was on the one hand to av
 \end{wrapfigure}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newthought{The } \popSevenII analysis yields somewhat simlilar \scale for low latiudes \footnote{Note that due to the lack of tropical eddies the estimates of \scale are rather uncertain for the \POP analyses.}, yet significantly smaller values for high latitudes. The question therefor is whether this discrepancy is a result of the lower resolution of the satellite data \ie that eddies are too small to be resolved by the \AVI product in high latitudes or whether it is attributable to the model data as in a systematic bias du to incomplete/poorly parameterised model physics. This question was the primary motivation for the \pToaII-analysis. The idea here was to down-size the \POP data to the geometry of the \AVI grid in order to test whether this would raise \scale to that from the satellite results. \Cref{fig:sigmaSatDiffsINTRSCT} shows that the down-sampling did indeed decrease the discrepancy in \scale to respective \AVI analysis, as long as those regions that are unique to either data set are excluded.
+\newthought{The } \popSevenII analysis yields somewhat simlilar \scale for low latiudes \footnote{Note that due to the lack of tropical eddies the estimates of \scale are rather uncertain for the \POP analyses.}, yet significantly smaller values for high latitudes. The question here therefor is whether this discrepancy is a result of the lower resolution of the satellite data \ie that eddies are too small to be resolved by the \AVI product in high latitudes or whether it is attributable to the model data as in a systematic bias du to incomplete/poorly parameterised model physics. This question was the primary motivation for the \pToaII-analysis. The idea here was to down-size the \POP data to the geometry of the \AVI grid in order to test whether this would raise \scale to that from the satellite results. \Cref{fig:sigmaSatDiffsINTRSCT} shows that the down-sampling did indeed decrease the discrepancy in \scale to respective \AVI analysis, as long as those regions that are unique to either data set are excluded.
 ang
 Between $\pm \deg{25}$ and $\pm \deg{65}$ the difference is no larger than $\pm \km{5}$. This came as a surprise because since \scale stems from fourier fits of SSH, we expected the original frequencies to be, at least to some extent, conserved in the down-sampled data.
 
@@ -74,7 +77,7 @@ Between $\pm \deg{25}$ and $\pm \deg{65}$ the difference is no larger than $\pm 
 
 
 \newthought{The } \MI detection method a priori assumes that an eddy is more or less detected at its asymptotic \textit{floor} \ie in the case of an \AC at the \textit{foot of the mountain}.
- The idea of the $\IQ$-based method on the other hand is to assume that the situation of a single well-defined eddy sitting on an otherwise smooth, flat sea surface, which would be necessary for the contour algorithm to find a closed contour describing the outermost perimeter of said single vortex, is unrealistic. Instead the approach is to look for distinct, sufficiently circular \textit{caps} of SSH-hills/valleys that consistently \textit{wade} through all other weaker geostrophic noise surrounding it. \TODO{ why gaussian or quad?}
+ The idea of the $\IQ$-based method on the other hand is to assume that the situation of a single well-defined eddy sitting on an otherwise smooth, flat sea surface, which would be necessary for the contour algorithm to find a closed contour describing the outermost perimeter of said single vortex, is unrealistic. Instead the approach is to look for distinct, sufficiently circular \textit{caps} of SSH-hills/valleys that consistently \textit{wade} through all other weaker geostrophic noise surrounding it. \TODO{ why gaussian or quad? \cite{Zhang2013,beckers2001dynamics}}
 
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -87,7 +90,7 @@ The apparent drop in magnitude at $\sim\deg{12}$N is most likely due to erronuou
 Yet the tendency for lower magnitudes in $u$, albeit less stark, is also true for higher latitudes.
 The meridional drift speeds are calculated via gradients of \textit{polyfits} to the \CoV-locations on the surface of a spherical earth. This method was tested thoroughly and its robustness is further validated by the fact that the weaker $u$ remains approximtely the same after downsampling for the \pToaII run.
 
-\newthought{From } \cref{eq:cush1} we know that at first approximation (planetary lift)
+\newthought{From } \eqref{eq:cush1} we know that at first approximation (planetary lift)
 \begin{align}
 u
 &\sim
@@ -108,10 +111,3 @@ Since $\beta, H$ and $f$ should be set realisticaly in \POP, it appears that the
 		\label{fig:SkewAviI}
 \end{marginfigure}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\TODO{depths,surface intensified,upper layer}
-\TODO{\cite{Kloosterziel1990,beckers2001dynamics,Zhang2013} for best analytical profile function}
-
-
-\TODO{Further study in refining this structure is expected, and the refined struc- ture can serve as a benchmark for numerical models where mesoscale eddies are explicitly resolved. In addition, the generation mechanism for this universal structure remains unknown; thus, exploring such mechanism may bring new excitement to eddy research.
-Appendix: \cite{Zhang2013} }

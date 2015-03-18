@@ -1,7 +1,8 @@
 %\begin{multicols}{2}
+\begin{fullwidth}
+	
 
-
-\begin{derivation}[Vorticity]\label{der:vort}
+\begin{derivationNobreak}[Vorticity]\label{der:vort}
 	With the identity
 	%%--------------------------------------------------------------------
 	\begin{equation}\begin{split}
@@ -209,13 +210,66 @@
 	and	$\grad \rho$  via $B$ the tilting terms vanish, since then
 	$\vec{\omega}_h$	normal to the plane spanned by $\grad \vec{u}_h$ and
 	$\grad	w$
-\end{derivation}
+\end{derivationNobreak}
 
 %%####################################################################
 %%####################################################################
 
+\begin{derivationNobreak}[Mechanical Energy]
+\label{der:Em}
+Add term for potential energy to \eqref{eq:Ekin1} (assuming $\grad \rho=0$)
+\begin{equation}\begin{split}
+\frac{D E_{m}}{D t}
+&=
+-
+g \vec{u} \cdot  \grad \eta(x,y)
++
+\nu\left(
+\frac{1}{2}\grad^2 \vec{u}^2 - \norm{\grad \vec{u}}^2
+\right)
++
+\vec{u}\cdot\vec{g}\\
+%%--------------------------------------------------------------------
+\frac{D E_{m}}{D t}
+&=
+-
+g \vec{u} \cdot  \grad \eta(x,y)
++
+\nu\left(
+\frac{1}{2}\grad^2 \vec{u}^2 - \norm{\grad \vec{u}}^2
+\right)
+-wg\\
+%%--------------------------------------------------------------------
+&=
+-
+g \left( \frac{\partial \eta}{\partial t}
++
+\vec{u} \cdot  \grad \eta \right)
++
+\nu\left(
+\frac{1}{2}\grad^2 \vec{u}^2 - \norm{\grad \vec{u}}^2
+\right)\\
+%%--------------------------------------------------------------------
+&=
+-
+g \frac{D \eta}{D t}
++
+\nu\left(
+\frac{1}{2}\grad^2 \vec{u}^2 - \norm{\grad \vec{u}}^2
+\right)\\
+%%--------------------------------------------------------------------
+&=
+\nu\left(
+\frac{1}{2}\grad^2 \vec{u}^2 - \norm{\grad \vec{u}}^2
+\right)
+\end{split}\end{equation}
+\end{derivationNobreak}
 
-\begin{derivation}[Kinetic Energy]\label{der:Ek}
+
+%%####################################################################
+%%####################################################################
+
+\begin{derivationNobreak}[Kinetic Energy]\label{der:Ek}
 Multiply \eqref{eq:NS2} by $ \vec{u}$:
 \begin{equation}\begin{split}
 \vec{u} \cdot{}
@@ -280,66 +334,12 @@ g \vec{u}_{h} \cdot  \grad \eta(x,y)
 \frac{1}{2}\grad^2 \vec{u}^2 - \norm{\grad \vec{u}}^2
 \right)
 \end{split}\end{equation}
-\end{derivation}
+\end{derivationNobreak}
 
 %%####################################################################
 %%####################################################################
 
-\begin{derivation}[Mechanical Energy]
-\label{der:Em}
-Add term for potential energy to \eqref{eq:Ekin1} (assuming $\grad \rho=0$)
-\begin{equation}\begin{split}
-\frac{D E_{m}}{D t}
-&=
--
-g \vec{u} \cdot  \grad \eta(x,y)
-+
-\nu\left(
-\frac{1}{2}\grad^2 \vec{u}^2 - \norm{\grad \vec{u}}^2
-\right)
-+
-\vec{u}\cdot\vec{g}\\
-%%--------------------------------------------------------------------
-\frac{D E_{m}}{D t}
-&=
--
-g \vec{u} \cdot  \grad \eta(x,y)
-+
-\nu\left(
-\frac{1}{2}\grad^2 \vec{u}^2 - \norm{\grad \vec{u}}^2
-\right)
--wg\\
-%%--------------------------------------------------------------------
-&=
--
-g \left( \frac{\partial \eta}{\partial t}
-+
-\vec{u} \cdot  \grad \eta \right)
-+
-\nu\left(
-\frac{1}{2}\grad^2 \vec{u}^2 - \norm{\grad \vec{u}}^2
-\right)\\
-%%--------------------------------------------------------------------
-&=
--
-g \frac{D \eta}{D t}
-+
-\nu\left(
-\frac{1}{2}\grad^2 \vec{u}^2 - \norm{\grad \vec{u}}^2
-\right)\\
-%%--------------------------------------------------------------------
-&=
-\nu\left(
-\frac{1}{2}\grad^2 \vec{u}^2 - \norm{\grad \vec{u}}^2
-\right)
-\end{split}\end{equation}
-\end{derivation}
-
-
-%%####################################################################
-%%####################################################################
-
-\begin{derivation}[Enstrophy]
+\begin{derivationNobreak}[Enstrophy]
 \label{der:enstro}
 In 2 dimensions the definition of enstrophy can also be rewritten as:
 %%%....................................................................
@@ -389,13 +389,12 @@ terms	cancel in the integral leaving
 \omega^{2}
 }
 \end{split}\end{equation}
-
-\end{derivation}
+\end{derivationNobreak}
 
 %%####################################################################
 %%####################################################################
 
-\begin{derivation}[Vorticity Scales]
+\begin{derivationNobreak}[Vorticity Scales]
 \label{der:vortscale}
 Assuming approximate geostrophy and $\Bu = \order{1}$:
 %%%....................................................................
@@ -433,10 +432,10 @@ U/\mathrm{L}
 f\frac{\Lr}{L}
 \end{split}\end{equation}
 %%%....................................................................
-\end{derivation}
+\end{derivationNobreak}
 %###################################%\\%###################################%
 
-\begin{derivation}[vortex limitations]
+\begin{derivationNobreak}[vortex limitations]
 %%%....................................................................
 \begin{equation}\begin{split}
 \advec{\vec{u}}
@@ -508,12 +507,12 @@ fL\\
 L\\
 \end{split}\end{equation}
 %%%....................................................................
-\end{derivation}
+\end{derivationNobreak}
 
 %%####################################################################
 %%####################################################################
 
-\begin{derivation}[Okubo-Weiss-Parameter]\label{der:okubo}
+\begin{derivationNobreak}[Okubo-Weiss-Parameter]\label{der:okubo}
 \TODO{!}
 %%%%....................................................................
 %\begin{equation}\begin{split}
@@ -540,6 +539,7 @@ L\\
 %\end{equation}
 %%%%....................................................................
 %%%....................................................................
+%\begin{tiny}
 \begin{equation}\begin{split}
 \mathrm{O_w}=\tr{\ten{T}^2}
 &=
@@ -572,6 +572,7 @@ divergence^2
 + shear^2
 - vorticity^2
 \end{split}\end{equation}
+%\end{tiny}
 Hence for motion dominated by deformation and shear the system has
 hyperbolic	character, whereas vorticity-dominated motion has parabolic
 character. Of interest should therefor not only be the value of $\mathrm{O_w}$
@@ -587,12 +588,12 @@ regions of	vorticity genesis and decay.
 2 \dpr{u}{y} \dpr{v}{x}
 \end{split}\end{equation}
 %%%....................................................................
-\end{derivation}
+\end{derivationNobreak}
 
 %%####################################################################
 %%####################################################################
-\begin{derivation}[Cushman's Drift Speed]
-
+\begin{derivationNobreak}[Cushman's Drift Speed]
+Assuming flat bottom \TODO{H layer thickness or depth? Clarify}
 %%%....................................................................
 \begin{equation}\begin{split}
 X_t
@@ -608,386 +609,393 @@ X_t
 \frac{\omega_{long}}{k} \left(1 +\frac{1}{H} \frac{ \int  \eta^2 \;\mathrm{d}A}{2\mathrm{V_e}} \right) \\
 \end{split}\end{equation}
 %%%....................................................................
-\end{derivation}
+\end{derivationNobreak}
 
-%###################################%\\%###################################%
-\begin{derivation}[Mean Fields of $u$ and $b$]
-\label{der:fields}
-\TODO{?}
-%%%%................................................................
-%\begin{subequations}\label{eq:inhomo1}
-%\begin{align}
-%\dpr{u_i}{t} \unitvec{e}_i
+\end{fullwidth}
+
+\TODO{i took out Turbulent Kinetic Energy, Mean Fields of $u$ and $b$}
+%\todo[color=red]{diffusion term very small on macro scale?}
+%%%####################################################################
+%%%####################################################################
+%\begin{derivationNobreak}[Turbulent Kinetic Energy]
+%\label{der:turbkin}
+%Multiplication of \eqref{eq:decompfin}  with $u_i'$ %, averaging and summing
+%over	all $i$ yields
+%% %....................................................................
+%\begin{align} \notag
+%\begin{split}
+%u_i'\dpr{\inbr{\decom{u_i}}}{t}
 %+
-%u_j \dpr{u_i}{x_j}\unitvec{e}_i
+%u_i'\inbr{\decom{u_j}} \dpr{\inbr{\decom{u_i}}}{x_j}
 %+
-%\delta_{j3}\timesES{f}{u}
-%&=
-%-\dpr{p}{x_i}	\unitvec{e}_i
-%+ \nu \dpr{^2u_i}{x_j^2}\unitvec{e}_i
-%- \delta_3 g\unitvec{e}_i \label{eq:inhomoNS}\\
-%% --------------------------------------------------------------------
-%\dpr{u_i}{x_i}
-%&=
-%0 \label{eq:inhomoCON}\\
-%% --------------------------------------------------------------------
-%\Dpr{\rho}{t}
-%&=
-%-\dpr{J_{i}^{rad}}{x_i}
-%+   \kappa \dpr{^2 \rho}{x_i} \label{eq:inhomoSTATE}
+%u_i'\delta_{j3}\epsilon_{jki} f_j \inbr{\decom{u}}_k\\
+%=
+%-
+%u_i'\dpr{\inbr{\decom{p}}}{x_i}
+%+
+%u_i' \nu \dpr{^2\inbr{\decom{u_i}}}{x_j^2}
+%-
+%u_i' \delta_3 \ol{g}
+%&\end{split}
 %\end{align}
-%\end{subequations}
-%% %%....................................................................
-%A Reynolds decomposition of \eqsref{eq:inhomo1} yields
-%% %%....................................................................
-%\begin{subequations} \label{eq:inhomoDECOMP}
+%% %....................................................................
 %\begin{align}
 %\begin{split}
-%\dpr{\inbr{\decom{u_i}}}{t}\unitvec{e}_i
+%\oh \dpr{u'^2}{t}
 %+
-%\inbr{\decom{u_j}} \dpr{\inbr{\decom{u_i}}}{x_j}\unitvec{e}_i
+%\oh \ol{u_j} \dpr{u_i'^2}{x_j}
 %+
-%\delta_{j3}\timesES{f}{\inbr{\decom{u}}}\\
+%u_i'\ol{u_j} \dpr{\ol{u_i}}{x_j}
+%+
+%u_i'u_j' \dpr{\ol{u_i}}{x_j}
+%+
+%\oh  u_j' \dpr{u_i'^2}{x_j}\\
 %=
-%-\dpr{\inbr{\decom{p}}}{x_i}	\unitvec{e}_i
-%+ \nu \dpr{^2\inbr{\decom{u_i}}}{x_j^2}\unitvec{e}_i
-%- \delta_3 \ol{g} \unitvec{e}_i\label{eq:decompfin}
-%&\end{split}\\
-%% --------------------------------------------------------------------
-%\dpr{\inbr{\decom{u_i}}}{x_i}
-%=
-%0 & \\
-%% --------------------------------------------------------------------
-%\dpr{\inbr{\decom{\rho}}}{t}
-%+	\inbr{\decom{u_i}}\dpr{\inbr{\decom{\rho}}}{x_i}
-%=
-%-	\ol{\dpr{J_{i}^{rad}}{x_i}}
-%-	\dpr{J_{i}^{rad}}{x_i}'
-%+   \kappa \dpr{^2 \inbr{\decom{\rho}}}{x_i}
+%-
+%u_i'\dpr{\ol{p}}{x_i}
+%-
+%u_i'\dpr{p'}{x_i}
+%+
+%u_i' \nu \dpr{^2\ol{u_i}}{x_j^2}
+%+
+%\oh \nu \dpr{^2u_i'^2}{x_j^2}
+%-
+%\nu \left(\dpr{u_i'}{x_j}\right)^2
+%-
+%u_i' \delta_3  g
+%&\end{split}
 %\end{align}
-%\end{subequations}
-%% %%....................................................................
-%Averaging \eqsref{eq:inhomoDECOMP} yields
-%% %%....................................................................
-%\begin{subequations}
+%% %....................................................................
+%First and last term on RHS are again hydrostaticity
+%% %....................................................................
 %\begin{align}
 %\begin{split}
-%&\dpr{\ol{\inbr{\decom{u_i}}}}{t}  \unitvec{e}_i
-%+  \\
-%&\ol{\ol{u_j} \dpr{\ol{u_i}}{x_j}\unitvec{e}_i
+%\oh \dpr{u'^2}{t}
 %+
-%\delta_{j3}\timesES{f}{\inbr{\decom{u}}}
+%\oh \ol{u_j} \dpr{u_i'^2}{x_j}
 %+
-%\ol{u_j} u_i'\unitvec{e}_i
+%u_i'\ol{u_j} \dpr{\ol{u_i}}{x_j}
 %+
-%u_j'\dpr{\ol{u_i}}{x_j}\unitvec{e}_i
+%u_i'u_j' \dpr{\ol{u_i}}{x_j}
 %+
-%u_j'\dpr{u_i'}{x_j}\unitvec{e}_i
-%}\\
-%&=
-%-\ol{\dpr{\inbr{\decom{p}}}{x_i}}\unitvec{e}_i
-%+ \nu \dpr{^2\ol{\inbr{\decom{u_i}}}}{x_j^2}\unitvec{e}_i
-%- \delta_3 \ol{g}\unitvec{e}_i
-%\end{split} \\
-%% --------------------------------------------------------------------
-%& \dpr{\ol{\inbr{\decom{u_i}}}}{x_i}
+%\oh  u_j' \dpr{u_i'^2}{x_j}\\
 %=
-%0 \\
-%% --------------------------------------------------------------------
-%&\dpr{\ol{\inbr{\decom{\rho}}}}{t}
-%+\ol{
-%\ol{u_j} \dpr{\ol{\rho}}{x_j}
+%-
+%u_i'\dpr{p'}{x_i}
 %+
-%\ol{u_j} \rho'
+%u_i' \nu \dpr{^2\ol{u_i}}{x_j^2}
 %+
-%u_j'\dpr{\ol{\rho}}{x_j}
-%+
-%u_j'\dpr{\rho'}{x_j}
-%}
-%=
-%-	\ol{\ol{\dpr{J_{i}^{rad}}{x_i}}-	\dpr{J_{i}^{rad}}{x_i}'}
-%+   \kappa \dpr{^2 \ol{\inbr{\decom{\rho}}}}{x_i}
+%\oh \nu \dpr{^2u_i'^2}{x_j^2}
+%-
+%\nu \left(\dpr{u_i'}{x_j}\right)^2
+%&\end{split}
 %\end{align}
-%\end{subequations}
 %% %....................................................................
-%with $\ol{\ol{\inbr{\;}}}=\ol{\inbr{\;}}$ and $\ol{\inbr{'}}=0$
+%averaging...
 %% %....................................................................
-%\begin{subequations}
 %\begin{align}
-%\dpr{\ol{u_i}}{t}\unitvec{e}_i
+%\begin{split}
+%\dpr{E_t}{t}
 %+
-%\ol{\ol{u_j} \dpr{\ol{u_i}}{x_j}}\unitvec{e}_i
+%\ol{u_j} \dpr{E_t}{x_j}
+%-
+%\nu \dpr{^2 E_t}{x_j^2}
+%&=
+%-
+%\ol{u_i'\ol{u_j} \dpr{\ol{u_i}}{x_j}}
+%-
+%\ol{ u_i'u_j' \dpr{\ol{u_i}}{x_j}}
+%-
+%\oh \ol{ u_j' \dpr{u_i'^2}{x_j}}
+%-
+%\ol{ u_i'\dpr{p'}{x_i}}
 %+
-%\ol{u_j'\dpr{u_i'}{x_j}}\unitvec{e}_i
-%+
-%\delta_{j3}\timesES{f}{\ol{u}}
-%&=
-%-\dpr{\ol{p}}{x_i}	\unitvec{e}_i
-%+ \nu \dpr{^2\ol{u_i}}{x_j^2}\unitvec{e}_i
-%- \delta_3 \ol{g}\unitvec{e}_i \\
-%% --------------------------------------------------------------------
-%\dpr{\ol{u_i}}{x_i}
-%&=
-%0 \\
-%% --------------------------------------------------------------------
-%\dpr{\ol{\rho}}{t}
-%+\ol{\ol{u_j} \dpr{\ol{\rho}}{x_j}}
-%+\ol{u_j'\dpr{\rho'}{x_j}}
-%&=
-%-\ol{\dpr{J_{i}^{rad}}{x_i}}
-%+   \kappa \dpr{^2 \ol{\rho}}{x_i^2}
+%\nu \ol{ u_i'\dpr{^2\ol{u_i}}{x_j^2}}
+%-
+%\nu \ol{\left(\dpr{u_i'}{x_j}\right)^2	}
+%\end{split}
 %\end{align}
-%\end{subequations}
-%% %....................................................................
-%Focusing solely on deviations from the mean state and assuming horizontal
-%gradients of the mean state to be negligible and hence due to continuity
-%also	\footnote{$\delta_h=1-\delta_3$} $\dpr{w}{z}=0 \rightarrow w=0$:
-
-%% %....................................................................
-%\begin{subequations}
+%\newline
+%\ldots
+%\newline
 %\begin{align}
-%\delta_h \dpr{\ol{u_i}}{t}\unitvec{e}_i
+%\dpr{E_t}{t}
 %+
-%\ol{w'\dpr{u_i'}{z}}\unitvec{e}_i
-%+
-%\delta_h \delta_{j3}\timesES{f}{\ol{u}}
+%\ol{u_j} \dpr{E_t}{x_j}
 %&=
-%-\dpr{\ol{p}}{z}	\unitvec{e}_z
-%-  g\unitvec{e}_z \\
-%% --------------------------------------------------------------------
-%\dpr{\ol{\rho}}{t}
-%+\ol{w'\dpr{\rho'}{z}}
-%&=
-%-\dpr{\ol{J_{i}^{rad}}}{z}
-%+   \kappa \dpr{^2 \ol{\rho}}{z^2}
-%\end{align}
-%\end{subequations}
-%%....................................................................
-%returning to vector notation
-%% %....................................................................
-%\begin{subequations}
-%\begin{align}
-%\dpr{\ol{\vec{u}_h}}{t}
-%+
-%\ol{w' \dpr{\vec{u}'}{z}}
-%+
-%f \vec{k} \times \ol{\vec{u}_h}
-%&=
-%-\dpr{\ol{p}}{z} \unitvec{e}_z
-%+  \vec{g} \label{eq:inhomoNStemp1} \\
-%% --------------------------------------------------------------------
-%\dpr{\ol{\rho}}{t}
-%+\ol{w' \dpr{ \rho'}{z}}
-%&=
-%-\dpr{\ol{\vec{J}}_{rad}}{z}
-%+   \kappa \dpr{^2 \ol{\rho}}{z^2}
-%\end{align}
-%\end{subequations}
-%% %....................................................................
-%where the RHS of \eqref{eq:inhomoNStemp1} is hydrostaticity, leaving
-%$\ol{w'\dpr{w'}{z}}=0 \rightarrow \dpr{w'}{z}=0$ for the vertical part,
-%hence:
-%% %....................................................................
-%\begin{subequations}
-%\begin{align}
-%\dpr{\ol{\vec{u}_h}}{t}
-%+
-%\ol{ \dpr{w'\vec{u}_h'}{z}}
-%+
-%f \vec{k} \times \ol{\vec{u}_h}
-%&=
-%0 \\
-%% --------------------------------------------------------------------
-%\dpr{\ol{\rho}}{t}
-%+\ol{ \dpr{ w'\rho'}{z}}
-%&=
-%-\dpr{\ol{\vec{J}}_{rad}}{z}
-%+   \kappa \dpr{^2 \ol{\rho}}{z^2}
-%\end{align}
-%\end{subequations}
-%% %....................................................................
-%% %....................................................................
-%\begin{subequations} \label{eq:inhomo_fin}
-%\begin{align}
-%\dpr{\ol{\vec{u}_h}}{t}
-%+
-%\ol{ \dpr{w'\vec{u}_h'}{z}}
-%+
-%f \vec{k} \times \ol{\vec{u}_h}
-%&=
-%0 \\
-%% --------------------------------------------------------------------
-%\dpr{\ol{\rho}}{t}
-%&=
-%-\dpr{}{z}
+%\dpr{}{x_j}
 %\left(
-%\ol{  w'\rho'}
-%-\ol{\vec{J}}_{rad}
-%+   \kappa \dpr{ \ol{\rho}}{z} \right)
+%\nu \dpr{ E_t}{x_j}
+%+
+%\ol{u_j' p'}
+%+
+%\oh \ol{u_j' u_i' u_i'}
+%\right)
+%-
+%\ol{u_j' u_i'} \dpr{\ol{u}_i}{x_j}
+%+
+%\ol{b'w'}
+%-
+%\nu \ol{\left(\dpr{u_i'}{x_j}\right)^2	}  \label{eq:TurbKinFin}
 %\end{align}
-%\end{subequations}
+%\ldots
 %% %....................................................................
-\end{derivation}
+%\begin{align}
+%\dpr{E_t}{t}
+%+
+%\ol{u_j} \dpr{E_t}{x_j}
+%&=
+%\dpr{\psi_i}{x_j}
+%-
+%\ol{u_j' u_i'} \dpr{\ol{u}_i}{x_j}
+%+
+%\ol{b'w'}
+%-
+%\nu \ol{\left(\dpr{u_i'}{x_j}\right)^2	} \label{eq:TurbKinFin2}
+%\end{align}
+%\ldots
+%% %....................................................................
+%with $\vec{\psi}=\nu \grad E_t +\ol{\vec{u}' p'} + \oh \ol{\vec{u}'
+%\vec{u}'^2}	$	as the total flux of turbulent kinetic energy.\\
+%Invoking again horizontal homogeneity as was done for \eqref{eq:inhomoNStemp1},
+%\eqref{eq:TurbKinFin2} takes the form
+%\begin{align}
+%\dpr{E_t}{t}
+%+
+%\ol{w} \dpr{E_t}{z}
+%&=
+%\dpr{\vec{\psi}}{z}
+%-
+%\ol{ \vec{u}_h' w'\dpr{\ol{\vec{u}}_h}{z}}
+%+
+%\ol{b'w'}
+%-
+%\nu \ol{  \left(\grad \vec{u}' \right)^2	}
+%\label{eq:TurbKinFin_horhomo}
+%\end{align}
+%\end{derivationNobreak}
+%\todo[color=red]{derivation still incomplete.. i assume
+%$\ol{\ol{a}b'}=\ol{a}\ol{b}$ might help..?}
 
-\todo[color=red]{diffusion term very small on macro scale?}
-%%####################################################################
-%%####################################################################
-\begin{derivation}[Turbulent Kinetic Energy]
-\label{der:turbkin}
-Multiplication of \eqref{eq:decompfin}  with $u_i'$ %, averaging and summing
-over	all $i$ yields
-% %....................................................................
-\begin{align} \notag
-\begin{split}
-u_i'\dpr{\inbr{\decom{u_i}}}{t}
-+
-u_i'\inbr{\decom{u_j}} \dpr{\inbr{\decom{u_i}}}{x_j}
-+
-u_i'\delta_{j3}\epsilon_{jki} f_j \inbr{\decom{u}}_k\\
-=
--
-u_i'\dpr{\inbr{\decom{p}}}{x_i}
-+
-u_i' \nu \dpr{^2\inbr{\decom{u_i}}}{x_j^2}
--
-u_i' \delta_3 \ol{g}
-&\end{split}
-\end{align}
-% %....................................................................
-\begin{align}
-\begin{split}
-\oh \dpr{u'^2}{t}
-+
-\oh \ol{u_j} \dpr{u_i'^2}{x_j}
-+
-u_i'\ol{u_j} \dpr{\ol{u_i}}{x_j}
-+
-u_i'u_j' \dpr{\ol{u_i}}{x_j}
-+
-\oh  u_j' \dpr{u_i'^2}{x_j}\\
-=
--
-u_i'\dpr{\ol{p}}{x_i}
--
-u_i'\dpr{p'}{x_i}
-+
-u_i' \nu \dpr{^2\ol{u_i}}{x_j^2}
-+
-\oh \nu \dpr{^2u_i'^2}{x_j^2}
--
-\nu \left(\dpr{u_i'}{x_j}\right)^2
--
-u_i' \delta_3  g
-&\end{split}
-\end{align}
-% %....................................................................
-First and last term on RHS are again hydrostaticity
-% %....................................................................
-\begin{align}
-\begin{split}
-\oh \dpr{u'^2}{t}
-+
-\oh \ol{u_j} \dpr{u_i'^2}{x_j}
-+
-u_i'\ol{u_j} \dpr{\ol{u_i}}{x_j}
-+
-u_i'u_j' \dpr{\ol{u_i}}{x_j}
-+
-\oh  u_j' \dpr{u_i'^2}{x_j}\\
-=
--
-u_i'\dpr{p'}{x_i}
-+
-u_i' \nu \dpr{^2\ol{u_i}}{x_j^2}
-+
-\oh \nu \dpr{^2u_i'^2}{x_j^2}
--
-\nu \left(\dpr{u_i'}{x_j}\right)^2
-&\end{split}
-\end{align}
-% %....................................................................
-averaging...
-% %....................................................................
-\begin{align}
-\begin{split}
-\dpr{E_t}{t}
-+
-\ol{u_j} \dpr{E_t}{x_j}
--
-\nu \dpr{^2 E_t}{x_j^2}
-&=
--
-\ol{u_i'\ol{u_j} \dpr{\ol{u_i}}{x_j}}
--
-\ol{ u_i'u_j' \dpr{\ol{u_i}}{x_j}}
--
-\oh \ol{ u_j' \dpr{u_i'^2}{x_j}}
--
-\ol{ u_i'\dpr{p'}{x_i}}
-+
-\nu \ol{ u_i'\dpr{^2\ol{u_i}}{x_j^2}}
--
-\nu \ol{\left(\dpr{u_i'}{x_j}\right)^2	}
-\end{split}
-\end{align}
-\newline
-\ldots
-\newline
-\begin{align}
-\dpr{E_t}{t}
-+
-\ol{u_j} \dpr{E_t}{x_j}
-&=
-\dpr{}{x_j}
-\left(
-\nu \dpr{ E_t}{x_j}
-+
-\ol{u_j' p'}
-+
-\oh \ol{u_j' u_i' u_i'}
-\right)
--
-\ol{u_j' u_i'} \dpr{\ol{u}_i}{x_j}
-+
-\ol{b'w'}
--
-\nu \ol{\left(\dpr{u_i'}{x_j}\right)^2	}  \label{eq:TurbKinFin}
-\end{align}
-\ldots
-% %....................................................................
-\begin{align}
-\dpr{E_t}{t}
-+
-\ol{u_j} \dpr{E_t}{x_j}
-&=
-\dpr{\psi_i}{x_j}
--
-\ol{u_j' u_i'} \dpr{\ol{u}_i}{x_j}
-+
-\ol{b'w'}
--
-\nu \ol{\left(\dpr{u_i'}{x_j}\right)^2	} \label{eq:TurbKinFin2}
-\end{align}
-\ldots
-% %....................................................................
-with $\vec{\psi}=\nu \grad E_t +\ol{\vec{u}' p'} + \oh \ol{\vec{u}'
-\vec{u}'^2}	$	as the total flux of turbulent kinetic energy.\\
-Invoking again horizontal homogeneity as was done for \eqref{eq:inhomoNStemp1},
-\eqref{eq:TurbKinFin2} takes the form
-\begin{align}
-\dpr{E_t}{t}
-+
-\ol{w} \dpr{E_t}{z}
-&=
-\dpr{\vec{\psi}}{z}
--
-\ol{ \vec{u}_h' w'\dpr{\ol{\vec{u}}_h}{z}}
-+
-\ol{b'w'}
--
-\nu \ol{  \left(\grad \vec{u}' \right)^2	}
-\label{eq:TurbKinFin_horhomo}
-\end{align}
-\end{derivation}
-\todo[color=red]{derivation still incomplete.. i assume
-$\ol{\ol{a}b'}=\ol{a}\ol{b}$ might help..?}
+
+
+
+
+%%###################################%\\%###################################%
+%\begin{derivationNobreak}[Mean Fields of $u$ and $b$]
+%\label{der:fields}
+%\TODO{?}
+%%%%%................................................................
+%%\begin{subequations}\label{eq:inhomo1}
+%%\begin{align}
+%%\dpr{u_i}{t} \unitvec{e}_i
+%%+
+%%u_j \dpr{u_i}{x_j}\unitvec{e}_i
+%%+
+%%\delta_{j3}\timesES{f}{u}
+%%&=
+%%-\dpr{p}{x_i}	\unitvec{e}_i
+%%+ \nu \dpr{^2u_i}{x_j^2}\unitvec{e}_i
+%%- \delta_3 g\unitvec{e}_i \label{eq:inhomoNS}\\
+%%% --------------------------------------------------------------------
+%%\dpr{u_i}{x_i}
+%%&=
+%%0 \label{eq:inhomoCON}\\
+%%% --------------------------------------------------------------------
+%%\Dpr{\rho}{t}
+%%&=
+%%-\dpr{J_{i}^{rad}}{x_i}
+%%+   \kappa \dpr{^2 \rho}{x_i} \label{eq:inhomoSTATE}
+%%\end{align}
+%%\end{subequations}
+%%% %%....................................................................
+%%A Reynolds decomposition of \eqsref{eq:inhomo1} yields
+%%% %%....................................................................
+%%\begin{subequations} \label{eq:inhomoDECOMP}
+%%\begin{align}
+%%\begin{split}
+%%\dpr{\inbr{\decom{u_i}}}{t}\unitvec{e}_i
+%%+
+%%\inbr{\decom{u_j}} \dpr{\inbr{\decom{u_i}}}{x_j}\unitvec{e}_i
+%%+
+%%\delta_{j3}\timesES{f}{\inbr{\decom{u}}}\\
+%%=
+%%-\dpr{\inbr{\decom{p}}}{x_i}	\unitvec{e}_i
+%%+ \nu \dpr{^2\inbr{\decom{u_i}}}{x_j^2}\unitvec{e}_i
+%%- \delta_3 \ol{g} \unitvec{e}_i\label{eq:decompfin}
+%%&\end{split}\\
+%%% --------------------------------------------------------------------
+%%\dpr{\inbr{\decom{u_i}}}{x_i}
+%%=
+%%0 & \\
+%%% --------------------------------------------------------------------
+%%\dpr{\inbr{\decom{\rho}}}{t}
+%%+	\inbr{\decom{u_i}}\dpr{\inbr{\decom{\rho}}}{x_i}
+%%=
+%%-	\ol{\dpr{J_{i}^{rad}}{x_i}}
+%%-	\dpr{J_{i}^{rad}}{x_i}'
+%%+   \kappa \dpr{^2 \inbr{\decom{\rho}}}{x_i}
+%%\end{align}
+%%\end{subequations}
+%%% %%....................................................................
+%%Averaging \eqsref{eq:inhomoDECOMP} yields
+%%% %%....................................................................
+%%\begin{subequations}
+%%\begin{align}
+%%\begin{split}
+%%&\dpr{\ol{\inbr{\decom{u_i}}}}{t}  \unitvec{e}_i
+%%+  \\
+%%&\ol{\ol{u_j} \dpr{\ol{u_i}}{x_j}\unitvec{e}_i
+%%+
+%%\delta_{j3}\timesES{f}{\inbr{\decom{u}}}
+%%+
+%%\ol{u_j} u_i'\unitvec{e}_i
+%%+
+%%u_j'\dpr{\ol{u_i}}{x_j}\unitvec{e}_i
+%%+
+%%u_j'\dpr{u_i'}{x_j}\unitvec{e}_i
+%%}\\
+%%&=
+%%-\ol{\dpr{\inbr{\decom{p}}}{x_i}}\unitvec{e}_i
+%%+ \nu \dpr{^2\ol{\inbr{\decom{u_i}}}}{x_j^2}\unitvec{e}_i
+%%- \delta_3 \ol{g}\unitvec{e}_i
+%%\end{split} \\
+%%% --------------------------------------------------------------------
+%%& \dpr{\ol{\inbr{\decom{u_i}}}}{x_i}
+%%=
+%%0 \\
+%%% --------------------------------------------------------------------
+%%&\dpr{\ol{\inbr{\decom{\rho}}}}{t}
+%%+\ol{
+%%\ol{u_j} \dpr{\ol{\rho}}{x_j}
+%%+
+%%\ol{u_j} \rho'
+%%+
+%%u_j'\dpr{\ol{\rho}}{x_j}
+%%+
+%%u_j'\dpr{\rho'}{x_j}
+%%}
+%%=
+%%-	\ol{\ol{\dpr{J_{i}^{rad}}{x_i}}-	\dpr{J_{i}^{rad}}{x_i}'}
+%%+   \kappa \dpr{^2 \ol{\inbr{\decom{\rho}}}}{x_i}
+%%\end{align}
+%%\end{subequations}
+%%% %....................................................................
+%%with $\ol{\ol{\inbr{\;}}}=\ol{\inbr{\;}}$ and $\ol{\inbr{'}}=0$
+%%% %....................................................................
+%%\begin{subequations}
+%%\begin{align}
+%%\dpr{\ol{u_i}}{t}\unitvec{e}_i
+%%+
+%%\ol{\ol{u_j} \dpr{\ol{u_i}}{x_j}}\unitvec{e}_i
+%%+
+%%\ol{u_j'\dpr{u_i'}{x_j}}\unitvec{e}_i
+%%+
+%%\delta_{j3}\timesES{f}{\ol{u}}
+%%&=
+%%-\dpr{\ol{p}}{x_i}	\unitvec{e}_i
+%%+ \nu \dpr{^2\ol{u_i}}{x_j^2}\unitvec{e}_i
+%%- \delta_3 \ol{g}\unitvec{e}_i \\
+%%% --------------------------------------------------------------------
+%%\dpr{\ol{u_i}}{x_i}
+%%&=
+%%0 \\
+%%% --------------------------------------------------------------------
+%%\dpr{\ol{\rho}}{t}
+%%+\ol{\ol{u_j} \dpr{\ol{\rho}}{x_j}}
+%%+\ol{u_j'\dpr{\rho'}{x_j}}
+%%&=
+%%-\ol{\dpr{J_{i}^{rad}}{x_i}}
+%%+   \kappa \dpr{^2 \ol{\rho}}{x_i^2}
+%%\end{align}
+%%\end{subequations}
+%%% %....................................................................
+%%Focusing solely on deviations from the mean state and assuming horizontal
+%%gradients of the mean state to be negligible and hence due to continuity
+%%also	\footnote{$\delta_h=1-\delta_3$} $\dpr{w}{z}=0 \rightarrow w=0$:
+
+%%% %....................................................................
+%%\begin{subequations}
+%%\begin{align}
+%%\delta_h \dpr{\ol{u_i}}{t}\unitvec{e}_i
+%%+
+%%\ol{w'\dpr{u_i'}{z}}\unitvec{e}_i
+%%+
+%%\delta_h \delta_{j3}\timesES{f}{\ol{u}}
+%%&=
+%%-\dpr{\ol{p}}{z}	\unitvec{e}_z
+%%-  g\unitvec{e}_z \\
+%%% --------------------------------------------------------------------
+%%\dpr{\ol{\rho}}{t}
+%%+\ol{w'\dpr{\rho'}{z}}
+%%&=
+%%-\dpr{\ol{J_{i}^{rad}}}{z}
+%%+   \kappa \dpr{^2 \ol{\rho}}{z^2}
+%%\end{align}
+%%\end{subequations}
+%%%....................................................................
+%%returning to vector notation
+%%% %....................................................................
+%%\begin{subequations}
+%%\begin{align}
+%%\dpr{\ol{\vec{u}_h}}{t}
+%%+
+%%\ol{w' \dpr{\vec{u}'}{z}}
+%%+
+%%f \vec{k} \times \ol{\vec{u}_h}
+%%&=
+%%-\dpr{\ol{p}}{z} \unitvec{e}_z
+%%+  \vec{g} \label{eq:inhomoNStemp1} \\
+%%% --------------------------------------------------------------------
+%%\dpr{\ol{\rho}}{t}
+%%+\ol{w' \dpr{ \rho'}{z}}
+%%&=
+%%-\dpr{\ol{\vec{J}}_{rad}}{z}
+%%+   \kappa \dpr{^2 \ol{\rho}}{z^2}
+%%\end{align}
+%%\end{subequations}
+%%% %....................................................................
+%%where the RHS of \eqref{eq:inhomoNStemp1} is hydrostaticity, leaving
+%%$\ol{w'\dpr{w'}{z}}=0 \rightarrow \dpr{w'}{z}=0$ for the vertical part,
+%%hence:
+%%% %....................................................................
+%%\begin{subequations}
+%%\begin{align}
+%%\dpr{\ol{\vec{u}_h}}{t}
+%%+
+%%\ol{ \dpr{w'\vec{u}_h'}{z}}
+%%+
+%%f \vec{k} \times \ol{\vec{u}_h}
+%%&=
+%%0 \\
+%%% --------------------------------------------------------------------
+%%\dpr{\ol{\rho}}{t}
+%%+\ol{ \dpr{ w'\rho'}{z}}
+%%&=
+%%-\dpr{\ol{\vec{J}}_{rad}}{z}
+%%+   \kappa \dpr{^2 \ol{\rho}}{z^2}
+%%\end{align}
+%%\end{subequations}
+%%% %....................................................................
+%%% %....................................................................
+%%\begin{subequations} \label{eq:inhomo_fin}
+%%\begin{align}
+%%\dpr{\ol{\vec{u}_h}}{t}
+%%+
+%%\ol{ \dpr{w'\vec{u}_h'}{z}}
+%%+
+%%f \vec{k} \times \ol{\vec{u}_h}
+%%&=
+%%0 \\
+%%% --------------------------------------------------------------------
+%%\dpr{\ol{\rho}}{t}
+%%&=
+%%-\dpr{}{z}
+%%\left(
+%%\ol{  w'\rho'}
+%%-\ol{\vec{J}}_{rad}
+%%+   \kappa \dpr{ \ol{\rho}}{z} \right)
+%%\end{align}
+%%\end{subequations}
+%%% %....................................................................
+%\end{derivationNobreak}
