@@ -2,31 +2,43 @@
 %%....................................F.I.G.U.R.E.............................................
 \begin{figure}
 		\includegraphics[width=\linewidth]{defl-age-aviI_shrunk2prepress}
-		\caption{aviso-\MI: Basleline-shifted \textit{old} tracks. Tracks younger than $500 days$ omitted.}
+		\caption{\AVI-\MI: Basleline-shifted \textit{old} tracks. Tracks younger than
+%$\SI{500}{\day}$
+		$500 days$
+\TODO{!}
+		omitted.}
 		\label{fig:defl-age-aviI_shrunk2prepress}
 \end{figure}
 %%....................................F.I.G.U.R.E.............................................
 %%....................................F.I.G.U.R.E.............................................
 \begin{figure}
 		\includegraphics[width=\linewidth]{defl-age-aviII_shrunk2prepress}
-		\caption{aviso-\MII: Basleline-shifted \textit{old} tracks. Tracks younger than $500 days$ omitted.}
+		\caption{\AVI-\MII: Basleline-shifted \textit{old} tracks. Tracks younger than
+		 %$\SI{500}{\day}$
+		$500 days$
+\TODO{!}
+		  omitted.}
 		\label{fig:defl-age-aviII_shrunk2prepress}
 \end{figure}
 %%....................................F.I.G.U.R.E.............................................
-
-The short time-frame and limited computational resources allowed for only a few complete global runs over the available data.
+\newthought{The  } short time frame and limited computational resources allowed for only a few complete global runs over the available data.
 It was therefor critical to carefully choose which method/parameters to use in order to maximize the deducible insight from the results.
-For best comparability of the results with each other it was decided to agree on one complete set of parameters as a basis, which would then be altered at key parameters.
-The first run is an attempt to reproduce the results from \citet{Chelton2011}, by setting the algorithm to be the most similar to the algorithm described by \citetalias{Chelton2011}.  The SSH-data for this run is therefor that of the Aviso product.
-This method will be called \MI.\\
- The second run is equivalent, except that this time the alternative $\IQ$-based shape filtering method from TODO ref and the slightly different tracking-filter as described in TODO ref are used. This setting will be called \MII. \MII is then fed with 7-day time-step POP data as well.\\
- To investigate what role space-resolution plays, the POP data was remapped to that of the Aviso data and fed to the \MI method. Finally, to investigate the effects of resolution in time, an \MII/3-day-time-step run over POP data was executed.  \\
-  Start and end dates were fix for all runs as the intersection of availability of both data sets (see table \ref{tab:fixparams} for details).
+For best comparability of the results with each other it was decided to agree on one complete set of parameters as a basis (\cref{tab:fixparams}), which would then be altered at key parameters.
+The first run is an attempt to reproduce the results from \citet{Chelton2011}. The SSH-data for this run is therefor that of the \AVI product.
+This method will be called \MI.
+
+ \newthought{The } second run (\MII) is equivalent, except that this time the alternative $\IQ$-based shape filtering method from TODO ref and the slightly different tracking-filter as described in TODO ref are used. \MII is then fed with 7-day time-step \POP data as well.
+
+ \newthought{To investigate  }  what role spatil resolution plays, the \POP data was remapped to that of the \AVI data and fed to the \MI method.
+
+\newthought{Finally }, to investigate the effects of resolution in time, an \MII-1-day-time-step run over \POP data was executed.
+
+\newthought{Start and end dates  } were fix for all runs as the intersection of availability of both data sets.
 
 \input{SUBS/RESULTStables.tex}
 
  \TODO{Cheltons idendity check takes Leff?}
-\newpage
+
 
 \begin{cbox}{Method \MI}\label{box:MI}
 The concepts used in this method are mostly based on the description of the algorithm described by \citet{Chelton2011} and all parameters are set accordingly. Basically \MI is a modification of \MII (which was completed first), with the aim to try to recreate the results from \citep{Chelton2011}.
@@ -48,13 +60,15 @@ In this method an eddy B from time-step $k+1$ is considered as a potential manif
 
 
 \begin{cbox}{Method \MII}\label{box:MII}
-Even though, in its core, directly inspired by \citet{Chelton2011}, this method differs from \MII and thus from the description by \citeauthor{Chelton2011} mainly in the way the shape of a found contour is deemed sufficiently eddy-like.
+
+The purpose of this variant is basically to test the conceptually very different idea of the $\IQ$-technique to test the shape of found contours for sufficiently eddy-\textit{typical}. It also uses a slightly different tracking algorithm.
 \begin{itemize}
 	\item \textbf{detection}\\
-	 The $\IQ$-method. See \ref{fig:chiq5} and \ref{filter:shape}.
+	 The $\IQ$-method. See \cref{fig:chiq5} and \cref{filter:shape}.
 	\item \textbf{tracking}\\
 	Conceptually similar to \MI, it is again vertical and horizontal scales that are compared between time-steps. Prefering a single threshold-value over one upper and one lower bound, a paramter $\xi$ was introduced that is the maximum of the two values resulting from the two ratios of apmlitude respective $\sigma$, where either ratio is -if larger- its reciproke in order to equally weight a decrease or an increase in respective parameter. In other words:
 $\xi = \max{\left(\left[\exp{\abs{\log{R_{\alpha}}}}\; ; \;\; \exp{\abs{\log{R_{\sigma}}}} \right]\right)} $, where $R$ are the ratios.
+\TODO{this has been explained twice now..}
 \end{itemize}
 \end{cbox}
 

@@ -10,15 +10,15 @@
 \definecolor{filtercolor}{HTML}{FFFFFF}
 \definecolor{legendcol}{HTML}{7BBCBD}
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
-\newcommand{\ie}{\textit{i.\hairsp{}e.}\xspace} % Command to print i.e.
-\newcommand{\eg}{\textit{e.\hairsp{}g.}\xspace} % Command to print e.g.
-\newcommand{\Eg}{E.g.\xspace}
-\newcommand{\Ie}{I.e.\xspace}
-\newcommand{\etc}{\@ifnextchar{.}{etc}{etc.\@\xspace}}
+\newcommand{\ie}{\textit{i.\hairsp{}e.}~} % Command to print i.e.
+\newcommand{\eg}{\textit{e.\hairsp{}g.}~} % Command to print e.g.
+\newcommand{\Eg}{E.g.~}
+\newcommand{\Ie}{I.e.~}
+\newcommand{\etc}{\@ifnextchar{.}{etc}{etc.~}}
 \newcommand{\litem}[2]{\def\@itemlabel{\textbf{#1}}\item\def\@currentlabel{\textbf{#1}}\label{#2}}
 \newcommand{\derref}[1]{\footnote{see\fcolorbox{white}{gray!20}{Derivation \cref{#1}}}}
 \newcommand{\derrefs}[1]{\footnote{see\fcolorbox{white}{gray!20}{Derivations \cref{#1}}}}
-
+\newcommand{\Citeauthoryear}[1]{\Citeauthor{#1}~\citeyear{#1}}
 
 %  #####################################################################
 % MATH
@@ -78,7 +78,7 @@
 \MakeFramed{\advance\hsize-\width \FrameRestore\cornersize{0.9}}
 \begin{scriptsize}
 \begin{center}
-\textbf{Box~\thecbox. #1}
+\textbf{Box~\thecbox~- #1}
 \end{center}
 }
 {
@@ -90,17 +90,19 @@
 {
 \refstepcounter{speedbox}\par\medskip\noindent
 \def\FrameCommand{\colorbox{speedboxcolor}}%
-%\MakeFramed{\advance\hsize-\width \FrameRestore\cornersize{0.9}}
-%\MakeFramed{\FrameRestore\cornersize{0.99}}
+\MakeFramed{\advance\hsize-\width \FrameRestore\cornersize{0.9}}
 \begin{scriptsize}
 \begin{center}
-\textbf{Eddy Drift Speed~\thecbox. #1}
+\textbf{Drift~Speed~\thespeedbox~- #1}
 \end{center}
 }
 {
 \end{scriptsize}
-%\endMakeFramed
+\endMakeFramed
 }
+
+
+
 
 \newenvironment{filter}[2]
 {
@@ -126,18 +128,18 @@
 	\endMakeFramed
 }
 
-\newenvironment{Declaration}{   
+\newenvironment{Declaration}{
   \chapter*{Declaration of Authorship}
-  \addcontentsline{toc}{chapter}{Declaration of Authorship}  
+  \addcontentsline{toc}{chapter}{Declaration of Authorship}
 }
 {
 \clearpage
 }
 
-\newenvironment{acknol}{   
+\newenvironment{acknol}{
   \chapter*{Acknoledgements}
   \setstretch{1.3}
-  %\addcontentsline{toc}{chapter}{Acknoledgements}  
+  %\addcontentsline{toc}{chapter}{Acknoledgements}
 }
 {
 \clearpage
@@ -228,7 +230,13 @@ innertopmargin=\topskip,}
 \newcommand{\Rh}[0]{\mathrm{\hyperref[def:Rh]{R_{\beta}}}\;}
 \newcommand{\Lr}[0]{\mathrm{\hyperref[def:Lr]{L_{R}}}\;}
 \newcommand{\Lb}[0]{\mathrm{\hyperref[def:Lb]{L_{\beta}}}\;}
-\newcommand{\h}[0]{\hyperref[def:h]{h}}
+
+\newcommand{\AC}[0]{\hyperref[def:AC]{AC~}}
+\newcommand{\ACs}[0]{\hyperref[def:AC]{ACs~}}
+\newcommand{\C}[0]{\hyperref[def:C]{C~}}
+\newcommand{\Cs}[0]{\hyperref[def:C]{Cs~}}
+
+\newcommand{\h}[0]{\hyperref[def:h]{h~}}
 \newcommand{\B}[0]{\hyperref[def:B]{ \vec{B}}}
 \newcommand{\Ek}[0]{\hyperref[def:Ek]{E_k}}
 \newcommand{\Em}[0]{\hyperref[def:Em]{E_m}}
@@ -242,15 +250,15 @@ innertopmargin=\topskip,}
 \newcommand{\SSH}[0]{\hyperref[def:SSH]{SSH}\;}
 \newcommand{\IQ}[0]{\mathrm{\hyperref[def:IQ]{IQ}}\;}
 \newcommand{\rG}[0]{\hyperref[def:rG]{\mathfrak{r}}\;}
-\newcommand{\aviI      }[0]{\hyperref[def:aviI ]{aviso-MI                      }\@\xspace}
-\newcommand{\aviII     }[0]{\hyperref[def:aviII]{aviso-MII                     }\@\xspace}
-\newcommand{\pToaII    }[0]{\hyperref[def:p2aII]{pop2avi-MII                   }\@\xspace}
-\newcommand{\popSevenII}[0]{\hyperref[def:pop7II]{POP-7day-MII                 }\@\xspace}
-\newcommand{\popOneIISO}[0]{\hyperref[def:pop1IISO]{POP-1day-MII-Southern-Ocean}\@\xspace}
-\newcommand{\MI}[0]{\hyperref[box:MI]{MI}\@\xspace}
-\newcommand{\MII}[0]{\hyperref[box:MII]{MII}\@\xspace}
-\newcommand{\POP}[0]{\hyperref[def:POP]{POP}\@\xspace}
-\newcommand{\AVISO}[0]{\hyperref[def:AVISO]{AVISO}\@\xspace}
+\newcommand{\aviI      }[0]{\hyperref[def:aviI ]{\AVI-MI                      }~}
+\newcommand{\aviII     }[0]{\hyperref[def:aviII]{\AVI-MII                     }~}
+\newcommand{\pToaII    }[0]{\hyperref[def:p2aII]{pop2avi-MII                   }~}
+\newcommand{\popSevenII}[0]{\hyperref[def:pop7II]{POP-7day-MII                 }~}
+\newcommand{\popOneIISO}[0]{\hyperref[def:pop1IISO]{POP-1day-MII-Southern-Ocean}~}
+\newcommand{\MI}[0]{\hyperref[box:MI]{MI}~}
+\newcommand{\MII}[0]{\hyperref[box:MII]{MII}~}
+\newcommand{\POP}[0]{\hyperref[def:POP]{POP}~}
+\newcommand{\AVI}[0]{\hyperref[def:AVISO]{AVISO}~}
 \newcommand{\TODO}[1]{\textbf{\textcolor{red}{TODO:#1}}}
 
 
@@ -264,7 +272,7 @@ innertopmargin=\topskip,}
 \newcommand{\intms}[1]{ \left< #1 \right>}
 %\renewcommand{\deg}[1]{#1^\circ}
 \renewcommand{\deg}[1]{\ang{#1}}
-\newcommand{\km}[1]{#1 \mathrm{km}}
+%\newcommand{\km}[1]{#1 \mathrm{km}}
 \newcommand{\decom}[1]{\overline{#1} + #1'}
 \newcommand{\inbr}[1]{\left( #1 \right)}
 \newcommand{\ol}[1]{\overline{#1}}
@@ -347,15 +355,15 @@ innertopmargin=\topskip,}
 \newcommand{\docmsg}[2]{\bigskip\begin{fullwidth}\noindent\ttfamily#1\end{fullwidth}\medskip\par\noindent#2}
 \newcommand{\docfilehook}[2]{\texttt{#1}\index{file hooks!#2}\index{#1@\texttt{#1}}}
 \newcommand{\doccounter}[1]{\texttt{#1}\index{#1 counter@\texttt{#1} counter}}
-\newcommand{\vdqi}{\textit{VDQI}\xspace}
-\newcommand{\ei}{\textit{EI}\xspace}
-\newcommand{\ve}{\textit{VE}\xspace}
-\newcommand{\be}{\textit{BE}\xspace}
-\newcommand{\VDQI}{\textit{The Visual Display of Quantitative Information}\xspace}
-\newcommand{\EI}{\textit{Envisioning Information}\xspace}
-\newcommand{\VE}{\textit{Visual Explanations}\xspace}
-\newcommand{\BE}{\textit{Beautiful Evidence}\xspace}
-\newcommand{\TL}{Tufte-\LaTeX\xspace}
+\newcommand{\vdqi}{\textit{VDQI}~}
+\newcommand{\ei}{\textit{EI}~}
+\newcommand{\ve}{\textit{VE}~}
+\newcommand{\be}{\textit{BE}~}
+\newcommand{\VDQI}{\textit{The Visual Display of Quantitative Information}~}
+\newcommand{\EI}{\textit{Envisioning Information}~}
+\newcommand{\VE}{\textit{Visual Explanations}~}
+\newcommand{\BE}{\textit{Beautiful Evidence}~}
+\newcommand{\TL}{Tufte-\LaTeX~}
 
 %----------------------------------------------------------------------------------------
 \newenvironment{docspec}{\begin{quotation}\ttfamily\parskip0pt\parindent0pt\ignorespaces}{\end{quotation}}
