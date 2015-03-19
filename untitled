@@ -1,0 +1,8 @@
+\backmatter
+%\input{SUBS/declaration.tex}
+%\input{SUBS/acknol.tex}
+\bibliographystyle{authordate1}
+%\listoffigures % Print a list of figures
+%\listoftables % Print a list of tables
+\bibliography{/home/niko/documents/library}
+%\bibliography{/home/zmaw/u300065/mendPdfs/library}
