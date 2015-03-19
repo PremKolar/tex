@@ -10,8 +10,8 @@
 \definecolor{filtercolor}{HTML}{FFFFFF}
 \definecolor{legendcol}{HTML}{7BBCBD}
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
-\newcommand{\ie}{\textit{i.\hairsp{}e.}~} % Command to print i.e.
-\newcommand{\eg}{\textit{e.\hairsp{}g.}~} % Command to print e.g.
+\newcommand{\ie}{\textit{i.e.}~} % Command to print i.e.
+\newcommand{\eg}{\textit{e.g.}~} % Command to print e.g.
 \newcommand{\Eg}{E.g.~}
 \newcommand{\Ie}{I.e.~}
 \newcommand{\etc}{\@ifnextchar{.}{etc}{etc.~}}
@@ -48,257 +48,78 @@
 \newcommand{\Dprs}[2]{\frac{D^{\star}#1}{D#2}}
 \newcommand{\advec}[1]{\vec{u} \cdot \vec{\nabla} #1}
 \newcommand{\Unit}[1]{\left[#1\right]}
+\newcommand{\Units}[1]{\left[\si{#1}\right]}
 \newcommand{\unitvec}[1]{\oldhat{\vec{#1}}}
 \newcommand{\tvec}[1]{\underaccent{\neg}{\vec{#1}}}
 \newcommand{\tsca}[1]{\underaccent{\neg}{#1}}
 \newcommand{\order}[1]{\mathcal{O}\left( 10^{#1}\right)}
-\newcommand{\sign}[1]{\mathrm{sgn}\left(#1\right)}
+\newcommand{\sign}[1]{\mathrm{sign}\left(#1\right)}
 \newcommand{\abs}[1]{\left|#1\right|}
 \DeclareMathOperator{\tr}{Tr}
 \newcommand{\eexp}[1]{ \mathrm{e}^{#1}}
 \renewcommand{\i}{\mathrm{i}}
 \newcommand{\Cdot}[2]{\vec{#1} \cdot \vec{#2}}
 
-% ######################################################################
-% COUNTERS
-% ######################################################################
-
-\newcounter{cbox}
-\newcounter{speedbox}
-\newcounter{filter}
-
-
-% ######################################################################
-% ENVIRONTMENTS
-% ######################################################################
-
-\newfloat{boxfloat}{H}{myc}
-
-\newenvironment{cbox}[1]
-{
-\begin{boxfloat}
-\refstepcounter{cbox}\par\medskip\noindent
-\def\FrameCommand{\colorbox{cboxcolor}}%
-\MakeFramed{\advance\hsize-\width \FrameRestore\cornersize{0.9}}
-\begin{scriptsize}
-\begin{center}
-\textbf{Box~\thecbox~- #1}
-\end{center}
-}
-{
-\end{scriptsize}
-\endMakeFramed
-\end{boxfloat}
-}
-
-\newenvironment{speedbox}[1]
-{
-\begin{boxfloat}
-\refstepcounter{speedbox}\par\medskip\noindent
-\def\FrameCommand{\colorbox{speedboxcolor}}%
-\MakeFramed{\advance\hsize-\width \FrameRestore\cornersize{0.9}}
-\begin{scriptsize}
-\begin{center}
-\textbf{Drift~Speed~\thespeedbox~- #1}
-\end{center}
-}
-{
-\end{scriptsize}
-\endMakeFramed
-\end{boxfloat}
-}
-
-
-
-
-\newenvironment{filter}[2]
-{
-\refstepcounter{filter}\par\medskip\noindent
-\begin{large}
-\textit{Contour filter~\thefilter} \textbf{#1}\\
-\noindent \mcode{function #2}\\
-\end{large}
-\noindent
-}
-{
-}
-
-\newenvironment{colbox}[1]
-{
-\begin{boxfloat}
-	\def\FrameCommand{\colorbox{colboxcolor}}%
-	\MakeFramed{\advance\hsize-\width \FrameRestore\cornersize{0.9}}
-	\begin{scriptsize}
-	\section{#1}
-}
-{
-    \end{scriptsize}
-	\endMakeFramed
-\end{boxfloat}
-}
-
-\newenvironment{Declaration}{
-  \chapter*{Declaration of Authorship}
-  \addcontentsline{toc}{chapter}{Declaration of Authorship}
-}
-{
-\clearpage
-}
-
-\newenvironment{acknol}{
-  \chapter*{Acknoledgements}
-  \setstretch{1.3}
-  %\addcontentsline{toc}{chapter}{Acknoledgements}
-}
-{
-\clearpage
-}
-
-%  #####################################################################
-% STYLES
-% ######################################################################
-
-\mdfdefinestyle{definition}
-{linewidth=1,
-backgroundcolor=yellow!40,
-outerlinecolor=blue!70!black,
-frametitlebackgroundcolor=gray!20,
-% frametitlerule=true,
-innertopmargin=\topskip,
-nobreak=true}
-
-
-%\mdfdefinestyle{derivation}
-%{linewidth=1,
-%backgroundcolor=yellow!40,
-%outerlinecolor=blue!70!black,
-%frametitlebackgroundcolor=gray!10,
-%% frametitlerule=true,
-%innertopmargin=\topskip,}
-
-\mdfdefinestyle{codepiece}
-{linewidth=15pt,
-linecolor=black,
-%frametitlerule=true,
-backgroundcolor=red!1,
-outerlinecolor=black,
-frametitlebackgroundcolor=blue!10,
-innertopmargin=\topskip,}
-
-\mdfdefinestyle{function}
-{%linewidth=15pt,
-%linecolor=black,
-%frametitlerule=true,
-%backgroundcolor=red!1,
-%outerlinecolor=black,
-%frametitlebackgroundcolor=blue!10,
-innertopmargin=-.5cm,}
-
-\mdfdefinestyle{derivation}
-{linecolor=red,
-outerlinewidth=2,
-leftmargin=40mm,
-rightmargin=40mm,
-linewidth=2,
-frametitlerule=true,
-frametitlebackgroundcolor=gray!20,
-%innertopmargin=\topskip,
-roundcorner=10pt}
-
-\mdfdefinestyle{derivationNobreak}
-{linecolor=red,
-outerlinewidth=2,
-leftmargin=40mm,
-rightmargin=40mm,
-linewidth=2,
-frametitlerule=true,
-frametitlebackgroundcolor=gray!20,
-%innertopmargin=\topskip,
-roundcorner=10pt,
-nobreak=true}
-
-
-\mdfdefinestyle{eddy}
-{linewidth=.5,
-% align=center,
-% backgroundcolor=yellow!40,
-outerlinecolor=black,
-frametitlebackgroundcolor=gray!20,
-% frametitlerule=true,
-%innertopmargin=\topskip,
-nobreak=true}
-
-%  #####################################################################
-% mdTHEOREMS
-% ######################################################################
-
-\mdtheorem[style=definition]{definition}{Definition}
-
-\mdtheorem[style=codepiece]{codepiece}{Code}[chapter]
-
-\mdtheorem[style=function]{function}{sub-routine}[section]
-
-\mdtheorem[style=derivation]{derivation}{Derivation}
-\mdtheorem[style=derivationNobreak]{derivationNobreak}{Derivation}
-
-\mdtheorem[style=eddy]{eddy}{Vortex}[chapter]
-
-\mdtheorem[style=eddy]{turbu}{Turbulence}[chapter]
-
 
 %  #####################################################################
 %% legend stuff
 % ######################################################################
 
-\newcommand{\Bu}[0]{\mathrm{\hyperref[def:Bu]{Bu}}\;}
-\newcommand{\Ro}[0]{\mathrm{\hyperref[def:Ro]{Ro}}\;}
-\renewcommand{\Re}[0]{\mathrm{\hyperref[def:Re]{Re}}\;}
-\newcommand{\Rh}[0]{\mathrm{\hyperref[def:Rh]{R_{\beta}}}\;}
-\newcommand{\Lr}[0]{\mathrm{\hyperref[def:Lr]{L_{R}}}\;}
-\newcommand{\Lb}[0]{\mathrm{\hyperref[def:Lb]{L_{\beta}}}\;}
+\newcommand{\Bu}[0]{\hyperref[def:Bu]{\mathrm{Bu}}}
+\newcommand{\Ro}[0]{\hyperref[def:Ro]{\mathrm{Ro}}}
+\renewcommand{\Re}[0]{\hyperref[def:Re]{\mathrm{Re}}}
+\newcommand{\Rh}[0]{\hyperref[def:Rh]{\mathrm{R}_{\beta}}}
+\newcommand{\Lr}[0]{\hyperref[def:Lr]{\mathrm{L_{R}}}}
+\newcommand{\Lb}[0]{\hyperref[def:Lb]{\mathrm{L}_{\beta}}}
+\newcommand{\okubo}[0]{\hyperref[def:okubo]{\mathrm{O_w}}}
+\newcommand{\IQ}[0]{\hyperref[def:IQ]{\mathrm{IQ}}}
+\newcommand{\N}[0]{\hyperref[def:BVf]{\mathrm{N}}}
+
 
 \newcommand{\AC}[0]{\hyperref[def:AC]{AC~}}
 \newcommand{\ACs}[0]{\hyperref[def:AC]{ACs~}}
 \renewcommand{\C}[0]{\hyperref[def:C]{C~}}
 \newcommand{\Cs}[0]{\hyperref[def:C]{Cs~}}
 
-\newcommand{\h}[0]{\hyperref[def:h]{h~}}
 \newcommand{\B}[0]{\hyperref[def:B]{ \vec{B}}}
 \newcommand{\Ek}[0]{\hyperref[def:Ek]{E_k}}
 \newcommand{\Em}[0]{\hyperref[def:Em]{E_m}}
-\newcommand{\scale}[0]{\hyperref[def:scale]{$\sigma$}\;}
-\newcommand{\CoV}[0]{\hyperref[filter:CoV]{CoV}\;}
+\newcommand{\CoV}[0]{\hyperref[filter:CoV]{CoV}}
 \newcommand{\enstro}[0]{\hyperref[def:enstro]{\varepsilon}}
+\newcommand{\rG}[0]{\hyperref[def:rG]{\mathfrak{r}}}
+
+\newcommand{\scale}[0]{\hyperref[def:scale]{\sigma}}
+\newcommand{\Scale}[0]{$\scale$}
+\newcommand{\h}[0]{\hyperref[def:h]{h}}
+\newcommand{\g}[0]{\mathit{\hyperref[def:g]{g}}}
 \newcommand{\f}[0]{\mathit{\hyperref[def:f]{f}}}
-\newcommand{\dfdy}[0]{\mathrm{\hyperref[def:beta]{\beta}}\;}
-\newcommand{\g}[0]{\mathit{\hyperref[def:g]{g}}\;}
-\newcommand{\okubo}[0]{\mathrm{\hyperref[def:okubo]{O_w}}\;}
-\newcommand{\SSH}[0]{\hyperref[def:SSH]{SSH}\;}
-\newcommand{\IQ}[0]{\mathrm{\hyperref[def:IQ]{IQ}}\;}
-\newcommand{\rG}[0]{\hyperref[def:rG]{\mathfrak{r}}\;}
-\newcommand{\aviI      }[0]{\hyperref[def:aviI ]{\AVI-MI                      }~}
-\newcommand{\aviII     }[0]{\hyperref[def:aviII]{\AVI-MII                     }~}
+\newcommand{\dfdy}[0]{\hyperref[def:beta]{\beta}}
+\newcommand{\steer}[0]{\hyperref[def:steer]{z_{S}}}
+
+
+
+\newcommand{\SSH}[0]{\hyperref[def:SSH]{SSH}}
+
+\newcommand{\aviI      }[0]{\hyperref[def:aviI]{AVI-MI                        }~}
+\newcommand{\aviII     }[0]{\hyperref[def:aviII]{AVI-MII                       }~}
 \newcommand{\pToaII    }[0]{\hyperref[def:p2aII]{pop2avi-MII                   }~}
 \newcommand{\popSevenII}[0]{\hyperref[def:pop7II]{POP-7day-MII                 }~}
 \newcommand{\popOneIISO}[0]{\hyperref[def:pop1IISO]{POP-1day-MII-Southern-Ocean}~}
-\newcommand{\MI}[0]{\hyperref[box:MI]{MI}~}
-\newcommand{\MII}[0]{\hyperref[box:MII]{MII}~}
-\newcommand{\POP}[0]{\hyperref[def:POP]{POP}~}
-\newcommand{\AVI}[0]{\hyperref[def:AVISO]{AVISO}~}
-\newcommand{\TODO}[1]{\textbf{\textcolor{red}{TODO:#1}}}
+\newcommand{\MI}[0]{\hyperref[box:MI]{MI}}
+\newcommand{\MII}[0]{\hyperref[box:MII]{MII}}
+\newcommand{\POP}[0]{\hyperref[def:POP]{POP}}
+\newcommand{\AVI}[0]{\hyperref[def:AVISO]{Aviso}}
+\newcommand{\TODO}[1]{\textbf{\textcolor{red}{TODO: }#1~\newline}}
 
 
 \newcommand{\Enstro}{\mathcal{E}}
 \newcommand{\inta}[1]{ \int_A #1 \; \mathrm{d}A}
 \newcommand{\intm}[1]{ \frac{1}{A} \int_A #1 \; \mathrm{d}A}
 \newcommand{\dint}[1]{ \; \mathrm{d}#1}
-%\newcommand{\d}[1]{\mathrm{d}#1}
 \newcommand{\expp}[1]{\mathrm{e}^{#1}}
 \newcommand{\INT}[4]{\int_{#1}^{#2} #3 \; \mathrm{d}#4}
 \newcommand{\intms}[1]{ \left< #1 \right>}
-%\renewcommand{\deg}[1]{#1^\circ}
 \renewcommand{\deg}[1]{\ang{#1}}
-%\newcommand{\km}[1]{#1 \mathrm{km}}
 \newcommand{\km}[1]{\SI{#1}{\km}}
 \newcommand{\decom}[1]{\overline{#1} + #1'}
 \newcommand{\inbr}[1]{\left( #1 \right)}
@@ -370,27 +191,8 @@ nobreak=true}
 }}
 
 
-% A bunch of new commands to print commands, arguments, environments, classes, etc within the text using the correct formatting
-\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}
-\newcommand{\docarg}[1]{\textrm{\textit{#1}}}
-\newcommand{\docenv}[1]{\texttt{#1}\index{#1 environment@\texttt{#1} environment}\index{environments!#1@\texttt{#1}}}
-\newcommand{\docenvdef}[1]{\hlred{\texttt{#1}}\label{env:#1}\index{#1 environment@\texttt{#1} environment}\index{environments!#1@\texttt{#1}}}
-\newcommand{\docpkg}[1]{\texttt{#1}\index{#1 package@\texttt{#1} package}\index{packages!#1@\texttt{#1}}}
-\newcommand{\doccls}[1]{\texttt{#1}}
-\newcommand{\docclsopt}[1]{\texttt{#1}\index{#1 class option@\texttt{#1} class option}\index{class options!#1@\texttt{#1}}}
-\newcommand{\docclsoptdef}[1]{\hlred{\texttt{#1}}\label{clsopt:#1}\index{#1 class option@\texttt{#1} class option}\index{class options!#1@\texttt{#1}}}
-\newcommand{\docmsg}[2]{\bigskip\begin{fullwidth}\noindent\ttfamily#1\end{fullwidth}\medskip\par\noindent#2}
-\newcommand{\docfilehook}[2]{\texttt{#1}\index{file hooks!#2}\index{#1@\texttt{#1}}}
-\newcommand{\doccounter}[1]{\texttt{#1}\index{#1 counter@\texttt{#1} counter}}
-\newcommand{\vdqi}{\textit{VDQI}~}
-\newcommand{\ei}{\textit{EI}~}
-\newcommand{\ve}{\textit{VE}~}
-\newcommand{\be}{\textit{BE}~}
-\newcommand{\VDQI}{\textit{The Visual Display of Quantitative Information}~}
-\newcommand{\EI}{\textit{Envisioning Information}~}
-\newcommand{\VE}{\textit{Visual Explanations}~}
-\newcommand{\BE}{\textit{Beautiful Evidence}~}
-\newcommand{\TL}{Tufte-\LaTeX~}
 
-%----------------------------------------------------------------------------------------
-\newenvironment{docspec}{\begin{quotation}\ttfamily\parskip0pt\parindent0pt\ignorespaces}{\end{quotation}}
+
+
+\newcommand{\capU}[0]{zonal translational speed $\Unit{\si{cm/s}}$} 
+\newcommand{\capS}[0]{\Scale $\Unit{\si{km}}$} 

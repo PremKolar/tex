@@ -1,20 +1,20 @@
 
-\newthought{The }  following discusses a handful of selected historical papers that are concerned with either the theory of mesoscale eddies or with the detection/tracking of eddies from SSH data.
+\newthought{The }  following discusses a handful of selected historical papers that are concerned with either the theory of mesoscale eddies or with the detection/tracking of eddies from \SSH~data.
 
 
 \subsection[\Citeauthoryear{Rhines2006}]{\textbf{Waves and Turbulence on a $\dfdy$-Plane} \cite{Rhines2006}}\label{sec:hist_rhines}
-Rhines investigated the effect of the $\dfdy$-plane on the inverse energy cascade of quasi-2-dimensional atmospheric and oceanic turbulence. At constant $\f$, energy should be cascaded to ever-larger scales until halted by the scale of the domain. This is clearly not the case, as no storm has ever grown to global scale. The presence of a meridional restoring force creates a critical scale beyond which the \textit{turbulent migration of the dominant scale nearly ceases \ldots}. Rossby waves are excited which would in theory eventually give way to alternating zonal jets of width $\mathrm{L_{\dfdy}}$. This scale was later coined the Rhines Scale $\Lb$.
+Rhines investigated the effect of the $\dfdy$-plane on the inverse energy cascade of quasi-2-dimensional atmospheric and oceanic turbulence. At constant $\f$, energy should be cascaded to ever-larger scales until halted by the scale of the domain. This is clearly not the case, as no storm has ever grown to global scale. The presence of a meridional restoring force creates a critical scale beyond which the \textit{turbulent migration of the dominant scale nearly ceases \ldots}. Rossby waves are excited which would in theory eventually give way to alternating zonal jets of width $\frac{U}{\dfdy}$. This scale was later coined the Rhines Scale $\Lb$.
 
 \subsection[\Citeauthoryear{Cushman-Roisin1990}]{\textbf{Westward Motion of Mesoscale Eddies} \cite{Cushman-Roisin1990}}\label{sec:hist_cush}
 \citet{Bjerknes1944} already noted that the $\dfdy$-effect causes a mass-imbalance in planetary vortices that, if not met by an asymmetry in shape must lead to westward propagation. \\
 \citet{Nof1981} derived that the $\dfdy$-effect results in a net meridional force on the integrated mass of the vortex, which in balance with the Coriolis acceleration shoves cyclones eastward and anti-cyclones westward. They also explained how displaced water outside the eddy's perimeter causes a much stronger westward component, with the result that all eddies propagate westward irrespective or rotational sense.\\
  The westward drift was also derived in various forms by
-\eg \citet{flierl1984rossby,matsuura1982evolution}.
+\eg~\citet{flierl1984rossby,matsuura1982evolution}.
 
 \newthought{The } paper by \citet{Cushman-Roisin1990} is particularly helpful to understand where the two components of westward drift come from.
 By scaling the terms in the one-layer primitive equations by their respective dimensionless numbers, integrating the interface-displacement caused by the eddy over the eddy's domain and applying mass continuity they derive for the location $(X,Y)$ of an eddy's centroid\footnote{$\intms{}\equiv \intm{}$}:
 %%....................................................................
-\begin{equation}\begin{split}
+\begin{align}
 	\Pi X_{tt} - Y_t
 	%&=
 	%\frac{\Bu \Ro }{\Rh \Pi} \intms{yv}
@@ -24,7 +24,7 @@ By scaling the terms in the one-layer primitive equations by their respective di
 	&=
 	\Lr T \beta     \intms{yv}
 	+
-	L\frac{  \beta  }{ f   } \intms{y\eta v}\\
+	L\frac{  \beta  }{ f   } \intms{y\eta v} \label{eq:cush1}\\
 	%%--------------------------------------------------------------------
 	\Pi Y_{tt} - X_t
 	%&=
@@ -35,8 +35,8 @@ By scaling the terms in the one-layer primitive equations by their respective di
 	&=
 	-\Lr T \beta   \intms{yu}
 	-
-	L\frac{  \beta  }{ f   }  \intms{y\eta u} 	  \label{eq:cush1}
-\end{split}\end{equation}
+	L\frac{  \beta  }{ f   }  \intms{y\eta u} 	 
+\end{align}
 %....................................................................
 where $\Pi=1/f_0T$.\\
  Hence, independent of balance of forces the eddy's center of mass describes inertial oscillations \footnote{compare to \textit{harmonic oscillator}} on the $f$-plane, even in the absence of $\dfdy$.
@@ -55,56 +55,60 @@ Using geostrophic values for $\vec{u}$ and returning to dimensional variables \e
 	\dpr{X}{t}
 	&=
 	\frac{\beta g'}{\f_{0}^{2}}
-	\frac{\inta{H\eta} + \inta{\eta^{2}/2}}{\inta{\eta}} 	\\
+	\frac{\inta{H\eta} + \inta{\eta^{2}/2}}{\inta{\eta}} \nonumber	\\
 	&=
 	\beta \left( 	\frac{NH}{f_{0}}  \right)^{2}
-	\left(1 +\frac{1}{H} \frac{ \int  \eta^2 \; \mathrm{d}A	}{2\mathrm{V_e}} \right)
-	\label{eq:cushmanDrift}	\\
+	+\frac{\inta{\eta^{2}/2}}{\inta{\eta}}	\label{eq:cushmanDrift}	\\
 	&=
 	\dpr{\omega_{long}}{k}
-	\left(1 +\frac{1}{H} \frac{ \int  \eta^2 \; \mathrm{d}A	}{2\mathrm{V_e}} \right)
+	+ u_{internal}
+	%\left(1 +\frac{1}{H} \frac{ \int  \eta^2 \; \mathrm{d}A	}{2\mathrm{V_e}} \right)
 	%+\order{\Lr   T\beta ,\Pi}
+	\nonumber
 	\end{align}
-	\TODO{make better}
 %%....................................................................
 
-The first term of the RHS of \eqref{eq:cushmanDrift} represents the \textit{planetary lift} \footnote{see~\cref{box:speed_planlift} from \cref{subsec:speeds}}, which is identical to the zonal group velocity of long Rossby waves \citet{Cushman-Roisin2010}. The second term represents the \textit{eddy-internal $\dfdy$-effect} (see~\cref{box:speed_beta}). Note that the first term is always westwards, while the second has sign of $-\eta$, \ie westward for anti-cyclones and eastward for cyclones and that the first is always larger than the second.
+\newthought{The}~first term of the RHS of \eqref{eq:cushmanDrift} represents the \textit{planetary lift} \footnote{see~\cref{box:speed_planlift} from \cref{subsec:speeds}}, which is identical to the zonal group velocity of long Rossby waves \citep{Cushman-Roisin2010}.
+The second term $u_{internal}$ represents the \textit{eddy-internal $\dfdy$-effect} (see~\cref{box:speed_beta}) \footnote{see also \cref{der:cushDrift}}. Note that the first term is always westwards, while the second has sign of $-\eta$, \ie westward for anti-cyclones and eastward for cyclones and that the first is always much larger than the second.
 
+
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Early Altimeter Data}\label{sec:hist_killworth}
 
-\newthought{The }  advent of satellite altimetry, which Walter Munk called \textit{the most successful ocean experiment of all time} \citet{Munk2002}, finally allowed for
+\newthought{The }  advent of satellite altimetry, which Walter Munk called \textit{the most successful ocean experiment of all time} \citep{Munk2002}, finally allowed for
 global-scale experimental investigations of oceanic planetary phenomena on long time- and spatial scales. Among others,
 \citet{matano1993seasonal,cipollini1997concurrent,le1993sea} were the first to use satellite-data to present evidence for the existence of Rossby waves and their
 westward-migration in accord with theory. Surprisingly all of the observations found the phase speeds to be $1$ to $1.5$ times larger than what theory
 predicted. Several theories to explain the discrepancy were presented. \Eg \citet{Killworth1997a} argued that the discrepancy was caused by
 mode-2-east-west-mean-flow velocities. Interestingly it appears that hitherto, the relevant altimeter signal was mainly associated with linear waves.
 Non-linearities are rarely mentioned in the papers of those years. Probably simply due to the fact that the turbulent character of much of the
-meso-scale variability was still obscured by the poor resolution of the first altimeter products.
+mesoscale variability was still obscured by the poor resolution of the first altimeter products.
 
-\subsection[\Citeauthor{Chelton2007}~\citeyear{Chelton2007,Chelton2011}]{SSH Altimeter Data \cite{Chelton2007,Chelton2011}}\label{sec:hist_chelton}
+\subsection[\Citeauthor{Chelton2007}~\citeyear{Chelton2007,Chelton2011}]{\SSH~Altimeter Data \cite{Chelton2007,Chelton2011}}\label{sec:hist_chelton}
 From the beginning of satellite altimetry \citeauthor{Chelton2011} have invested tremendous effort to thoroughly analyze the data in terms of
 Rossby waves and geostrophic turbulence. At the time of the \citet{Killworth1997a} paper only 3 years of Topex/Poseidon data alone had been available,
-which led them to interpret the data mainly in terms of Rossby waves. Once the merged Aviso T/P and ERS 1/2 \citet{Forget2010} was released 7 years later,
+which led them to interpret the data mainly in terms of Rossby waves. Once the merged Aviso T/P and ERS 1/2 \citep{Forget2010} was released 7 years later,
 \citeauthor{Chelton2007} presented a new analysis that was based on an automated eddy-tracking algorithm using the geostrophic Okubo-Weiss parameter
 \footnote{see section \ref{subsec:detectmethods}}\derref{der:okubo}. For the first time satellite data was resolved sufficiently fine to unveil the dominance of \textit{blobby
- structures rather than latitudinally $\dfdy$-refracted continuous crests and troughs} that had hitherto been assumed to characterize the large-scale SSH
-topography. They presented results of a refined algorithm in their \citeyear{Chelton2011} paper, in
-which they abandoned the Okubo-Weiss concept and instead identified eddies via closed contours of SSH itself \footnote{note that geostrophic $\mathrm{O_W}$ is a
-second derivative of SSH and thus exacerbates noise in the SSH data.}.
-The improved algorithm and longer data record now allow them to seperate the non-linear eddy-activity from the larger-scale Rossby waves. They find that the vast majority of extra-tropical westward propagating SSH-variability does indeed consist of coherent, isolated, non-linear, mesoscale eddies that propagate about 25\% slower \footnote{pointing to dispersion.} than the linear waves.
-Apart from this they find little evidence for any dispersion in the signal,
-neither do they find evidence for significant meridional propagation, as should be found for Rossby waves. In agreement with \citet{rhines1979theoretical}, they
+ structures rather than latitudinally $\dfdy$-refracted continuous crests and troughs} that had hitherto been assumed to characterize the large-scale \SSH~topography. They presented results of a refined algorithm in their \citeyear{Chelton2011} paper, in
+which they abandoned the Okubo-Weiss concept and instead identified eddies via closed contours of \SSH~itself \footnote{note that geostrophic $\mathrm{O_W}$ is a
+second derivative of \SSH~and thus exacerbates noise in the \SSH~data.}.
+The improved algorithm and longer data record now allowed them to separate the non-linear eddy activity from the larger-scale Rossby waves. They find that the vast majority of extra-tropical westward propagating \SSH~variability does indeed consist of coherent, isolated, non-linear, mesoscale eddies that propagate about 25\% slower \footnote{pointing to dispersion.} than the linear waves.
+Apart from this though they find little evidence for any dispersion in the signal,
+neither do they find evidence for significant meridional propagation, as should be found for Rossby waves \TODO{cite}. In agreement with \citet{rhines1979theoretical}, they
 find this eddy-dominated regime to fade towards the equator,
-giving way to the characteristic Rossby wave profile. Almost all of their eddies propagate westwards. Those eddies that are advected eastwards by \eg the ACC show significantly shorter life-times than those that are not. For more detail on their results and a discussion of the limitations of eddy-tracking via satellites see section \cref{sec:satvsmod}.
+giving way to the characteristic Rossby wave profile. Almost all of their eddies propagate westwards. Those eddies that are advected eastwards by \eg the ACC show significantly shorter life-times than those that are not. For more detail on their results and a discussion of the limitations of eddy-tracking via satellites (see \cref{sec:satvsmod}).
 
 \newpage
 \TODO{
 i took out...
 \begin{itemize}
 	\item
-	\citealt{Eden2006,Eden2007a,eden2008towards,gent1995parameterizing,larichev1995eddy,Eden2007,
-Eden2011a,eden2012implementing,Vollmer2013a,Tulloch2009,gent1990isopycnal,gent1995parameterizing,larichev1995eddy,scott2005direct
-	}
+	\citealt{Eden2006,Eden2007a,eden2008towards,gent1995parameterizing,larichev1995eddy,Eden2007,Eden2011a,eden2012implementing,Vollmer2013a,Tulloch2009,gent1990isopycnal,gent1995parameterizing,larichev1995eddy,scott2005direct}
 \end{itemize}
 }

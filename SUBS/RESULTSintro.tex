@@ -2,7 +2,7 @@
 %%....................................F.I.G.U.R.E.............................................
 \begin{figure}
 		\includegraphics[width=\linewidth]{defl-age-aviI_shrunk2prepress}
-		\caption{\AVI-\MI: Basleline-shifted \textit{old} tracks. Tracks younger than
+		\caption{\AVI~-\MI: Basleline-shifted \textit{old} tracks. Tracks younger than
 %$\SI{500}{\day}$
 		$500 days$
 \TODO{!}
@@ -13,7 +13,7 @@
 %%....................................F.I.G.U.R.E.............................................
 \begin{figure}
 		\includegraphics[width=\linewidth]{defl-age-aviII_shrunk2prepress}
-		\caption{\AVI-\MII: Basleline-shifted \textit{old} tracks. Tracks younger than
+		\caption{\AVI~-\MII: Basleline-shifted \textit{old} tracks. Tracks younger than
 		 %$\SI{500}{\day}$
 		$500 days$
 \TODO{!}
@@ -24,14 +24,14 @@
 \newthought{The  } short time frame and limited computational resources allowed for only a few complete global runs over the available data.
 It was therefor critical to carefully choose which method/parameters to use in order to maximize the deducible insight from the results.
 For best comparability of the results with each other it was decided to agree on one complete set of parameters as a basis (\cref{tab:fixparams}), which would then be altered at key parameters.
-The first run is an attempt to reproduce the results from \citet{Chelton2011}. The SSH-data for this run is therefor that of the \AVI product.
+The first run is an attempt to reproduce the results from \citet{Chelton2011}. The SSH-data for this run is therefor that of the \AVI~ product.
 This method will be called \MI.
 
- \newthought{The } second run (\MII) is equivalent, except that this time the alternative $\IQ$-based shape filtering method from TODO ref and the slightly different tracking-filter as described in TODO ref are used. \MII is then fed with 7-day time-step \POP data as well.
+ \newthought{The } second run (\MII) is equivalent, except that this time the alternative $\IQ$-based shape filtering method from TODO ref and the slightly different tracking-filter as described in \TODO{ ref} are used. \MII is then fed with 7-day time-step \POP~data as well.
 
- \newthought{To investigate  }  what role spatil resolution plays, the \POP data was remapped to that of the \AVI data and fed to the \MI method.
+ \newthought{To investigate  }  what role spatial resolution plays, the \POP~data was remapped to that of the \AVI~ data and fed to the \MI method.
 
-\newthought{Finally }, to investigate the effects of resolution in time, an \MII-1-day-time-step run over \POP data was executed.
+\newthought{Finally }, to investigate the effects of resolution in time, an \MII-1-day-time-step run over \POP~data was executed. \TODO{\popOneIISO}
 
 \newthought{Start and end dates  } were fix for all runs as the intersection of availability of both data sets.
 
@@ -40,8 +40,10 @@ This method will be called \MI.
  \TODO{Cheltons idendity check takes Leff?}
 
 
-\begin{cbox}{Method \MI}\label{box:MI}
-The concepts used in this method are mostly based on the description of the algorithm described by \citet{Chelton2011} and all parameters are set accordingly. Basically \MI is a modification of \MII (which was completed first), with the aim to try to recreate the results from \citep{Chelton2011}.
+
+\begin{infobox}[Method \MI]
+\label{box:MI}
+The concepts used in this method are mostly based on the description of the algorithm described by \citet{Chelton2011} and all parameters are set accordingly. Basically \MI is a modification of \MII (which was completed first), with the aim to try to recreate the results from \citet{Chelton2011}.
 It differs from \MII in the following:
 \begin{itemize}
 	\item \textbf{detection}\\
@@ -53,24 +55,24 @@ As mentioned in TODO ref, the approach by \citet{Chelton2011} is to avoid overly
 The $400km$-threshold increases linearily towards the equator to $1200km$.
 \end{itemize}
 	\item \textbf{tracking}\\
-The other minor differerence to \MII is in the way the tracking algorithm flags eddy-pairs between time-steps as sufficiently similar to be considered successful tracking-candidates (see TODO ref).
-In this method an eddy B from time-step $k+1$ is considered as a potential manifestations of an eddy A from time-step $k$ as long as both - the ratio of amplitudes (with regard to the mean of SSH within the found contour) and the ratio of areas (interpolated versions as discussed in TODO ref) fall within a lower and and an upper bound.
+The other minor difference to \MII is in the way the tracking algorithm flags eddy-pairs between time-steps as sufficiently similar to be considered successful tracking-candidates (see TODO ref).
+In this method an eddy B from time-step $k+1$ is considered as a potential manifestations of an eddy A from time-step $k$ as long as both - the ratio of amplitudes (with regard to the mean of \SSH~within the found contour) and the ratio of areas (interpolated versions as discussed in TODO ref) fall within a lower and and an upper bound.
 \end{itemize}
-\end{cbox}
+\end{infobox}
 
 
-\begin{cbox}{Method \MII}\label{box:MII}
-
+\begin{infobox}[Method \MII]
+\label{box:MII}
 The purpose of this variant is basically to test the conceptually very different idea of the $\IQ$-technique to test the shape of found contours for sufficiently eddy-\textit{typical}. It also uses a slightly different tracking algorithm.
 \begin{itemize}
 	\item \textbf{detection}\\
 	 The $\IQ$-method. See \cref{fig:chiq5} and \cref{filter:shape}.
 	\item \textbf{tracking}\\
-	Conceptually similar to \MI, it is again vertical and horizontal scales that are compared between time-steps. Prefering a single threshold-value over one upper and one lower bound, a paramter $\xi$ was introduced that is the maximum of the two values resulting from the two ratios of apmlitude respective $\sigma$, where either ratio is -if larger- its reciproke in order to equally weight a decrease or an increase in respective parameter. In other words:
+	Conceptually similar to \MI, it is again vertical and horizontal scales that are compared between time-steps. Preferring a single threshold-value over one upper and one lower bound, a parameter $\xi$ was introduced that is the maximum of the two values resulting from the two ratios of amplitude respective $\sigma$, where either ratio is -if larger- its reciprocal in order to equally weight a decrease or an increase in respective parameter. In other words:
 $\xi = \max{\left(\left[\exp{\abs{\log{R_{\alpha}}}}\; ; \;\; \exp{\abs{\log{R_{\sigma}}}} \right]\right)} $, where $R$ are the ratios.
 \TODO{this has been explained twice now..}
 \end{itemize}
-\end{cbox}
+\end{infobox}
 
 %%....................................F.I.G.U.R.E.............................................
 \begin{figure}

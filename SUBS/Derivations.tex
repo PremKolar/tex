@@ -205,11 +205,11 @@
 	&=
 	\left(f + \omega_z \right)\dpr{w}{z}
 	\end{split}\end{equation}
-	%If we further assume quasi-geostrophic motion so that any change in
+	If we further assume quasi-geostrophic motion so that any change in
 	$\vec{\omega}_h$ is due to small ageostrophic parallelization of $\grad p$
-	and	$\grad \rho$  via $B$ the tilting terms vanish, since then
-	$\vec{\omega}_h$	normal to the plane spanned by $\grad \vec{u}_h$ and
-	$\grad	w$
+	and	$\grad \rho$  via $\B$, the tilting terms vanish, since then
+	$\vec{\omega}_h$ is normal to the plane spun by $\grad \vec{u}_h$ and
+	$\grad	w$.
 \end{derivationNobreak}
 
 %%####################################################################
@@ -427,11 +427,10 @@ U/\mathrm{L}
 &\sim
 \frac{h^{2} N^{2}}{f\mathrm{L}^{2}} \\
 &=
-\frac{h^{2} N^{2}}{f\mathrm{\Lr}^{2}} \frac{\Lr}{L}\\
-&=
 f\frac{\Lr}{L}
 \end{split}\end{equation}
 %%%....................................................................
+\TODO{take out}
 \end{derivationNobreak}
 %###################################%\\%###################################%
 
@@ -507,13 +506,13 @@ fL\\
 L\\
 \end{split}\end{equation}
 %%%....................................................................
+\TODO{take out}
 \end{derivationNobreak}
 
 %%####################################################################
 %%####################################################################
 
 \begin{derivationNobreak}[Okubo-Weiss-Parameter]\label{der:okubo}
-\TODO{!}
 %%%%....................................................................
 %\begin{equation}\begin{split}
 %\ten{T}
@@ -541,7 +540,7 @@ L\\
 %%%....................................................................
 %\begin{tiny}
 \begin{equation}\begin{split}
-\mathrm{O_w}=\tr{\ten{T}^2}
+\okubo=\tr{\ten{T}^2}
 &=
 \left(
 \dpr{u_i}{x_k} \dpr{u_k}{x_j} \unitvec{e}_i \unitvec{e}_j
@@ -568,47 +567,38 @@ L\\
 %%--------------------------------------------------------------------
 &=
 divergence^2
-+ stretching^2
++ stretch^2
 + shear^2
 - vorticity^2
 \end{split}\end{equation}
 %\end{tiny}
-Hence for motion dominated by deformation and shear the system has
-hyperbolic	character, whereas vorticity-dominated motion has parabolic
-character. Of interest should therefor not only be the value of $\mathrm{O_w}$
-but also its	gradient. An abrupt change in $\mathrm{O_w}$ clearly identifies
-regions of	vorticity genesis and decay.
-\\ In 2 dimensions:
-%%%....................................................................
-\begin{equation}\begin{split}
-\okubo
-&=
-\left(\dpr{u}{x}\right)^2
-+
-2 \dpr{u}{y} \dpr{v}{x}
-\end{split}\end{equation}
-%%%....................................................................
+See also \cref{subsec:detectmethods}.
 \end{derivationNobreak}
 
 %%####################################################################
 %%####################################################################
-\begin{derivationNobreak}[Cushman's Drift Speed]
-Assuming flat bottom \TODO{H layer thickness or depth? Clarify}
+\begin{derivationNobreak}[Cushman's Zonal Drift Speeds]
+	\label{der:cushDrift}
+With\\
+$X$ : x-position of \CoV \\
+$H$ : mean layer thickness\\
+$V_{e}$ : Volume $\inta{\eta}$ 
 %%%....................................................................
 \begin{equation}\begin{split}
 X_t
 &=
 -\frac{\beta g'}{f_0^2} \frac{\int H\eta + \eta^2/2 \; \mathrm{d}A}{\int\eta \; \mathrm{d}A}\\
 &=
--\frac{\beta g'}{f_0^2} \left(H +\frac{ \int  \eta^2/2 \; \mathrm{d}A}{\mathrm{V_e}} \right) \\
+-\frac{\beta g'}{f_0^2} \left(H +\frac{ \int  \eta^2/2 \; \mathrm{d}A}{V_e} \right) \\
 &=
--\frac{\beta c^2}{f_0^2} \left(1 +\frac{1}{H} \frac{ \int  \eta^2/2 \;\mathrm{d}A	}{\mathrm{V_e}} \right) \\
+-\frac{\beta c^2}{f_0^2} \left(1 +\frac{1}{H} \frac{ \int  \eta^2/2 \;\mathrm{d}A	}{V_e} \right) \\
 &=
--\beta \Lr^2 \left(1 +\frac{1}{H} \frac{ \int  \eta^2 \; \mathrm{d}A}{2\mathrm{V_e}} \right) \\
+-\beta \Lr^2 \left(1 +\frac{1}{H} \frac{ \int  \eta^2 \; \mathrm{d}A}{2 V_e} \right) \\
 &=
-\frac{\omega_{long}}{k} \left(1 +\frac{1}{H} \frac{ \int  \eta^2 \;\mathrm{d}A}{2\mathrm{V_e}} \right) \\
+\frac{\omega_{long}}{k} \left(1 +\frac{1}{H} \frac{ \int  \eta^2 \;\mathrm{d}A}{2 V_e} \right) \\
 \end{split}\end{equation}
 %%%....................................................................
+(see \cref{sec:hist_cush})
 \end{derivationNobreak}
 
 \end{fullwidth}

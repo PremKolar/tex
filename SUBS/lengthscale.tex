@@ -1,10 +1,11 @@
-\newthought{This} section discusses the motivation for exact determinations of eddy \textit{scales}. That is, their horizontal extent \ie their diameter or \textit{wavelength}.
+\newthought{This} section discusses the motivation for exact determinations of eddy \textit{scales}. That is, their horizontal extent \ie their diameter or \textit{wavelength} or, in the sense of turbulence.
+ %or more general \textit{the integral length scale of turbulence}.
 
 %%%####################################################################
 %%%####################################################################
-\newthought{Just} like the eddy itself, its scale is rather vague and difficult to define. What physical parameter defines the outer edge of a seamless, smooth vortex? If the eddy is detected as done by \citet{Chelton2011}, \ie closed contours of SSH, the interior of which fulfilling certain criteria, the measured perimeter may jump considerably from one time step to the next. An incremental difference in the choice of $z$ might translate to a perimeter outlining twice the  difference in area, especially when SSH gradients are small.\\
+\newthought{Just} like the eddy itself, its scale is rather vague and difficult to define. What physical parameter defines the outer edge of a seamless, smooth vortex? If the eddy is detected as done by \citet{Chelton2011}, \ie closed contours of SSH, the interior of which fulfilling certain criteria, the measured perimeter may jump considerably from one time step to the next. An incremental difference in the choice of $z$ might translate to a perimeter outlining twice the  difference in area, especially when \SSH~gradients are small.\\
 Another possibility is to define an amplitude first, then assume a certain shape \eg Gaussian, and then infer the radius indirectly. The obvious problem with this approach would be to properly define the amplitude.\\
-The most physically sound method would have to be one depending on the eddy's most defining physical variable that is unambiguously determinable from SSH: the geostrophic velocities. \citet{Chelton2011}, as with everything else, tried all methods but also conclude that the later is the most adequate one \footnote{See Chapter \cref{filter:chstuff}}.
+The most physically sound method would have to be one depending on the eddy's most defining physical variable that is unambiguously determinable from SSH: the geostrophic velocities. \citet{Chelton2011}, as with everything else, tried all methods but also conclude that the later is the most adequate one \footnote{See \cref{filter:chstuff}}.
 
 %%
 %%%####################################################################
@@ -12,21 +13,22 @@ The most physically sound method would have to be one depending on the eddy's mo
 %
 \begin{marginfigure}
 \includegraphics[]{SSHB.pdf}
-  \caption{top: Stommel's equation $\mathrm{F}_{bottom}-\mathrm{F}_{surface}= -V\beta$ with constant eddy viscosity. bottom: \POP eddy-resolving model snapshot with SSH mean of one year subtracted. }
+  \caption{top: Stommel's equation $\mathrm{F}_{bottom}-\mathrm{F}_{surface}= -V\beta$ with constant eddy viscosity. bottom: \POP~eddy-resolving model snapshot with \SSH~mean of one year subtracted. }
   \label{fig:SSHB}
 \end{marginfigure}
 
 
-\newthought{Construed} as an integral length scale of turbulence \ie as the distance at which the auto-correlation of particles reaches zero, the \emph{eddy-scale} turns out to be of fundamental relevance for attempts to parametrize geostrophic turbulence.\\
-General circulation models ($\order{2}$km) as they are used in \eg climate forecasts are too coarse to resolve meso-scale ($\order{1}$km) turbulence \citep{Eden2007a,Eden2007,Eden2006b,Treguier1997,Ferrari2010} . Even if the Von-Neumann-condition were ignored and a refinement were desired horizontally only, a leap of one order of magnitude would effect an increase in calculation time \footnote{With the Moore's-Law-type exponential growth in FLOP/S of the last 22 years for supercomputers ($\lg(x)\sim 3/11 a$) a factor $100$ interestingly translates to only $a=22/3\approx 7$ years...} of factor $x=100$.  The effects of the nonlinear terms therefore have to be somehow articulated in an integral sense for the large grid-boxes in the model \citet{Fox-Kemper2008,Marshall1981,gent1995parameterizing,Modeling,Gaspar1990,StephenM.Griffies2003,Sciences1999}.
-A common approach is to assume that \textit{eddy kinetic energy} $\ol{ \vec{u}'\vec{u}'}$ and \textit{eddy potential energy} $\ol{  w'\rho'}$, akin to diffusive processes\footnote{In analogy to Fick's first law of diffusion.}
+\newthought{Construed} as an integral length scale of turbulence \ie as the distance at which the auto-correlation of particles reaches zero \citep{batchelor1969computation,Eden2007}, the eddy-\emph{scale} turns out to be of fundamental relevance for attempts to parametrize geostrophic turbulence.
+
+\newthought{Genreal circulation models}~($\order{2}\si{km}$) as they are used in \eg climate forecasts are too coarse to resolve mesoscale ($\order{1}\si{km}$) turbulence \citep{Eden2007a,Eden2007,Eden2006b,Treguier1997,Ferrari2010} . Even if the Von-Neumann-condition was ignored and a refinement was desired horizontally only, a leap of one order of magnitude would effect an increase in calculation time \footnote{With the Moore's-Law-type exponential growth in FLOP/S of the last 22 years for supercomputers ($\lg(x)\sim 3/11 a$) a factor $100$ interestingly translates to only $a=22/3\approx 7$ years...} of factor $x=100$.  The effects of the nonlinear terms therefore have to be somehow articulated in an integral sense for the large grid-boxes in the model \citep{Fox-Kemper2008,Marshall1981,gent1995parameterizing,Modeling,Gaspar1990,StephenM.Griffies2003,Sciences1999}.
+A common approach is to assume that eddy kinetic energy $\ol{ \vec{u}'\vec{u}'}$ and eddy potential energy $\ol{  w'\rho'}$, akin to diffusive processes\footnote{In analogy to Fick's first law of diffusion.}
 , were proportional to the gradient of $\ol{u}$ respective $\ol{b}$
 (down-gradient-parametrization \footnote{\ie Reynolds averaging})
-\citet{olbers2012ocean,Marshall2010,eden2012implementing}, which leads to the problem of finding expressions for the
+\citep{olbers2012ocean,Marshall2010,eden2012implementing}, which leads to the problem of finding expressions for the
 \textit{turbulent diffusivities} \ie the rate at which gradients are diffused by turbulence. This parameter is by no means constant, instead it can span
 several orders of magnitude, itself depending on the strength of turbulence-relevant gradients, and sometimes even assuming negative values
-\citet{eden2008towards}. Precise knowledge of the integral length scale and the physics that set it is hence vital for attempts to analyze and set values for
-eddy diffusivites and turbulence parametrizations in general.
+\citep{eden2008towards}. Precise knowledge of the integral length scale and the physics that set it is hence vital for attempts to analyze and set values for
+eddy diffusivites and turbulence parameterizations in general.
 
 
 

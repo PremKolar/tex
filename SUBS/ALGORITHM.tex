@@ -41,11 +41,11 @@ This function...
 	\end{itemize}
 \end{itemize}
 
-The 3-dimensional matrices ($S$ and $T$) are cut zonally into slices which then get distributed to the threads. This allows for direct matrix operations for all calculations which would otherwise cause memory problems due to the immense sizes of the 3d-data \footnote{\Eg the \POP data has dimensions $42 \times 3600 \times 1800 $.}.
+The 3-dimensional matrices ($S$ and $T$) are cut zonally into slices which then get distributed to the threads. This allows for direct matrix operations for all calculations which would otherwise cause memory problems due to the immense sizes of the 3d-data \footnote{\Eg the \POP~data has dimensions $42 \times 3600 \times 1800 $.}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Step S02: Calculate Geostrophic Parameters}
 \mcode{function S02_infer_fields}\\
-This step reads the cut SSH data from \mcode{S00_prep_data} to perform 2 steps:
+This step reads the cut \SSH~data from \mcode{S00_prep_data} to perform 2 steps:
 \begin{enumerate}
 \item
 Calculate a mean over time of $SSH(y,x)$.
@@ -54,7 +54,7 @@ Calculate a mean over time of $SSH(y,x)$.
 	\item  use one of the files' geo-information to determine $\f$, $\dfdy$ and
 $\g$.
 \item
- calculate geostrophic fields from SSH gradients.
+ calculate geostrophic fields from \SSH~gradients.
  \item
  calculate deformation fields (vorticity, divergence, stretch and shear) via the
 fields supplied by the last step.
@@ -73,10 +73,10 @@ Subtract the mean from step 1 from each $SSH(t)$ to filter out persistent SSH-gr
  \section{Step S03: Find Contours} \label{S:03}
 \mcode{function S03_contours}\\
 The sole purpose of this step is to apply MATLAB's \mcode{contourc.m} function
-to the SSH data. It simply saves one file per time-step with all contour indices
+to the \SSH~data. It simply saves one file per time-step with all contour indices
 appended into one vector \footnote{see the MATLAB documentation.}. The contour
 intervals are determined by the user defined increment and range from the
-minimum- to the maximum of given SSH data. \\
+minimum- to the maximum of given \SSH~data. \\
 The function \mcode{initialise.m}, which is called at the very beginning of
 every step, here has the purpose of rechecking the \textit{cuts} for
 consistency and correcting the time-steps accordingly (\ie when files are
@@ -111,10 +111,10 @@ The concept of this step is a direct adaption of the algorithm described
 by \citet{Chelton2011}. It is split into two steps, one for anti-cyclones and one
 for cyclones. Consider \eg the anti-cyclone situation. Since all
 geostrophic anti-cyclones are regions of relative high pressure, all
-\ACs effect an elevated \SSH \ie
-a \textit{hill}. The algorithm ascends the full range of SSH levels where
+\ACs effect an elevated \SSH~\ie
+a \textit{hill}. The algorithm ascends the full range of \SSH~levels where
 contours were found. Consider an approximately Gaussian shaped \AC that has a
-peak SSH of say 5 increments larger than the average surrounding waters.
+peak \SSH~of say 5 increments larger than the average surrounding waters.
 As the algorithm approaches the sea surface from below, it will eventually run
 into contours that are closed onto themselves and that encompass the \AC. At
 first these contours might be very large and describe not only one but several
@@ -124,12 +124,15 @@ the \AC. Once the contour and its interior pass all of the tests, the algorithm
 will decide that an \AC was found and write it and all its parameters to disk.
 The \AC's region \ie the interior of the contour will be flagged from here on.
 Hence any inner contour further up the water column will not pass the tests.
-Once all \ACs are found for a given time-step, the SSH flags get reset and the
+Once all \ACs are found for a given time-step, the \SSH~flags get reset and the
 entire procedure is repeated, only this time \textit{descending} the SSH-range to
 find cyclones. The tests for cyclones and anti-cyclones are therefor identical except for
 a factor $-1$ where applicable. In the following the most important steps of the
 analysis are
 outlined.
+
+
+\TODO{format filters}
 % ----------------------------------------------------------------------
 \begin{filter}{NaN-Check Contour}{CR_RimNan}
 The first and most efficient test is to check whether indices of the
@@ -143,7 +146,7 @@ further testing.
 \end{filter}\newline
 % ----------------------------------------------------------------------
 \begin{filter}{Sub-Window}{get_window_limits, EddyCut_init}
-For further analysis a sub-domain around the eddy is cut out of the SSH data.
+For further analysis a sub-domain around the eddy is cut out of the \SSH~data.
 These functions determine the indices of that window and subtract the
 resultant offset for the contour indices.
 %Due to MATLAB's This step might seem detrimental to performance
@@ -166,20 +169,20 @@ EDIT: \mcode{imfill.m} was replaced by using \mcode{inpoly.m} to determine which
 %islands as all land is flagged \textit{a priori}.
 % ----------------------------------------------------------------------
 \begin{filter}{Sense}{CR_sense}
-\textbf{All} of the interior SSH values must lie either above or below current
+\textbf{All} of the interior \SSH~values must lie either above or below current
 contour level, depending on whether anti-cyclones or cyclones are sought.
 \end{filter}\newline
 % ----------------------------------------------------------------------
 \begin{figure}
 	\includegraphics[width=1\textwidth]{profSigEtc}
-	\caption{Left: Fourier-fit of an eddy from \POP SSH-data and the 2nd differential thereof. Right: Theoretical Gauss shape built from the resulting \textit{standard-deviation} \ie $\sigma$ and amplitude.}
+	\caption{Left: Fourier-fit of an eddy from \POP~SSH-data and the 2nd differential thereof. Right: Theoretical Gauss shape built from the resulting \textit{standard-deviation} \ie $\sigma$ and amplitude.}
 	\label{fig:profSigEtc}
 \end{figure}
 % ----------------------------------------------------------------------
 \begin{filter}{Area}{getArea}
 \label{filter:area}
 The main goal here is to determine the area encompassed by the interpolated coordinates of the contour. It does so via MATLAB's \mcode{polyarea} function. This area is not related to the scale $\sigma$ that is determined in \cref{filter:dynscale}. It is however the relevant scale for the determination of the isoperimetric quotient in \cref{filter:shape}.\\
-If the respective switch is turned on, this function also checks that the area of found contour does not surpass a given threshold which in turn is a function of $\Lr$. Since $\Lr$ gets very small in high latitudes a lower bound on the $\Lr$ used here should be set as well. This is especially important for the southern ocean where $\Lr$ gets very small while the strong meso-scale turbulence of the Antarctic circumpolar current results in an abundance of relatively large eddies as far south as $\deg{60} S$ and beyond.
+If the respective switch is turned on, this function also checks that the area of found contour does not surpass a given threshold which in turn is a function of $\Lr$. Since $\Lr$ gets very small in high latitudes a lower bound on the $\Lr$ used here should be set as well. This is especially important for the southern ocean where $\Lr$ gets very small while the strong mesoscale turbulence of the Antarctic circumpolar current results in an abundance of relatively large eddies as far south as $\deg{60} S$ and beyond.
 \end{filter}\newline
 % ----------------------------------------------------------------------
 \begin{filter}{Cirumference}{EddyCircumference}
@@ -205,7 +208,7 @@ This is achieved by calculating the \hyperref[def:IQ]{isoperimetric quotient},
 defined as the ratio of a ring's area to the area of a circle with equal
 circumference. \citet{Chelton2011} use a similar method. They
 require:\\ \textit{The distance between any pair of points within the connected
-region must be less than a specified maximum} \citet{Chelton2011}.\\
+region must be less than a specified maximum} \citep{Chelton2011}.\\
 While this method clearly avoids overly elongated shapes it allows for stronger
 deformation within its distance bounds.
 \end{filter}\newline
@@ -219,8 +222,8 @@ deformation within its distance bounds.
 \begin{filter}{Amplitude}{CR_AmpPeak}
 \label{filter:amp}
 This function determines the amplitude \ie the maximum of the absolute
-difference between SSH and current contour level and the position thereof as
-well as the amplitude relative to the mean SSH value of the eddy interior as
+difference between \SSH~and current contour level and the position thereof as
+well as the amplitude relative to the mean \SSH~value of the eddy interior as
 done by \citet{Chelton2011}. The
 amplitude is then tested against the user-given threshold.
 The function also creates a matrix with current contour level shifted to zero and all values outside of the eddy set to zero as well.
@@ -243,7 +246,7 @@ The function also creates a matrix with current contour level shifted to zero an
 	\item
 	The scale $L=L_e/\sqrt{2}$.
 	\item
-	The scale $L_s$ which is \textit{a direct estimate based on the contour of SSH within the eddy interior around which the average geostrophic speed is maximum} \citep{Chelton2011}. It is hence conceptually the same as \scale. This scale was not calculated here, as I could not think of an efficient, simple way to estimate the area bounded by maximum geostrophic speed \ie the zero-vorticity contour. To understand why this would be difficult to achieve see also \cref{filter:dynscale, filter:profiles,subsec:satvsmod,subsec:satvsmod}.
+	The scale $L_s$ which is \textit{a direct estimate based on the contour of \SSH~within the eddy interior around which the average geostrophic speed is maximum} \citep{Chelton2011}. It is hence conceptually the same as $\scale$. This scale was not calculated here, as I could not think of an efficient, simple way to estimate the area bounded by maximum geostrophic speed \ie the zero-vorticity contour. To understand why this would be difficult to achieve see also \cref{filter:dynscale, filter:profiles,subsec:satvsmod,sec:satvsmod}.
 \end{enumerate}
 \end{filter}
 % ----------------------------------------------------------------------
@@ -283,7 +286,7 @@ that scale as well, the difference in contour-area between two time steps
 easily surpasses $100\%$ and more.
 Since there is no definition for the \textit{edge} of an eddy, it is defined here as the ellipse resulting from the meridional [zonal] diameters that
 are the distances between the first local extrema of orbital velocity (one negative, one positive) away from
-the eddy's peak in y- [x-] direction \footnote{The velocities are calcualted from the gradients of 4th-order Fourier fits to the SSH profile in respective direction (see~\cref{filter:profiles}).}.
+the eddy's peak in y- [x-] direction \footnote{The velocities are calcualted from the gradients of 4th-order Fourier fits to the \SSH~profile in respective direction (see~\cref{filter:profiles}).}.
 In the case of a meandering jet with a maximum flow speed at its center, that
 is shedding off an eddy, this scale corresponds to half the distance between
 two opposing center-points of the meander. It is also the distance at which a
@@ -291,7 +294,7 @@ change in vorticity-polarity occurs and is thus assumed to be the most plausible
 dividing line between vortices. \\
 Trying to determine the location where this sign change in vorticity occurs in the profiles turns out to be very tricky. What we seek are local extrema of the geostrophic speeds \ie of the ssh-gradients $h_x$. In a perfect Gaussian-shaped eddy, these would simply correspond to the first local extrema of $h_x$ away from the peak. In \textit{reality} the eddies can be very wobbly with numerous local maxima and minima in the gradients of their flanks. One could argue, that it must be the largest extrema, as it is the highest geostrophic speeds that are sought. In practice \footnote{especially for the high-resolution model data.} multiple superimposed signals of different scales often create very strong gradients locally. But the main issue here is that one weak eddy adjacent to one strong eddy also has the stronger gradients of the stronger one within its domain so that simply looking for the fastest flow speeds along the profiles is insufficient. It is also not possible to restrict the cut domain to the extent of a single eddy only, because at the time when the domain is selected, we do not know yet whether the detection algorithm \textit{took bait} at the eddy's base or later close to the tip. \\
 The best method thus far seems to be to use the Fourier-series functions from \cref{filter:profiles} to determine the first extrema away from the eddy's peak (see~\cref{fig:tropicalJmd}). The Fourier order was chosen to be 4 by trial and error. The effect is that small-scale low-amplitude noise is avoided, allowing for more reliable determinations of $\grad^2 h_{fourier} = 0$.       \\
- Once the zero crossings in all 4 directions are found, their mean is taken as the eddy's scale (\scale).
+ Once the zero crossings in all 4 directions are found, their mean is taken as the eddy's scale ($\scale$).
  \end{filter}\newline
 % ----------------------------------------------------------------------
 \begin{figure}
@@ -393,7 +396,7 @@ The former is the core of the tracking algorithm. It is almost sufficient by its
 \begin{itemize}
 	\item
 	 \mcode{function checkDynamicIdentity}\\
-	 Consider the ambiguous case when there are two new eddies $N_a$ and $N_b$ in sufficient proximity to old eddy $O_a$. Let's assume $O_a$ is a relatively solid eddy of rel. large scale with a steep slope \ie large amplitude and that $N_a$ is merely a subtle blob of an eddy whilst $N_b$ is somewhat similar to $O_a$ but with only half the amplitude. The situation then is clear: $N_b$ is the, apparently slowly dying, $O_a$ at a later time, while $N_a$ could either be a newly formed eddy, an old eddy with its respective representation in the old set something other than $O_a$, or even just temporary coincidental noise not representative of any significant meso-scale vortex at all. This interpretation should hold even when $O_a$ sat right between the other two, thereby being much closer to $O_a$ than $N_b$ was.\\
+	 Consider the ambiguous case when there are two new eddies $N_a$ and $N_b$ in sufficient proximity to old eddy $O_a$. Let's assume $O_a$ is a relatively solid eddy of rel. large scale with a steep slope \ie large amplitude and that $N_a$ is merely a subtle blob of an eddy whilst $N_b$ is somewhat similar to $O_a$ but with only half the amplitude. The situation then is clear: $N_b$ is the, apparently slowly dying, $O_a$ at a later time, while $N_a$ could either be a newly formed eddy, an old eddy with its respective representation in the old set something other than $O_a$, or even just temporary coincidental noise not representative of any significant mesoscale vortex at all. This interpretation should hold even when $O_a$ sat right between the other two, thereby being much closer to $O_a$ than $N_b$ was.\\
 	 The purpose of this step is to make such decisions. It does so by comparing the \textit{dynamic} versions of amplitude and scale (\textit{ampToEllipse} and $\sigma$) between the time-steps. If either ratio from new to old \footnote{In order to compare in both directions equally: $\exp{(\left|\log{(v_n/v_o)}\right|)}$ where $v$ is either amplitude or scale.} surpasses a given threshold, the pair is flagged as non-eligible. It is important to use the \textit{dynamic} parameters rather than those stemming from the contour line, because as mentioned  in \cref{filter:dynscale}, the contour line itself and the eddy's  geometric \textit{character} are hardly correlated at all. One eddy can get detected at different $z$-levels from one time-step to the next, resulting in completely different amplitudes, scales and shapes with respect to the contour.\\
 	The initial idea was, by assuming Gaussian shapes, to construct a single dimensionless number representing an eddy's geometrical character built upon the contour-related amplitude- and scale values only. Since we have no information about the vertical position of a given contour with respect to assumed Gauss bell, this problem turned out to be intrinsically under-determined and hence useless. The method eventually used, which checks amplitude and scale separately is again very similar to that described by \citeauthor{Chelton2011} (see Box~\cref{box:MI}).
 	  \item
@@ -417,7 +420,7 @@ to their respective nodes in the output map. Each output cell will then represen
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Running the Code}
+\section{Running the Code}
 The seperate steps can be run all at once (\mcode{Sall.m}) or one by one, as
 long as they are started consecutively in the order indicated by their name
 ( \mcode{S00..}, then \mcode{S01..} etc.). \mcode{S01b} is not necessary

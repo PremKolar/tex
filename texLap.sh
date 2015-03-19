@@ -21,3 +21,5 @@ tex2pdf $file
 bibtex $file
 tex2pdf $file
 tex2pdf $file	
+tex2pdf $file	
+tex2pdf $file	
