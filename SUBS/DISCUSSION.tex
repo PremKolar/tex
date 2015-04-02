@@ -21,10 +21,26 @@
 \newthought{The most apparent difference } between the results of the \href{box:MI}{two detection-methods } is the abundance of long-lived eddies resulting from the \MI-method.
 This discrepancy must logically be caused by the two different contour-shape-testing procedures (\cref{box:MII,filter:shape}), since it is here where the main difference between the two methods' algorithms lies.
 
-\newthought{The } \MI-method is the more lenient one, as all it checks for, is whether the contour is of sufficiently compact form. The only shapes that are dismissed are long, thin elongated structures. This means that \eg an eddy track can more easily \footnote{as long as the similarity-criterion is not violated.} survive situations in which two eddies merge into one or those in which one is split into two or situations in which mean current gradients distort the vortex.\\ There could also be the situation in which an old, weak eddy fades, yet another one emerges in sufficient proximity. These two events would not even have to coincide at the exact same time, as long as some short-lived coherent structure, of which there is an abundance \footnote{see \cref{fig:allEddies-aviII}} at any given time-step throughout the world ocean, acted as a \textit{bridge} to fill the gap.
+\newthought{The } \MI-method is the more lenient one, as all it checks for, is whether the contour is of sufficiently compact form. The only shapes that are dismissed are long, thin elongated structures. This means that \eg an eddy track can more easily \footnote{as long as the similarity-criterion is not violated.} survive situations in which two eddies merge into one or those in which one is split into two or situations in which mean current gradients distort the vortex (see \cref{fig:parAnalyCH}). There could also be the situation in which an old, weak eddy fades, yet another one emerges in sufficient proximity. These two events would not even have to coincide at the exact same time, as long as some short-lived coherent structure, of which there is an abundance \footnote{see \cref{fig:allEddies-aviII}} at any given time-step throughout the world ocean, acted as a \textit{bridge} to fill the gap.
+
+\begin{figure*}
+\includegraphics[]{parAnalyCH}
+\caption{The \MI-method. Top: Consecutive contours of one track. Colors indicate percentage of change of contour's area with respect to the prior time-step. Topmost horizontal axis shows the (rounded) factor of $\scale$ with respect to the local first baroclinic $\Lr$. Vectors' lengths are proportional to the distance travelled with respect to the next time-step. Bottom: Blue graph shows the current $\IQ$. Bars show the factors of change of respective parameters with respect to the prior time-step. X-axis are days since birth.}
+\label{fig:parAnalyCH}
+\end{figure*}
 
 \newthought{The } \MII-method is conceptually different in that it is based on the assumption that a distinct coherent vortex need \textit{per definition} to be more or less circular. It will therefor be more likely to regard \eg the situation in which one eddy merges with another as a situation of 3 eddies in total; \textbf{two} that have just died to create \textbf{one} new one.
-The focus here is more on the propagation of distinct circular geostrophic vortices whereas the focus in the \MI-method is more general on coherent local depressions respective elevations in SSH. Unfortunately the time-frame of this work did not allow to test to which degree tracers \footnote{in the model data.} found within tracked eddies remained within the eddy over time. This could further clarify the assumption that the \MI-method may be better at tracking water-mass advecting entities, with less jumps between bodies of water within one track.
+The focus here is more on the propagation of distinct circular geostrophic vortices whereas the focus in the \MI-method is more general on coherent local depressions respective elevations in SSH (see \cref{fig:parAnalyIQ6}).
+It should be intersting to look at to which degree tracers found within tracked eddies remaine within the eddy over time (postponed for now). This could further clarify the hypothesis that the \MI-method might be better at tracking water-mass advecting entities, with less jumps between bodies of water within one track. \Eg looking at temperature/salt at the eddy's core as a function of time \TODO{to conclusion?}.
+
+\begin{figure*}
+\includegraphics[]{parAnalyIQ6}
+\caption{The \MII-method ($\IQ$-threshold at $0.6$). (see \cref{fig:parAnalyCH})}
+\label{fig:parAnalyIQ6}
+\end{figure*}
+
+
+
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -127,5 +143,5 @@ Since $\beta, H$ and $f$ should have been set realisticaly in \POP, it appears t
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section{\popOneIISO}
+\section{\popTwoII}
 \TODO{run is finished. Results will be looked at / interpreted next week }
