@@ -50,7 +50,7 @@ The maximum distance between any vertices of the contour must not be larger than
 The $400km$-threshold increases linearily towards the equator to $1200km$.
 \end{itemize}
 \item \textbf{tracking}\\
-The other minor difference to \MII~is in the way the tracking algorithm flags eddy-pairs between time-steps as sufficiently similar to be considered successful tracking-candidates (see \cref{item:checkDynamicIdentity}).
+The other minor difference to \MII~is in the way the tracking algorithm flags eddy-pairs between time-steps as sufficiently similar to be considered successful tracking-candidates \\(see \cref{item:checkDynamicIdentity}).
 In this method an eddy B from time-step $k+1$ is considered as a potential manifestations of an eddy A from time-step $k$ as long as both - the ratio of amplitudes (with regard to the mean of \SSH~within the found contour) and the ratio of areas (interpolated versions as discussed in TODO ref) fall within a lower and and an upper bound.
 \end{itemize}
 \label{box:MI}
@@ -58,30 +58,14 @@ In this method an eddy B from time-step $k+1$ is considered as a potential manif
 
 
 \begin{infobox}[Method \MII]
-The purpose of this variant is basically to test the conceptually very different idea of the $\IQ$-technique to test the shape of found contours for sufficiently eddy-\textit{typical}. It also uses a slightly different tracking algorithm.
+The purpose of this variant is basically to test the conceptually different approach of using the \href{def:IQ}{isoperimetric quotient} to judge the shape of found contour-rings as sufficiently eddy-\textit{typical}. It also uses a slightly different tracking algorithm.
 \begin{itemize}
 \item \textbf{detection}\\
-The $\IQ$-method. See \cref{fig:chiq5} and \cref{filter:shape}.
+The $\IQ$-method. See \cref{fig:chiq5,fig:parAnalyIQ6,fig:parAnalyCH} and \cref{filter:shape}.
 \item \textbf{tracking}\\
 Conceptually similar to \MI, it is again vertical and horizontal scales that are compared between time-steps. Preferring a single threshold-value over one upper and one lower bound, a parameter $\xi$ was introduced that is the maximum of the two values resulting from the two ratios of amplitude respective $\sigma$, where either ratio is -if larger- its reciprocal in order to equally weight a decrease or an increase in respective parameter. In other words:
 $\xi = \max{\left(\left[\exp{\abs{\log{R_{\alpha}}}}\; ; \;\; \exp{\abs{\log{R_{\sigma}}}} \right]\right)} $, where $R$ are the ratios.
-\TODO{this has been explained twice now...}
+%\TODO{this has been explained twice now...}
 \end{itemize}
 \label{box:MII}
 \end{infobox}
-
-%%....................................F.I.G.U.R.E.............................................
-\begin{figure}
-\includegraphics[]{tracks-age-aviI_shrunk2prepress}
-\caption{\MI: cyclones in red. Tracks younger than $1a$ omitted for clarity.}
-\label{fig:tracks-age-aviI_shrunk2prepress}
-\end{figure}
-%%....................................F.I.G.U.R.E.............................................
-
-%%....................................F.I.G.U.R.E.............................................
-\begin{figure}
-\includegraphics[]{tracks-age-aviII_shrunk2prepress}
-\caption{\MII: (see \cref{fig:tracks-age-aviI_shrunk2prepress})}
-\label{fig:tracks-age-aviII_shrunk2prepress}
-\end{figure}
-%%....................................F.I.G.U.R.E.............................................
