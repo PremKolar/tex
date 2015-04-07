@@ -37,19 +37,19 @@ The ratio of a ring's area $A$ to the area $A_{c}$ of a circle of equal circumfe
 % SCALES
 %###################################%
 %###################################%
-\begin{definition}[Rhines Scale $\Lb \Unit{m}$ ]\label{def:Lb}
+\begin{definition}[Rhines Scale $\Lb \Unit{\si{\metre}}$ ]\label{def:Lb}
 Scale at which earth's sphericity becomes relevant.\\
 $\Lb^2 = \frac{U}{\beta} $
 \end{definition}
 %###################################%
-\begin{definition}[Rossby Radius $\Lr \Unit{\si{m}}$ ]\label{def:Lr}
+\begin{definition}[Rossby Radius $\Lrx{x} \Unit{\si{\metre}}$ ]\label{def:Lr}
 The \textit{geostrophic wavelength}.
-$\Lr = c/\f $
+$\Lrx{x} = \cx{x}/\f $
 \end{definition}
 %###################################%
-\begin{definition}[Steering Level $\steer \Unit{\si{m}}$]\label{def:steer}
+\begin{definition}[Steering Level $\steer \Unit{\si{\m}}$]\label{def:steer}
 The critical depth where the real part of the Doppler shifted phase
-speed\\ $c(\steer)=\real{c(z)}-u(z)=0$ vanishes. \Ie the depth where the Doppler shift
+speed\\ $\cx{1}(\steer)=\real{\cx{1}(z)}-u(z)=0$ vanishes. \Ie the depth where the Doppler shift
 creates a standing wave, causing the disturbances to grow in place instead of
 spreading in space, analogous to a \textit{supersonic bang}.
 \end{definition}
@@ -111,9 +111,15 @@ A vortex with sign of rotational vector opposite to \href{def:Omega}{$\Omega$}.
 \begin{definition}[Cyclone (\C)]\label{def:C}
 A vortex with sign of rotational vector equal to \href{def:Omega}{$\Omega$}.
 \end{definition}
+%%###################################%
+%\begin{definition}[Gravity Wave Phase Speed $c \Unit{\si{m/s^{2}}}$]\label{def:c}
+%$c  = \sqrt{g'H} $
+%\end{definition}
 %###################################%
-\begin{definition}[Gravity Wave Phase Speed $c \Unit{\si{m/s^{2}}}$]\label{def:c}
-$c  = \sqrt{g'H} $
+\begin{definition}[Rossby-Wave Phase Speed $\cx{x} \Unit{\si{\m/\s}}$ ]\label{def:c}
+The x'th mode baroclinic Rossby-Wave phase-speed.\\
+$\cx{x}  = \sqrt{g h_{x}} $ \\
+with $h_{0}$ as ocean depth and $h_{x>0}$ as the \textit{equivalent depth} \citep[chapter 8.1.1]{olbers2012ocean}.
 \end{definition}
 %###################################%
 \begin{definition}[Buoyancy Vector $\B \Unit{\si{1/s^{2}}}$] \label{def:B }

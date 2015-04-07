@@ -54,7 +54,7 @@ This function...
 		\item
 		...integrate the Rossby-Radius $\Lr=\frac{1}{\pi f}\INT{H}{ }{N}{z}$ and ...
 		\item
-		apply the long-Rossby-Wave dispersion relation to found $\Lr$ to estimate Rossby-Wave phase-speeds $c=-\frac{\dfdy}{k^2+(1/L_r)^2} \approx -\dfdy \Lr^2$
+		apply the long-Rossby-Wave dispersion relation to found $\Lr$ to estimate Rossby-Wave phase-speeds $c=-\frac{\dfdy}{k^2+(1/Lr)^2} \approx -\dfdy \Lr^2$
 	\end{itemize}
 \end{itemize}
 
@@ -411,6 +411,7 @@ the track is abandoned.
 The former is the core of the tracking algorithm. It is almost sufficient by itself as long as the temporal resolution is fine enough. The larger the time-step, the more ambiguities arise, which are attempted to be mitigated by flagging elements of the distance matrix not meeting certain thresholds:
 
 \begin{itemize}
+\label{item:checkDynamicIdentity}
 	\item
 	 \mcode{function checkDynamicIdentity}\\
 	 Consider the ambiguous case when there are two new eddies $N_a$ and $N_b$ in sufficient proximity to old eddy $O_a$. Let's assume $O_a$ is a relatively solid eddy of rel. large scale with a steep slope \ie large amplitude and that $N_a$ is merely a subtle blob of an eddy whilst $N_b$ is somewhat similar to $O_a$ but with only half the amplitude. The situation then is clear: $N_b$ is the, apparently slowly dying, $O_a$ at a later time, while $N_a$ could either be a newly formed eddy, an old eddy with its respective representation in the old set something other than $O_a$, or even just temporary coincidental noise not representative of any significant mesoscale vortex at all. This interpretation should hold even when $O_a$ sat right between the other two, thereby being much closer to $O_a$ than $N_b$ was.\\
