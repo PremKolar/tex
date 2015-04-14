@@ -1,91 +1,73 @@
 %\section*{resultsIntro}
 %%....................................F.I.G.U.R.E.............................................
 \begin{figure}
-		\includegraphics[width=\linewidth]{defl-age-aviI_shrunk2prepress}
-		\caption{\AVI~-\MI: Basleline-shifted \textit{old} tracks. Tracks younger than
-%$\SI{500}{\day}$
-		$500 days$
-\TODO{!}
-		omitted.}
-		\label{fig:defl-age-aviI_shrunk2prepress}
+\includegraphics[width=\linewidth]{defl-age-aviI_shrunk2prepress}
+\caption{\aviI: Baseline-shifted \textit{old} ($>\SI{500}{\day}$) tracks.}
+\label{fig:defl-age-aviI_shrunk2prepress}
 \end{figure}
-%%....................................F.I.G.U.R.E.............................................
+%%...................................F.I.G.U.R.E.............................................
 %%....................................F.I.G.U.R.E.............................................
 \begin{figure}
-		\includegraphics[width=\linewidth]{defl-age-aviII_shrunk2prepress}
-		\caption{\AVI~-\MII: Basleline-shifted \textit{old} tracks. Tracks younger than
-		 %$\SI{500}{\day}$
-		$500 days$
-\TODO{!}
-		  omitted.}
-		\label{fig:defl-age-aviII_shrunk2prepress}
+\includegraphics[width=\linewidth]{defl-age-aviII_shrunk2prepress}
+\caption{\aviII: (same as \cref{fig:defl-age-aviI_shrunk2prepress})}
+\label{fig:defl-age-aviII_shrunk2prepress}
 \end{figure}
 %%....................................F.I.G.U.R.E.............................................
-\newthought{The  } short time frame and limited computational resources allowed for only a few complete global runs over the available data.
-It was therefor critical to carefully choose which method/parameters to use in order to maximize the deducible insight from the results.
+
+\newthought{Even}~though all of the computer program's bottle-necks are parllelized in \href{http://en.wikipedia.org/wiki/SPMD}{SPMD}, an application to more than a decade of high-resoultion \SSH~data still requires patience (say $\order{1}$ - $\order{2}$ days \footnote{depending on the number of cpu's and their frequencies.}). The most time-consuming of steps is the numerically arduous part of subjecting each of the vast number of found contours \footnote{see \cref{fig:allEddies-aviIaviIIpop7II}} to the filtering procedure as described in \cref{S:04}.
+The total number of final analyses was hence limited and it was therefor critical to carefully choose which method/parameters to use in order to maximize the deducible insights from the results.
 For best comparability of the results with each other it was decided to agree on one complete set of parameters as a basis (\cref{tab:fixparams}), which would then be altered at key parameters.
+
+\begin{itemize}
+\setlength\itemsep{0mm}
+\item 
 The first run is an attempt to reproduce the results from \citet{Chelton2011}. The SSH-data for this run is therefor that of the \AVI~ product.
 This method will be called \MI.
+\item
+The second run (\MII) is equivalent, except that this time the alternative $\IQ$-based shape filtering method as described in \cref{filter:shape} and the slightly different tracking-filter as described in \cref{item:checkDynamicIdentity} are used. \MII~is then fed with 7-day time-step \POP~data as well.
+\item
+To investigate what role spatial resolution plays, the \POP~data was remapped to that of the \AVI~data and fed to the \MI~method.
+\item
+Finally, to investigate the effects of resolution in time, an \MII-2-day-time-step run over \POP~data was executed. For its results and discussion see \cref{sec:downsampled}.
+\item
+\TODO{popTwoII}
+\item
+Start and end dates were fix for all runs as the intersection of availability of both data sets.
+\end{itemize}
 
- \newthought{The } second run (\MII) is equivalent, except that this time the alternative $\IQ$-based shape filtering method from TODO ref and the slightly different tracking-filter as described in \TODO{ ref} are used. \MII is then fed with 7-day time-step \POP~data as well.
-
- \newthought{To investigate  }  what role spatial resolution plays, the \POP~data was remapped to that of the \AVI~ data and fed to the \MI method.
-
-\newthought{Finally }, to investigate the effects of resolution in time, an \MII-1-day-time-step run over \POP~data was executed. \TODO{\popOneIISO}
-
-\newthought{Start and end dates  } were fix for all runs as the intersection of availability of both data sets.
+%%
 
 \input{SUBS/RESULTStables.tex}
 
- \TODO{Cheltons idendity check takes Leff?}
-
-
-
 \begin{infobox}[Method \MI]
-\label{box:MI}
-The concepts used in this method are mostly based on the description of the algorithm described by \citet{Chelton2011} and all parameters are set accordingly. Basically \MI is a modification of \MII (which was completed first), with the aim to try to recreate the results from \citet{Chelton2011}.
-It differs from \MII in the following:
+The concepts used in this method are mostly based on the description of the algorithm described by \citet{Chelton2011} and all parameters are set accordingly. Basically \MI~is a modification of \MII~(which was completed first), with the aim to try to recreate the results from \citet{Chelton2011}.
+It differs from \MII~in the following:
 \begin{itemize}
-	\item \textbf{detection}\\
-As mentioned in TODO ref, the approach by \citet{Chelton2011} is to avoid overly elongated objects by demanding:
+\item \textbf{detection}\\
+As mentioned in \cref{filter:shape}, the approach by \citet{Chelton2011} is to avoid overly elongated objects by demanding:
 \begin{itemize}
-	\item high latitudes\\
-	The maximum distance between any vertices of the contour must not be larger than $400km$ for $\abs{\phi}>\deg{25}$.
-	\item low latitudes\\
+\item high latitudes\\
+The maximum distance between any vertices of the contour must not be larger than $400km$ for $\abs{\phi}>\deg{25}$.
+\item low latitudes\\
 The $400km$-threshold increases linearily towards the equator to $1200km$.
 \end{itemize}
-	\item \textbf{tracking}\\
-The other minor difference to \MII is in the way the tracking algorithm flags eddy-pairs between time-steps as sufficiently similar to be considered successful tracking-candidates (see TODO ref).
+\item \textbf{tracking}\\
+The other minor difference to \MII~is in the way the tracking algorithm flags eddy-pairs between time-steps as sufficiently similar to be considered successful tracking-candidates \\(see \cref{item:checkDynamicIdentity}).
 In this method an eddy B from time-step $k+1$ is considered as a potential manifestations of an eddy A from time-step $k$ as long as both - the ratio of amplitudes (with regard to the mean of \SSH~within the found contour) and the ratio of areas (interpolated versions as discussed in TODO ref) fall within a lower and and an upper bound.
 \end{itemize}
+\label{box:MI}
 \end{infobox}
 
 
 \begin{infobox}[Method \MII]
-\label{box:MII}
-The purpose of this variant is basically to test the conceptually very different idea of the $\IQ$-technique to test the shape of found contours for sufficiently eddy-\textit{typical}. It also uses a slightly different tracking algorithm.
+The purpose of this variant is basically to test the conceptually different approach of using the \href{def:IQ}{isoperimetric quotient} to judge the shape of found contour-rings as sufficiently eddy-\textit{typical}. It also uses a slightly different tracking algorithm.
 \begin{itemize}
-	\item \textbf{detection}\\
-	 The $\IQ$-method. See \cref{fig:chiq5} and \cref{filter:shape}.
-	\item \textbf{tracking}\\
-	Conceptually similar to \MI, it is again vertical and horizontal scales that are compared between time-steps. Preferring a single threshold-value over one upper and one lower bound, a parameter $\xi$ was introduced that is the maximum of the two values resulting from the two ratios of amplitude respective $\sigma$, where either ratio is -if larger- its reciprocal in order to equally weight a decrease or an increase in respective parameter. In other words:
+\item \textbf{detection}\\
+The $\IQ$-method. See \cref{fig:chiq5,fig:parAnalyIQ6,fig:parAnalyCH} and \cref{filter:shape}.
+\item \textbf{tracking}\\
+Conceptually similar to \MI, it is again vertical and horizontal scales that are compared between time-steps. Preferring a single threshold-value over one upper and one lower bound, a parameter $\xi$ was introduced that is the maximum of the two values resulting from the two ratios of amplitude respective $\sigma$, where either ratio is -if larger- its reciprocal in order to equally weight a decrease or an increase in respective parameter. In other words:
 $\xi = \max{\left(\left[\exp{\abs{\log{R_{\alpha}}}}\; ; \;\; \exp{\abs{\log{R_{\sigma}}}} \right]\right)} $, where $R$ are the ratios.
-\TODO{this has been explained twice now..}
+%\TODO{this has been explained twice now...}
 \end{itemize}
+\label{box:MII}
 \end{infobox}
-
-%%....................................F.I.G.U.R.E.............................................
-\begin{figure}
-	\includegraphics[]{tracks-age-aviI_shrunk2prepress}
-	\caption{\MI: anti-cyclones ind red. Tracks younger than $1a$ omitted for clarity.}
-	\label{fig:tracks-age-aviI_shrunk2prepress}
-\end{figure}
-%%....................................F.I.G.U.R.E.............................................
-
-%%....................................F.I.G.U.R.E.............................................
-\begin{figure}
-	\includegraphics[]{tracks-age-aviII_shrunk2prepress}
-	\caption{\MII: anti-cyclones ind red. Tracks younger than $1a$ omitted for clarity.}
-	\label{fig:tracks-age-aviII_shrunk2prepress}
-\end{figure}
-%%....................................F.I.G.U.R.E.............................................

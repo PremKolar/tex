@@ -23,7 +23,7 @@
 \label{table:modVSsat}
 \end{margintable}
 
-\paragraph{The } latest \AVI~~\SSH~data from satellites features impressive accuracy, constancy and resolutions in both space and time. This is achieved
+\newthought{The } latest \AVI~\SSH~data from satellites features impressive accuracy, constancy and resolutions in both space and time. This is achieved
 by collecting all of the data from all of the altimeter-equipped satellites available at any given moment for any given coordinate. This conglomerate of highly
 inhomogeneous data is then subjected to state-of-the-art interpolation methods to produce a spatially and temporally coherent product. One satellite alone is
 not sufficient to adequately resolve mesoscale variability globally.
@@ -32,21 +32,15 @@ not sufficient to adequately resolve mesoscale variability globally.
 %\caption{Orbits for Aviso-relevant satellites.}
 \end{marginfigure}
 \Eg the Topex/Poseidon satellite had a ground repeat track orbit of 10 days and circled the earth in 112 minutes or $\approx 13$ times a day with a swath width of 5 km. Hence it drew $\sim 26$ 5-km-wide stripes onto the globe every day.
-The orbit's precession is such that this pattern is then repeated after 10 days, which means that at the equator only $10 \times 26 \times 5 = 1300$km of the $2\pi \times 6371=40000$km get covered,
-\ie $3.25\%$. At every $10d$ time-step, on average, effectively $(40000-1300)/26 = 1490$km are left blank in-between swaths on the equator. This is why, no matter how fine the resolution within the swath at one moment in time may be, the spatial resolution is so coarse.
-\begin{marginfigure}
-\includegraphics[]{scales.pdf}
-\caption{Resolutions for model vs satellite. Modified version from \citet{olbers2012ocean}.}
-\end{marginfigure}
-The merged ERS-1/Topex-data as used by \citet{Chelton2011} has a time step of 7 days. Assuming eddy drift speeds of $u_e=\order{-1}$m/s implies a distance traveled per time step of $L_{\delta t}\approx 60km$. \citeauthor{Chelton2011} estimate their effective spatial resolution as $\delta x \approx 40$km. Eddies of smaller scale are not resolved.
-
-\newthought{Tracking } a single eddy from one time-step to the next is complicated by the sheer abundance of eddies at any given point in time and the fact that eddy activity is usually concentrated into regions of strong geostrophic turbulence.
+The orbit's precession is such that this pattern is then repeated after 10 days, which means that at the equator only  $10 \times 26 \times 5 = \SI{1300}{\km}$ of the $2\pi \times 6371=\SI{40000}{\km}$ get covered, \ie $3.25\%$. At every $\SI{10}{\day}$ time-step, on average, effectively $(40000-1300)/26 = \SI{1490}{\km}$ are left blank in-between swaths on the equator. This is why, no matter how fine the resolution within the swath at one moment in time may be, the spatial resolution is so coarse.
+The merged ERS-1/Topex-data as used by \citet{Chelton2011} has a time step of 7 days. Assuming eddy drift speeds of $u_e= \order{-1}\si{\m/\s}$ implies a distance traveled per time step of $L_{\delta t}\approx \SI{60}{\km}$. \citeauthor{Chelton2011} estimate their effective spatial resolution as $\delta x \approx \SI{40}{\km}$. Eddies of smaller scale are not resolved.
 \begin{figure}
 \includegraphics[]{tracks.pdf}
 \caption{{The ground track patterns for the 10-day repeat orbit of T/P and its successors Jason-1 and Jason-2 (thick lines) and the 35-day repeat orbit of ERS-1 and its successors ERS-2 and Envisat (thin lines). (a) The ground tracks of the 10-day orbit during a representative 7-day period; (b) The ground tracks of the 35-day orbit during the same representative 7-day period; (c) The combined ground tracks of the 10-day orbit and the 35-day orbit during the 7-day period; and (d) The combined ground tracks of the 10-day orbit and the 35-day orbit during the full 35 days of the 35-day orbit. (sic)} \citep{Chelton2011}}
 \end{figure}
 
-\newthought{The }  ambiguities in matching the eddies from the old time-step to those of the new one might cause aliasing effects in the final statistics.
+\newthought{Tracking}~a single eddy from one time-step to the next is complicated by the sheer abundance of eddies at any given point in time and the fact that eddy activity is usually concentrated into regions of strong geostrophic turbulence.
+The ambiguities in matching the eddies from the old time-step to those of the new one might cause aliasing effects in the final statistics.
 \begin{figure}
 \includegraphics[]{sats.pdf}
 \caption{Length of mission. Numbers are orbit-period in days.}
@@ -59,14 +53,12 @@ grow at rates of up to $1/(2 \mathrm{days})$, which means that at one time-step 
 such region. The ground-repeat-frequency of a satellite can of course not be set arbitrarily. Especially when the satellite is desired to cover as far north and
 south as possible, whilst still being subjected to just the right torque from the earth's variable gravitational field to precess at preferably a
 sun-synchronous frequency \ie $360^{\circ}/year$ \citep{goldreich1965inclination}. Neither can the
-satellite's altitude be chosen arbitrarily. If too low the oblateness of the earth creates too much eccentricity in the orbit that can no longer be
+satellite's altitude be chosen arbitrarily. If too low, the oblateness of the earth creates too much eccentricity in the orbit that can no longer be
 \textit{frozen} \footnote{minimizing undulating signals in altitude by choosing the right initial values \citep{goldreich1965inclination}}. Another problem could be potential inhomogeneity in
 the merged data in time dimension, since data of old and current missions are lumped together into one product. This is why \citet{Chelton2011} opted against
 the finest resolution available and instead went for a product that had the most satellites merged in unison for the longest period of time.
 
 \newthought{The } surface velocities inferred from altimetry are the geostrophic components only, which should suffice to \eg determine the non-linearity and kinetic energy of an eddy for almost all regions, but less so for \eg the western boundary currents.
-
-
 %%####################################################################
 %%####################################################################
 \begin{marginfigure}
@@ -74,7 +66,6 @@ the finest resolution available and instead went for a product that had the most
 \caption{$\xi(\phi,\mu)$. $\mathrm{Ny}\equiv 2$ \ie the Nyquist frequency.}
 \label{fig:latovermu}
 \end{marginfigure}
-
 
 \begin{infobox}[Horizontal Resolution]
 \label{box:horRes}

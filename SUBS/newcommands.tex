@@ -69,12 +69,13 @@
 \newcommand{\Ro}[0]{\hyperref[def:Ro]{\mathrm{Ro}}}
 \renewcommand{\Re}[0]{\hyperref[def:Re]{\mathrm{Re}}}
 \newcommand{\Rh}[0]{\hyperref[def:Rh]{\mathrm{R}_{\beta}}}
-\newcommand{\Lr}[0]{\hyperref[def:Lr]{\mathrm{L_{R}}}}
+\newcommand{\Lrx}[1]{\hyperref[def:Lr]{\mathrm{L^{#1}_{R}}}}
+\newcommand{\Lr}[0]{\hyperref[def:Lr]{\Lrx{1}}}
+\newcommand{\cx}[1]{\hyperref[def:cx]{\mathrm{c}_{#1}}}
 \newcommand{\Lb}[0]{\hyperref[def:Lb]{\mathrm{L}_{\beta}}}
 \newcommand{\okubo}[0]{\hyperref[def:okubo]{\mathrm{O_w}}}
 \newcommand{\IQ}[0]{\hyperref[def:IQ]{\mathrm{IQ}}}
 \newcommand{\N}[0]{\hyperref[def:BVf]{\mathrm{N}}}
-
 
 \newcommand{\AC}[0]{\hyperref[def:AC]{AC~}}
 \newcommand{\ACs}[0]{\hyperref[def:AC]{ACs~}}
@@ -87,31 +88,32 @@
 \newcommand{\CoV}[0]{\hyperref[filter:CoV]{CoV}}
 \newcommand{\enstro}[0]{\hyperref[def:enstro]{\varepsilon}}
 \newcommand{\rG}[0]{\hyperref[def:rG]{\mathfrak{r}}}
-
+%%
 \newcommand{\scale}[0]{\hyperref[def:scale]{\sigma}}
 \newcommand{\Scale}[0]{$\scale$}
-\newcommand{\h}[0]{\hyperref[def:h]{h}}
+\newcommand{\h}[0]{\hyperref[def:physpar]{h}}
 \newcommand{\g}[0]{\mathit{\hyperref[def:g]{g}}}
 \newcommand{\f}[0]{\mathit{\hyperref[def:f]{f}}}
 \newcommand{\dfdy}[0]{\hyperref[def:beta]{\beta}}
 \newcommand{\steer}[0]{\hyperref[def:steer]{z_{S}}}
-
-
-
+%%
+\newcommand{\mi}{MI}
+\newcommand{\mii}{MII}
+\newcommand{\avi}{Aviso}
+\newcommand{\pop}{POP}
+%%
 \newcommand{\SSH}[0]{\hyperref[def:SSH]{SSH}}
-
-\newcommand{\aviI      }[0]{\hyperref[def:aviI]{AVI-MI                        }~}
-\newcommand{\aviII     }[0]{\hyperref[def:aviII]{AVI-MII                       }~}
-\newcommand{\pToaII    }[0]{\hyperref[def:p2aII]{pop2avi-MII                   }~}
-\newcommand{\popSevenII}[0]{\hyperref[def:pop7II]{POP-7day-MII                 }~}
-\newcommand{\popOneIISO}[0]{\hyperref[def:pop1IISO]{POP-1day-MII-Southern-Ocean}~}
-\newcommand{\MI}[0]{\hyperref[box:MI]{MI}}
-\newcommand{\MII}[0]{\hyperref[box:MII]{MII}}
-\newcommand{\POP}[0]{\hyperref[def:POP]{POP}}
-\newcommand{\AVI}[0]{\hyperref[def:AVISO]{Aviso}}
+\newcommand{\aviI      }[0]{\hyperref[def:aviI]{\AVI-\MI                      }~}
+\newcommand{\aviII     }[0]{\hyperref[def:aviII]{\AVI-\MII                    }~}
+\newcommand{\pToaII    }[0]{\hyperref[def:p2aII]{pop2avi-\MII                 }~}
+\newcommand{\popSevenII}[0]{\hyperref[def:pop7II]{\POP-7day-\MII              }~}
+\newcommand{\popTwoII}[0]{\hyperref[def:pop2II]{\POP-2day-\MII                }~}
+\newcommand{\MI}[0]{\hyperref[box:MI]{\mi}}
+\newcommand{\MII}[0]{\hyperref[box:MII]{\mii}}
+\newcommand{\POP}[0]{\hyperref[def:POP]{\pop}}
+\newcommand{\AVI}[0]{\hyperref[def:AVISO]{\avi}}
 \newcommand{\TODO}[1]{\textbf{\textcolor{red}{TODO: }#1~\newline}}
-
-
+%%
 \newcommand{\Enstro}{\mathcal{E}}
 \newcommand{\inta}[1]{ \int_A #1 \; \mathrm{d}A}
 \newcommand{\intm}[1]{ \frac{1}{A} \int_A #1 \; \mathrm{d}A}
@@ -130,6 +132,7 @@
 % VARIABLES
 % ######################################################################
 \newcommand*{\supervisor}[1]{\def\supname{#1}}
+\newcommand*{\cosupervisor}[1]{\def\cosupname{#1}}
 \newcommand*{\thesistitle}[1]{\def\ttitle{#1}}
 \newcommand*{\examiner}[1]{\def\examname{#1}}
 \newcommand*{\degree}[1]{\def\degreename{#1}}
