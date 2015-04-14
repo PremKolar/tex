@@ -1,7 +1,6 @@
 \begin{fullwidth}
 \begin{multicols}{2}
 
-
 % DIMLESS NUMS
 %###################################%
 %###################################%
@@ -126,21 +125,12 @@ with $h_{0}$ as ocean depth and $h_{x>0}$ as the \textit{equivalent depth} \cite
 $\B = -\frac{ \grad \rho 	\times \grad p}{ \rho^{2}} $
 \end{definition}
 %###################################%
-\begin{definition}[Kinetic Energy per mass $\Ek \Unit{\si{m^{2}/s^{2}}}$] \label{def:E_k}
-\end{definition}
-%###################################%
 \begin{definition}[Mechanical Energy per mass $\Em \Unit{\si{m^{2}/s^{2}}}$] \label{def:E_m}
 Sum of kinetic and potential Energy.
 \end{definition}
 %###################################%
 \begin{definition}[Reduced Gravity $g'(x,y,z) \Unit{\si{m/s^{2}}}$ ]\label{def:gr}
 In the layered model $g'=g \frac{\delta \rho}{\rho_0} = N^{2}h$
-\end{definition}
-%###################################%
-\begin{definition}[Surface/interface Displacement $\eta(x,y) \Unit{\si{m}}$]\label{def:eta}
-\end{definition}
-%###################################%
-\begin{definition}[Mean Layer thickness $H \Unit{\si{m}}$]\label{def:H}
 \end{definition}
 %###################################%
 \begin{definition}[Brunt V\"ais\"al\"a frequency $\N \Unit{\si{1/s}}$]\label{def:BVf}
@@ -155,11 +145,14 @@ $h = H+\eta$ (in the layered model)
 \centering
 {
 \begin{tabular}{ccc}
-$m$         & $\Unit{\si{kg}}$            & mass           \\
+$m$         & $\Unit{\si{kg}}$            & Mass           \\
 $\nu$       & $\Unit{\si{m^{2}/s}}$				& Kin. Viscosity \\
 $a$			    & $\Units{m}$         				& Earth's Radius \\
 $\phi$	    & $\Unit{\si{\radian}}$     	& 	Latitude   	 \\
-$\omega$    & $\Unit{\si{1/s}}$						& 		vorticity  
+$\omega$    & $\Unit{\si{1/s}}$						& 		Vorticity  \\
+$\eta(x,y)$ & $\Unit{\si{m}}$             & Interface Displacement \\
+$H$ 				& $\Unit{\si{m}}$ 						& Mean Layer thickness \\
+$\Ek$ 			& $\Unit{\si{m^{2}/s^{2}}}$   & Kinetic Energy
 \end{tabular} 
 }
 \end{definition}

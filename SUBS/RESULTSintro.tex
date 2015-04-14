@@ -14,7 +14,7 @@
 \end{figure}
 %%....................................F.I.G.U.R.E.............................................
 
-\newthought{Even}~though all of the computer program's bottle-necks are parllelized in \href{http://en.wikipedia.org/wiki/SPMD}{SPMD}, an application to more than a decade of high-resoultion \SSH~data still requires patience (say $\order{1}$ - $\order{2}$ days \footnote{depending on the number of cpu's and their frequencies.}). The most time-consuming of steps is the numerically arduous part of subjecting each of the vast number of found contours to the filtering procedure as described in \cref{S:04}.
+\newthought{Even}~though all of the computer program's bottle-necks are parllelized in \href{http://en.wikipedia.org/wiki/SPMD}{SPMD}, an application to more than a decade of high-resoultion \SSH~data still requires patience (say $\order{1}$ - $\order{2}$ days \footnote{depending on the number of cpu's and their frequencies.}). The most time-consuming of steps is the numerically arduous part of subjecting each of the vast number of found contours \footnote{see \cref{fig:allEddies-aviIaviIIpop7II}} to the filtering procedure as described in \cref{S:04}.
 The total number of final analyses was hence limited and it was therefor critical to carefully choose which method/parameters to use in order to maximize the deducible insights from the results.
 For best comparability of the results with each other it was decided to agree on one complete set of parameters as a basis (\cref{tab:fixparams}), which would then be altered at key parameters.
 
@@ -28,7 +28,9 @@ The second run (\MII) is equivalent, except that this time the alternative $\IQ$
 \item
 To investigate what role spatial resolution plays, the \POP~data was remapped to that of the \AVI~data and fed to the \MI~method.
 \item
-Finally, to investigate the effects of resolution in time, an \MII-2-day-time-step run over \POP~data was executed. \TODO{popTwoII}
+Finally, to investigate the effects of resolution in time, an \MII-2-day-time-step run over \POP~data was executed. For its results and discussion see \cref{sec:downsampled}.
+\item
+\TODO{popTwoII}
 \item
 Start and end dates were fix for all runs as the intersection of availability of both data sets.
 \end{itemize}
