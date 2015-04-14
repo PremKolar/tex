@@ -162,7 +162,28 @@ Since $\beta, H$ and $f$ should have been set realisticaly in \POP, it appears t
 \section{\popTwoII}
 
 So far, all analyses used a $\SI{7}{\day}$-time-step.
-As already mentioned in \cref{sec:satvsmod}, 
-From the results we know that eddies translate at speeds on the order $\order{0}\si{\cm\per\s}$~to~$\order{1}\si{\cm\per\s}$ or up to $\SI{100}{\km}/\SI{7}{\day}$ and apparently even more in low latitudes.
+As already mentioned in \cref{sec:satvsmod}, from the results we know that eddies translate at speeds on the order $\order{0}\si{\cm\per\s}$~to~$\order{1}\si{\cm\per\s}$ or up to $\SI{100}{\km}/\SI{7}{\day}$ and apparently even more in low latitudes.
 This means that one eddy's location might well change as much as its own scale and more over one time-step. Taken how tightly packed eddies often are in areas of high activity, \ie directly adjacent to one another akin to an \textit{egg's box} (see \eg \cref{fig:allEddies-aviIaviIIpop7II}), raises the issue whether the weekly resolution in time is sufficiently fine to successfully track individual eddies and thus deliver realistic translative-speed statistics.
-In order to investigate the influence of a shorter time-step the \popSevenII-run was repeated, only this time with a $\si{2}{\day}$ time-step.
+In order to investigate the influence of a shorter time-step the \popSevenII-run was repeated, only this time with a $\SI{2}{\day}$ time-step.
+\begin{marginfigure}
+	\includegraphics[]{pop2Andpop7velZonMean}
+	\caption{Same plot as the one \popSevenII~one from \cref{fig:ScheltsAll} with the result from \popTwoII added in brown.}
+	\label{fig:pop2Andpop7velZonMean}
+\end{marginfigure}
+The effect is only small in the zonal mean (see \cref{fig:pop2Andpop7velZonMean}). But regionaly some noteworthy differnces to the weekly analysis emerge (see \cref{fig:velZonDiffPopMap}):
+\begin{itemize}
+\setlength\itemsep{0cm}
+	\item 
+ Westward drifts are now faster in low latitudes, suggesting that the 7-day time-step is in deed too large to correctly associate all of the large, fast tropical eddies.
+ \item
+ Areas of strong drift-speed gradients as along the western boundary currents and the ACC show slight generall disagreement between the two analyses, suggesting that the analysis benefits from more available time-frames. 
+\end{itemize}
+\begin{marginfigure}
+	\includegraphics[]{velZonDiffPopMap}
+	\caption{Zonal drift speed of \popTwoII minus \popSevenII $\Unit{\si{\cm\per\s}}$.}
+	\label{fig:velZonDiffPopMap}
+\end{marginfigure}
+
+
+\section{Net Drift Speeds}
+The reversal in drift direction within all sufficiently strong eastward currents (\eg ACC) shows that the, naturally westward-propagating eddies get advected by mean flows, analogous to eastward-moving pressure systems spawned off of the atmospheric jet-stream. \TODO{depth, dingsbumsdepth, bla} 
