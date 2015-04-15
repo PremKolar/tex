@@ -394,120 +394,120 @@ terms	cancel in the integral leaving
 %%####################################################################
 %%####################################################################
 
-\begin{derivationNobreak}[Vorticity Scales]
-\label{der:vortscale}
-Assuming approximate geostrophy and $\Bu = \order{1}$:
-%%%....................................................................
-\begin{equation}\begin{split}
-\rho fU
-&\sim
-\grad p
-\end{split}\end{equation}
-%%%....................................................................
-in a layered model:
-%%%....................................................................
-\begin{equation}\begin{split}
-fU
-&\sim
-g' \grad \eta \\
-U
-&\sim
-\frac{h N^{2}}{f} \grad \eta \\
-U
-&\sim
-\frac{h^{2} N^{2}}{f\mathrm{L}}
-\end{split}\end{equation}
-%%%....................................................................
-and hence
-%%%....................................................................
-\begin{equation}\begin{split}
-\vec{\omega}
-\sim
-U/\mathrm{L}
-&\sim
-\frac{h^{2} N^{2}}{f\mathrm{L}^{2}} \\
-&=
-f\frac{\Lr}{L}
-\end{split}\end{equation}
-%%%....................................................................
-\TODO{take out}
-\end{derivationNobreak}
+%\begin{derivationNobreak}[Vorticity Scales]
+%\label{der:vortscale}
+%Assuming approximate geostrophy and $\Bu = \order{1}$:
+%%%%....................................................................
+%\begin{equation}\begin{split}
+%\rho fU
+%&\sim
+%\grad p
+%\end{split}\end{equation}
+%%%%....................................................................
+%in a layered model:
+%%%%....................................................................
+%\begin{equation}\begin{split}
+%fU
+%&\sim
+%g' \grad \eta \\
+%U
+%&\sim
+%\frac{h N^{2}}{f} \grad \eta \\
+%U
+%&\sim
+%\frac{h^{2} N^{2}}{f\mathrm{L}}
+%\end{split}\end{equation}
+%%%%....................................................................
+%and hence
+%%%%....................................................................
+%\begin{equation}\begin{split}
+%\vec{\omega}
+%\sim
+%U/\mathrm{L}
+%&\sim
+%\frac{h^{2} N^{2}}{f\mathrm{L}^{2}} \\
+%&=
+%f\frac{\Lr}{L}
+%\end{split}\end{equation}
+%%%%....................................................................
+%\TODO{take out}
+%\end{derivationNobreak}
 %###################################%\\%###################################%
 
-\begin{derivationNobreak}[vortex limitations]
-%%%....................................................................
-\begin{equation}\begin{split}
-\advec{\vec{u}}
-+
-f \tvec{u}
-&=
--g \grad \eta
-\end{split}\end{equation}
-%%%....................................................................
-\begin{equation}\begin{split}
-\frac{U^{2}}{L}
-+
-f U
-+
-\frac{gh}{L}
-&=
-0 \\
-U^{2}
-+
-f LU
-+
-gh
-&=
-0 \\
-\end{split}\end{equation}
-%%%....................................................................
-possible balances:
-%%%....................................................................
-cyclone\\$\sign{F_{c}}=\sign{F_{p}}$:
-\begin{equation}\begin{split}
-U_{1,2}
-&=
--fL/2
-\pm
-\sqrt
-{
-f^{2}L^{2}/4
-+
-gh
-}
-\end{split}\end{equation}
-%%%....................................................................
-%%%....................................................................
-anti-cyclone\\
-$\sign{F_{c}}=-\sign{F_{p}}$:
-\begin{equation}\begin{split}
-U_{1,2}
-&=
--fL/2
-\pm
-\sqrt
-{
-f^{2}L^{2}/4
--
-gh
-}
-\end{split}\end{equation}
+%\begin{derivationNobreak}[vortex limitations]
+%%%%....................................................................
+%\begin{equation}\begin{split}
+%\advec{\vec{u}}
+%+
+%f \tvec{u}
+%&=
+%-g \grad \eta
+%\end{split}\end{equation}
+%%%%....................................................................
+%\begin{equation}\begin{split}
+%\frac{U^{2}}{L}
+%+
+%f U
+%+
+%\frac{gh}{L}
+%&=
+%0 \\
+%U^{2}
+%+
+%f LU
+%+
+%gh
+%&=
+%0 \\
+%\end{split}\end{equation}
+%%%%....................................................................
+%possible balances:
+%%%%....................................................................
+%cyclone\\$\sign{F_{c}}=\sign{F_{p}}$:
+%\begin{equation}\begin{split}
+%U_{1,2}
+%&=
+%-fL/2
+%\pm
+%\sqrt
+%{
+%f^{2}L^{2}/4
+%+
+%gh
+%}
+%\end{split}\end{equation}
+%%%%....................................................................
+%%%%....................................................................
+%anti-cyclone\\
+%$\sign{F_{c}}=-\sign{F_{p}}$:
+%\begin{equation}\begin{split}
+%U_{1,2}
+%&=
+%-fL/2
+%\pm
+%\sqrt
+%{
+%f^{2}L^{2}/4
+%-
+%gh
+%}
+%\end{split}\end{equation}
 
-%%%....................................................................
-\begin{equation}\begin{split}
-4g h
-&\le
-f^{2}L^{2}\\
-2c
-&\le
-fL\\
-2 \mathrm{L_{R}}
-&\le
-L\\
-\end{split}\end{equation}
-%%%....................................................................
-\TODO{take out}
-\end{derivationNobreak}
+%%%%....................................................................
+%\begin{equation}\begin{split}
+%4g h
+%&\le
+%f^{2}L^{2}\\
+%2c
+%&\le
+%fL\\
+%2 \mathrm{L_{R}}
+%&\le
+%L\\
+%\end{split}\end{equation}
+%%%%....................................................................
+%\TODO{take out}
+%\end{derivationNobreak}
 
 %%####################################################################
 %%####################################################################
@@ -579,13 +579,15 @@ See also \cref{subsec:detectmethods}.
 %%####################################################################
 \begin{derivationNobreak}[Cushman's Zonal Drift Speeds]
 	\label{der:cushDrift}
+\TODO{maybe show full deriv.}
+	
 With\\
 $X$ : x-position of \CoV \\
 $H$ : mean layer thickness\\
 $V_{e}$ : Volume $\inta{\eta}$ 
 %%%....................................................................
 \begin{equation}\begin{split}
-X_t
+\dpr{X}{t}
 &=
 -\frac{\beta g'}{f_0^2} \frac{\int H\eta + \eta^2/2 \; \mathrm{d}A}{\int\eta \; \mathrm{d}A}\\
 &=
@@ -603,7 +605,7 @@ X_t
 
 \end{fullwidth}
 
-\TODO{i took out Turbulent Kinetic Energy, Mean Fields of $u$ and $b$}
+%\TODO{i took out Turbulent Kinetic Energy, Mean Fields of $u$ and $b$}
 %\todo[color=red]{diffusion term very small on macro scale?}
 %%%####################################################################
 %%%####################################################################

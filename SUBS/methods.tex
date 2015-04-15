@@ -4,7 +4,7 @@
   \hline
    & \bf{POP} & \bf{merged T/P - ERS-1 }  \\
   \hline
-  dx & $7km-11km$  & $1/3^{\circ}$ ($\approx 40 km$ after filtering)  \\
+  dx & $ \ang{0.1}$  & $\ang{0.25}$  \\
   \hline
   dt & $1d$  & $7d$  \\
   \hline
@@ -41,13 +41,9 @@ The merged ERS-1/Topex-data as used by \citet{Chelton2011} has a time step of 7 
 
 \newthought{Tracking}~a single eddy from one time-step to the next is complicated by the sheer abundance of eddies at any given point in time and the fact that eddy activity is usually concentrated into regions of strong geostrophic turbulence.
 The ambiguities in matching the eddies from the old time-step to those of the new one might cause aliasing effects in the final statistics.
-\begin{figure}
-\includegraphics[]{sats.pdf}
-\caption{Length of mission. Numbers are orbit-period in days.}
-\label{fig:lengthOfMission}
-\end{figure}
 
-\newthought{The }  translational speeds \footnote{$\order{1}$km/day} of eddies are not really the problem here, as they usually drift slow enough to not cover more
+
+\newthought{The }  translational speeds ($\order{1}\si{km/\day}$) of eddies are not really the problem here, as they usually drift slow enough to not cover more
 than 1 grid node per 7 day time step. The issue are those areas where eddies are born, die and merge. According to \citet{Smith2009}, instabilities within the ACC
 grow at rates of up to $1/(2 \mathrm{days})$, which means that at one time-step up to 3 eddies have emerged and equally many died for every eddy identified within
 such region. The ground-repeat-frequency of a satellite can of course not be set arbitrarily. Especially when the satellite is desired to cover as far north and
@@ -58,24 +54,30 @@ satellite's altitude be chosen arbitrarily. If too low, the oblateness of the ea
 the merged data in time dimension, since data of old and current missions are lumped together into one product. This is why \citet{Chelton2011} opted against
 the finest resolution available and instead went for a product that had the most satellites merged in unison for the longest period of time.
 
+\begin{figure}
+\includegraphics[]{sats.pdf}
+\caption{Length of mission. Numbers are orbit-period in days.}
+\label{fig:lengthOfMission}
+\end{figure}
+
 \newthought{The } surface velocities inferred from altimetry are the geostrophic components only, which should suffice to \eg determine the non-linearity and kinetic energy of an eddy for almost all regions, but less so for \eg the western boundary currents.
 %%####################################################################
 %%####################################################################
 \begin{marginfigure}
 \includegraphics[]{latovermu}
-\caption{$\xi(\phi,\mu)$. $\mathrm{Ny}\equiv 2$ \ie the Nyquist frequency.}
+\caption{$n(\phi,\mu)$. $\mathrm{Ny}\equiv 2$ \ie the Nyquist frequency.}
 \label{fig:latovermu}
 \end{marginfigure}
 
 \begin{infobox}[Horizontal Resolution]
 \label{box:horRes}
-Assume $\Bu=1$, so that $L=NH/f$ and $NH=a/10d$ (corresponds to $L(\phi=30^{\circ})=100$km), a model resolution of $1^{\circ}/\mu$ and that the eddy diameter was twice the Rossby radius. Then, how many grid notes $\xi$ fit into one eddy as a function of latitude?
+Assume $\Bu=1$, so that $L=NH/f$ and $NH=a/10d$ (corresponds to $L(\phi=30^{\circ})=100$km), a model resolution of $1^{\circ}/\mu$ and that the eddy diameter is twice the Rossby radius. Then, how many grid notes $n$ fit into one eddy as a function of latitude?
 %%....................................................................
 \begin{align}
-	\xi \frac{a}{\mu} \frac{\cos \phi}{2 \pi}
+	n \frac{a}{\mu} \frac{\cos \phi}{2 \pi}
 	&=
 	\frac{2NH }{f} = \frac{2NH 1d}{4 \pi  \sin(\phi)}\notag\\
-	\xi
+	n
 	&=
 	 \frac{ 2\mu }{10  \sin(2\phi)}\notag\\
 \end{align}

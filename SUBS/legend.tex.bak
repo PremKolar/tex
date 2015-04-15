@@ -1,0 +1,202 @@
+\begin{fullwidth}
+\begin{multicols}{2}
+
+% DIMLESS NUMS
+%###################################%
+%###################################%
+\begin{definition}[Reynolds Number $\Re \Unit{\;}$] \label{def:Re}
+Compares advection of momentum to frictional acceleration.\\
+$\Re = \frac{U L}{\nu}$
+\end{definition}
+%###################################%
+\begin{definition}[Rossby Number $\Ro \Unit{\;}$ ] \label{def:Ro}
+Compares advection of momentum to Coriolis acceleration.\\
+$\Ro = \frac{U }{\f L}$
+\end{definition}
+%###################################%
+\begin{definition}[Rhines Number $\Rh \Unit{\;}$ ]\label{def:Rh}
+Ratio of Rhines scale to horizontal scale.\\
+$\Rh = \frac{U }{\dfdy L^2} = \frac{a}{L} \Ro$
+\end{definition}
+%###################################%
+\begin{definition}[Burger Number $\Bu \Unit{\;}$ ]\label{def:Bu}
+Ratio of relative vorticity to \textit{stretching} vorticity.\\
+$\sqrt{\Bu}=\frac{N H}{f L}=\frac{\mathrm{L_R}}{L}$
+\end{definition}
+%###################################%
+\begin{definition}[Isoperimetric Quotient
+$\IQ \Unit{\;}$]\label{def:IQ}
+$\IQ=A/A_{c}=\frac{A}{\pi r^2_{c}}=\frac{4 \pi A}{C^2} \le 1$.\\
+The ratio of a ring's area $A$ to the area $A_{c}$ of a circle of equal circumference $C$.
+\end{definition}
+%###################################%
+
+
+
+% SCALES
+%###################################%
+%###################################%
+\begin{definition}[Rhines Scale $\Lb \Unit{\si{\metre}}$ ]\label{def:Lb}
+Scale at which earth's sphericity becomes relevant.\\
+$\Lb^2 = \frac{U}{\beta} $
+\end{definition}
+%###################################%
+\begin{definition}[Rossby Radius $\Lrx{x} \Unit{\si{\metre}}$ ]\label{def:Lr}
+The \textit{geostrophic wavelength}.
+$\Lrx{x} = \cx{x}/\f $
+\end{definition}
+%###################################%
+\begin{definition}[Steering Level $\steer \Unit{\si{\m}}$]\label{def:steer}
+The critical depth where the real part of the Doppler shifted phase
+speed\\ $\cx{1}(\steer)=\real{\cx{1}(z)}-u(z)=0$ vanishes. \Ie the depth where the Doppler shift
+creates a standing wave, causing the disturbances to grow in place instead of
+spreading in space, analogous to a \textit{supersonic bang}.
+\end{definition}
+%###################################%
+
+
+
+% PHYSICS
+%###################################%
+%###################################%
+\begin{definition}[Sea Surface Height \SSH~$\Unit{\si{m}}$]\label{def:SSH}
+Vertical distance to reference geoid.
+\end{definition}
+%###################################%
+\begin{definition}[gravitational acceleration $\g \Unit{\si{m/s^2}}$] \label{def:g}
+Value of surface normal component of all body forces.
+\end{definition}
+%###################################%
+\begin{definition}[Planetary Vorticity $\Omega \Unit{\si{1/s}}$] \label{def:Omega}
+$\Omega=4\pi/\mathrm{day}_{fix\star}$
+\end{definition}
+%###################################%
+\begin{definition}[Surface-Normal Planetary Vorticity Component $\vec{f}
+\Units{1/s}$]\label{def:f}
+$\vec{f}=\f \unitvec{z}=\Omega \sin \phi \unitvec{z}$
+\end{definition}
+%###################################%
+\begin{definition}[Change of Planetary Vorticity with Latitude
+$\dfdy \Units{\per\m\per\s}$]\label{def:beta}
+$\dfdy=\dpr{\f}{y}=\Omega/a \cos \phi$
+\end{definition}
+%###################################%
+\begin{definition}[Okubo-Weiss Parameter
+$\okubo \Units{s^{-2}}$]\label{def:okubo}
+Discriminant of characteristic polynomial of deformation tensor.\\
+$\okubo	=	strain_{normal}^{2}	+	strain_{shear}^{2}	-	\omega^{2} $\\
+A negative value indicates vorticity dominated motion, whereas a positive value
+indicates deformation. In 2 dimensions with $\div{\vec{u}}=0$:\\
+$\okubo	=	4  \left(  u_{x}^{2}	+ 4v_{x}u_{y}  \right)$
+\end{definition}
+%###################################%
+%\begin{definition}[Gaussian radius
+%$\rG \Units{m}$]\label{def:rG}
+%$ \left( H-a \right) = H \exp \left( -\frac{A}{2 \pi \rG^2}  \right)$.\\
+%Twice the Gaussian standard-deviation. \\
+%$a$: amplitude\\
+%$H$: Gaussian amplitude\\
+%$A$: determined area\\
+%\end{definition}
+%###################################%
+\begin{definition}[dynamic eddy scale $\scale$ $\Units{m}$]\label{def:scale}
+Distance from eddy's center to the line of maximum orbital speed \ie the zero-vorticity contour.
+\end{definition}
+%###################################%
+\begin{definition}[Anti-cyclone (\AC)]\label{def:AC}
+A vortex with sign of rotational vector opposite to \href{def:Omega}{$\Omega$}.
+\end{definition}
+%###################################%
+\begin{definition}[Cyclone (\C)]\label{def:C}
+A vortex with sign of rotational vector equal to \href{def:Omega}{$\Omega$}.
+\end{definition}
+%%###################################%
+%\begin{definition}[Gravity Wave Phase Speed $c \Unit{\si{m/s^{2}}}$]\label{def:c}
+%$c  = \sqrt{g'H} $
+%\end{definition}
+%###################################%
+\begin{definition}[Rossby-Wave Phase Speed $\cx{x} \Unit{\si{\m/\s}}$ ]\label{def:c}
+The x'th mode baroclinic Rossby-Wave phase-speed.\\
+$\cx{x}  = \sqrt{g h_{x}} $ \\
+with $h_{0}$ as ocean depth and $h_{x>0}$ as the \textit{equivalent depth} \citep[chapter 8.1.1]{olbers2012ocean}.
+\end{definition}
+%###################################%
+\begin{definition}[Buoyancy Vector $\B \Unit{\si{1/s^{2}}}$] \label{def:B }
+$\B = -\frac{ \grad \rho 	\times \grad p}{ \rho^{2}} $
+\end{definition}
+%###################################%
+\begin{definition}[Mechanical Energy per mass $\Em \Unit{\si{m^{2}/s^{2}}}$] \label{def:E_m}
+Sum of kinetic and potential Energy.
+\end{definition}
+%###################################%
+\begin{definition}[Reduced Gravity $g'(x,y,z) \Unit{\si{m/s^{2}}}$ ]\label{def:gr}
+In the layered model $g'=g \frac{\delta \rho}{\rho_0} = N^{2}h$
+\end{definition}
+%###################################%
+\begin{definition}[Brunt V\"ais\"al\"a frequency $\N \Unit{\si{1/s}}$]\label{def:BVf}
+$\N^2=g/\rho_0 \dpr{\rho}{z}$
+\end{definition}
+%###################################%
+\begin{definition}[Layer Thickness/physical height of an isopycnal surface $h(x,y,\rho,t) \Unit{\si{m}}$]\label{def:h}
+$h = H+\eta$ (in the layered model)
+\end{definition}
+%###################################%
+\begin{definition}[other physical parameters]\label{def:physpar}
+\centering
+{
+\begin{tabular}{ccc}
+$m$         & $\Unit{\si{kg}}$            & Mass           \\
+$\nu$       & $\Unit{\si{m^{2}/s}}$				& Kin. Viscosity \\
+$a$			    & $\Units{m}$         				& Earth's Radius \\
+$\phi$	    & $\Unit{\si{\radian}}$     	& 	Latitude   	 \\
+$\omega$    & $\Unit{\si{1/s}}$						& 		Vorticity  \\
+$\eta(x,y)$ & $\Unit{\si{m}}$             & Interface Displacement \\
+$H$ 				& $\Unit{\si{m}}$ 						& Mean Layer thickness \\
+$\Ek$ 			& $\Unit{\si{m^{2}/s^{2}}}$   & Kinetic Energy
+\end{tabular} 
+}
+\end{definition}
+%###################################%
+
+% INFO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{definition}[Parallel Ocean Program (\POP).]\label{def:POP}
+Global fully non-linear $\ang{0;6;}$, $\SI{1}{\day}$,
+,hydrostatic,z-level, Boussinesq primitve equation ocean model \citep{Oestreicher}.\\
+Part of the Community Earth System Model (CESM) \citep{maltrud2005eddy}.
+\end{definition}
+%###################################%
+\begin{definition}[\AVI~- satellite altimetry \SSH.]\label{def:AVISO}
+Merged ERS-1/Topex-data \citep{Forget2010}.
+\end{definition}
+%###################################%
+
+
+% RUNS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{definition}[Run \aviI]\label{def:aviI}
+7-day time-step \AVI~with method \MI.
+\end{definition}
+%###################################%
+\begin{definition}[Run \aviII]\label{def:aviII}
+7-day time-step \AVI~with method \MII.
+\end{definition}
+%%###################################%
+\begin{definition}[Run \pToaII]\label{def:p2aII}
+7-day time-step \POP~remapped to \AVI-geometry with method \MII.
+\end{definition}
+%###################################%
+\begin{definition}[Run \popSevenII]\label{def:pop7II}
+7-day time-step \POP~with method \MII.
+\end{definition}
+%###################################%
+\begin{definition}[Run \popTwoII]\label{def:pop2II}
+2-day time-step \POP~with method \MII. \\Minimum Age: $\SI{30}{\day}$ 
+\end{definition}
+%###################################%
+
+
+\end{multicols}
+\end{fullwidth}

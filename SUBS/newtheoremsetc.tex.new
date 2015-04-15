@@ -1,0 +1,396 @@
+% ######################################################################
+% COUNTERS
+% ######################################################################
+
+\newcounter{cbox}
+\newcounter{filter}
+
+\definecolor{derColor}{HTML}{A52A2A}
+
+% ######################################################################
+% ENVIRONTMENTS
+% ######################################################################
+
+\newfloat{boxfloat}{H}{myc}
+
+\newenvironment{cbox}[1]
+{
+\begin{boxfloat}
+\refstepcounter{cbox}\par\medskip\noindent
+\def\FrameCommand{\colorbox{cboxcolor}}%
+\MakeFramed{\advance\hsize-\width \FrameRestore\cornersize{0.9}}
+\begin{scriptsize}
+\begin{center}
+\textbf{Box~\thecbox~- #1}
+\end{center}
+}
+{
+\end{scriptsize}
+\endMakeFramed
+\end{boxfloat}
+}
+
+\newenvironment{filter}[2]
+{
+\refstepcounter{filter}\par\medskip\noindent
+\begin{large}
+\textit{Contour filter~\thefilter} \textbf{#1}\\
+\noindent \mcode{function #2}\\
+\end{large}
+\noindent
+}
+{
+}
+
+\newenvironment{Declaration}{
+  \chapter*{Declaration of Authorship}
+  %\addcontentsline{toc}{chapter}{Declaration of Authorship}
+}
+{
+%\clearpage
+}
+
+\newenvironment{acknol}{
+  \chapter*{Acknoledgements}
+  \setstretch{1.3}
+  %\addcontentsline{toc}{chapter}{Acknoledgements}
+}
+{
+\clearpage
+}
+
+%  #####################################################################
+% STYLES
+% ######################################################################
+
+
+\mdfdefinestyle{filter}
+{
+skipabove         = 10,
+skipbelow         = 10,
+leftmargin        = 5,
+rightmargin       = 5,
+innertopmargin    = 5,
+innerbottommargin = 5,
+%
+roundcorner =  1pt,
+frametitlerule = true,
+%
+outerlinewidth  =  .5,
+linewidth = 0,
+%
+backgroundcolor = gray!0,
+outerlinecolor  = blue!0!black,
+innerlinecolor  = blue!0!black,
+middlelinecolor = blue!0!black,
+linecolor       = blue!0!black,
+frametitlebackgroundcolor = gray!0,
+%
+%ntheorem  =  true,
+nobreak = false,
+align = left,
+footnoteinside = false,
+frametitlealignment = \raggedright,
+hidealllines = true,
+frametitlefont = \normalfont
+}
+
+\mdfdefinestyle{turbustyle}
+{
+skipabove         = 10,
+skipbelow         = 10,
+leftmargin        = 5,
+rightmargin       = 5,
+innertopmargin    = 5,
+innerbottommargin = 5,
+%
+roundcorner =  1pt,
+frametitlerule = true,
+%
+outerlinewidth  =  .5,
+linewidth = 0,
+%
+backgroundcolor = gray!15,
+outerlinecolor  = blue!0!black,
+innerlinecolor  = blue!0!black,
+middlelinecolor = blue!0!black,
+linecolor       = blue!0!black,
+frametitlebackgroundcolor = gray!20,
+%
+%ntheorem  =  true,
+nobreak = true,
+align = left,
+footnoteinside = true,
+frametitlealignment = \raggedright,
+hidealllines = true,
+frametitlefont = \normalfont
+}
+
+
+\mdfdefinestyle{infostyle}
+{
+skipabove         = 10,
+skipbelow         = 10,
+leftmargin        = 5,
+rightmargin       = 5,
+innertopmargin    = 5,
+innerbottommargin = 5,
+%
+roundcorner =  1pt,
+frametitlerule = true,
+%
+outerlinewidth  =  .5,
+linewidth = 0,
+%
+backgroundcolor = gray!15,
+outerlinecolor  = blue!0!black,
+innerlinecolor  = blue!0!black,
+middlelinecolor = blue!0!black,
+linecolor       = blue!0!black,
+frametitlebackgroundcolor = gray!20,
+%
+%ntheorem  =  true,
+nobreak = false,
+align = left,
+footnoteinside = true,
+frametitlealignment = \raggedright,
+hidealllines = true,
+frametitlefont = \normalfont
+}
+
+
+\mdfdefinestyle{definition}
+{
+skipabove         = 2,
+skipbelow         = 2,
+leftmargin        = 2,
+rightmargin       = 2,
+innertopmargin    = 5,
+innerbottommargin = 5,
+%
+roundcorner =  0pt,
+frametitlerule = true,
+%
+outerlinewidth  =  1,
+linewidth = 1,
+%
+backgroundcolor = yellow!40,
+outerlinecolor  = blue!70!black,
+innerlinecolor  = blue!70!black,
+middlelinecolor = blue!70!black,
+linecolor       = blue!70!black,
+frametitlebackgroundcolor = gray!20,
+%
+%ntheorem  =  true,
+nobreak = true,
+%nobreak = false,
+align = left,
+footnoteinside = true,
+frametitlealignment = \centering
+}
+
+
+\mdfdefinestyle{codepiece}
+{linewidth=15pt,
+linecolor=black,
+%frametitlerule=true,
+backgroundcolor=red!1,
+outerlinecolor=black,
+frametitlebackgroundcolor=blue!10,
+innertopmargin=\topskip,}
+
+\mdfdefinestyle{derivation}
+{
+skipabove         = 10,
+skipbelow         = 10,
+leftmargin        = 40mm,
+rightmargin       = 40mm,
+innertopmargin    = 5,
+innerbottommargin = 5,
+%
+roundcorner =  5pt,
+frametitlerule = true,
+%
+outerlinewidth  =  2,
+linewidth = 2,
+%
+backgroundcolor = gray!10,
+outerlinecolor  = red!80!black,
+innerlinecolor  = red!80!black,
+middlelinecolor = red!80!black,
+frametitlebackgroundcolor = gray!20,
+%
+%ntheorem  =  true,
+align = left,
+footnoteinside = true,
+frametitlealignment = \raggedright,
+%hidealllines = true,
+%frametitlefont = \normalfont,
+nobreak = false,
+}
+
+\mdfdefinestyle{derivationNobreak}
+{
+skipabove         = 10,
+skipbelow         = 10,
+leftmargin        = 40mm,
+rightmargin       = 40mm,
+innertopmargin    = 5,
+innerbottommargin = 5,
+%
+roundcorner =  5pt,
+frametitlerule = true,
+%
+outerlinewidth  =  2,
+linewidth = 2,
+%
+backgroundcolor = gray!10,
+outerlinecolor  = red!80!black,
+innerlinecolor  = red!80!black,
+middlelinecolor = red!80!black,
+frametitlebackgroundcolor = gray!20,
+%
+%ntheorem  =  true,
+align = left,
+footnoteinside = true,
+frametitlealignment = \raggedright,
+%hidealllines = true,
+%frametitlefont = \normalfont,
+nobreak = true,
+}
+
+
+\mdfdefinestyle{eddy}
+{
+skipabove         = 10,
+skipbelow         = 10,
+leftmargin        = 40mm,
+rightmargin       = 40mm,
+innertopmargin    = 5,
+innerbottommargin = 5,
+%
+roundcorner =  5pt,
+frametitlerule = true,
+%
+outerlinewidth  =  2,
+linewidth = 2,
+%
+backgroundcolor = gray!10,
+outerlinecolor  = blue!80!black,
+innerlinecolor  = blue!80!black,
+middlelinecolor = blue!80!black,
+frametitlebackgroundcolor = gray!20,
+%
+%ntheorem  =  true,
+align = left,
+footnoteinside = true,
+frametitlealignment = \raggedright,
+%hidealllines = true,
+%frametitlefont = \normalfont,
+nobreak = true,
+}
+
+%  #####################################################################
+% mdTHEOREMS
+% ######################################################################
+\mdtheorem[style=codepiece]{codepiece}{Code}[chapter]
+\mdtheorem[style=function]{function}{sub-routine}[section]
+
+\mdtheorem[style=filter]{contour-filter}{contour-filters}
+\crefname{filter}{contour-filter}{contour-filters}
+
+\mdtheorem[style=definition]{definition}{Definition}
+\crefname{definition}{definition}{definitions}
+
+\mdtheorem[style=derivation]{derivation}{Derivation}
+\crefname{derivation}{derivation}{derivations}
+
+\mdtheorem[style=derivationNobreak]{derivationNobreak}{Derivation}
+%\crefname{derivationNobreak}{derivation}{derivations}
+\crefalias{derivationNobreak}{derivation}
+
+\mdtheorem[style=eddy]{eddy}{Vortex}[chapter]
+\crefname{eddy}{eddy type}{eddy types}
+
+\mdtheorem[style=eddy]{turbu}{Turbulence}[chapter]
+\crefname{turbu}{turbulence}{turbulence boxes}
+
+\mdtheorem[style=infostyle]{driftspeed}{Drift Speed}[subsection]
+\crefname{driftspeed}{drift speed box}{speed boxes}
+
+\mdtheorem[style=infostyle]{infobox}{Box}
+\crefname{infobox}{box}{boxes}
+
+
+
+
+\newcommand
+\abstractname{Abstract}  
+\newenvironment{abstract}
+{%
+\begin{fullwidth}
+\vspace*{\fill}
+\begin{center}%		
+\bfseries \abstractname		
+\end{center}
+\begin{center}%
+\begin{minipage}{1\textwidth}
+
+
+}%
+{
+\end{minipage}
+\end{center}
+\vspace{\fill}
+\end{fullwidth}
+}
+
+
+
+
+
+
+
+
+
+
+
+%\newcommand\abstractname{Abstract}  %%% here
+%\makeatletter
+%\if@titlepage
+%\newenvironment{abstract}
+%{%
+	%\titlepage
+	%\null\vfil
+	%\@beginparpenalty\@lowpenalty
+	%\begin{fullwidth}
+		%\begin{center}%
+			%\bfseries \abstractname
+			%\@endparpenalty\@M
+		%\end{center}
+	%\end{fullwidth}
+%}%
+%{\par\vfil\null\endtitlepage}
+%\else
+%\newenvironment{abstract}
+%{%
+	%\if@twocolumn
+			%\section*{\abstractname}%
+		%\else
+			%\small
+			%\begin{fullwidth}
+				%\begin{center}%
+					%{\bfseries \abstractname\vspace{-.5em}\vspace{\z@}}%
+				%\end{center}%
+			%\end{fullwidth}
+			%\quotation
+	%\fi
+%}
+%{\if@twocolumn\else\endquotation\fi}
+%\fi
+%\makeatother
+
+
+
+\crefalias{marginfigure}{figure}
+\crefalias{margintable}{table}

@@ -1,0 +1,53 @@
+\begin{scriptsize}
+\begin{margintable}
+\label{tab:fixparams}
+\begin{tabularx}{\textwidth}{|X|X|}
+\hline
+time frame &  \displaydate{runsStart} - \displaydate{runsEnd}\\
+\hline
+scope
+&
+$\ang{80} \mathrm{S}$ to $\ang{80} \mathrm{N}$ / full zonal. \\
+\hline
+\AVI~ geometry &   $641 x 1440$ true Mercator \\
+\hline
+POP   geometry &   $2400 x 3600$ mixed proj.\\
+\hline
+contour step   &   \SI{\contourstep}{\m} \\
+\hline
+\end{tabularx}
+\begin{tabularx}{\textwidth}{|X|X|}
+\hline
+\textbf{thresholds} &  \\
+\hline
+max $\sigma/\Lr$ & \threshmaxRadiusOverRossbyL \\
+\hline
+min $\Lr{1}$ & \SI{\threshminRossbyRadius}{\m} \\
+\hline
+min $\IQ$ & \threshshapeiq \\
+\hline
+min number of points comprising found contour & \threshcornersmin \\
+\hline
+max(abs(Rossby phase speed)) & \SI{\threshphase}{\metre\per\second} \\
+\hline
+min amplitude & \SI{\threshamp}{\m} \\
+\hline
+\end{tabularx}
+\caption{Fix parameters for all runs.}
+\end{margintable}
+
+%\newpage
+%\begin{margintable}
+%\begin{tabularx}{1.1\textwidth}{|X||X|X|}
+%\hline
+%& \MI & \MII   \\
+%\hline
+%shape threshold & The distance between any pair of points within the connected region must be less than a specified maximum. & The Isoperimetric Quotient must be at least a specified minimum.\\
+%\hline
+%Comparison of old to new eddy & ratio between new and old must lie between $0.25$ and $2.5$ for amplitude and area TODO ref & similar but with $\sqrt{\mathrm{area}/\pi}$ instead of area and the lower threshold as reciproke of the higher and vice versa.   TODO ref \\
+%\hline
+%\end{tabularx}
+%\caption{The two methods \MI and \MII.}
+%\label{tab:MIMIIdiffs}
+%\end{margintable}
+\end{scriptsize}

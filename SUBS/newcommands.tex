@@ -16,8 +16,8 @@
 \newcommand{\Ie}{I.e.~}
 \newcommand{\etc}{\@ifnextchar{.}{etc}{etc.~}}
 \newcommand{\litem}[2]{\def\@itemlabel{\textbf{#1}}\item\def\@currentlabel{\textbf{#1}}\label{#2}}
-\newcommand{\derref}[1]{\footnote{see\fcolorbox{white}{gray!20}{Derivation \cref{#1}}}}
-\newcommand{\derrefs}[1]{\footnote{see\fcolorbox{white}{gray!20}{Derivations \cref{#1}}}}
+\newcommand{\derref}[1]{\footnote{see\fcolorbox{white}{gray!20}{ \cref{#1}}}}
+\newcommand{\derrefs}[1]{\footnote{see\fcolorbox{white}{gray!20}{ \cref{#1}}}}
 \newcommand{\Citeauthoryear}[1]{\Citeauthor{#1}~\citeyear{#1}}
 
 %  #####################################################################
@@ -113,6 +113,7 @@
 \newcommand{\POP}[0]{\hyperref[def:POP]{\pop}}
 \newcommand{\AVI}[0]{\hyperref[def:AVISO]{\avi}}
 \newcommand{\TODO}[1]{\textbf{\textcolor{red}{TODO: }#1~\newline}}
+\newcommand{\NOTE}[1]{\textbf{\textcolor{green}{NOTE: }#1~\newline}}
 %%
 \newcommand{\Enstro}{\mathcal{E}}
 \newcommand{\inta}[1]{ \int_A #1 \; \mathrm{d}A}
@@ -197,5 +198,5 @@
 
 
 
-\newcommand{\capU}[0]{zonal translational speed $\Unit{\si{cm/s}}$}
-\newcommand{\capS}[0]{\Scale $\Unit{\si{km}}$}
+\newcommand{\capU}[0]{zonal translational speed $\;\Unit{\si{\cm/\s}}$. Left: Anticyclones. Right: Cyclones.}
+\newcommand{\capS}[0]{\Scale $\;\Unit{\si{km}}$. Left: Anticyclones. Right: Cyclones.}

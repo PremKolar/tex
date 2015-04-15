@@ -1,0 +1,61 @@
+%\chapter{Future Topics}
+\label{sec:futureTopics}
+Beyond the topics discussed in this study, further ideas led to several additional, mostly incomplete implementations of tools to further investigate eddy-dynamics via automated tracking. The following are a handful of examples of topics to adress subsequent to this work. 
+
+%%....................................F.I.G.U.R.E.............................................
+\begin{figure}
+	\includegraphics[]{OW_count-OW-depth}
+	\caption{Histogram of global $\okubo$ as a function of depth calculated from \POP flow speeds. The idea was to find the surface $z_{ow}(y,x)$ of minimum $\okubo(z,y,x)$ and then use that depth as the depth to take the mean current from (see \cref{sec:netU}). The maximum tends to be at the ocean floor which led to the conjecture that the numerical implementation of $\okubo$ might have been erronuos. Further applcation was hence abandoned.  }
+	\label{fig:OW_count-OW-depth}
+\end{figure}
+%%....................................F.I.G.U.R.E.............................................
+
+
+\begin{itemize}
+\setlength\itemsep{0mm}
+\item
+\textbf{Applying the algorithm at different depths}\\
+One advantage of using model data is that it is not limited to the sea surface. All parameters are also available for all of the vertical levels. In order to apply the same algorithm that was used for SSH at depth, barotropic pressure plus density integrals were used to construct virtual \textit{SSH} anomalies for different depths. Preliminary results were promising and seemed to agree well with the findings by \citet{Petersen2013} with respect to the regional distribtution of eddy-\textit{heights}. Since the necessary temperature- and salt-data were available for merely 2 years and because computational ressources were first and foremost needed for the surface-analyses, this chapter was abandoned entirely for now.
+The three-dimensional structure should certainly be the focus from here on, as its physics are thus far neither well observed nor understood. \Citeauthor{Petersen2013} note that even though the majority of long-lived eddies do extend all the way to the surface, still \textit{thousands} of tall, sub-surface eddies exist that remain hidden from any sea-surface based detection method. Quoting \citep{Zhang2013}: \textit{Further study in refining this [vertical] structure is expected, and the refined structure can serve as a benchmark for numerical models where mesoscale eddies are explicitly resolved. In addition, the generation mechanism for this universal structure remains unknown; thus, exploring such mechanism may bring new excitement to eddy research.} \\
+
+\item
+\textbf{Influence of mean flow on translational speeds.}\\
+Knowledge of the vertical scale is also indispensible for investigations of the effect of mean current on eddy dynamics. A considerable amount of time was wasted (to no avail), trying to find vertical local maxima of $\okubo$ in order to help construct a mean-flow-surface taken from respective depths (see \cref{fig:OW_count-OW-depth}).\\
+Under the assumption that the observed speeds are in fact simply the sum of theoretical long Rosbby-wave phase speeds plus the mean flow \ie simple doppler-shift, another approach would be to look for respective best-fitting depth-range to average the mean-flow over. \Ie seek $z1(y,x),\; z2(y,x)$ that yield the minimum to
+\begin{equation}
+c_{rossby,long,x}
++
+\frac{1}{\delta z} \int_{z1}^{z2} u_{meanFlow}(z,y,x) \; \mathrm{d}z
+-
+u_{observed}
+\end{equation}
+
+\item
+\textbf{Tracers}\\
+As mentioned in \ref{section:lengthoftracks}, it should be interesting to not only track peaks of SSH anomaly, but parallely also \eg drop \textit{virtual}  buoeys into the centers of eddies and then calculate their positions incrementally from the available current-velocity data (model only of course). Or simpler, look at basic T/S-watermass characteristics (and their variability) of eddy cores as a function of time. Both could on the one hand illuminate to what degree and under which circumstences the eddy is to be interpreted as a material, water-mass transporting vortex as opposed to an immaterial, linear Rossby-wave, and on the other hand help to pin-point mistakes of the tracking algorithm.      
+
+
+
+\item
+\textbf{$N H/f$ contours}\\
+\TODO{bla}
+
+\item
+\textbf{profiles}\\
+(see \cref{fig:gaussVSquadSmaller})
+
+
+\item
+\textbf{Rhines Scale}\\
+
+
+\end{itemize}
+
+
+
+
+\begin{figure*}
+\includegraphics[]{TrackPeakampto_ellipseAntiCycsCrpd}
+\caption{Amplitude $\Unit{\si{\cm}}$ (w.r. to contour). Tracks are from very early \POP~test-runs.}
+\label{fig:TrackPeakampto_ellipseAntiCycsCrpd}
+\end{figure*}

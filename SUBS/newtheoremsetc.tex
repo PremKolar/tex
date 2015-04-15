@@ -44,10 +44,10 @@
 
 \newenvironment{Declaration}{
   \chapter*{Declaration of Authorship}
-  \addcontentsline{toc}{chapter}{Declaration of Authorship}
+  %\addcontentsline{toc}{chapter}{Declaration of Authorship}
 }
 {
-\clearpage
+%\clearpage
 }
 
 \newenvironment{acknol}{
@@ -297,7 +297,7 @@ nobreak = true,
 \mdtheorem[style=function]{function}{sub-routine}[section]
 
 \mdtheorem[style=filter]{contour-filter}{contour-filters}
-\crefname{filter}{filter}{filters}
+\crefname{filter}{contour-filter}{contour-filters}
 
 \mdtheorem[style=definition]{definition}{Definition}
 \crefname{definition}{definition}{definitions}
@@ -322,6 +322,73 @@ nobreak = true,
 \crefname{infobox}{box}{boxes}
 
 
+
+
+\newcommand
+\abstractname{Abstract}  
+\newenvironment{abstract}
+{%
+\begin{fullwidth}
+\vspace*{\fill}
+\begin{center}%		
+\bfseries \abstractname		
+\end{center}
+\begin{center}%
+\begin{minipage}{1\textwidth}
+
+
+}%
+{
+\end{minipage}
+\end{center}
+\vspace{\fill}
+\end{fullwidth}
+}
+
+
+
+
+
+
+
+
+
+
+
+%\newcommand\abstractname{Abstract}  %%% here
+%\makeatletter
+%\if@titlepage
+%\newenvironment{abstract}
+%{%
+	%\titlepage
+	%\null\vfil
+	%\@beginparpenalty\@lowpenalty
+	%\begin{fullwidth}
+		%\begin{center}%
+			%\bfseries \abstractname
+			%\@endparpenalty\@M
+		%\end{center}
+	%\end{fullwidth}
+%}%
+%{\par\vfil\null\endtitlepage}
+%\else
+%\newenvironment{abstract}
+%{%
+	%\if@twocolumn
+			%\section*{\abstractname}%
+		%\else
+			%\small
+			%\begin{fullwidth}
+				%\begin{center}%
+					%{\bfseries \abstractname\vspace{-.5em}\vspace{\z@}}%
+				%\end{center}%
+			%\end{fullwidth}
+			%\quotation
+	%\fi
+%}
+%{\if@twocolumn\else\endquotation\fi}
+%\fi
+%\makeatother
 
 
 
