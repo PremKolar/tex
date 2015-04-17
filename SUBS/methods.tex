@@ -73,14 +73,31 @@ the finest resolution available and instead went for a product that had the most
 \label{box:horRes}
 Assume $\Bu=1$, so that $L=NH/f$ and $NH=a/10d$ (corresponds to $L(\phi=30^{\circ})=100$km), a model resolution of $1^{\circ}/\mu$ and that the eddy diameter is twice the Rossby radius. Then, how many grid notes $n$ fit into one eddy as a function of latitude?
 %%....................................................................
+
+
 \begin{align}
-	n \frac{a}{\mu} \frac{\cos \phi}{2 \pi}
+	n \delta x
 	&=
-	\frac{2NH }{f} = \frac{2NH 1d}{4 \pi  \sin(\phi)}\notag\\
-	n
-	&=
-	 \frac{ 2\mu }{10  \sin(2\phi)}\notag\\
-\end{align}
+	L\notag \\
+	n  \cos{\phi}  \frac{ 2 \pi}{360\mu} a
+ 	&=
+ \frac{2NH }{f} \notag \\ 
+	n 
+ 	%&=
+ %\frac{NH \mu}{f \cos{\phi}} \frac{360}{\pi a} \\
+  &=
+ \frac{NH \mu \Omega}{ \sin{2\phi}} \frac{180}{\pi^{2} a} 
+ \end{align}
+
+
+%\begin{align}
+	%n \frac{a}{\mu} \frac{\cos \phi}{2 \pi}
+	%&=
+	%\frac{2NH }{f} = \frac{2NH 1d}{4 \pi  \sin(\phi)}\notag\\
+	%n
+	%&=
+	 %\frac{ 2\mu }{10  \sin(2\phi)}\notag\\
+%\end{align}
 In this flat-bottom, constant $\rho_z$, Mercator-gridded model the worst eddy-resolution is interestingly at mid-latitude (see \cref{fig:latovermu}).
 \end{infobox}
 

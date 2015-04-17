@@ -9,7 +9,7 @@ Rhines investigated the effect of the $\dfdy$-plane on the inverse energy cascad
 \citet{Bjerknes1944} already noted that the $\dfdy$-effect causes a mass-imbalance in planetary vortices that, if not met by an asymmetry in shape must lead to westward propagation. \\
 \citet{Nof1981} derived that the $\dfdy$-effect results in a net meridional force on the integrated mass of the vortex, which in balance with the Coriolis acceleration shoves cyclones eastward and anti-cyclones westward. They also explained how displaced water outside the eddy's perimeter causes a much stronger westward component, with the result that all eddies propagate westward irrespective or rotational sense.\\
  The westward drift was also derived in various forms by
-\eg~\citet{flierl1984rossby,matsuura1982evolution}.
+\eg~\citet{flierl1984rossby,matsuura1982evolution,VanLeeuwen2007}.
 
 \newthought{The } paper by \citet{Cushman-Roisin1990} is particularly helpful to understand where the two components of westward drift come from.
 By scaling the terms in the one-layer primitive equations by their respective dimensionless numbers, integrating the interface-displacement caused by the eddy over the eddy's domain and applying mass continuity they derive for the location $(X,Y)$ of an eddy's centroid\footnote{$\intms{}\equiv \intm{}$}:
@@ -54,14 +54,14 @@ Using geostrophic values for $\vec{u}$ and returning to dimensional variables \e
 \begin{align}
 	\dpr{X}{t}
 	&=
-	\frac{\beta g'}{\f_{0}^{2}}
+	-\frac{\beta g'}{\f_{0}^{2}}
 	\frac{\inta{H\eta} + \inta{\eta^{2}/2}}{\inta{\eta}} \nonumber	\\
 	&=
-	\beta \left( 	\frac{NH}{f_{0}}  \right)^{2}
-	+\frac{\inta{\eta^{2}/2}}{\inta{\eta}}	\label{eq:cushmanDrift}	\\
+	-\beta \left( 	\frac{NH}{f_{0}}  \right)^{2}
+	-\frac{\inta{\eta^{2}/2}}{\inta{\eta}}	\label{eq:cushmanDrift}	\\
 	&=
 	\dpr{\omega_{long}}{k}
-	+ u_{internal}
+	- u_{internal}
 	%\left(1 +\frac{1}{H} \frac{ \int  \eta^2 \; \mathrm{d}A	}{2\mathrm{V_e}} \right)
 	%+\order{\Lr   T\beta ,\Pi}
 	\nonumber
@@ -69,14 +69,131 @@ Using geostrophic values for $\vec{u}$ and returning to dimensional variables \e
 %%....................................................................
 
 \newthought{The}~first term of the RHS of \eqref{eq:cushmanDrift} represents the \textit{planetary lift} \footnote{see~\cref{box:speed_planlift} from \cref{subsec:speeds}}, which is identical to the zonal group velocity of long Rossby waves \citep{Cushman-Roisin2010}.
-The second term $u_{internal}$ represents the \textit{eddy-internal $\dfdy$-effect} (see~\cref{box:speed_beta}) \footnote{see also \cref{der:cushDrift}}. Note that the first term is always westwards, while the second has sign of $-\eta$, \ie westward for anti-cyclones and eastward for cyclones and that the first is always much larger than the second.
-
-
-
+The second term $u_{internal}$ represents the \textit{eddy-internal $\dfdy$-effect} (see~\cref{box:speed_beta}). %\footnote{see also \cref{der:cushDrift}}.
+ Note that the first term is always westwards, while the second has sign of $-\eta$, \ie westward for anti-cyclones and eastward for cyclones and that the first is always much larger than the second.
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\clearpage
+%The momentum equations for a reduced gravity model on the $\dfdy$-plane are:
+%\begin{align}
+%\Dpr{u}{t}
+%-
+%f v
+%&=
+%-g' \dpr{\eta}{x}\\
+%\Dpr{v}{t}
+%+
+%f u
+%&=
+%-g' \dpr{\eta}{y}
+%\end{align}
+
+%With mass (volume) conservation  :
+%\begin{align}
+%\Dpr{h}{t}
+%+
+%h \left( \dpr{u}{x} + \dpr{v}{y} \right)
+%&=
+%0 \\
+%\dpr{h}{t}
+%+
+%\vec{u}_{hor} \cdot \nabla h
+%+
+%h \grad \cdot \vec{u}_{hor}
+%&=
+%0 \\
+%\dpr{h}{t}
+%+
+%\grad \cdot \left( h \vec{u}_{hor} \right)
+%&=
+%0
+%\end{align}
+%where $h = H+\eta$ as the sum of undisturbed layer-thickness and interface displacement.
+%Interpreting now the center of volume $\vec{V}(x,y)$ of the anomaly as the lateral position $(X,Y)$ of the vortex \ie
+%\begin{align}
+%X
+%&=
+%%\dpr{\inta{x \eta}}{\inta{\eta}}
+%\frac{1}{V} \inta{x \eta} \label{eq:X}\\
+%Y
+%&=
+%\frac{1}{V} \inta{y \eta} \label{eq:Y}
+%\end{align}
+
+%% ---------
+%building first and second time derivatives of \eqref{eq:X} and \eqref{eq:Y} 
+%\begin{align}
+%V \dpr{X}{t}
+%&=
+%\inta{x \dpr{\eta}{t}}\\
+%&=
+%-\inta{x \left( \grad \cdot \left( h \vec{u}_{hor} \right) \right)	} \\
+%&=
+%\inta{h u} \label{eq:Xt}
+%\end{align}
+%\TODO{why?}
+%% ---------
+%respectively
+%\begin{align}
+%V \dpr{Y}{t}
+%&=
+%\inta{h v} \label{eq:Yt}
+%\end{align}
+
+%and
+%% ---------
+%\begin{align}
+%V \dpr{^{2}X}{t^{2}}
+%&=
+%\inta{\left( h u  \right)_{t}}\\
+%&=
+%\inta{
+%h u_{t}
+%+
+%u h_{t}
+%}\\
+%&=
+%\inta{
+  %-h g' \eta_{x} + h f v 
+%-
+%u \left( \grad \cdot \left( h \vec{u} \right) \right)
+%}
+%\end{align}
+%\TODO{terms 1 and 3 of RHS drop. Why?}
+%leaving
+
+%\clearpage
+%\begin{align}
+%V \dpr{^{2}X}{t^{2}}
+	%&=
+ %\inta{f h v}
+%\end{align}
+
+%with \eqref{eq:Yt}:
+
+%\begin{align}
+%V \dpr{^{2}X}{t^{2}}
+	%&=
+ %f \inta{hv}
+ %-
+ %\inta{\beta \inta{hv}} \\
+ %&=
+ %f V \dpr{Y}{t}
+ %-
+ %\inta{\beta V \dpr{Y}{t}} \\
+%\dpr{^{2}X}{t^{2}}
+  %&=
+ %f  \dpr{Y}{t}
+ %-
+ %\inta{\beta  \dpr{Y}{t}} \\
+%\end{align}
+
+%\TODO{!!!!!!!!!!!!}
+
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Early Altimeter Data}\label{sec:hist_killworth}
 
