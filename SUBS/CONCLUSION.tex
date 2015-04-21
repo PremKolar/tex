@@ -1,6 +1,34 @@
 %\chapter{Future Topics}
 \label{sec:futureTopics}
-Beyond the topics discussed in this study, further ideas led to several additional, mostly incomplete implementations of tools to further investigate eddy-dynamics via automated tracking. The following are a handful of examples of topics to address subsequent to this work. 
+
+Sea-surface-signature-based interpretation of geostrophic mesoscale ocean dynamics via space-born altimeter products has come a long way since the launch of the Topex/Poseidon mission. In the early years, few years of data and poor spatial resolution led oceanographers to still treat the westard drifting pattern of \SSH-anomalies as Rossby waves \citep{matano1993seasonal,cipollini1997concurrent,le1993sea,Killworth1997a}.
+Merging the Topex/Poseidon with the ERS-1/2 altimeter output increased the resolution by a factor of 2 \citep{Chelton2007}, revealing that most of the \SSH~variability had in fact to be accredited to non-linear mesoscale eddies. The availability of a long, coherent time-span of weekly spatially consistent \SSH~data, allow for global automated eddy-censuses that reveal valuable information
+
+
+
+
+
+With few years of data at insufficient spatial resolution available, early studies
+detected a general westward drift of anomalies at space- and time-scales of Rossby waves.
+
+
+Automated eddy tracking via space-born
+
+
+
+
+
+
+
+
+
+
+
+% ###########################################################################################
+% ###########################################################################################
+
+\section{Suggestions for the Future}
+Beyond the topics discussed in this study, further ideas led to several additional, mostly incomplete implementations of tools to further investigate eddy-dynamics via automated tracking. The following are a handful of examples of topics to address subsequent to this work.
 
 %%....................................F.I.G.U.R.E.............................................
 \begin{figure}
@@ -30,14 +58,14 @@ c_{rossby,long,x}
 -
 u_{observed}
 \end{equation}
-Where $z_{2}$ would likely be the surface. 
+Where $z_{2}$ would likely be the surface.
 \item
 \textbf{Tracers}\\
-As mentioned in \ref{section:lengthoftracks}, it should be interesting to not only track peaks of \SSH anomaly, but parallelly also \eg drop \textit{virtual}  buoys into the centers of eddies and then calculate their positions incrementally from the available current vectors (model only of course). Or simpler, look at basic T/S-watermass characteristics (and their variability) of eddy cores as a function of time. Both could on the one hand illuminate to what degree and under which circumstances the eddy is to be interpreted as a material, water-mass transporting vortex as opposed to an immaterial, linear Rossby-wave, and on the other hand help to pin-point mistakes of the tracking algorithm.      
+As mentioned in \ref{section:lengthoftracks}, it should be interesting to not only track peaks of \SSH anomaly, but parallelly also \eg drop \textit{virtual}  buoys into the centers of eddies and then calculate their positions incrementally from the available current vectors (model only of course). Or simpler, look at basic T/S-watermass characteristics (and their variability) of eddy cores as a function of time. Both could on the one hand illuminate to what degree and under which circumstances the eddy is to be interpreted as a material, water-mass transporting vortex as opposed to an immaterial, linear Rossby-wave, and on the other hand help to pin-point mistakes of the tracking algorithm.
 
 \item
 \textbf{Track Paths}\\
-Eddy tracks appear to be influenced by bathymetry. Drawing tracks over a map of \eg $N H/f$ or $H/f$ contours could further clarify the influence of bathymetry and density gradients on the lateral propagation of eddies. 
+Eddy tracks appear to be influenced by bathymetry. Drawing tracks over a map of \eg $N H/f$ or $H/f$ contours could further clarify the influence of bathymetry and density gradients on the lateral propagation of eddies.
 
 %\item
 %\textbf{profiles}\\
