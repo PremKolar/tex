@@ -12,11 +12,7 @@ Fortnightly \aviII snapshots (cyclones only) showing the area from $\ang{47.6} \
 \end{figure}
 %%....................................F.I.G.U.R.E.............................................
 \end{fullwidth}
-
-
-
-
-This section walks through the algorithm step by step, so as to explain
+\newthought{This}~section walks through the algorithm step by step, so as to explain
 which
 methods are used and how they are implemented.
 The idea is that the code from step \mcode{S00..} on can only accept one particular structure of data. In earlier versions the approach was to write code
@@ -29,7 +25,7 @@ All input parameters are to be set in \mcode{INPUT.m} and \mcode{INPUT}\textit{x
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section[Data Preparation]{Step S00: Prepare Data}
 \mcode{function S00_prep_data}	\\
-Before the actual eddy detection and tracking is performed,  SSH-, latitude- and longitude-data is extracted from the given data at desired geo-coordinate bounds and saved as structures in the form needed by the next step (S01). This step also builds the file \mcode{window.mat} via \mcode{GetWindow3} which saves geometric information about the input and output data as well as a cross-referencing index-matrix which is used to reshape all \textit{cuts} to the user-defined geo-coordinate-geometry. The code can handle geo-coordinate input that crosses the longitudinal seam of
+\newthought{Before}~the actual eddy detection and tracking is performed,  SSH-, latitude- and longitude-data is extracted from the given data at desired geo-coordinate bounds and saved as structures in the form needed by the next step (S01). This step also builds the file \mcode{window.mat} via \mcode{GetWindow3} which saves geometric information about the input and output data as well as a cross-referencing index-matrix which is used to reshape all \textit{cuts} to the user-defined geo-coordinate-geometry. The code can handle geo-coordinate input that crosses the longitudinal seam of
 the input data. \Eg say the input data came in matrices that start and end on
 some (not necessarily strictly meridional) line straight across the Pacific and
 it is the Pacific only that is to be analyzed for eddies, the output maps are
@@ -37,8 +33,7 @@ stitched accordingly. In the zonally continuous case \ie the full-longitude case
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section[Rossby Radii and Phase Speeds]{Step S01b: Find Mean Rossby Radii and Phase Speeds}
 \mcode{function S01b_BruntVaisRossby}\\
-
-This function...
+\newthought{This}~function...
 \begin{itemize}
 	\item
 	\begin{itemize}
@@ -56,12 +51,11 @@ This function...
 		apply the long-Rossby-Wave dispersion relation to found $\Lr$ to estimate Rossby-Wave phase-speeds $c=-\frac{\dfdy}{k^2+(1/Lr)^2} \approx -\dfdy \Lr^2$
 	\end{itemize}
 \end{itemize}
-
 The 3-dimensional matrices ($S$ and $T$) are cut zonally into slices which then get distributed to the threads. This allows for direct matrix operations for all calculations which would otherwise cause memory problems due to the immense sizes of the 3d-data \footnote{\Eg the \POP~data has dimensions $42 \times 3600 \times 1800 $.}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Step S02: Calculate Geostrophic Parameters}
 \mcode{function S02_infer_fields}\\
-This step reads the cut \SSH~data from \mcode{S00_prep_data} to perform 2 steps:
+\newthought{This}~step reads the cut \SSH~data from \mcode{S00_prep_data} to perform 2 steps:
 \begin{enumerate}
 \item
 Calculate a mean over time of $SSH(y,x)$.
@@ -88,7 +82,7 @@ Subtract the mean from step 1 from each $SSH(t)$ to filter out persistent SSH-gr
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  \section[Find Contours]{Step S03: Find Contours} \label{S:03}
 \mcode{function S03_contours}\\
-The sole purpose of this step is to apply MATLAB's \mcode{contourc.m} function
+\newthought{The}~sole purpose of this step is to apply MATLAB's \mcode{contourc.m} function
 to the \SSH~data. It simply saves one file per time-step with all contour indices
 appended into one vector \footnote{see the MATLAB documentation.}. The contour
 intervals are determined by the user defined increment and range from the
@@ -101,7 +95,7 @@ parallelization is in time dimension.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section[Filter Contours]{Step S04: Filter Contours} \label{S:04}
 \mcode{function S04_filter_eddies}\\
-Since indices of all possible contour lines at chosen levels are available at
+\newthought{Since}~indices of all possible contour lines at chosen levels are available at
 this point, it is now time to subject each and every contour to a
 myriad of tests to decide whether it qualifies for the outline of an eddy as
 defined by the user input threshold parameters.
@@ -113,7 +107,7 @@ format, that is, a structure \mcode{Eddies} of size \mcode{EddyCount}. The struc
 vertices, exact \ie interpolated coordinates and rounded integer coordinates.\\
 The interpolation of \mcode{contourc.m} sometimes creates indices that are
 either smaller than $0.5$ or larger than \footnote{where $N$ is the
-domain size} $N+0.5$ for contours that lie along a boundary. After rounding, this
+domain size.} $N+0.5$ for contours that lie along a boundary. After rounding, this
 seldomly leads to indices of either $0$ or $N+1$. These values get set to $1$
 and $N$ respectively in this step.
 \subsection{Descend/Ascend Water Column and Apply Tests}
@@ -146,8 +140,13 @@ find cyclones. The tests for cyclones and anti-cyclones are therefor identical e
 a factor $-1$ where applicable. In the following the most important steps of the
 analysis are
 outlined.
-
-
+% ----------------------------------------------------------------------
+\begin{marginfigure}
+	\includegraphics[]{psi}
+	\caption{Stream function of a meandering jet shedding off a vortex. The line of strongest gradient \ie fastest geostrophic speed later becomes the zero-vorticity-line at a theoretical distance $\sigma$ from the center (Offset of $\Psi$ is chosen arbitrarily).}
+	\label{fig:psi}
+\end{marginfigure}
+% ----------------------------------------------------------------------
 % ----------------------------------------------------------------------
 \begin{filter}{NaN-Check Contour}{CR_RimNan}
 The first and most efficient test is to check whether indices of the
@@ -243,13 +242,7 @@ done by \citet{Chelton2011}. The
 amplitude is then tested against the user-given threshold.
 The function also creates a matrix with current contour level shifted to zero and all values outside of the eddy set to zero as well.
 \end{filter}\newline
-% ----------------------------------------------------------------------
-\begin{marginfigure}
-	\includegraphics[]{psi}
-	\caption{Stream function of a meandering jet shedding off a vortex. The line of strongest gradient \ie fastest geostrophic speed later becomes the zero-vorticity-line at a theoretical distance $\sigma$ from the center (Offset of $\Psi$ is chosen arbitrarily).}
-	\label{fig:psi}
-\end{marginfigure}
-% ----------------------------------------------------------------------
+
 \begin{filter}{Chelton's Scales}{cheltStuff}
 \label{filter:chstuff}
 \citet{Chelton2011} introduced 4 different eddy-scales.
@@ -306,8 +299,8 @@ In the case of a meandering jet with a maximum flow speed at its center, that
 is shedding off an eddy, this scale corresponds to half the distance between
 two opposing center-points of the meander. It is also the distance at which a
 change in vorticity-polarity occurs and is thus assumed to be the most plausible
-dividing line between vortices. \\
-Trying to determine the location where this sign change in vorticity occurs in the profiles turns out to be very tricky. What we seek are local extrema of the geostrophic speeds \ie of the ssh-gradients $h_x$. In a perfect Gaussian-shaped eddy, these would simply correspond to the first local extrema of $h_x$ away from the peak. In \textit{reality} the eddies can be very wobbly with numerous local maxima and minima in the gradients of their flanks. One could argue, that it must be the largest extrema, as it is the highest geostrophic speeds that are sought. In practice \footnote{especially for the high-resolution model data.} multiple superimposed signals of different scales often create very strong gradients locally. But the main issue here is that one weak eddy adjacent to one strong eddy also has the stronger gradients of the stronger one within its domain so that simply looking for the fastest flow speeds along the profiles is insufficient. It is also not possible to restrict the cut domain to the extent of a single eddy only, because at the time when the domain is selected, we do not know yet whether the detection algorithm \textit{took bait} at the eddy's base or later close to the tip. \\
+dividing line between vortices. 
+Trying to determine the location where this sign change in vorticity occurs in the profiles turns out to be very tricky. What we seek are local extrema of the geostrophic speeds \ie of the ssh-gradients $h_x$. In a perfect Gaussian-shaped eddy, these would simply correspond to the first local extrema of $h_x$ away from the peak. In \textit{reality} the eddies can be very wobbly with numerous local maxima and minima in the gradients of their flanks. One could argue, that it must be the largest extrema, as it is the highest geostrophic speeds that are sought. In practice \footnote{Especially for the high-resolution model data.} multiple superimposed signals of different scales often create very strong gradients locally. But the main issue here is that one weak eddy adjacent to one strong eddy also has the stronger gradients of the stronger one within its domain so that simply looking for the fastest flow speeds along the profiles is insufficient. It is also not possible to restrict the cut domain to the extent of a single eddy only, because at the time when the domain is selected, we do not know yet whether the detection algorithm \textit{took bait} at the eddy's base or later close to the tip. \\
 The best method thus far seems to be to use the Fourier-series functions from \cref{filter:profiles} to determine the first extrema away from the eddy's peak (see~\cref{fig:tropicalJmd}). The Fourier order was chosen to be 4 by trial and error. The effect is that small-scale low-amplitude noise is avoided, allowing for more reliable determinations of $\grad^2 h_{fourier} = 0$.       \\
  Once the zero crossings in all 4 directions are found, their mean is taken as the eddy's scale ($\scale$).
  \end{filter}\newline
@@ -365,11 +358,10 @@ This function builds a mask of eligible geo-coordinates with respect to the next
 % ----------------------------------------------------------------------
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
 \section[Tracking]{Step S05: Track Eddies} \label{S:05}
 \mcode{S05_track_eddies}
 \subsection{Main Tracking Procedure}
-Due to the the relatively fine temporal resolution (daily) of the model data,
+\newthought{Due}~to the the relatively fine temporal resolution (daily) of the model data,
 the tracking procedure for this case turns out to be much simpler than the one described by \citet{Chelton2007}. There is almost no need to project the new position of an
 eddy, as it generally does not travel further than its own scale in one day.
 This means that one eddy can usually \footnote{The only exception being the situation when one eddy fades and  another emerges simultaneously and in sufficient proximity.} be tracked unambiguously from one time step to the
@@ -443,7 +435,7 @@ to their respective nodes in the output map. Each output cell will then represen
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Running the Code}
-The separate steps can be run all at once (\mcode{Sall.m}) or one by one, as
+\newthought{The}~separate steps can be run all at once (\mcode{Sall.m}) or one by one, as
 long as they are started consecutively in the order indicated by their name
 ( \mcode{S00..}, then \mcode{S01..} etc.). \mcode{S01b} is not necessary
 though. Each step either creates its own output files or extends old ones,  which are then read by the next step.

@@ -1,7 +1,7 @@
 %\section*{resultsIntro}
 
 
-\newthought{Even}~though all of the computer program's bottle-necks are parallelized in \href{http://en.wikipedia.org/wiki/SPMD}{SPMD}, an application to more than a decade of high-resolution \SSH~data still requires patience (say $\order{1}$ - $\order{2}$ days \footnote{depending on the number of CPU's and their frequencies.}). The most time-consuming of steps is the numerically arduous part of subjecting each of the vast number of found contours \footnote{see \cref{fig:allEddies-aviIaviIIpop7II}} to the filtering procedure as described in \cref{S:04}.
+\newthought{Even}~though all of the computer program's bottle-necks are parallelized in \href{http://en.wikipedia.org/wiki/SPMD}{SPMD}, an application to more than a decade of high-resolution \SSH~data still requires patience (say $\order{1}$ - $\order{2}$ days \footnote{depending on the number of CPU's and their frequencies.}). The most time-consuming of steps is the numerically arduous part of subjecting each of the vast number of found contours \footnote{see \cref{fig:allEddies-aviIaviIIpop7II}.} to the filtering procedure as described in \cref{S:04}.
 The total number of final analyses was hence limited and it was therefor critical to carefully choose which method/parameters to use in order to maximize the deducible insights from the results.
 For best comparability of the results with each other it was decided to agree on one complete set of parameters as a basis (\cref{tab:fixparams}), which would then be altered at key parameters.
 
@@ -57,11 +57,6 @@ In this method an eddy B from time-step $k+1$ is considered as a potential manif
 \end{itemize}
 \label{box:MI}
 \end{infobox}
-
-
-
-
-
 \begin{infobox}[Method \MII]
 The purpose of this variant is basically to test the conceptually different approach of using the \href{def:IQ}{isoperimetric quotient} to judge the shape of found contour-rings as sufficiently eddy-\textit{typical}. It also uses a slightly different tracking algorithm.
 \begin{itemize}
@@ -74,7 +69,14 @@ $\xi = \max{\left(\left[\exp{\abs{\log{R_{\alpha}}}}\; ; \;\; \exp{\abs{\log{R_{
 \end{itemize}
 \label{box:MII}
 \end{infobox}
+%%....................................F.I.G.U.R.E.............................................
+\begin{marginfigure}
+		\includegraphics[width=1\linewidth]{MapVisitsBoth-aviIandaviII}
+		\caption{Top: \aviI. Bottom: \aviII. Total count of individual eddies per 1 degree square.}
+		\label{MapVisitsBoth-aviIandaviII}
+\end{marginfigure}
 
+%%%....................................F.I.G.U.R.E.............................................
 
 
 
