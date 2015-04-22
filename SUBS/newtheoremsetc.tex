@@ -142,12 +142,43 @@ frametitlerule = true,
 outerlinewidth  =  .5,
 linewidth = 0,
 %
-backgroundcolor = gray!15,
+backgroundcolor = gray!10,
 outerlinecolor  = blue!0!black,
 innerlinecolor  = blue!0!black,
 middlelinecolor = blue!0!black,
 linecolor       = blue!0!black,
-frametitlebackgroundcolor = gray!20,
+frametitlebackgroundcolor = gray!15,
+%
+%ntheorem  =  true,
+nobreak = true,
+align = left,
+footnoteinside = true,
+frametitlealignment = \raggedright,
+hidealllines = true,
+frametitlefont = \normalfont
+}
+
+\mdfdefinestyle{infostyleBreak}
+{
+skipabove         = 10,
+skipbelow         = 10,
+leftmargin        = 5,
+rightmargin       = 5,
+innertopmargin    = 5,
+innerbottommargin = 5,
+%
+roundcorner =  1pt,
+frametitlerule = true,
+%
+outerlinewidth  =  .5,
+linewidth = 0,
+%
+backgroundcolor = gray!10,
+outerlinecolor  = blue!0!black,
+innerlinecolor  = blue!0!black,
+middlelinecolor = blue!0!black,
+linecolor       = blue!0!black,
+frametitlebackgroundcolor = gray!15,
 %
 %ntheorem  =  true,
 nobreak = false,
@@ -315,7 +346,7 @@ nobreak = true,
 \mdtheorem[style=eddy]{turbu}{Turbulence}[chapter]
 \crefname{turbu}{turbulence}{turbulence boxes}
 
-\mdtheorem[style=infostyle]{driftspeed}{Drift Speed}[subsection]
+\mdtheorem[style=infostyleBreak]{driftspeed}{Drift Speed}[subsection]
 \crefname{driftspeed}{drift speed box}{speed boxes}
 
 \mdtheorem[style=infostyle]{infobox}{Box}
@@ -347,8 +378,22 @@ nobreak = true,
 
 
 
+%%~ \renewcommand{\allcapsspacing}[1]{{\addfontfeature{LetterSpace=20.0}#1}}
+%%~ \renewcommand{\smallcapsspacing}[1]{{\addfontfeature{LetterSpace=5.0}#1}}
+%%~ \renewcommand{\textsc}[1]{\smallcapsspacing{\textsmallcaps{#1}}}
+%%~ \renewcommand{\smallcaps}[1]{\smallcapsspacing{\scshape\MakeTextLowercase{#1}}}
 
 
+\makeatletter
+\newcommand\chapterauthor[1]{#1\gdef\@chapterauthor{#1}}
+\def\@chapterauthor{}
+\fancypagestyle{mystyle}{%
+\fancyhf{}%
+\renewcommand{\chaptermark}[1]{\markboth{##1}{}}%
+\fancyhead[LE]{\thepage\quad\smallcaps{\newlinetospace{\leftmark}}}% 
+\fancyhead[RO]{\smallcaps{\newlinetospace{\@chapterauthor}}\quad\thepage}%
+}
+\makeatother
 
 
 

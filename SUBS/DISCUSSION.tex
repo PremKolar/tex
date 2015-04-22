@@ -74,13 +74,6 @@ As outlined in \cref{filter:dynscale}, here $\scale$ is half the mean of zonal a
 	\item
 	The standard deviation in $\scale$ is particularly broad in the tropics (see \cref{fig:hist-sigmaAt-both-aviIaviII}). As a matter of fact it appears as though there might be two different types of eddies. One type analogous to all high-latitude eddies and a new one of much larger scale. Because these larger eddies have generally low $\IQ$-values they are filtered from the \MII~analyses, resulting in smaller tropical $\scale$. Their more chaotic shape might, due to the different methods to determine $\scale$, also have to do with why mean tropical $\scale$ is larger here than in \citet{Chelton2011}.
 \end{enumerate}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{marginfigure}
-	\includegraphics[]{sigmaP2aMinusMod}
-	\caption{Difference in \Scale between \pToaII and \popSevenII.}
-	\label{fig:sigmaP2aMinusMod}
-\end{marginfigure}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\begin{wrapfigure}{r}{.6\textwidth}
@@ -90,14 +83,21 @@ As outlined in \cref{filter:dynscale}, here $\scale$ is half the mean of zonal a
 %\end{wrapfigure}
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{marginfigure}[6.5cm]
+	\includegraphics[]{sigmaP2aMinusMod}
+	\caption{Difference in \Scale between \pToaII and \popSevenII.}
+	\label{fig:sigmaP2aMinusMod}
+\end{marginfigure}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newthought{The } \popSevenII analysis yields somewhat similar $\scale$ for low latitudes \footnote{Note that due to the lack of tropical eddies the estimates of $\scale$ are rather uncertain for the \POP~analyses.}, yet significantly smaller values for high latitudes. The question here therefor is whether this discrepancy is a result of the lower resolution of the satellite data \ie that eddies are too small to be resolved by the \AVI~product in high latitudes or whether it is attributable to the model data as in a systematic bias due to incomplete/poorly parameterized model physics. This question was the primary motivation for the \pToaII-run. The idea here was to down-size the \POP~data to the geometry of the \AVI~grid in order to test whether this would raise $\scale$ to that from the satellite results. \Cref{fig:sigmaSatDiffsINTRSCT} shows that the down-sampling did indeed decrease the discrepancy in $\scale$ to respective \AVI~analysis, as long as those regions that are unique to either data set are excluded. Between $\pm \deg{25}$ and $\pm \deg{65}$ the difference is no larger than $\pm \km{5}$. This came as a surprise because since $\scale$ stems from Fourier fits of SSH, we expected the original frequencies to be, at least to some extent, conserved in the down-sampled data (see also \cref{fig:sigmaP2aMinusMod}).
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{marginfigure}
-\includegraphics[]{gaussVSquadSmaller}
-\caption{The upper part of a Gaussian profile can appear similar to a quadratic one. \TODO{ref to here}}
-\label{fig:gaussVSquadSmaller}
-\end{marginfigure}
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{marginfigure}
+%\includegraphics[]{gaussVSquadSmaller}
+%\caption{The upper part of a Gaussian profile can appear similar to a quadratic one. \TODO{ref to here}}
+%\label{fig:gaussVSquadSmaller}
+%\end{marginfigure}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -136,13 +136,8 @@ As outlined in \cref{filter:dynscale}, here $\scale$ is half the mean of zonal a
 \newthought{The } \popSevenII results yield generally smaller magnitudes of $u$.
 The apparent drop in magnitude at $\sim\deg{12}$N is most likely due to erroneous inter-time-step eddy-associations (\cref{fig:ScheltsAll}). In that region, the combination of extreme sparsity of results, large time-step, large $\scale$, low amplitude and high (theoretical) drift speed make robust determinations of $u$ practically impossible.
 Yet the tendency for lower magnitudes in $u$, albeit less stark, is also true for higher latitudes.
-The zonal drift speeds are calculated via gradients of \textit{poly-fits} to the \CoV-locations on the surface of a spherical earth. This method was tested thoroughly and its robustness is further validated by the fact that the weaker $u$ remains approximately the same after down-sampling for the \pToaII run. Yearly sub-samples of the zonal-mean profiles \footnote{see \cref{fig:UsubSampledAviIAviIIPop7II}} further prove the consistency of the drift-speeds over time for both data.
+The zonal drift speeds are calculated via gradients of \textit{poly-fits} to the \CoV-locations on the surface of a spherical earth. This method was tested thoroughly and its robustness is further validated by the fact that the weaker $u$ remains approximately the same after down-sampling for the \pToaII run. Yearly sub-samples of the zonal-mean profiles \footnote{see \cref{fig:UsubSampledAviIAviIIPop7II}.} further prove the consistency of the drift-speeds over time for both data.
 
-\begin{marginfigure}
-	\includegraphics[]{velSatMinusMod}
-	\caption{\scriptsize{\aviI/\aviII minus \popSevenII of zonal drift speed means.}}
-	\label{fig:velSatMinusMod}
-\end{marginfigure}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newthought{From } \eqref{eq:cush1} we know that at first approximation (planetary lift)
 \begin{align}
@@ -152,6 +147,11 @@ u
 \end{align}
 Since $\beta, H$ and $f$ should have been set realistically in \POP, it appears that the, evidently unrealistic, drift speeds in the model results stem from an unrealistic or poorly resolved (only 42 vertical layers in \POP) density stratification $\dpr{\rho}{z}$.
 
+\begin{marginfigure}
+	\includegraphics[]{velSatMinusMod}
+	\caption{\scriptsize{\aviI/\aviII minus \popSevenII of zonal drift speed means.}}
+	\label{fig:velSatMinusMod}
+\end{marginfigure}
 \newthought{Strong } zonal skewness with opposite sign of $u$ in all analyses (see \cref{fig:SkewAviI}) suggests the existence of many values much smaller in magnitude than the median that smear the distribution of drift speeds towards an unrealistically low mean. This effect appears to be relevant in \eg the Southern Ocean, where the east-ward advection of eddies by the ACC results in a broad spectrum of drift speeds.
 The strong gradients in mean current also effect an abundance of eddy~-merging and -splitting situations over relatively short periods of time. It is therefor difficult for the algorithm to keep track of sufficiently long-lived, coherent vortices. Especially so for large time-steps and a high age-threshold. Yet, if the minimum time-step is limited, as in the case of satellite data, a high age-threshold is necessary since short tracks with few data points in time are more likely to stem from erroneously matched contours that do not represent the actual track of a single vortex but instead represent other mesoscale noise that happened to feature sufficiently similar blobs popping in and out of existence at sufficient proximity to one another.
 
@@ -175,7 +175,7 @@ This means that one eddy's location might well change as much as its own scale a
 In order to investigate the influence of a shorter time-step the \popSevenII-run was repeated, only this time with a $\SI{2}{\day}$ time-step.
 \begin{marginfigure}
 	\includegraphics[]{pop2Andpop7velZonMean}
-	\caption{Same plot as the one \popSevenII~one from \cref{fig:ScheltsAll} with the result from \popTwoII appended in brown.}
+	\caption{Same plot as the one \popSevenII~one from \cref{fig:ScheltsAll} with the result from \popTwoII appended in brown. \TODO{refresh}}
 	\label{fig:pop2Andpop7velZonMean}
 \end{marginfigure}
 The effect is only small in the zonal mean (see \cref{fig:pop2Andpop7velZonMean}). But regionally some noteworthy differences to the weekly analysis emerge (see \cref{fig:velZonDiffPopMap}):
@@ -188,7 +188,7 @@ The effect is only small in the zonal mean (see \cref{fig:pop2Andpop7velZonMean}
 \end{itemize}
 \begin{marginfigure}
 	\includegraphics[]{velZonDiffPopMap}
-	\caption{Zonal drift speed of \popTwoII minus \popSevenII $\Unit{\si{\cm\per\s}}$.}
+	\caption{Zonal drift speed of \popTwoII minus \popSevenII $\Unit{\si{\cm\per\s}}$. \TODO{refresh}}
 	\label{fig:velZonDiffPopMap}
 \end{marginfigure}
 
