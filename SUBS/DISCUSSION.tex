@@ -50,7 +50,7 @@ It comes again down to a question of definition \ie if one large eddy splits int
 \newthought{Interestingly }, even in the \aviI results, the horizontal eddy scale $\scale$ differs from that presented by \citet{Chelton2011}. For latitudes $\gtrsim\abs{\deg{25}}$ the zonal mean here is smaller than theirs while for low latitudes it is higher (see \cref{fig:ScheltsAll,fig:sigmaSatDiffsINTRSCT}). The reason for this discrepancy is suspected to stem from the special method by which $\scale$ is determined by our algorithm.
 As outlined in \cref{filter:dynscale}, here $\scale$ is half the mean of zonal and meridional distances between the first two local extrema of the first derivative of interpolated 4th-order Fourier fits to the \SSH~data around the eddy's \CoV. \Citeauthor{Chelton2011} calculate the respective scale via \textit{a direct estimate based on the contour of \SSH within the eddy interior around which the average geostrophic speed is maximum}. \Ie they derive $\scale$ directly via the area described by the contour of maximum $\abs{\tvec{\grad} \vec{u}}$ and not via any Fourier-type fit.
  %Depending on implementation-details of the contour function they used,    
-\begin{marginfigure}
+\begin{marginfigure}[-2cm]
 	\includegraphics[]{sigmaSatDiffsINTRSCT}
 	\caption{Differences in zonal mean $\scale$ between \AVI/\POP~and \AVI/down-sampled \POP. Means/Medians are built zonally over only those $\deg{1}\times\deg{1}$-bins that feature data in both sets \ie the intersection of $lat+1\i \; lon$ of both sets. }
 	\label{fig:sigmaSatDiffsINTRSCT}
@@ -169,6 +169,8 @@ The strong gradients in mean current also effect an abundance of eddy~-merging a
 
 \section{\mii~- 2 day time-step - \pop}
 
+\NOTE{plots only showing results from 6 years thus far. Will be updated}
+
 So far, all analyses used a $\SI{7}{\day}$-time-step.
 As already mentioned in \cref{sec:satvsmod}, from the results we know that eddies translate at speeds on the order $\order{0}\si{\cm\per\s}$~to~$\order{1}\si{\cm\per\s}$ or up to $\SI{100}{\km}/\SI{7}{\day}$ and apparently even more in low latitudes.
 This means that one eddy's location might well change as much as its own scale and more over one time-step. Considering how tightly packed eddies often are in areas of high activity, \ie directly adjacent to one another akin to an \textit{egg's box} (see \eg \cref{fig:allEddies-aviIaviIIpop7II}), raises the issue whether the weekly resolution in time is sufficient to successfully track individual eddies and thus deliver realistic translative-speed statistics.
@@ -192,18 +194,18 @@ The effect is only small in the zonal mean (see \cref{fig:pop2Andpop7velZonMean}
 	\label{fig:velZonDiffPopMap}
 \end{marginfigure}
 
-\TODO{figure: net U zon mean}
+\TODO{figure: net U zon mean. Tomorrow!}
 
 \section{Net Drift Speeds}
 \label{sec:netU}
-The reversal in drift direction within all sufficiently strong eastward currents (\eg ACC) shows that the, naturally westward-propagating eddies get advected by mean flows, analogous to eastward-moving pressure systems spawned off of the atmospheric jet-stream. Since 3-dimensional current-vectors are available for the model-data, it should be possible to subtract this \textit{Doppler-shift}, in order to extract maps of theoretical drift-speeds without advection by mean-currents. For this to be successful, information about the vertical extent of eddies \ie their \textit{thickness} is indispensable, since horizontal current speeds usually have a significant vertical dependence. The vertical structure of eddies is beyond the scope of this work \footnote{For a discussion of preliminary experiments regarding the vertical structure see \cref{sec:futureTopics}.}. Therefor it was decided to simply average the horizontal background current (time-mean over 2 years) vertically from surface to some depth $z_{bc}$. From the thickness maps of \citet{Petersen2013}, it appears that there are regions with eddy thickness' of $z_{cb}\approx \SI{1000}{\m}$ and regions with $z_{cb} \approx \SI{2000}{\m}$.
-Subtracting the constructed background current mean at $z_{cb}$ set to $\SI{2000}{\m}$ from the eddy drift speeds has first and foremost the effect that the net eastweard translation of eddies throughout the ACC disappears.  
+The reversal in drift direction within all sufficiently strong eastward currents (\eg ACC) shows that the, naturally westward-propagating, eddies get advected by mean flows, analogous to eastward-moving pressure systems spawned off of the atmospheric jet-stream. Since 3-dimensional current-vectors are available for the model-data, it should be possible to subtract this \textit{Doppler-shift}, in order to extract maps of theoretical drift-speeds without advection by mean-currents. For this to be successful, information about the vertical extent of eddies \ie their \textit{thickness} is indispensable since horizontal current speeds usually have a significant vertical dependence. The vertical structure of eddies is beyond the scope of this work \footnote{For a discussion of preliminary experiments regarding the vertical structure see \cref{sec:futureTopics}.}. Therefor it was decided to simply average the horizontal background current (time-mean over 2 years) vertically from surface to some depth $z_{bc}$. From the thickness maps of \citet{Petersen2013}, it appears that there are regions with eddy thickness' of $z_{cb}\approx \SI{1000}{\m}$ and regions with $z_{cb} \approx \SI{2000}{\m}$.
+Subtracting the constructed background current mean at $z_{cb}$ set to $\SI{2000}{\m}$ from the eddy drift speeds has first and foremost the effect that the net eastweard translation of eddies throughout the ACC disappears (see \cref{fig:velZonNet1to2000}).  
 This suggests that the tall ACC eddies are indeed simply advected by the deep-reaching background current. The mechanism by which the eddies propagate west (see \cref{box:speed_planlift}) applies relative to the medium it is surrounded by. Both, the planetary-lift- and the $\beta$-internal-effect are independent of the translation vector of the eddy itself.  
 
 
 \begin{figure}
 	\includegraphics[]{velZonNet1to1000}
-	\caption{Zonal drift speed of \popTwoII minus vertical mean from $1\si{\m}$ to $1000\si{\m}$  of mean background current   $\Unit{\si{\cm\per\s}}$. \TODO{update}}
+	\caption{Zonal drift speed of \popTwoII minus vertical mean from $1\si{\m}$ to $1000\si{\m}$  of mean background current   $\Unit{\si{\cm\per\s}}$. \TODO{take out. Almost same as 2000m}}
 	\label{fig:velZonNet1to1000}
 \end{figure}
 
