@@ -175,7 +175,7 @@ This means that one eddy's location might well change as much as its own scale a
 In order to investigate the influence of a shorter time-step the \popSevenII-run was repeated, only this time with a $\SI{2}{\day}$ time-step.
 \begin{marginfigure}
 	\includegraphics[]{pop2Andpop7velZonMean}
-	\caption{Same plot as the one \popSevenII~one from \cref{fig:ScheltsAll} with the result from \popTwoII appended in brown. \TODO{refresh}}
+	\caption{Same plot as the \popSevenII~one from \cref{fig:ScheltsAll} with the result from \popTwoII appended in brown. \TODO{refresh}}
 	\label{fig:pop2Andpop7velZonMean}
 \end{marginfigure}
 The effect is only small in the zonal mean (see \cref{fig:pop2Andpop7velZonMean}). But regionally some noteworthy differences to the weekly analysis emerge (see \cref{fig:velZonDiffPopMap}):
@@ -188,12 +188,27 @@ The effect is only small in the zonal mean (see \cref{fig:pop2Andpop7velZonMean}
 \end{itemize}
 \begin{marginfigure}
 	\includegraphics[]{velZonDiffPopMap}
-	\caption{Zonal drift speed of \popTwoII minus \popSevenII $\Unit{\si{\cm\per\s}}$. \TODO{refresh}}
+	\caption{Zonal drift speed of \popTwoII minus \popSevenII $\Unit{\si{\cm\per\s}}$. \TODO{update}}
 	\label{fig:velZonDiffPopMap}
 \end{marginfigure}
 
+\TODO{figure: net U zon mean}
 
 \section{Net Drift Speeds}
 \label{sec:netU}
 The reversal in drift direction within all sufficiently strong eastward currents (\eg ACC) shows that the, naturally westward-propagating eddies get advected by mean flows, analogous to eastward-moving pressure systems spawned off of the atmospheric jet-stream. Since 3-dimensional current-vectors are available for the model-data, it should be possible to subtract this \textit{Doppler-shift}, in order to extract maps of theoretical drift-speeds without advection by mean-currents. For this to be successful, information about the vertical extent of eddies \ie their \textit{thickness} is indispensable, since horizontal current speeds usually have a significant vertical dependence. The vertical structure of eddies is beyond the scope of this work \footnote{For a discussion of preliminary experiments regarding the vertical structure see \cref{sec:futureTopics}.}. Therefor it was decided to simply average the horizontal background current (time-mean over 2 years) vertically from surface to some depth $z_{bc}$. From the thickness maps of \citet{Petersen2013}, it appears that there are regions with eddy thickness' of $z_{cb}\approx \SI{1000}{\m}$ and regions with $z_{cb} \approx \SI{2000}{\m}$.
-\TODO{add plots, continue explaining}
+Subtracting the constructed background current mean at $z_{cb}$ set to $\SI{2000}{\m}$ from the eddy drift speeds has first and foremost the effect that the net eastweard translation of eddies throughout the ACC disappears.  
+This suggests that the tall ACC eddies are indeed simply advected by the deep-reaching background current. The mechanism by which the eddies propagate west (see \cref{box:speed_planlift}) applies relative to the medium it is surrounded by. Both, the planetary-lift- and the $\beta$-internal-effect are independent of the translation vector of the eddy itself.  
+
+
+\begin{figure}
+	\includegraphics[]{velZonNet1to1000}
+	\caption{Zonal drift speed of \popTwoII minus vertical mean from $1\si{\m}$ to $1000\si{\m}$  of mean background current   $\Unit{\si{\cm\per\s}}$. \TODO{update}}
+	\label{fig:velZonNet1to1000}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[]{velZonNet1to2000}
+	\caption{Zonal drift speed of \popTwoII minus vertical mean from $1\si{\m}$ to $2000\si{\m}$  of mean background current   $\Unit{\si{\cm\per\s}}$. \TODO{update}}
+	\label{fig:velZonNet1to2000}
+\end{figure}
