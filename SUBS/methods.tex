@@ -32,7 +32,7 @@ not sufficient to adequately resolve mesoscale variability globally.
 %\caption{Orbits for Aviso-relevant satellites.}
 \end{marginfigure}
 \Eg the Topex/Poseidon satellite had a ground repeat track orbit of 10 days and circled the earth in 112 minutes or $\approx 13$ times a day with a swath width of 5 km. Hence it drew $\sim 26$ 5-km-wide stripes onto the globe every day.
-The orbit's precession is such that this pattern is then repeated after 10 days, which means that at the equator only  $10 \times 26 \times 5 = \SI{1300}{\km}$ of the $2\pi \times 6371=\SI{40000}{\km}$ get covered, \ie $3.25\%$. At every $\SI{10}{\day}$ time-step, on average, effectively $(40000-1300)/26 = \SI{1490}{\km}$ are left blank in-between swaths on the equator. This is why, no matter how fine the resolution within the swath at one moment in time may be, the spatial resolution is so coarse.
+The orbit's precession is such that this pattern is then repeated after 10 days, which means that at the equator only  $10 \times 26 \times 5 = \SI{1300}{\km}$ of the $2\pi \times 6371=\SI{40000}{\km}$ get covered, \ie $3.25\%$. At every $\SI{10}{day}$ time-step, on average, effectively $(40000-1300)/26 = \SI{1490}{\km}$ are left blank in-between swaths on the equator. This is why, no matter how fine the resolution within the swath at one moment in time may be, the spatial resolution is so coarse.
 The merged ERS-1/Topex-data as used by \citet{Chelton2011} has a time step of 7 days. Assuming eddy drift speeds of $u_e= \order{-1}\si{\m/\s}$ implies a distance traveled per time step of $L_{\delta t}\approx \SI{60}{\km}$. \citeauthor{Chelton2011} estimate their effective spatial resolution as $\delta x \approx \SI{40}{\km}$. Eddies of smaller scale are not resolved.
 \begin{figure}
 \includegraphics[]{tracks.pdf}
@@ -47,7 +47,7 @@ The ambiguities in matching the eddies from the old time-step to those of the ne
 \caption{$n(\phi,\mu)$. $\mathrm{Ny}\equiv 2$ \ie the Nyquist frequency. See \cref{box:horRes}.}
 \label{fig:latovermu}
 \end{marginfigure}
-\newthought{The }  translational speeds ($\order{1}\si{km/\day}$) of eddies are not really the problem here, as they usually drift slow enough to not cover more
+\newthought{The}~drift speeds ($\order{1}\si{km/day}$) of eddies are not really the problem here, as they usually drift slow enough to not cover more
 than 1 grid node per 7 day time step. The issue are those areas where eddies are born, die and merge. According to \citet{Smith2009}, instabilities within the ACC
 grow at rates of up to $1/(2 \mathrm{days})$, which means that at one time-step up to 3 eddies have emerged and equally many died for every eddy identified within
 such region. The ground-repeat-frequency of a satellite can of course not be set arbitrarily. Especially when the satellite is desired to cover as far north and
