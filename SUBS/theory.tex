@@ -1,24 +1,7 @@
-
-\begin{marginfigure}
-\includegraphics[]{GS.pdf}
-\caption{Animation snapshot of early test run. Shown is \SSH~with detected eddies indicated by red and green lines.}
-\end{marginfigure}
-
-%\newthought{This } section discusses the theory of meso-scale turbulence and parametrizations thereof.
-\newthought{Geostrophic } turbulence is typically characterized by rather stable, often deep reaching, more or less circular, coherent pressure anomalies that rotate fluid around in a vortex in quasi-geostrophic equilibrium \citep{Zhang2013}. These entities can persist for long periods of time in which they often travel distances on the order of hundreds of kilometers
-zonally. The fact that baroclinic instability leads to these vortices, instead of cascading to ever smaller scales as would be expected from chaotic
-turbulence, is a direct consequence of the inverse energy cascade of two-dimensional motion \footnote{For a discussion of this phenomenon see~\cref{chap:turbu_categories}.} (see~\cref{fig:PSI}.) \citep{Rhines1979,Meneguzzis1988}.
-The atmospheric analog are storms and high-pressure systems, yet with much less difference between high- and low-pressure systems in the ocean due to
-a smaller centrifugal force \ie smaller Rossby number ($\Ro$). These quasi-geostrophic, mesoscale vortices \ie \textit{eddies} \footnote{For a discussion of the different types of vortices in the ocean see appendix \cref{chap:eddy_cat}.}, are readily visible on \SSH-maps (see~\cref{fig:SSHB}). Yet, it is difficult to \emph{define} an eddy in terms of physical variables. The transition from meandering jet or other undeveloped
-baroclinic turbulence to a coherent vortex is not very sharp. Eddies also sometimes merge or split or collectively form rifts and valleys in \SSH. Detecting them on one snapshot automatically via an algorithm is therefore not trivial. Further complications arise when the algorithm is also supposed to track each individual eddy over time. Their sheer abundance at any
-given point in time inevitably creates ambiguities  as to \textit{which is which} between time steps. 
-
-
-\subsection{Detection Methods} \label{subsec:detectmethods}
+\section{Detection Methods} \label{subsec:detectmethods}
 \begin{itemize}
-
 	\item
-	One way to find an eddy in \SSH-data is to simply scan for closed contours at different values for $\vec{z}$ and then subject each found ring to a series of geometrical tests to decide whether that contour qualifies. Only if all criteria are met is an eddy found. This method was first used by \citet{Chelton2011} and is a relatively simple yet very effective method. Therefore, as a starting point, this method will be adopted and should also serve as a general definition of what will be referred to as an \textit{eddy} hereafter.
+	One way to find an eddy in \SSH~is to simply scan for closed contours at different vertical levels and then subject each found ring to a series of geometrical tests to decide whether that contour qualifies. Only if all criteria are met is an eddy found. This method was first used by \citet{Chelton2011} and is a relatively simple yet very effective method. Therefore, as a starting point, this method will be adopted and should also serve as a general definition of what will be referred to as an \textit{eddy} hereafter.
 	
 \newthought{\citeauthor{Chelton2011}}~set the following threshold criteria for their algorithm:
 	\begin{enumerate}
@@ -39,7 +22,7 @@ Another frequently used method to define an eddy makes use of the 2d deformation
 \begin{align}
 det(\lambda\vec{I}- \vec{\grad \vec{u}}) =0 \label{eq:OWa}
 \end{align}
-The Sign of its squared eigenvalues indicates whether the flow-field has parabolic, vorticity dominated character, or whether deformation dominates, giving hyperbolic character. Expanding \eqref{eq:OWa} yields
+The sign of its squared eigenvalues indicates whether the flow-field has parabolic, vorticity dominated character, or whether deformation dominates, giving hyperbolic character. Expanding \eqref{eq:OWa} yields
 \begin{align}
 %\left( \lambda - u_{x} \right) \left( \lambda - v_{y} \right) - u_{y} v_{x}
 %&=
@@ -76,8 +59,8 @@ Assuming horizontal velocities to be much larger than vertical \ie applying the 
  u_{x}^{2}
  +u_{y} v_{x} \label{eq:OWc}
 \end{align}
-	This is called the Okubo-Weiss-Parameter \footnote{see also \cref{der:okubo}.} $\okubo$ \citep{Okubo1970}.
-Its meaning is further elucidated by interpreting \eqref{eq:OWc} as
+	This is called the Okubo-Weiss-Parameter\footnote{see also \cref{der:okubo}.} $\okubo$ \citep{Okubo1970}.
+Its meaning is further elucidated by interpreting \eqref{eq:OWc} as\footnote{see \cref{der:enstro}.}:
 \begin{align}
 \okubo	
 	&=
@@ -98,23 +81,6 @@ Its meaning is further elucidated by interpreting \eqref{eq:OWc} as
 	+
 	\left( u_{x} + v_{y} \right)^{2}
 	\nonumber \\
-	&=
-	\left( u_{x}^{2} - 2u_{x}v_{y} + v_{y}^{2}\right)
-	+
-	\left( v_{x}^{2} + 2v_{x}u_{y} + u_{y}^{2}\right)
-	-
-	\left( v_{x}^{2} - 2v_{x}u_{y} + u_{y}^{2}\right)
-+
-0
-	\nonumber \\
-	&=
-	\left( u_{x}^{2} - 2u_{x}v_{y} + v_{y}^{2}\right)
-	+
- 4v_{x}u_{y}\nonumber \\
-	&=
-	\left( u_{x}^{2} + 2u_{x}^{2} + u_{x}^{2}\right)
-	+
- 4v_{x}u_{y}\nonumber \\
 	&=
 4 u_{x}^{2} 
 	+

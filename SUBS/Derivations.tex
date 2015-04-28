@@ -1,3 +1,4 @@
+\label{appendix:derivations}
 %\begin{multicols}{2}
 \begin{fullwidth}
 	
@@ -512,7 +513,8 @@ terms	cancel in the integral leaving
 %%####################################################################
 %%####################################################################
 
-\begin{derivationNobreak}[Okubo-Weiss-Parameter]\label{der:okubo}
+\begin{derivationNobreak}[Okubo-Weiss-Parameter]
+\label{der:okubo}
 %%%%....................................................................
 %\begin{equation}\begin{split}
 %\ten{T}
@@ -573,6 +575,49 @@ divergence^2
 - vorticity^2
 \end{split}\end{equation}
 %\end{tiny}
+The following interpretation elucidates the relatedness to strain, vorticity and divergence:
+\begin{align}
+\okubo	
+	&=
+	s_{n}^{2}
+	+
+	s_{s}^{2}
+	-
+	\omega^{2}
++
+\div{\vec{u}}
+	\\
+	&=
+	\left( u_{x} - v_{y} \right)^{2}
+	+
+	\left( v_{x} + u_{y} \right)^{2}
+	-
+	\left( v_{x} - u_{y} \right)^{2}
+	+
+	\left( u_{x} + v_{y} \right)^{2}
+	\nonumber \\
+	&=
+	\left( u_{x}^{2} - 2u_{x}v_{y} + v_{y}^{2}\right)
+	+
+	\left( v_{x}^{2} + 2v_{x}u_{y} + u_{y}^{2}\right)
+	-
+	\left( v_{x}^{2} - 2v_{x}u_{y} + u_{y}^{2}\right)
++
+0
+	\nonumber \\
+	&=
+	\left( u_{x}^{2} - 2u_{x}v_{y} + v_{y}^{2}\right)
+	+
+ 4v_{x}u_{y}\nonumber \\
+	&=
+	\left( u_{x}^{2} + 2u_{x}^{2} + u_{x}^{2}\right)
+	+
+ 4v_{x}u_{y}\nonumber \\
+	&=
+4 u_{x}^{2} 
+	+
+ 4v_{x}u_{y} \nonumber
+\end{align}
 See also \cref{subsec:detectmethods}.
 \end{derivationNobreak}
 

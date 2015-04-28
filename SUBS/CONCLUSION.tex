@@ -1,6 +1,28 @@
+\label{chap:conclusion}
+\begin{minipage}{1.3\textwidth}
+
+\newthought{\textbf{The results of this thesis can be summarized as follows}:}
+\begin{enumerate}
+\setlength\itemsep{1mm}
+\item
+%Is it possible to derive realistic horizontal eddy scales from satellite altimetry products via an automated \SSH-based eddy-census. What are those scales and what influences them?   
+Away from the tropics, the meridional profile of the speed-based scale, that is the radius from the eddy's center to the contour of fastest particle orbit, appears to grow linearly with latitude and is several times larger than the local first-mode baroclinic Rossby radius.
+In the tropics, results are sparse and less robust, but aforementioned eddy scale and Rossby radius seem to agree better here.
+Implementing a stricter shape constraint results in a smaller horizontal scale and intensifies the contrast in scale between tropics and higher latitudes. 
+\item
+%Is it possible to automatically track eddies and use those tracks to derive eddy drift speeds? How do these speeds compare to theory?
+By comparing determined zonal drift speeds from an analysis with a 7-day time-step to those from a 2-day time-step, we show that the success rate of automated tracking of individual eddies, albeit satisfactory for most parts of the world ocean, decreases considerably in regions of strong background-current gradients at the weekly time-step. This decreases the quality of determined drift speeds, drift trajectories and eddy life-spans locally.
+Zonal drift speeds agree well with first-order long baroclinic Rossby wave phase speeds, except for those regions where strong background currents advect the eddies.
+\item
+%How do scales and drift speeds derived from satellite \SSH~compare to those derived from eddy-resolving ocean model \SSH.
+The \pop~census yields generally smaller horizontal scales (albeit still much larger than $\Lr$), especially in high latitudes. This discrepancy is mitigated by interpolating the \pop~\SSH~grids to the geometry of the \avi~product, suggesting that the primary reason for the discrepancy is the coarse resolution of the \avi-product.\\
+Zonal drift speeds derived from the model data are smaller in magnitude for all latitudes than those stemming from the satellite data. Since determined drift speeds are generally robust and constant among yearly sub-samples, the discrepancy is speculated to stem from imperfect model physics as \eg poor vertical resolution of density.
+\end{enumerate}
+
 Sea-surface-signature-based interpretation of geostrophic mesoscale ocean dynamics via space-born altimeter products has come a long way since the launch of the \href{http://en.wikipedia.org/wiki/TOPEX/Poseidon}{Topex/Poseidon} mission. In the early years, few years of data and poor spatial resolution led oceanographers to still construe the westward drifting pattern of \SSH~anomalies as Rossby waves \citep{le1993sea,Killworth1997a}.
 Merging the Topex/Poseidon with the ERS-1/2 altimeter output increased the resolution by a factor of 2 \citep{Chelton2007}, revealing that most of the \SSH~variability had in fact to be accredited to non-linear mesoscale eddies. Today, the availability of a long, coherent time-span of weekly, spatially consistent \SSH~data, makes global automated eddy-identification and -tracking feasible.
 When interpreting censuses as such, consideration of the technical methods and thresholds used in the algorithm is important. The spectrum of geostrophic phenomena does not allow for sharp discriminations between the theoretical concepts of Rossby waves, geostrophic currents and coherent vortices.
-The stringencies of the algorithm in terms of amplitude, shape, size, lifespan \etc effectively \textbf{define} the object under investigation. Generalized statements about \textit{eddy} statistics derived from such censuses hence always hinge on the understanding of what an eddy is and how this understanding had been implemented in the algorithm.\\
-By simulating a coarser spatial resolution for the \pop~data, we show that resolution of the merged \avi~product is still insufficient for exact determinations of horizontal eddy scales, especially in high latitudes.\\
-By comparing determined zonal drift speeds from an analysis with a 7-day time-step to those from a 2-day time-step, we show that the success rate of automated tracking of individual eddies, albeit satisfactory for most parts of the world ocean, decreases considerably in regions of strong background-current gradients at a weekly time-step. This decreases the quality of determined drift speeds, drift trajectories and eddy life-spans. 
+The stringencies of the algorithm in terms of amplitude, shape, size, lifespan \etc effectively \textbf{define} the object under investigation. Generalized statements about \textit{eddy} statistics derived from such censuses hence always hinge on the understanding of what an eddy is and how this understanding had been implemented in the algorithm.
+
+
+\end{minipage}

@@ -45,30 +45,18 @@ The opposite effect holds for a parcel advected towards the western side. Then, 
 Hence water masses on both sides of the thickness gradient acquire rotation that slowly pushes the eddy in the direction $-\f\times \dpr{h}{x}$ (in this case south).
 Note  that since vorticity is dominated by the planetary component, the rotational sense of the eddy is irrelevant here. \Ie water columns stretched [squeezed], will always lead to new $\omega$ with sign of $\f$ [$-\f$].
 \end{driftspeed}
-
-\begin{marginfigure}
+\begin{figure}
 \includegraphics[]{SSHB.pdf}
-  \caption{top: Stommel's equation $\mathrm{F}_{bottom}-\mathrm{F}_{surface}= -V\beta$ with constant eddy viscosity. bottom: \POP~eddy-resolving model snapshot with \SSH~mean of one year subtracted. }
+  \caption{Top: Stream function of Stommel's equation $\mathrm{F}_{bottom}-\mathrm{F}_{surface}= -V\beta$ with constant eddy viscosity (taken from Author's Bachelor thesis). Bottom: \SSH~of \POP~eddy-resolving model snapshot with mean of one year subtracted.
+   Geostrophic turbulence in the form of mesoscale eddies is not resolved by climate models and needs thus to be parameterized. Large-scale dynamics are in part just an integral manifestation of the dynamics on the scales below. Hence, the better the understanding of the mechanisms on the meso-scale, the better they can be paramterized.}
   \label{fig:SSHB}
-\end{marginfigure}
-
+\end{figure}
 \begin{driftspeed}[Planetary Lift]
 \label{box:speed_planlift}
 Assume now that $\dfdy L$ be comparable to $\f$ from the previous example.
 Then, independent of layer-thickness, all fluid adjacent to the eddy on its western and eastern flanks will be transported meridionally, thereby be tilted with respect to $\vec{\Omega}$ and hence acquire relative vorticity to compensate.
 All fluid transported north [south] will balance the increase in planetary vorticity with a decrease [increase] in relative vorticity. This is again independent of the eddy's sense and in this case also independent of hemisphere since $\dpr{f}{y}=\dfdy>0$ for all latitudes. The result is that small negative vortices to the northern and small positive vortices to the southern flank of eddies will push them west. This effect is directly analogous to the \textit{conveyer-belt}-like westward creeping of Rossby waves. Theory shows that at first approximation it is indeed equivalent (see \eg \cref{sec:hist_cush}).  
 \end{driftspeed}
-
-
- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{marginfigure}
-	\label{fig:allEddies-aviIaviIIpop7II}
-	\includegraphics[]{allEddies-aviIaviIIpop7II}
-	\caption{All contours that passed the filtering procedure for one exemplary time-step. Top: \aviI. Mid: \aviII. Bottom: \popSevenII.}
-\end{marginfigure}
- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 \begin{driftspeed}[Eddy-Internal $\dfdy$-Effect]
 \label{box:speed_beta}
 In the later case clearly particles within the vortex undergo a change in planetary vorticity as well.
